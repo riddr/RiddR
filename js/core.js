@@ -64,14 +64,17 @@ var RiddR = ( function ( API )
 */  
 	API.onload = function()
 	{
+		// localize the current view
+		RiddR.localize();
+
 		RiddR.loaded = true;
 
 		// send signal to modules that the DOM is loaded
 		for( module in RiddR)
 			if( RiddR[module].onLoad !== undefined )
 				RiddR[module].onLoad();
-	}
-
+	}	
+	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Dinamicly loar required modules for the current view
@@ -79,7 +82,6 @@ var RiddR = ( function ( API )
 */
 	for ( module in modules ) // load default modules
 		load('/js/lib/'+modules[module]+'.js');
-	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Return public variables and methods
