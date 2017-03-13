@@ -1,0 +1,488 @@
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Material input feilds design
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+.material
+{ 
+	position:relative; 
+	vertical-align:top;
+	display:inline-block;
+}
+	.material > label:nth-of-type(1)
+	{
+		color:#9E9E9E;
+		font-size:14px;
+		cursor:pointer;
+		user-select: none;
+		font-weight:200 !important;
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Materialize all UI scrollbars
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	::-webkit-scrollbar 
+	{
+		width: 5px;
+	}
+
+	::-webkit-scrollbar-track 
+	{
+		background:#FFF;
+		border-radius:3px;
+	}
+
+	::-webkit-scrollbar-thumb 
+	{
+		height:30px;
+		border-radius:3px;
+		background:#00BFFF;
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Materialize headings and fonts
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+
+	body
+	{
+		  font-family: Roboto, sans-serif;
+	}
+
+	h1
+	{
+		font-size:20px;
+		font-weight:300;
+		margin:0px 0px 30px 0px;
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Buttons
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	.material.add
+	{
+		color:#FFF;
+		right:30px;
+		width:50px;
+		bottom:15px;
+		height:50px;
+		cursor:pointer;
+		font-size:26px;
+		user-select:none;
+		line-height:50px;
+		text-align:center;
+		position: fixed;
+		background:#00BFFF;
+		border-radius:25px;
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+		transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: bottom 0.2s ease-in, bottom 0.2s ease-in;
+	}
+		.material.add:hover
+		{
+			box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2);
+		}
+		.material.add:active
+		{
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+		}
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Material input feilds design
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	.material input[type^='text']
+	{
+		width:100%;
+		border:none;
+		display:block;
+		font-size:18px;
+		margin-top:20px;
+		padding:10px 10px 10px 0px;
+		border-bottom:1px solid #757575;
+	}
+		.material input[type^='text']:focus 
+		{
+			outline:none;
+		}
+
+	.material input[type^='text'] ~ label
+	{
+		top:30px;
+		font-size:18px;
+		position:absolute;
+		font-weight:normal;
+		pointer-events:none;
+		transition:0.2s ease all; 
+	}
+		.material input[type^='text']:focus ~ label, .material input[type^='text']:valid ~ label 
+		{
+			top:0px;
+			font-size:14px;
+		}
+	
+	.material .line
+	{
+		top:1px;
+		width:100%;
+		display:block;
+		position:relative;
+	}
+		.material .line:before, .line:after
+		{
+			width:0;
+			content:'';
+			height:2px; 
+			bottom:1px; 
+			position:absolute;
+			background:#00BFFF; 
+			transition:0.3s ease all; 
+		}
+			.material .line:before
+			{
+				left:50%;
+			}
+			.material .line:after 
+			{
+				right:50%; 
+			}
+
+			.material input[type^='text']:focus ~ .line:before, .material input[type^='text']:focus ~ .line:after 
+			{	
+				width:50%;
+			}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Switch
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	.switch 
+	{
+		display:block;
+		margin:20px 0px;
+		position:relative;
+	}
+		.switch.stripped
+		{
+			margin:0px !important;
+		}
+		.switch label
+		{
+			margin:0px 20px 0px 0px;
+		}
+		.switch input 
+		{
+			z-index:2;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+			width: 35px;
+			height: 100%;
+			border: none;
+			cursor:pointer;
+			appearance: none;
+			-webkit-appearance: none;
+			position: absolute;
+		}
+			.switch input:disabled
+			{
+				opacity:0;
+			}
+		.switch span 
+		{
+		  top: 3px;
+		  outline: 0;
+		  width: 36px;
+		  height: 14px;
+		  cursor: pointer;
+		  background: #bbb;
+		  user-select: none;
+		  position: relative;
+		  border-radius: 7px;
+		  transition: .25s all;
+		  display: inline-block;
+		}
+			.switch input:checked + span
+			{
+				background: rgba(0, 191, 255, 0.4);
+			}
+
+		.switch input + span::before 
+		{
+			content: '';
+			transition: .26s all;
+			position: absolute;
+			left: 0px;
+			top: -3px;
+			bottom: 2px;
+			right: auto;
+			transform: translate(0, 0);
+			display: block;
+			width: 20px;
+			height: 20px;
+			border-radius: 40px;
+			background: #fff;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 108, 181, 0);
+		}
+			.switch input:checked + span::before
+			{
+				background: #00bfff;
+				transform: translate(18px, 0);
+			}
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Range
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	input[type=range],
+	input[type=range] + .thumb 
+	{
+		cursor: pointer;
+	}
+
+	input[type=range] 
+	{
+		padding: 0;
+		width: 100%;
+		border: none;
+		outline: none;
+		appearance: none;
+		margin: 25px 0 20px 0;
+		position: relative;
+		-webkit-appearance: none;
+		background-color: transparent;
+	}
+
+	input[type=range]::-webkit-slider-runnable-track 
+	{
+		height: 3px;
+		background: #c2c0c2;
+		border: none;
+		margin:0px 7px;
+	}
+
+	input[type=range]::-webkit-slider-thumb
+	{
+		z-index:999;
+		width: 14px;
+		height: 14px;
+		border: none;
+		transition: .3s;
+		border-radius: 50%;
+		-webkit-appearance: none;
+		background-color: #00BFFF;
+		transform-origin: 50% 50%;
+		margin: -5px 0px 0px 0px;
+		-webkit-transform-origin: 50% 50%;
+	}
+
+	input[type=range]:focus::-webkit-slider-runnable-track 
+	{
+		background: #ccc;
+	}
+
+	input[type=range] + span
+	{
+		z-index:-1;
+		opacity:0;
+		top: 55px;
+		width: 0px;
+		height: 0px;
+		border: none;
+		margin-left:14px;
+		position: absolute;
+		border-radius: 50%;
+		background-color: #00BFFF;
+		transform-origin: 50% 50%;
+		transform: rotate(-45deg);
+		transition: .25s top, 0.25s width, 0.25s height, 0.25s border, 0.25s margin, 0.25s opacity;
+		transition-timing-function:ease-out;
+	}
+		input[type=range] + span:after
+		{
+			color:#FFF;
+			width:100%;
+			height:100%; 
+			top:5px;
+			left:-5px;
+			text-align:center;
+			position: absolute;
+			transform: rotate(45deg);
+			content:attr(slider-value);
+		}
+		input[type=range]:active + span
+		{
+			z-index:1;
+			opacity:1;
+			top:0px;
+			width: 30px;
+			height: 30px;
+			margin-left:0px;
+			border-radius: 50% 50% 50% 0;
+		}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Select
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	.material.select
+	{
+		min-width:250px;
+					overflow:hidden;
+			text-overflow: ellipsis;
+	}
+
+	.material > select
+	{
+		border:none;
+		width:100%;
+		outline:none;
+		display:block;
+		cursor:pointer;
+		font-size:18px;
+		background:none;
+		box-shadow:none;
+		appearance: none;
+		position: relative;
+		-webkit-appearance: none;
+		padding:10px 0px 10px 0px;
+
+			overflow:hidden;
+			text-overflow: ellipsis;
+
+		border-bottom:1px solid #9E9E9E;
+	}
+		.material > select option
+		{
+			width:100px;
+			overflow:hidden;
+			text-overflow: ellipsis;
+		}
+		.material.select.stripped 
+		{
+			max-width:100%;
+			min-width:100% !important;
+		}
+			.material.select.stripped select
+			{
+				padding:0px;
+				border:none;
+				max-width:100%;
+				text-align-last:center;
+			}
+		.material > select:enabled:hover
+		{
+			background:none;
+			box-shadow:none;
+		}
+		.material.select:after
+		{
+			right:5px;
+			width:0px;
+			height:0px; 
+			content:'';
+			z-index:-1;
+			position: absolute;
+			top:calc(50% - 4px);
+			border-top: 8px solid;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+		}
+
+		.material select + ul
+		{
+			height:0px;
+			opacity:0;
+			margin: 0px;
+			padding: 0px;
+			z-index: 999;
+			position: fixed;
+			overflow:hidden;
+			background: #FFF;
+			list-style: none;
+			border-radius:3px;
+			transition: .25s height, .20s opacity, .25s top;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+		}
+			.material select + ul li
+			{
+				padding:20px;
+				color:#00BFFF;
+				cursor:pointer;
+				text-align:left;
+			}
+				.material select + ul li:hover, .material select + ul li[selected]
+				{
+					background:#EFEFEF;
+				}
+		.material select + ul[active]
+		{
+			opacity:1;
+			display: block;
+			overflow-y: auto;
+		}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Keyboard keys
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+.keys
+{
+	user-select:none;
+	padding:0px 0px 0px 2px;
+}
+	.keys > span
+	{
+		height:30px;
+		min-width:30px;
+		font-size:14px;
+		font-weight:bold;
+		line-height:20px;
+		text-align:center;
+		vertical-align:top;
+		display:inline-block;
+
+		padding:5px;
+		font-weight:bold;
+		cursor:pointer;
+
+		border-radius:3px;
+		border-top: 1px solid rgba(255, 255, 255, 0.8);
+		
+		margin:0px 7px 0px 0px;
+
+	
+		color:#8A8A8A;
+		background:#eff0f2;
+		
+		box-shadow: inset 0 0 25px #e8e8e8, 0 0 4px #c3c3c3, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+	}
+		.keys > span[key=alt], .keys > span[key='shift'], .keys > span[key='ctrl'],
+		.keys > span[key=option], .keys > span[key=cmd]
+		{
+			font-size:12px;
+			font-weight:300;
+			text-align:left;
+			line-height:20px;
+			padding:10px 5px 0px 5px;
+		}
+		.keys > span[key='shift']
+		{
+			width:60px;
+		}
+
+	.label
+	{
+		color:#9E9E9E;
+		font-size:14px;
+		user-select: none;
+		font-weight:200 !important;
+	}
