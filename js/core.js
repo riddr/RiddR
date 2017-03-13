@@ -17,11 +17,45 @@ var RiddR = ( function ( API )
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var loaded 		= false,
+		modules 	= ['utils','i18n'], // default modules
 		defaults 	= 
 	{
 		debug 			: true,
 		error_repoting 	: true   // report JavaScript runtime errors to remote server
 	};
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * RiddR loader
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	load = function( file )
+	{
+		// determine filetype of the requested file
+		type =  file.split('.').pop();
+
+		switch ( type )
+		{
+			case "js":	
+
+				element = document.createElement('script');
+				element.src = file;
+			
+			break;
+
+			case "css":
+			
+				element = document.createElement("link")
+				element.setAttribute("rel", "stylesheet")
+				element.setAttribute("type", "text/css")
+				element.setAttribute("href", file)
+			
+			break;
+		}
+
+		// load requested file into the DOM
+		document.body.appendChild(element);
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -36,19 +70,24 @@ var RiddR = ( function ( API )
 		for( module in RiddR)
 			if( RiddR[module].onLoad !== undefined )
 				RiddR[module].onLoad();
-	}	
+	}
 
-      chrome.commands.onCommand.addListener(function(command) {
-        console.log('Command:', command);
-      });
-
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Dinamicly loar required modules for the current view
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	for ( module in modules ) // load default modules
+		load('/js/lib/'+modules[module]+'.js');
+	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Return public variables and methods
  * ---------------------------------------------------------------------------------------------------------------------
 */  
 	return {
-				loaded 	: loaded,
+				load 	 : load, 
+				loaded 	 : loaded,
 				defaults : defaults
 	}
 

@@ -11,10 +11,9 @@
 
 (function () 
 {
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- *  Write log, warn, ifno messages into console: https://developers.google.com/web/tools/chrome-devtools/console/console-write
+ * Write log, warn, ifno messages into console: https://developers.google.com/web/tools/chrome-devtools/console/console-write
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	this.log = function( message, type = 'log' )
@@ -93,39 +92,6 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Dinamicaly load JS / CSS files
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	this.load = function( file )
-	{
-		// determine filetype of the requested file
-		type =  file.split('.').pop();
-
-		switch ( type )
-		{
-			case "js":	
-
-				element = document.createElement('script');
-				element.src = file;
-			
-			break;
-
-			case "css":
-			
-				element = document.createElement("link")
-				element.setAttribute("rel", "stylesheet")
-				element.setAttribute("type", "text/css")
-				element.setAttribute("href", file)
-			
-			break;
-		}
-
-		// load requested file into the DOM
-		document.body.appendChild(element);
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
  * Basic text filter
  * ---------------------------------------------------------------------------------------------------------------------
 */
@@ -159,5 +125,12 @@
 			if(object[key] == value ) 
 				return key;
 	}
+
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Load 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
 
 }).apply(RiddR);

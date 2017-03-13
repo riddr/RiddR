@@ -2,7 +2,7 @@
 	"name": "RiddR - Chrome Reader",
 	"version": "0.1",
 	"manifest_version": 2,
-	"minimum_chrome_version": "42",
+	"minimum_chrome_version": "47",
 	"default_locale": "en",
 	"description": "__MSG_desc__",
 	"icons": 
@@ -13,7 +13,7 @@
 
 	"background": 
 	{
-		"scripts": ["/js/core.js","/js/lib/utils.js","/js/TTS.js"]
+		"scripts": ["/js/core.js","/js/TTS.js"]
 	},
 	
 	"permissions": 
