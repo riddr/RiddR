@@ -1,0 +1,279 @@
+/*
+ * Chrome Options
+ *
+ * CSS framework that unifies options page on Google Chrome extension, inspired by Chrome settings UI
+ *
+ * @package		Chrome Options
+ * @author		Tracjhe Petrov a.k.a SkechBoy
+ * @link 		https://github.com/skechboy/Chrome-Options
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+											   MAIN MARKUP's
+----------------------------------------------------------------------------------------------------------------------*/
+* 
+{
+	box-sizing: border-box; 
+}
+
+body
+{
+	height:500px;
+	width:1000px;
+	padding-top:48px;
+}
+/*----------------------------------------------------------------------------------------------------------------------
+											  PRELOADER
+----------------------------------------------------------------------------------------------------------------------*/
+.preloader
+{
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+	position: absolute;
+	text-align:center;
+	padding-top:20%;
+}
+	.preloader svg 
+	{
+		animation: inner 1320ms linear infinite
+	}
+		.preloader svg circle 
+		{
+			fill: none;
+			stroke: #00BFFF;
+			stroke-linecap: square;
+			animation: arc 1320ms cubic-bezier(.8, 0, .4, .8) infinite
+		}
+
+	@keyframes inner 
+	{
+		0% {
+			transform: rotate(-100.8deg)
+		}
+		100% {
+			transform: rotate(0)
+		}
+	}
+
+	@keyframes arc 
+	{
+		0% {
+			stroke-dasharray: 1 210.48670779px;
+			stroke-dashoffset: 0
+		}
+		40% {
+			stroke-dasharray: 151.55042961px, 210.48670779px;
+			stroke-dashoffset: 0
+		}
+		100% {
+			stroke-dasharray: 1 210.48670779px;
+			stroke-dashoffset: -151.55042961px
+		}
+	}
+
+/*----------------------------------------------------------------------------------------------------------------------
+											  NAVIGATION
+----------------------------------------------------------------------------------------------------------------------*/
+nav
+{
+	top:0px;
+	left:0px;
+	width:100%;
+	height:48px;
+	z-index:9999;
+	position:fixed;
+	user-select: none;
+	background:#00BFFF;
+	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+}
+	nav ul
+	{
+		margin:0px;
+		padding:0px;
+	}
+	nav ul li
+	{
+		color:#FFF;
+		font-size:16px;
+		cursor:pointer;
+		overflow:hidden;
+		font-weight:400;
+		position:relative;
+		padding: 14px 25px;
+		display:inline-block;
+		text-transform: uppercase;
+	}
+		nav ul li:after
+		{
+			opacity:0;
+
+			top: 50%;
+			left: 50%;
+			width: 2px;
+			height: 2px;
+			content: '';
+			position: absolute;
+			border-radius: 100%;
+			pointer-events: none;
+			transform: scale(100, 100);
+			background: rgba(255, 255, 255, 0.3);
+			transition: transform 0.8s, opacity 1s;
+		}
+			nav ul li:active:after
+			{
+				opacity: 1;
+				transition: 0s;
+				transform: scale(0, 0);
+			}
+
+.slider
+{
+	left: 0;
+	height: 4px;
+	width:120px;
+	position: absolute;
+	background: #ccff00;
+	top: calc(100% - 4px);
+	transition: left 0.3s ease-out, width 0.3s;
+}
+.sticky.stick
+{
+    top: 55px;
+    z-index: 999;
+    position: fixed;
+    background: white;
+    transition: top 1s ease-out; 
+    /* box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.28); */
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+											  CONTENT
+----------------------------------------------------------------------------------------------------------------------*/
+content
+{
+	width:100%;
+	font-size:0;
+	display:block;
+	overflow:hidden;
+	white-space: nowrap;
+	height:100%;
+}
+	content section
+	{
+		width:100%;
+		height:100%;
+		padding:20px 0px;
+		overflow-y:scroll;
+		position: relative;
+		vertical-align:top;
+		white-space: normal;
+		display:inline-block;
+		transition: margin-left 0.3s ease-out;
+	}
+
+/*----------------------------------------------------------------------------------------------------------------------
+										OPTION SECTIONS
+----------------------------------------------------------------------------------------------------------------------*/
+content > section > div
+{
+	vertical-align:top;
+	display:inline-block;
+}
+	#vocal-container
+	{
+		width:60%;
+		margin-right:5%;
+		border-right:1px solid rgba(0,0,0,0.05);
+	}
+		#vocal-container > div
+		{
+			font-size:14px;
+			vertical-align:top;
+			display:inline-block;
+		}
+		#vocal-container #tts-engine
+		{
+			width:50%;
+		}
+		#vocal-container #tts-options
+		{
+			width:50%;
+		}
+			#vocal-container #tts-options > div 
+			{
+				width:90%;
+			}
+		#vocal-container #testing
+		{
+			width:100%;
+		}
+			#vocal-container #testing #text-input
+			{
+				width:90%;
+			}
+
+	#language-container
+	{
+		width:35%;
+		font-size:14px;
+	}
+
+/*----------------------------------------------------------------------------------------------------------------------
+										Shortcuts section
+----------------------------------------------------------------------------------------------------------------------*/
+#add_shortcut
+{
+	bottom:-60px;
+}
+	content section:nth-child(2):hover #add_shortcut
+	{
+		bottom:15px;
+	}
+
+#global-shortcuts-container
+{
+	display:block;
+	margin-bottom:40px;
+}
+	#global-shortcuts-container > div
+	{
+		margin:0px 40px 0px 0px;
+	}
+	#global-shortcuts-container .keys
+	{
+		margin-top:5px;
+	}
+
+#custom-shortcuts-container
+{
+	display:block;
+}
+
+	#shortcuts
+	{
+
+	}
+		#shortcuts > ul
+		{
+			margin:0px;
+			width:900px;
+			list-style:none;
+			padding:10px 0px;
+			border-bottom:1px solid rgba(0,0,0,0.1);
+		}
+			#shortcuts > ul > li
+			{
+				width:18%;
+				font-size:14px;
+				text-align:center;
+				display:inline-block;
+				vertical-align:middle;
+			}
+				#shortcuts > ul > li:last-child
+				{
+					width:10%;
+				}
