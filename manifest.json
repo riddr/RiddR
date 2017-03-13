@@ -1,0 +1,90 @@
+{
+	"name": "RiddR - Chrome Reader",
+	"version": "0.1",
+	"manifest_version": 2,
+	"minimum_chrome_version": "42",
+	"default_locale": "en",
+	"description": "__MSG_desc__",
+	"icons": 
+	{ 
+		"16": "images/small_icon.png",
+		"128": "images/icon.png"
+	},
+
+	"background": 
+	{
+		"scripts": ["/js/core.js","/js/lib/utils.js","/js/TTS.js"]
+	},
+	
+	"permissions": 
+	[
+		"<all_urls>",
+		"contextMenus",
+		"ttsEngine",
+		"tts", 
+		"tabs",
+		"webRequest",
+		"webNavigation",
+		"storage",
+		"unlimitedStorage",
+		"webRequestBlocking",
+		"https://*/*"
+	],
+
+	"options_ui": 
+	{
+		"chrome_style": true,
+		"page": "views/options.html"
+	},
+
+	"browser_action": 
+	{
+		"default_icon": 
+		{                    // optional
+			"16": "images/small_icon.png",           // optional
+			"24": "images/small_icon.png",           // optional
+			"32": "images/small_icon.png"            // optional
+		},
+		"default_title": "Google Mail",      // optional; shown in tooltip
+		"default_popup": "popup.html"        // optional
+	},
+
+	"commands": 
+	{
+		"pause": 
+		{
+			"suggested_key": 
+			{
+				"default": "Alt+Shift+P"
+			},
+			"description": "Pause reading"
+		},
+		"stop": 
+		{
+			"suggested_key": 
+			{
+				"default": "Alt+Shift+S"
+			},
+			"description": "Stop reading"
+		},
+		"_execute_browser_action": 
+		{
+			"suggested_key": 
+			{
+				"default": "Alt+Shift+R"
+			}
+		}
+	},
+	
+	"tts_engine":
+	{
+		"voices":
+		[
+			{
+				"voice_name": "SpeakIt",
+				"remote"	: true,
+				"event_types": ["start", "marker", "sentence", "end", "error"]
+			}
+		]
+	}
+}
