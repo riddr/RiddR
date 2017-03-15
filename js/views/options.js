@@ -78,6 +78,32 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * Show snackbar notification
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	_show_snackbar = function( message,  duration = 3000 )
+	{
+		// update snackbar content
+		$('.snackbar').html(message);
+		$('.snackbar').addClass('active');
+
+		// hide shackbar after some time
+		var snackTimeout = setTimeout(function()
+		{
+			$('.snackbar').removeClass('active');
+		},duration);
+
+		// or on click on the document
+		$(document).on('mousedown', function( event )
+		{
+			$('.snackbar').removeClass('active');
+			$(this).unbind( event );
+			clearTimeout(snackTimeout);
+		})
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * Dynamic element generator methods
  * generate forms, dropdown menus, language menus etc. 
  * ---------------------------------------------------------------------------------------------------------------------

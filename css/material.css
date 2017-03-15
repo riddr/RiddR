@@ -490,3 +490,39 @@
 		user-select: none;
 		font-weight:200 !important;
 	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Snackbar
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	.snackbar
+	{
+		height:48px;
+		width:340px;
+		bottom:-48px;
+		position:fixed;
+		padding:0px 15px;
+		left:calc(50% - 170px);
+		border-radius:2px 2px 0px 0px;
+		transition: 0.2s ease-out bottom;
+		background:rgba(0, 0, 0, 0.870588);
+
+		color:#FFF;
+		font-size:14px;
+		line-height:48px;
+	}
+		.snackbar.active
+		{
+			bottom:0px;
+		}
+		.snackbar:after
+		{
+			top: 0px;
+			right: 0px;
+			content: "OK";
+			display: block;
+			cursor: pointer;
+			padding: 0px 15px;
+			position: absolute;
+		}

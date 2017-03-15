@@ -87,7 +87,7 @@ nav
 	z-index:9999;
 	position:fixed;
 	user-select: none;
-	background:#00BFFF;
+	background:#00BFFF; /* consider rgb(0, 188, 212); */
 	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
 }
 	nav ul
