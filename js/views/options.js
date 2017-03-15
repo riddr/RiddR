@@ -62,6 +62,19 @@
 		})
 	}
 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Read / stop reading the test sentence, used for testing TTS options 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	_read = function()
+	{
+		$("#test_btn").html('stop');
+
+		// play trough API
+
+		$("#test_btn").html('volume_up');
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -105,8 +118,20 @@
 	{	
 		_load();
 
+		_register_ui_actions();
+
 		// show content when it is loaded
 		$('.preloader').hide();
+	}
+
+	// register UI event listeners 
+	_register_ui_actions = function()
+	{
+		// read the test text
+		$(document).on('click','#test_btn', function()
+		{
+			_read();
+		});
 	}
 
 }).apply(RiddR);

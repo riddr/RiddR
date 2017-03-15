@@ -150,6 +150,11 @@ nav
     /* box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.28); */
 }
 
+.material-icons
+{
+	vertical-align:middle;
+}
+
 /*----------------------------------------------------------------------------------------------------------------------
 											  CONTENT
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -214,6 +219,14 @@ content > section > div
 			#vocal-container #testing #text-input
 			{
 				width:90%;
+			}
+
+			#vocal-container #testing #test_btn
+			{
+				cursor:pointer;
+				font-size: 35px;
+				margin-top:20px;
+				user-select:none;
 			}
 
 	#language-container
