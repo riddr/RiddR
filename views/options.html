@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/material.css">
 	<link rel="stylesheet" type="text/css" href="../css/options.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 	<meta require="lib" libs="jquery|material" type="js">
 	<meta require="views" libs="options" type="js">
@@ -25,7 +26,7 @@
 <content>
 	<section style="margin-left: calc(-100%);">
 		<div id="vocal-container">
-			<h1>Vocal settings</h1>
+			<h1><i class="material-icons">record_voice_over</i>Vocal settings</h1>
 			<div id="tts-engine">
 				<div class="material select">
 					<label for="engine">Text To Speech Engine</label>
@@ -80,7 +81,7 @@
 					</div>			
 			</div>
 			<div id="testing">
-				<h1>Testing</h1>
+				<h1><i class="material-icons">hearing</i> Testing</h1>
 				<div class="material switch">
 					<label for="auto-test">Auto test</label>
 					<input id="auto-test" type="checkbox" checked="checked"/>
@@ -91,11 +92,12 @@
 					<label for="utterance">Test sentence</label>
 					<span class="line"></span>
 				</div>
+				<i class="material-icons">volume_up</i>
 			</div>
 		</div>
 
 		<div id="language-container">
-			<h1>Language</h1>
+			<h1><i class="material-icons">language</i>Language</h1>
 			<div class="material select">
 				<label for="language">Default language</label>
 				<select id="language"> 
@@ -134,7 +136,7 @@
 	</section>
 	<section>
 		<div id="global-shortcuts-container">
-			<h1>Global shortcuts</h1>
+			<h1><i class="material-icons">public</i>Global shortcuts</h1>
 
 			<div class="material">
 				<label for="kb-read">Start reading</label>
@@ -165,7 +167,7 @@
 
 		</div>
 		<div id="custom-shortcuts-container">
-			<h1>Custom shortcuts</h1>
+			<h1><i class="material-icons">keyboard</i>Custom shortcuts</h1>
 			<div id="shortcuts">
 				<ul class="sticky">
 					<li>Keyboard shortcut</li>
@@ -228,7 +230,10 @@
 							</select>
 						</div>	
 					</li>
-					<li></li>
+					<li>
+						<i class="material-icons">settings_input_component</i>
+						<i class="material-icons">delete</i>
+					</li>
 				</ul>
 			</div>
 		</div>
