@@ -9,6 +9,7 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
+window.addEventListener('load', function() { // register these events when window is loaded to avoid Jquery errors
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * set navigation listeners
@@ -146,3 +147,4 @@
 		else
 			sticky.removeClass('stick');
 	});
+});
