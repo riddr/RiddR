@@ -60,7 +60,7 @@
  * Validate TTS event request
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	function _valid_TTS_request( action )
+	var _valid_TTS_request = function ( action )
 	{
 		if( RiddR.TTS.engine == null || RiddR.loaded === false ) // prevent sending requests before extension is loaded
 			return false;
@@ -93,7 +93,7 @@
  * Probe TTS engine and validate the current request
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	function _probe_TTS( options )
+	var _probe_TTS = function ( options )
 	{
 
 		if( RiddR.TTS.engine == null || RiddR.TTS.engine.name != options.voiceName ) // check if new TTS engine is called
@@ -117,7 +117,7 @@
  * Validate TTS event request
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	function _load_TTS_engine( voice )
+	var _load_TTS_engine = function ( voice )
 	{
 		RiddR.load(RiddR.TTS.path+voice.voiceName+'.js');
 	}

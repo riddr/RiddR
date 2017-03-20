@@ -47,7 +47,7 @@ var RiddR = ( function ( API )
  * Load view modules and libraries
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
-	_load_rte = function()
+	var _load_rte = function()
 	{
 		// select all required libraries runtime enviroment of the current view
 		rte = document.querySelectorAll('[require]'); 
@@ -70,7 +70,7 @@ var RiddR = ( function ( API )
  * RiddR loader
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	load = function( file )
+	var load = function( file )
 	{
 		// determine filetype of the requested file
 		type =  file.split('.').pop();

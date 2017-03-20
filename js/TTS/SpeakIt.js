@@ -12,7 +12,7 @@
 (function () 
 {
 	// define public methods and variables
-	this.TTS.engines.SpeakIt  = TTS = 
+	var TTS = this.TTS.engines.SpeakIt  = 
 	{ 
 		// set global variables
 		name 			: 'SpeakIt',
@@ -110,7 +110,7 @@
  * Set current TTS engine state and return corsponding TTS response to Chrome
  * =====================================================================================================================
 */
-	function _state( state , gSTATE = true )
+	var _state = function ( state , gSTATE = true )
 	{
 		switch ( state )
 		{
@@ -129,7 +129,7 @@
 	}
 
 	// validate current state
-	function _is( state )
+	var _is = function ( state )
 	{
 		if( RiddR.TTS.state == state )
 			return true;
@@ -138,7 +138,7 @@
 	}
 
 	// initialize TTS engine 
-	function _init()
+	var _init = function ()
 	{
 		// clean up
 		_flush();
@@ -154,7 +154,7 @@
 	}
 
 	// validate input options
-	function _validate_input()
+	var _validate_input = function ()
 	{
 		// predefine error;
 		error = null;
@@ -180,14 +180,14 @@
 	}
 
 	// Remove all object connections and mark object for removal on next run on garbage collector
-	function _clear_memory()
+	var _clear_memory = function ()
 	{
 		TTS.channels[TTS.current.channel] = undefined;
 		delete TTS.channels[TTS.current.channel];	
 	}
 
 	// remove all previous settings in order to avoid utternace colision
-	function _flush()
+	var _flush = function ()
 	{
 		// stop all active channels if any
 		for( chID in TTS.channels )
@@ -205,7 +205,7 @@
  * Split the utterance in sentences so Google TTS API can process them
  * =====================================================================================================================
 */
-	_split_utterance = function()
+	var _split_utterance = function ()
 	{
 		tmp_s = '';
 		TTS.utterance.safe = safe_utterance = []; // reset previous utterances
@@ -224,7 +224,7 @@
 	}
 
 	// Join elements in strings limited to max width
-	_length_join = function(elements)
+	var _length_join = function (elements)
 	{
 		tmp_element = '',
 		safe_elements = [];
@@ -253,7 +253,7 @@
 	}
 
 	// Split the utterance in sentences so Google TTS API can process them
-	_process_element = function( element )
+	var _process_element = function ( element )
 	{	
 		//element = RiddR.filter( element ); // filter bad chars 
 
@@ -272,7 +272,7 @@
  * Generate Google Translate TTS URL's
  * =====================================================================================================================
 */
-	_generate_urls = function()
+	var _generate_urls = function ()
 	{
 		// reset variables to avoid utterance colision
 		TTS.urls = [];
@@ -305,7 +305,7 @@
  *  Build query URL from array
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	_build_query = function( parms )
+	var _build_query = function ( parms )
 	{
 		url_parms = [];
 
@@ -324,29 +324,29 @@
  * define event type and _event_handlers
  * =====================================================================================================================
 */
-	_register_events = function()
+	var _register_events = function ()
 	{
 		TTS.events = 	{ 	
 							// GENERAL / INFO EVENTS
-							'canplay': '_auto_speak',
+							'canplay' 	: _auto_speak,
 							
 							// PLAYBACK EVENTS 
-							'play'		: '_on_play', 	// start after pause "resume"
-							'playing'	: '_playing', 	// media is playing
-							'ended'		: '_on_end',
+							'play'		: _on_play, 	// start after pause "resume"
+							'playing'	: _playing, 	// media is playing
+							'ended'		: _on_end,
 
 							// ERROR EVENTS
-							'error' 	: '_error', 
-							'staled' 	: '_error', 
-							'abort' 	: '_error',
+							'error' 	: _error, 
+							'staled' 	: _error, 
+							'abort' 	: _error
 						};
 	}
 
 	// Main event handler - check for valid handler and call it
-	handleEvent = function( event )
+	TTS.handleEvent = function ( event )
 	{ 
-		if(typeof this[TTS.events[event.type]] === 'function')
-			this[TTS.events[event.type]]( event ); // call the event handler
+		if(typeof TTS.events[event.type] === 'function')
+			TTS.events[event.type]( event ); // call the event handler
 		else
 			RiddR.log('The specified callback: "'+TTS.events[event.type]+'" for the event: "'+event.type+'" do not exist in the scope.', 'warn' );
 	}
@@ -358,13 +358,13 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	// called when audio utterance is playing for first time, after pause or buffering
-	_playing = function( event ) 
+	var _playing = function ( event ) 
 	{
 		TTS.current.retry = 0;
 	}
 
 	// hanlde all error types, for more info see error types: https://dev.w3.org/html5/spec-preview/media-elements.html#error-codes
-	_error = function( event )
+	var _error = function ( event )
 	{
 		if(TTS.current.retry < 2) // try to reload the current channel
 			_reload_channel();
@@ -373,7 +373,7 @@
 	}
 
 	// try to reload audio channel in case of error 
-	_reload_channel = function ()
+	var _reload_channel = function ()
 	{
 		TTS.current.retry += 1; // increment the rety attempt
 
@@ -385,14 +385,14 @@
 	}
 
 	// automaticaly start speaking when the first utterance is loaded
-	_auto_speak = function ( event )
+	var _auto_speak = function ( event )
 	{
 		if( TTS.current.channel == 0 )
 			TTS.channels[TTS.current.channel].play();
 	}
 
 	// called when audio stats playing for first time or on resum after pause of buffering
-	_on_play = function ( event )
+	var _on_play = function ( event )
 	{	
 		// determine if the event is called on first play or resume
 		if(event.currentTarget.currentTime == 0)
@@ -415,7 +415,7 @@
 	}
 
 	// called when playback completes.
-	_on_end = function ( event )
+	var _on_end = function ( event )
 	{
 		// clear up some memmory 
 		_clear_memory();
@@ -437,12 +437,12 @@
  * Create new channel, register all event listeners and push it to the global channel list
  * =====================================================================================================================
 */ 
-	_add_channel = function( channel ) 
+	var _add_channel = function ( channel ) 
 	{
 		// add event listeners
 		for(event_id in TTS.events)
 		{
-			channel.addEventListener(event_id, this);	// register event hanlder in the current scope
+			channel.addEventListener(event_id, TTS);	// register event hanlder in the current scope
 		}
 
 		channel.defaultPlaybackRate = TTS.options.rate || TTS.default.rate;
@@ -454,13 +454,13 @@
 	};
 
 	// update curent and start speaking the next audio channel
-	_speak_next = function()
+	var _speak_next = function ()
 	{
 		TTS.channels[TTS.current.channel].play();
 	}
 
 	// preload the next channel in order to avoid big pauses @To-Do: add dynamic preload rate based on the user network connectivity
-	_preload_utterance = function()
+	var _preload_utterance = function()
 	{
 		if( TTS.channels.length < TTS.utterance.safe.length) // check for utterance end
 		{
@@ -472,7 +472,7 @@
 	}
 
 	// start speaking
-	_speak = function(input)
+	var _speak = function (input)
 	{
 		_state('start');
 

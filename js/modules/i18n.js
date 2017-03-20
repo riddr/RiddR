@@ -61,7 +61,7 @@
  * Update DOM element with localized content
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	_update = function( message, element )
+	var _update = function( message, element )
 	{
 		if( element.innerHTML == '' ) // update just the title if element content is empty eg. <i i18n='enquene'></i>
 			element.title = message;
