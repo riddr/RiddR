@@ -11,6 +11,7 @@
 
 (function () 
 {
+	var modal_event;
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Show snackbar notification
@@ -39,6 +40,82 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * Show / hide modal   @To-Do: randomize animation entrance from left and right
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _modal = function( content , callback )
+	{
+		var modal = $('.modal'), 
+			modal_content_holder = $('.modal > div');
+
+		if(modal.css('opacity') > 0 ) // check if modal is opened
+			_hide_modal( callback );
+		else // show modal 
+		{
+			modal_content_holder.html(content);
+			modal_content = $('.modal > div > div');
+
+			y = $(window).height()/2 - modal_content.outerHeight()/2;
+			x = $(window).width()/2 - modal_content.outerWidth()/2;
+
+			// animate the modal		
+			modal.css({'opacity':'1', 'z-index': 999999 })
+			modal_content_holder.css(
+			{
+				'width': modal_content.outerWidth(), 'height': modal_content.outerHeight(), 
+				'top' : y, 'left' : x 
+			});
+
+			// prevent onclick action just for the content within the modal
+			modal_content_holder.on('click', function( event ) 
+			{
+				event.stopPropagation();
+			});
+
+			// hide modal if some elswere is clickedr
+			$(document).on('click', '.modal',function( event )
+			{
+				_hide_modal( callback );
+			});
+		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Hide modal 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _hide_modal = function( callback )
+	{
+		var modal = $('.modal'), 
+			modal_content_holder = $('.modal > div');
+
+		modal_content_holder.css(
+		{
+			'width': 0, 'height': 0, 
+			'top' : '50%', 'left' : '100%'
+		});
+
+		// set elements to their original position after the animation is done 
+		setTimeout(function()
+		{
+			modal.css({'opacity':'', 'z-index': -999 });
+			modal_content_holder.css({'width': 0, 'height': 0, 'top' : '50%', 'left' : '0%'});
+
+		}, parseFloat(modal_content_holder.css('transition-duration'))*1000 ) // get animation duration from 
+
+
+		// remove event listeners
+		modal.off('click');
+		modal_content_holder.off('click');
+
+		// execute the callback
+		if(typeof callback === 'function')
+			callback();
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * Initalize UI elements event listerners 
  * ---------------------------------------------------------------------------------------------------------------------
 */
@@ -48,35 +125,6 @@
 		$(document).on('click','#test_btn', function()
 		{
 			RiddR.options.test_speech($("#utterance").val());
-		});
-
-		$('.modal > div').on('click', function(e) {
-		    e.stopPropagation();
-		});		
-
-		$(document).on('click', '.keys', function()
-		{
-			$('.modal').css({'opacity':'1', 'z-index': 999999 })
-
-			content = $('.modal > div > div');
-
-			y = $(window).height()/2 - content.height()/2;
-			left = $(window).width()/2 - content.width()/2;
-
-
-			$('.modal > div').delay(1000).css({'width': content.width(), 'height': content.height(), 'top' : y, 'left' : left });
-
-			$(document).on('click', function( event )
-			{
-				$('.modal > div').css({'width': 0, 'height': 0, 'top' : '50%', 'left' : '100%'});
-
-				setTimeout(function(){
-					$('.modal').css({'opacity':'', 'z-index': -999 });
-					$('.modal > div').css({'width': 0, 'height': 0, 'top' : '50%', 'left' : '0%'});
-				},500)
-
-				$(this).unbind(event);
-			});
 		});
 	}
 
