@@ -11,50 +11,54 @@
 
 (function () 
 {
+	var UI;
+
 	// extendd RiddR global options object 
-	this.options = 
-	{
-		// set default options
-		TTS_engine 		: 'RiddR',
-		enquene 		: true,
-		volume			: 1,
-		rate 			: 1,
-		pitch 			: 1,
-		auto_test 		: true,
-		language 		: 'en-US',
-		shortcuts 		: {},
-		transcribe 		: true,
-		transcription  	: { "riddr"	: "reader" },
-
-
-		// register several global options functions
-		onLoad : function()
-		{
-			_load_ui();
+	this.options = new Proxy
+	(
+		{	// set default options
+			TTS_engine 		: 'native',
+			enqueue 		: true,
+			volume			: 1,
+			rate 			: 1,
+			pitch 			: 1,
+			auto_test 		: true,
+			language 		: 'en-US',
+			shortcuts 		: {},
+			transcribe 		: true,
+			transcription  	: { "riddr"	: "reader" }
 		},
+		{   // define magic method for catching all requests to the global options object
+			get: function(target, property)
+			{
+				// deny access to _private properties from outside of the current scope
+				if( property[0] === '_' )
+					return function(){RiddR.log('Can\'t access private property','warn')};
 
-		addShortcut: function()
-		{
-			return '<ul><li><div class="keys" id="kb-read"><span key="alt">Alt</span><span key="shift">Shift</span><span>R</span></div></li><li> <div class="material select stripped"> <select id="language"> <option>Autodetection</option> <option>England</option> <option>France</option> <option>Switzerland</option> <option>Macedonia</option> <option>Greece</option> <option>United States</option> <option>New Zeland</option> <option>Germany</option> </select> </div> </li> <li> <div class="material select stripped"> <select id="language"> <option>Autodetection</option> <option>England</option> <option>France</option> <option>Switzerland</option> <option>Macedonia</option> <option>Greece</option> <option>United States</option> <option>New Zeland</option> <option>Germany</option> </select> </div> </li> <li> <div class="material switch stripped"> <input id="auto-test" type="checkbox" checked="checked"/> <span></span> </div> </li> <li> <div class="material select stripped"> <select id="language"> <option>Autodetection</option> <option>England</option> <option>France</option> <option>Switzerland</option> <option>Macedonia</option> <option>Greece</option> <option>United States</option> <option>New Zeland</option> <option>Germany-ala-bala-mala-sala</option> </select> </div> </li><li></li></ul>'
+				if(target[property] === undefined)
+					return eval(property); // To-Do: find safer alternative
+				else
+					return target[property];
+			}
 		}
-	}
+	);
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Save specific change in the options 
+ * PUBLIC OPTIONS METHODS
+ * 
+ * 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	_save = function()
+	var onLoad = function()
 	{
-		console.log('Options saved');
+		// initialize options UI
+		UI = RiddR.options.UI;
+		UI.load();
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Save specific change in the options 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	_load = function()
+	// load options 
+	var load = function()
 	{
 		chrome.storage.sync.get(RiddR.options, function(items)
 		{
@@ -62,102 +66,62 @@
 		})
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Read / stop reading the test sentence, used for testing TTS options 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	_read = function()
+	// save specific change in the options 
+	var save = function( call )
 	{
-		$("#test_btn").html('stop');
 
-		// play trough API
+	}
 
-		$("#test_btn").html('volume_up');
+	// Read / stop reading the test sentence, used for testing TTS options 
+	var test_speech = function( utterance, callback = undefined )
+	{
+		//prepare utterance for reading
+		utterance = RiddR.prepare( utterance );
+
+		// set test options object
+		options = 
+		{
+			voiceName 	: RiddR.options.TTS_engine,
+			enqueue 	: RiddR.options.enqueue,
+			lang 		: RiddR.options.language,
+			rate 		: RiddR.options.rate,
+			pitch 		: RiddR.options.pitch,
+			volume 		: RiddR.options.volume
+		}
+
+		// attach event captuing callback if needed
+		if( callback !== undefined )
+			options.onEvent = callback;
+
+		// start reading
+		if(chrome.tts.isSpeaking())
+			chrome.tts.stop();
+		else
+			chrome.tts.speak
+			( 
+				utterance,
+				options,
+				_TTS_error_handler
+			);
 	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Show snackbar notification
+ * PRIVATE OPTIONS METHODS
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	_show_snackbar = function( message,  duration = 3000 )
+	var _TTS_error_handler = function()
 	{
-		// update snackbar content
-		$('.snackbar').html(message);
-		$('.snackbar').addClass('active');
-
-		// hide shackbar after some time
-		var snackTimeout = setTimeout(function()
+		if (chrome.runtime.lastError) 
 		{
-			$('.snackbar').removeClass('active');
-		},duration);
-
-		// or on click on the document
-		$(document).on('mousedown', function( event )
-		{
-			$('.snackbar').removeClass('active');
-			$(this).unbind( event );
-			clearTimeout(snackTimeout);
-		})
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Dynamic element generator methods
- * generate forms, dropdown menus, language menus etc. 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	_html = 
-	{
-		kb_keys : 'QWERTYUIOPASDFGHJKLZXCVBNM',
-
-		// generate keyboard shortcut html
-		shortcut : function( keys )
-		{
-			tmp_html = '';
-			html = '<div class="keys">{keys}</div>';
-
-			// generate random key if nesecery
-			keys = keys || ['Alt','Shift',this.kb_keys[Math.floor(Math.random() * this.kb_keys.length)]];
-
-			for( id in keys )
-			{
-				tmp_html += '<span key="'+keys[id].toLowerCase()+'">'+keys[id]+'</span>';
-
-				this.kb_keys = this.kb_keys.replace(keys[id], '');
-			}
-
-			return html.replace('{keys}',tmp_html);
+			console.log('Error: ' + chrome.runtime.lastError.message);
 		}
 	}
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * SET UI EVENT LISTENERS
- *
- * Opions navigation
+ * Load options UI after the global options object is fully loaded
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	// load options UI when the DOM is loaded
-	_load_ui = function()
-	{	
-		_load();
-
-		_register_ui_actions();
-
-		// show content when it is loaded
-		$('.preloader').hide();
-	}
-
-	// register UI event listeners 
-	_register_ui_actions = function()
-	{
-		// read the test text
-		$(document).on('click','#test_btn', function()
-		{
-			_read();
-		});
-	}
+	RiddR.load('/js/views/options_ui.js');
 
 }).apply(RiddR);
