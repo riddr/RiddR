@@ -17,11 +17,21 @@ var RiddR = ( function ( API )
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var loaded 				= false,
-		modules 		 	= ['utils','i18n'], // default modules
+		modules 		 	= ['utils','i18n', 'storage'], // default modules
 		background_modules  = ['TTS']
 		defaults 			= 
 		{
 			debug 			: true,
+			TTS_engine 		: 'SpeakIt',
+			enqueue 		: true,
+			volume			: 1,
+			rate 			: 1,
+			pitch 			: 1,
+			auto_test 		: true,
+			language 		: 'en-US',
+			shortcuts 		: {},
+			transcribe 		: true,
+			transcription  	: { "riddr"	: "reader" },
 			error_repoting 	: true   // report JavaScript runtime errors to remote server
 		};
 
@@ -32,15 +42,19 @@ var RiddR = ( function ( API )
 */  
 	API.onload = function()
 	{
-		// localize the current view
-		RiddR.localize();
+		// load saved options
+		RiddR.storage.load( function ()
+		{
+			// localize the current view
+			RiddR.localize();
 
-		RiddR.loaded = true;
+			RiddR.loaded = true;
 
-		// send signal to modules that the DOM is loaded
-		for( module in RiddR)
-			if( RiddR[module].onLoad !== undefined )
-				RiddR[module].onLoad();
+			// send signal to modules that the DOM is loaded
+			for( module in RiddR)
+				if( RiddR[module].onLoad !== undefined )
+					RiddR[module].onLoad();
+		});
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------

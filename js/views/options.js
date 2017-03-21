@@ -16,22 +16,11 @@
 	// extendd RiddR global options object 
 	this.options = new Proxy
 	(
-		{	// set default options
-			TTS_engine 		: 'native',
-			enqueue 		: true,
-			volume			: 1,
-			rate 			: 1,
-			pitch 			: 1,
-			auto_test 		: true,
-			language 		: 'en-US',
-			shortcuts 		: {},
-			transcribe 		: true,
-			transcription  	: { "riddr"	: "reader" }
-		},
+		{},
 		{   // define magic method for catching all requests to the global options object
 			get: function(target, property)
 			{
-				// deny access to _private properties from outside of the current scope
+				// deny access to "_private" properties from outside of the current scope
 				if( property[0] === '_' )
 					return function(){RiddR.log('Can\'t access private property','warn')};
 
@@ -54,16 +43,19 @@
 	{
 		// initialize options UI
 		UI = RiddR.options.UI;
+
+		load();
+
 		UI.load();
 	}
 
 	// load options 
 	var load = function()
 	{
-		chrome.storage.sync.get(RiddR.options, function(items)
-		{
-			console.log(items);
-		})
+		// Load saved options 
+		RiddR.storage.set('debug', true);
+
+		//_get_TTS_voices();
 	}
 
 	// save specific change in the options 
@@ -81,12 +73,12 @@
 		// set test options object
 		options = 
 		{
-			voiceName 	: RiddR.options.TTS_engine,
-			enqueue 	: RiddR.options.enqueue,
-			lang 		: RiddR.options.language,
-			rate 		: RiddR.options.rate,
-			pitch 		: RiddR.options.pitch,
-			volume 		: RiddR.options.volume
+			voiceName 	: RiddR.defaults.TTS_engine,
+			enqueue 	: RiddR.defaults.enqueue,
+			lang 		: RiddR.defaults.language,
+			rate 		: RiddR.defaults.rate,
+			pitch 		: RiddR.defaults.pitch,
+			volume 		: RiddR.defaults.volume
 		}
 
 		// attach event captuing callback if needed
@@ -108,6 +100,8 @@
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * PRIVATE OPTIONS METHODS
+ *
+ * Basic error handler, for displaying errors and debug info in options screen
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var _TTS_error_handler = function()
@@ -116,6 +110,15 @@
 		{
 			console.log('Error: ' + chrome.runtime.lastError.message);
 		}
+	}
+
+	// get all avaliable TTS engines / voices  
+	var _get_TTS_voices = function()
+	{
+		chrome.tts.getVoices(function ( voices )
+		{
+			console.log(voices);
+		});
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
