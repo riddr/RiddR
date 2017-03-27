@@ -47,7 +47,12 @@
 		set : function ()
 		{
 			// get input attributes 
-			data = ( typeof arguments[0] === 'object' )? arguments[0] : { [arguments[0]] : arguments[1] };
+			data = ( typeof arguments[0] === 'object' ) ? 
+				// detect if the object that was sent is an argument list from parent caller 
+				( arguments[0].callee === undefined ) ? arguments[0] :  { [arguments[0][0]] : arguments[0][1] } : 
+				// catch plain arguments as well 
+				{ [arguments[0]] : arguments[1] };
+
 			callback = ( typeof arguments[arguments.length-1] === 'function' )? arguments[arguments.length-1] : undefined;
  
 			this.area.set( data, callback );
