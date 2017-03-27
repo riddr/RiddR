@@ -124,8 +124,15 @@
 		// test TTS audio 
 		$(document).on('click','#test_btn', function()
 		{
-			RiddR.options.test_speech($("#utterance").val());
+			RiddR.options.test_speech( $("#utterance").val(), RiddR.options.UI.reading );
 		});
+
+		$(document).on('change', "input[type=checkbox]", function()
+		{
+			RiddR.storage.set({'enqueue':false});
+
+			RiddR.options.save( $(this).attr('id'),  this.checked );
+		})
 	}
 
 /*
@@ -272,7 +279,24 @@
 			$('.preloader').fadeOut();
 		},
 
-		snackbar: _snackbar
+		reading : function ( event )
+		{
+			switch( event.type )
+			{
+				case 'start':
+					$("#test_btn").html( RiddR.storage.get('enqueue') ? 'add <i id="test_btn" class="material-icons">stop</i>' :'stop');
+				break;
+
+				case 'end':
+				case 'interrupted':
+					$("#test_btn").html('volume_up');
+				break;
+			}
+		},
+
+		snackbar 	: _snackbar,
+		modal 		: _modal,
+		hide_modal 	: _hide_modal
 	}
 
 }).apply( RiddR );

@@ -52,16 +52,18 @@
 	// load options 
 	var load = function()
 	{
-		// Load saved options 
-		RiddR.storage.set('debug', true);
-
 		//_get_TTS_voices();
 	}
 
 	// save specific change in the options 
 	var save = function( call )
 	{
-
+		RiddR.storage.set( arguments, function ()
+		{
+			// automaticly speak the test utterance on save if auto test is enabled
+			if(RiddR.storage.get('auto_test'))
+				test_speech( $('#utterance').val(), UI.reading );
+		});
 	}
 
 	// Read / stop reading the test sentence, used for testing TTS options 
@@ -86,15 +88,19 @@
 			options.onEvent = callback;
 
 		// start reading
-		if(chrome.tts.isSpeaking())
-			chrome.tts.stop();
-		else
-			chrome.tts.speak
-			( 
-				utterance,
-				options,
-				_TTS_error_handler
-			);
+		chrome.tts.isSpeaking( function( state )
+		{
+			if( state && options.enqueue == false )
+				chrome.tts.stop();
+			else
+				chrome.tts.speak
+				( 
+					utterance,
+					options,
+					_TTS_end_handler
+				);
+		});
+
 	}
 
 /*
@@ -104,8 +110,8 @@
  * Basic error handler, for displaying errors and debug info in options screen
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _TTS_error_handler = function()
-	{
+	var _TTS_end_handler = function()
+	{	
 		if (chrome.runtime.lastError) 
 		{
 			console.log('Error: ' + chrome.runtime.lastError.message);
