@@ -52,6 +52,12 @@
 				if(_valid_TTS_request('resume'))
 					RiddR.TTS.engine.resume();
 			}
+		},
+
+		// send interrupt event and reset Chrome TTS API   @To-Do: file a bug to Google regards this
+		onLoad : function()
+		{
+			chrome.tts.stop();			
 		}
 	}
 
