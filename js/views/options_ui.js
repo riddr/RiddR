@@ -129,9 +129,17 @@
 
 		$(document).on('change', "input[type=checkbox]", function()
 		{
-			RiddR.storage.set({'enqueue':false});
-
 			RiddR.options.save( $(this).attr('id'),  this.checked );
+		})
+
+		$(document).on('change', "input[type=range]", function()
+		{
+			RiddR.options.save( $(this).attr('id'), parseFloat($(this).val()) );
+		})
+
+		$(document).on('change', "select", function()
+		{
+			RiddR.options.save( $(this).attr('id'), $(this).val() );
 		})
 	}
 
@@ -179,7 +187,7 @@
 			if( select.parent().has('ul').length == 0 )
 			{
 				select.find('option').each(function() {
-					dropdown.append('<li>'+$(this).val()+'</li>');
+					dropdown.append('<li>'+$(this).html()+'</li>');
 				});
 
 				select.parent().append(dropdown);
@@ -222,6 +230,9 @@
 					// remove previous selections in options element and update the selected element
 					$(select).find("[selected]").removeAttr('selected'); 
 					$(select).find("option:contains('"+$(event.target).html()+"')").attr('selected','selected');
+
+					// trigger on change event 
+					$(select).trigger("change");
 
 					// remove previous selections from the custom dropwown menu
 					$(select).next().find('[selected]').removeAttr('selected');
