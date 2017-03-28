@@ -47,9 +47,12 @@
 
 
 	window.onerror = function( message, url, line ) 
-	{  
-	  RiddR.error(message, url, line);
-	  return true;
+	{ 
+		if(url != '')
+		{
+			RiddR.error(message, url, line);
+			return true;	
+		} 
 	};  
 
 
@@ -60,7 +63,6 @@
 */	
 	this.get = 
 	{
-
 		// return media error 
 		media_error : function( error_code, netowrk_state )
 		{
@@ -126,11 +128,17 @@
 				return key;
 	}
 
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Load 
+ * Prepare the utterance for reading. Filter out bad characters and transcribe it if needed  
  * ---------------------------------------------------------------------------------------------------------------------
 */
+	this.prepare = function ( utterance )
+	{
+		for( key in RiddR.defaults.transcription )
+			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
+
+		return utterance;
+	}
 
 }).apply(RiddR);
