@@ -39,7 +39,7 @@
  * 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var onLoad = function()
+	var onLoad = function ()
 	{
 		// initialize options UI
 		UI = RiddR.options.UI;
@@ -50,13 +50,13 @@
 	}
 
 	// load options 
-	var load = function()
+	var load = function ()
 	{
 		//_get_TTS_voices();
 	}
 
 	// save specific change in the options 
-	var save = function( call )
+	var save = function ()
 	{
 		RiddR.storage.set( arguments, function ()
 		{
@@ -67,7 +67,7 @@
 	}
 
 	// Read / stop reading the test sentence, used for testing TTS options 
-	var test_speech = function( utterance, callback = undefined )
+	var test_speech = function ( utterance, callback = undefined )
 	{
 		//prepare utterance for reading
 		utterance = RiddR.prepare( utterance );
@@ -75,31 +75,40 @@
 		// set test options object
 		options = 
 		{
-			voiceName 	: RiddR.defaults.TTS_engine,
-			enqueue 	: RiddR.defaults.enqueue,
-			lang 		: RiddR.defaults.language,
-			rate 		: RiddR.defaults.rate,
-			pitch 		: RiddR.defaults.pitch,
-			volume 		: RiddR.defaults.volume
+			voiceName 	: RiddR.storage.get('TTS_engine'),
+			enqueue 	: RiddR.storage.get('enqueue'),
+			lang 		: RiddR.storage.get('language'),
+			rate 		: RiddR.storage.get('rate'),
+			pitch 		: RiddR.storage.get('pitch'),
+			volume 		: RiddR.storage.get('volume')
 		}
 
 		// attach event captuing callback if needed
 		if( callback !== undefined )
 			options.onEvent = callback;
 
-		// start reading
-		chrome.tts.isSpeaking( function( state )
+		RiddR._lang( utterance, function( lang )
 		{
-			if( state && options.enqueue == false )
-				chrome.tts.stop();
-			else
+			// update language if needed
+			options.lang = lang;
+
+			console.log(options);
+
+			// start reading
+			chrome.tts.isSpeaking( function( state )
+			{
+				if( state && options.enqueue == false ) // interupt
+					chrome.tts.stop();
+
+				// To-Do: determine action
 				chrome.tts.speak
 				( 
 					utterance,
 					options,
-					_TTS_end_handler
+					TTS_handler
 				);
-		});
+			});
+		}, options.lang );
 
 	}
 
@@ -110,7 +119,7 @@
  * Basic error handler, for displaying errors and debug info in options screen
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _TTS_end_handler = function()
+	var TTS_handler = function()
 	{	
 		if (chrome.runtime.lastError) 
 		{

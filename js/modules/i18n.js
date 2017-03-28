@@ -33,7 +33,27 @@
 			RiddR.log('Undefined message name: ' + message_name + ' in ' + RiddR.locale + ' locale!','warn');
 			return false;
 		}
-	}	
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Detect langugae from text input
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	this._lang = function ( text, callback, lang )
+	{
+		if ( lang !== undefined && lang !== 'auto' ) // skip language detection if the language is forced
+			callback(lang);
+		else
+		{
+			chrome.i18n.detectLanguage ( text, function( detected ) // @To-Do: make more advanced / en-US / universal locale detection
+			{
+				lang =  ( RiddR.locale.substring(0,2) == detected.languages[0].language )? RiddR.locale : detected.languages[0].language;
+
+				callback( lang );
+			})
+		}
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -55,7 +75,7 @@
 			}
 		}
 	}
-
+	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Update DOM element with localized content
