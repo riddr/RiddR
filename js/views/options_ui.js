@@ -204,7 +204,8 @@
 			{
 				'top' 		: dtop,
 				'min-width' : $(this).width(),
-				'height'	: height
+				'height'	: height,
+				'z-index'	: 999
 			}).attr('active', '');
 
 			// prevent native dropdown menu from showing 
@@ -229,7 +230,7 @@
 
 				// remove active atribut, desdtroy the event listener and force height
 				$(this).unbind( event );
-				dropdown.css({'height':0, 'top': select.offset().top});
+				dropdown.css({'height':0, 'z-index': '-1', 'top': select.offset().top});
 				$('[active]').removeAttr('active');
 			});
 
