@@ -17,12 +17,14 @@ var RiddR = ( function ( API )
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var loaded 				= false,
+		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'storage'], // default modules
 		background_modules  = ['TTS']
 		defaults 			= 
 		{
 			debug 			: true,
 			TTS_engine 		: 'SpeakIt',
+			offline_engine	: 'native',
 			enqueue 		: true,
 			volume			: 1,
 			rate 			: 1,
@@ -111,6 +113,16 @@ var RiddR = ( function ( API )
 		// load requested file into the DOM
 		document.body.appendChild(element);
 	}	
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Update network connectivity status
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _connectivity = function( event )
+	{
+		RiddR.is_online = ( event.type == 'online') ? true : false;
+	}
 	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -128,6 +140,13 @@ var RiddR = ( function ( API )
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * Register connectivity event listeners
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	API.addEventListener('online',  _connectivity);
+	API.addEventListener('offline', _connectivity);
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * Return public variables and methods
  * ---------------------------------------------------------------------------------------------------------------------
 */  
@@ -135,6 +154,7 @@ var RiddR = ( function ( API )
 				load 		: load, 
 				loaded 	 	: loaded,
 				defaults 	: defaults,
+				is_online	: is_online,
 				background 	: background
 	}
 
