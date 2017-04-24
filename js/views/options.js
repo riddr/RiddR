@@ -48,6 +48,10 @@
 
 		_get_TTS_voices( function()
 		{
+			// load saved option values
+			_load_options();
+
+			// load UI interface
 			UI.load();
 		})
 	}
@@ -60,6 +64,9 @@
 			// automaticly speak the test utterance on save if auto test is enabled
 			if(RiddR.storage.get('auto_test'))
 				test_speech( $('#utterance').val(), UI.reading );
+
+			// show snack bar
+			UI.snackbar('Options were successfuly saved!', 1500);
 		});
 	}
 
@@ -144,6 +151,39 @@
 
 			callback();
 		});
+	}
+
+	// load saved options and update corresponding UI elements
+	var _load_options = function()
+	{
+		for( o_key in RiddR.defaults )
+		{
+			option = $('#'+o_key);
+
+			if ( option !== undefined && option.length == 1 )
+			{
+				console.log(option.prop('nodeName') + option.attr('id') );
+
+				switch ( option.prop('nodeName') )
+				{
+					case "INPUT":
+						switch(option.attr('type'))
+						{
+							case "checkbox":
+								option.prop('checked', RiddR.defaults[o_key]);
+							break;
+
+							default: 
+								option.val(RiddR.defaults[o_key]);
+						}
+					break;
+
+					case "SELECT":
+						option.find('option[value="'+RiddR.defaults[o_key]+'"]').prop('selected', true);
+					break;
+				}
+			}
+		}
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------

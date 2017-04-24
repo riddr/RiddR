@@ -140,6 +140,10 @@
 		$(document).on('change', "select", function()
 		{
 			RiddR.options.save( $(this).attr('id'), $(this).val() );
+
+			// register TTS engine change
+			if($(this).attr('id') == 'TTS_engine') 
+				RiddR.options.TTS_change();
 		})
 	}
 
