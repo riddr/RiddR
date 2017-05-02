@@ -26,9 +26,9 @@
 			this.send( { action: 'get', selector: selector }, callback );
 		},
 
-		call : function( selector, input, callback )
+		call : function( selector, data, callback )
 		{
-			
+			this.send( { action: 'call', selector: selector, data: data }, callback );
 		},
 
 		trigger : function( event_id, data )
@@ -50,7 +50,11 @@
 			switch ( request.action )
 			{
 				case 'get' :
-					response( _get( request.selector.split('.') ) );
+					response( _get( request ) );
+				break;
+
+				case 'call':
+					response( _call(request) );
 				break;
 
 				case 'trigger':
@@ -67,10 +71,29 @@
 */
 	var _get = function ( request )
 	{
-		return request.reduce( function ( object, property )
-		{
-			return object[property];
-		}, RiddR );
+		// split object selector into array
+		selector = request.selector.split('.');
+
+		if( selector.length > 1 && module != selector[0])
+			return null;
+		else
+			return selector.reduce( function ( object, property )
+			{
+				return object[property];
+			}, RiddR );
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Call some method from another RiddR instance and return it's result 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _call = function ( request )
+	{
+		if( callee = _get( request ))
+			return callee(request.data);
+		else
+			return '{ error: "Invalid method requested:' + request.selector + '"}';
 	}
 
 /*
