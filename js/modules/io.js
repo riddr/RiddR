@@ -23,15 +23,17 @@
 		// get specific 
 		get : function( selector, callback )
 		{
-			// split the selector 
-			selector = selector.split('.');
-
 			this.send( { action: 'get', selector: selector }, callback );
 		},
 
-		call : function( celector, input, callback )
+		call : function( selector, input, callback )
 		{
 			
+		},
+
+		trigger : function( event_id, data )
+		{
+			this.send( { action: 'trigger', id: event_id, data: data } );
 		}
 	}
 
@@ -43,12 +45,16 @@
 	var _handler = function ( request, sender, response )
 	{
 		// check request action and validate module 
-		if( request.action !== undefined && module == request.selector[0] )
+		if( request.action !== undefined )
 		{
 			switch ( request.action )
 			{
 				case 'get' :
-					response( _get( request.selector ) );
+					response( _get( request.selector.split('.') ) );
+				break;
+
+				case 'trigger':
+					_trigger( request.id, request.data );
 				break;
 			}
 		}
@@ -65,6 +71,17 @@
 		{
 			return object[property];
 		}, RiddR );
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Trigger event listener trough all other RiddR instances
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _trigger = function ( event_id, data )
+	{
+		event = new CustomEvent(event_id, data );
+		window.dispatchEvent(event);
 	}
 
 /*
