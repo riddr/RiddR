@@ -18,7 +18,7 @@ var RiddR = ( function ( API )
 */
 	var loaded 				= false,
 		is_online			= navigator.onLine,
-		modules 		 	= ['utils','i18n', 'storage'], // default modules
+		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
 		background_modules  = ['TTS']
 		defaults 			= 
 		{
