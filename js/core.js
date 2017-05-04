@@ -16,7 +16,8 @@ var RiddR = ( function ( API )
  * defune default public / private variables
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var loaded 				= false,
+	var data 				= {},
+		loaded 				= false,
 		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
 		background_modules  = ['TTS']
@@ -151,6 +152,7 @@ var RiddR = ( function ( API )
  * ---------------------------------------------------------------------------------------------------------------------
 */  
 	return {
+				data		: data,
 				load 		: load, 
 				loaded 	 	: loaded,
 				defaults 	: defaults,

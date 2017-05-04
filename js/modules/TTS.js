@@ -58,6 +58,15 @@
 		onLoad : function()
 		{
 			chrome.tts.stop();			
+		},
+
+		// return supported TTS engines parameters 
+		parameters : function()
+		{
+			for( TTS_id in RiddR.TTS.engines )
+				TTS_caps =  Object.assign({}, { [TTS_id]: RiddR.TTS.engines[TTS_id].parameters});
+
+			return TTS_caps;
 		}
 	}
 

@@ -35,26 +35,25 @@
 			charindex   : 0,
 			retry		: 0
 		},
-		default 		: 
-		{
-			lang        : 'en-US',
-			rate 		: 1.2,
-			volume		: 1.0,
-			pitch		: 1.0,
-			gender 		: 'female',
-
-		},
 		max_length		: 100, // set sentence max length 
 		response 		: null,
 		initialized 	: false,
 		api_url			: 'https://translate.google.com/translate_tts',
-		languages		: // list of supported languages
-		[
-			'af', 'sq', 'ar', 'hy', 'bs', 'bn', 'ca', 'zh', 'zh-CN', 'zh-TW', 'hr', 'cs', 'da', 'nl', 'en', 'en-US', 
-			'en-GB', 'en-AU', 'eo', 'fi', 'fr', 'de', 'el', 'hi', 'hu', 'is', 'id', 'ja', 'km', 'ko', 'la', 'lv', 'it',
-			'mk', 'no', 'pl', 'pt', 'ro', 'ru', 'sr', 'si', 'sk', 'es', 'sw', 'sv', 'ta', 'th', 'tr', 'uk', 'vi', 'cy'
-		],
- 
+		parameters	:
+		{
+			pich 	: null, // not supported 
+			gender 	: null, // not supported 
+			rate 	: { min: 0.5, max: 4, default: 1.2},
+			volume 	: { min:   0, max: 1, default: 1.0},
+			lang	: // list of supported languages
+			[
+				'af', 'sq', 'ar', 'hy', 'bs', 'bn', 'ca', 'zh', 'zh-CN', 'zh-TW', 'hr', 'cs', 'da', 'nl', 'en', 'en-US', 
+				'en-GB', 'en-AU', 'eo', 'fi', 'fr', 'de', 'el', 'hi', 'hu', 'is', 'id', 'ja', 'km', 'ko', 'la', 'lv', 'it',
+				'mk', 'no', 'pl', 'pt', 'ro', 'ru', 'sr', 'si', 'sk', 'es', 'sw', 'sv', 'ta', 'th', 'tr', 'uk', 'vi', 'cy'
+			],
+			default_lang : 'en-US',
+		},
+		
  		//
 		speak : function( utterance, options, TTS_response )
 		{
@@ -160,9 +159,9 @@
 		error = null;
 
 		// choose default language
-		TTS.options.lang = TTS.options.lang || TTS.default.lang; // switch back to default language if the lang is not set
+		TTS.options.lang = TTS.options.lang || TTS.parameters.default_lang; // switch back to default language if the lang is not set
 
-		if(TTS.languages.indexOf(TTS.options.lang) == -1)
+		if(TTS.parameters.lang.indexOf(TTS.options.lang) == -1)
 			error = 'The requested language: "'+ TTS.options.lang +'" is not supported yet!';
 
 		// @To-DO: validate other input settings.
@@ -276,9 +275,6 @@
 	{
 		// reset variables to avoid utterance colision
 		TTS.urls = [];
-
-		// load default settings if some aren't set
-		pitch =( TTS.options.pitch != ''? TTS.options.pitch : TTS.default.pitch ); 		// set pitch
 
 		for(ut_id in TTS.utterance.safe)
 		{
@@ -445,9 +441,9 @@
 			channel.addEventListener(event_id, TTS);	// register event hanlder in the current scope
 		}
 
-		channel.defaultPlaybackRate = TTS.options.rate || TTS.default.rate;
+		channel.defaultPlaybackRate = TTS.options.rate || TTS.parameters.rate.default;
 		channel.webkitPreservesPitch = false;
-		channel.volume = TTS.options.volume || TTS.default.volume;
+		channel.volume = TTS.options.volume || TTS.parameters.volume.default;
 
 		// push audio channel into the channels collection and return the ID of the pusshed element
 		return TTS.channels.push(channel) - 1;
