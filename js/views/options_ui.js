@@ -282,12 +282,34 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * UI HTML generation methods
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _generate_tts_list = function ()
+	{
+		tts_list = '';
+
+		for ( engine in RiddR.options.TTS_engines)
+		{
+			tts_list += '<option value="'+engine+'">'+engine+'</option>'			
+		}
+
+		$("#TTS_engine").html(tts_list);
+	}	
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * 
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	RiddR.options.UI = 
 	{
-		load : function()
+		generate : function()
+		{
+			// generate UL list of avaliable TTS engines 
+			_generate_tts_list();
+		},
+
+		render : function()
 		{
 			// initialize material design listeners
 			_materialize();

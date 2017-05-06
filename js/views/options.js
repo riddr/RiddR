@@ -60,11 +60,14 @@
 			// initialize options UI
 			UI = RiddR.options.UI;
 
+			// generate UI interface
+			UI.generate();
+
 			// load saved options 
 			_load_options();
 
-			// load UI interface
-			UI.load();
+			// render UI interface
+			UI.render();
 		}
 	}
 
