@@ -233,7 +233,10 @@
 				{	
 					// remove previous selections in options element and update the selected element
 					$(select).find("[selected]").removeAttr('selected'); 
-					$(select).find("option:contains('"+$(event.target).html()+"')").attr('selected','selected');
+					$(select).find('option').filter(function()
+					{
+						return $(this).text() === $(event.target).text()
+					}).attr('selected','selected');
 
 					// trigger on change event 
 					$(select).trigger("change");
@@ -276,6 +279,7 @@
 				sticky.removeClass('stick');
 		});
 	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * 
