@@ -17,7 +17,8 @@
 	this.options = new Proxy
 	(
 		{
-			TTS_engines : {}
+			TTS_engines : {},
+			environment : 0
 		},
 		{   // define magic method for catching all requests to the global options object
 			get: function(target, property)
@@ -36,27 +37,44 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * PUBLIC OPTIONS METHODS
+ * PUBLIC INITIALIZATION OPTIONS METHODS
  * 
- * 
+ * start loading options enviroment
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var onLoad = function ()
 	{
-		// initialize options UI
-		UI = RiddR.options.UI;
+		// load TTS voices 
+		_get_TTS_voices.apply( _async() );
 
-		_get_TTS_voices( function()
+		// load chrome defined commands / shortcuts 
+		_get_chrome_commands.apply( _async() );
+	}
+
+	// render options UI when options enviroment has been loaded 
+	var onLoadComplete = function()
+	{
+		// check if all async functions were completed  
+		if(  RiddR.options.environment == 0  )
 		{
-			// load saved option values
+			// initialize options UI
+			UI = RiddR.options.UI;
+
+			// load saved options 
 			_load_options();
 
 			// load UI interface
 			UI.load();
-		})
+		}
 	}
 
-	// save specific change in the options 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * PUBLIC OPTIONS METHODS
+ * 
+ * save specific change in the options
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
 	var save = function ()
 	{
 		RiddR.storage.set( arguments, function ()
@@ -130,7 +148,7 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * PRIVATE OPTIONS METHODS
+ * PRIVATE COMMON OPTIONS METHODS
  *
  * Basic error handler, for displaying errors and debug info in options screen
  * ---------------------------------------------------------------------------------------------------------------------
@@ -141,8 +159,26 @@
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
 	}
 
-	// get all avaliable TTS engines / voices and store them in global object with their supported parameters 
-	var _get_TTS_voices = function ( callback )
+	// register and confim on completion initialization methods that are loading asynchronous data, mainly Chrome API's
+	var _async = function ()
+	{
+		if ( arguments.callee.caller.name != ''  && arguments[0] != true )
+			RiddR.options.environment +=1;
+		else
+		{
+			RiddR.options.environment -=1;
+			onLoadComplete();
+		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * PRIVATE OPTIONS METHODS
+ *
+ * get all avaliable TTS engines / voices and store them in global object with their supported parameters
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _get_TTS_voices = function ()
 	{
 		chrome.tts.getVoices(function ( voices )
 		{
@@ -163,8 +199,20 @@
 					RiddR.options.TTS_engines[voices[v_key].voiceName] = voices[v_key];
 				}
 
-				callback();
+				
+				_async(); // mark async action as complete 
 			});
+		});
+	}
+
+	// get predefined shortcuts / commands 
+	var _get_chrome_commands = function ()
+	{
+		chrome.commands.getAll( function ( commands )
+		{
+			RiddR.options.commands = commands;
+
+			_async() // mark async action as complete
 		});
 	}
 
@@ -177,8 +225,6 @@
 
 			if ( option !== undefined && option.length == 1 )
 			{
-				console.log(option.prop('nodeName') + option.attr('id') );
-
 				switch ( option.prop('nodeName') )
 				{
 					case "INPUT":
