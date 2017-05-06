@@ -262,6 +262,11 @@
 		-webkit-appearance: none;
 		background-color: transparent;
 	}
+		input[type=range]:disabled
+		{
+			opacity:0.4;
+			cursor:default;
+		}
 
 	input[type=range]::-webkit-slider-runnable-track 
 	{
@@ -285,6 +290,10 @@
 		margin: -5px 0px 0px 0px;
 		-webkit-transform-origin: 50% 50%;
 	}
+		input[type=range]:disabled::-webkit-slider-thumb
+		{
+			background:#999;
+		}
 
 	input[type=range]:focus::-webkit-slider-runnable-track 
 	{
@@ -330,6 +339,10 @@
 			margin-left:0px;
 			border-radius: 50% 50% 50% 0;
 		}
+			input[type=range]:disabled + span
+			{
+				display:none !important;
+			}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------

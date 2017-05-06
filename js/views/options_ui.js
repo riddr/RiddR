@@ -140,10 +140,6 @@
 		$(document).on('change', "select", function()
 		{
 			RiddR.options.save( $(this).attr('id'), $(this).val() );
-
-			// register TTS engine change
-			if($(this).attr('id') == 'TTS_engine') 
-				RiddR.options.TTS_change();
 		})
 	}
 
@@ -169,10 +165,14 @@
 			// determine if the label or the range itself was clicked
 			range = $(this).is('label')? $(this).next() : $(this);
 
-			if(range.is(":active"))
+			if(range.is(":disabled"))
+			{
+				_snackbar('TTS engine dosen\'t support this feature.', 2200);
+			}
+			else if(range.is(":active") )
 			{
 				// calucate thumb position based on element position
-				offset =  ((range.outerWidth()-30) / range.attr('max') * range.val());
+				offset =  ((range.outerWidth()-30) / (range.attr('max') - range.attr('min')) * (range.val()-range.attr('min')));
 
 				// update thumb value and move the thumb to the coresporending position
 				range.next()
@@ -295,7 +295,41 @@
 		}
 
 		$("#TTS_engine").html(tts_list);
+	}
+
+	// update TTS engine parametrs
+	var _update_tts_parameters = function()
+	{
+		engine = RiddR.options.TTS_engines[RiddR.defaults.TTS_engine];
+
+		// update TTS sliders
+		$('#rate, #pitch').each(function()
+		{
+			// hide parameter slider if it's not supported from TTS engine
+			if( engine[this.id] == undefined || engine[this.id] == null )
+        		$(this).prop('disabled', true);
+        	else
+        	{
+        		$(this).prop('disabled', false);
+
+        		// update slider min and max positions
+        		$(this).attr({'min':engine[this.id].min, 'max':engine[this.id].max});
+        		
+        		// update slider value accodring TTS engine capabilities
+        		current = 
+        		( 
+        			RiddR.storage.get(this.id) > engine[this.id].max || 
+        			RiddR.storage.get(this.id) < engine[this.id].min 
+        		) 
+        			? engine[this.id].default 
+        			: RiddR.storage.get(this.id);
+        		
+        		$(this).next().attr('slider-value', current);
+        		$(this).val(current);
+        	}
+    	});
 	}	
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * 
@@ -305,8 +339,11 @@
 	{
 		generate : function()
 		{
-			// generate UL list of avaliable TTS engines 
+			// generate list of avaliable TTS engines 
 			_generate_tts_list();
+
+			// update TTS engine parameters
+			_update_tts_parameters();
 		},
 
 		render : function()
@@ -338,7 +375,8 @@
 
 		snackbar 	: _snackbar,
 		modal 		: _modal,
-		hide_modal 	: _hide_modal
+		hide_modal 	: _hide_modal,
+		update_tts_parameters : _update_tts_parameters 
 	}
 
 }).apply( RiddR );

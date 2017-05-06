@@ -16,7 +16,7 @@
 		// OS native TTS engine 
 		native : 
 		{
-			pich 	: { min:   0, max: 2,  default: 1.0},
+			pitch 	: { min:   0, max: 2,  default: 1.0},
 			rate 	: { min: 0.1, max: 10, default: 1.0},
 			volume 	: { min:   0, max: 1,  default: 1.0},
 		},
@@ -24,7 +24,7 @@
 		// all Google Chrome embed TTS engines
 		neajdppkdcdipfabeoofebfddakdcjhd : 
 		{
-			pich 	: { min:   0, max: 2, default: 1.0},
+			pitch 	: { min:   0, max: 2, default: 1.0},
 			rate 	: { min: 0.1, max: 2, default: 1.0},
 			volume 	: { min:   0, max: 1, default: 1.0},
 		}

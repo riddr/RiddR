@@ -80,8 +80,14 @@
 */
 	var save = function ()
 	{
+		// define save action
+		action = arguments[0];
+
 		RiddR.storage.set( arguments, function ()
 		{
+			// update UI if nesecery after options are properly saved
+			_update_UI( action );
+
 			// automaticly speak the test utterance on save if auto test is enabled
 			if(RiddR.storage.get('auto_test'))
 				test_speech( $('#utterance').val(), UI.reading );
@@ -143,12 +149,6 @@
 		}
 	}
 
-	// on TTS change
-	var TTS_change = function ()
-	{
-
-	}
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * PRIVATE COMMON OPTIONS METHODS
@@ -171,6 +171,17 @@
 		{
 			RiddR.options.environment -=1;
 			onLoadComplete();
+		}
+	}
+
+	// update options UI on change
+	var _update_UI = function ( action )
+	{
+		switch ( action )
+		{
+			case 'TTS_engine':
+				UI.update_tts_parameters();
+			break;
 		}
 	}
 
