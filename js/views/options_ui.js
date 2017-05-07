@@ -3,10 +3,10 @@
  *
  * TTS Engine named RiddR build in into the same named extension, based on unofficial Google API's 
  *
- * @package		RiddR
- * @category	Core
- * @author		Trajche Petrov
- * @link		https://github.com/skechboy/RiddR
+ * @package     RiddR
+ * @category    Core
+ * @author      Trajche Petrov
+ * @link        https://github.com/skechboy/RiddR
 */
 
 (function () 
@@ -58,7 +58,7 @@
 			y = $(window).height()/2 - modal_content.outerHeight()/2;
 			x = $(window).width()/2 - modal_content.outerWidth()/2;
 
-			// animate the modal		
+			// animate the modal        
 			modal.css({'opacity':'1', 'z-index': 999999 })
 			modal_content_holder.css(
 			{
@@ -183,7 +183,7 @@
 
 		// Set selectbox UI listeners
 		$(document).on('mousedown','select', function( event )
-		{	
+		{   
 			var select = $(this);
 			var dropdown = $("<ul></ul>");
 
@@ -201,8 +201,8 @@
 			dropdown = $(this).next();
 
 			// determine dropdown position
-			dtop 	= select.offset().top,
-			height 	= $(document).height() - dtop - 25;
+			dtop    = select.offset().top,
+			height  = $(document).height() - dtop - 25;
 
 			if(height < 200) // update the dropdown size and posotion if it's to small 
 			{
@@ -214,10 +214,10 @@
 			// update the dropdown menu position
 			dropdown.css(
 			{
-				'top' 		: dtop,
+				'top'       : dtop,
 				'min-width' : $(this).width(),
-				'height'	: height,
-				'z-index'	: 999
+				'height'    : height,
+				'z-index'   : 999
 			}).attr('active', '');
 
 			// prevent native dropdown menu from showing 
@@ -230,7 +230,7 @@
 			{
 				// compare if the clicked element was some from the dropdown menu
 				if( $(event.target).parent()[0] == select.next()[0] )
-				{	
+				{   
 					// remove previous selections in options element and update the selected element
 					$(select).find("[selected]").prop('selected',false); 
 					$(select).find('option').filter(function()
@@ -255,7 +255,7 @@
 			return false;
 		});
 	
-		// Set listeners for new custom shortuct button		
+		// Set listeners for new custom shortuct button     
 		$(document).on('click', '#add_shortcut', function()
 		{
 			$("#shortcuts").append(RiddR.options.html.shortuct());
@@ -264,7 +264,7 @@
 			$("content section:nth-child(2)").scrollTop($("content section:nth-child(2)").prop("scrollHeight"));
 		});
 
-		// Set scroll listeners for the sticky headers				
+		// Set scroll listeners for the sticky headers              
 		$('section').on('scroll', function()
 		{
 			sticky = $('.sticky');
@@ -291,14 +291,14 @@
 
 		for ( engine in RiddR.options.TTS_engines)
 		{
-			tts_list += '<option value="'+engine+'">'+engine+'</option>'			
+			tts_list += '<option value="'+engine+'">'+engine+'</option>'            
 		}
 
 		$("#TTS_engine").html(tts_list);
 	}
 
-	// update TTS engine parametrs
-	var _update_tts_parameters = function()
+	// update TTS engine parametrs   @To-Do: make this function more roubst in order to handle keyboard shortcuts sliders
+	var _update_tts_parameters = function() 
 	{
 		engine = RiddR.options.TTS_engines[RiddR.defaults.TTS_engine];
 
@@ -307,28 +307,65 @@
 		{
 			// hide parameter slider if it's not supported from TTS engine
 			if( engine[this.id] == undefined || engine[this.id] == null )
-        		$(this).prop('disabled', true);
-        	else
-        	{
-        		$(this).prop('disabled', false);
+				$(this).prop('disabled', true);
+			else
+			{
+				$(this).prop('disabled', false);
 
-        		// update slider min and max positions
-        		$(this).attr({'min':engine[this.id].min, 'max':engine[this.id].max});
-        		
-        		// update slider value accodring TTS engine capabilities
-        		current = 
-        		( 
-        			RiddR.storage.get(this.id) > engine[this.id].max || 
-        			RiddR.storage.get(this.id) < engine[this.id].min 
-        		) 
-        			? engine[this.id].default 
-        			: RiddR.storage.get(this.id);
-        		
-        		$(this).next().attr('slider-value', current);
-        		$(this).val(current);
-        	}
-    	});
-	}	
+				// update slider min and max positions
+				$(this).attr({'min':engine[this.id].min, 'max':engine[this.id].max});
+				
+				// update slider value accodring TTS engine capabilities
+				current = 
+				( 
+					RiddR.storage.get(this.id) > engine[this.id].max || 
+					RiddR.storage.get(this.id) < engine[this.id].min 
+				) 
+					? engine[this.id].default 
+					: RiddR.storage.get(this.id);
+				
+				$(this).next().attr('slider-value', current);
+				$(this).val(current);
+			}
+		});
+
+		// update language list depending on supported languages from the TTS engine
+		_language_list( engine.lang, 'language' );
+	}
+
+	// update language select list
+	var _language_list = function ( languages , list_elem_id , list_html = '')
+	{
+		// form valid language array
+		languages = (languages == undefined )?  ['auto'] : languages;
+		languages = ( typeof languages == 'string' )? [languages] : languages;
+
+		// check if automatic detection is avaliable for the selected TTS engine
+		if(languages.length > 1 && languages.indexOf('auto') == -1)
+			languages.unshift('auto');
+
+		// form language list
+		for( i in languages)
+		{
+			// get language from it's code
+			if ( language = RiddR.lang_from_code ( languages[i] ) )
+			{
+				// determine if the language option should be preselected
+				selected = (language.code == RiddR.storage.get('language'))? 'selected' : '';
+
+				list_html += '<option '+selected+' value="'+language.code+'">'+language.name+'</option>';
+			}
+		}
+	
+		// update list content
+		$('#'+list_elem_id).html( list_html );
+
+		// disable / enable dropdown list
+		if(languages.length == 1)
+			$('#'+list_elem_id).prop('disabled', true);
+		else
+			$('#'+list_elem_id).prop('disabled', false);
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -373,7 +410,7 @@
 			}
 		},
 
-		snackbar 	: _snackbar,
+		snackbar	: _snackbar,
 		modal 		: _modal,
 		hide_modal 	: _hide_modal,
 		update_tts_parameters : _update_tts_parameters 

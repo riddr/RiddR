@@ -37,7 +37,7 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Detect langugae from text input
+ * Detect language from text input
  * ---------------------------------------------------------------------------------------------------------------------
 */	
 	this._lang = function ( text, callback, lang )
@@ -47,6 +47,8 @@
 		else
 		{
 			chrome.i18n.detectLanguage ( text, function( detected ) // @To-Do: make more advanced / en-US / universal locale detection
+			// @To-Do: implement better language detection https://src.chromium.org/viewvc/chrome/trunk/src/third_party/cld/languages/internal/languages.cc
+			// make some tests about language dialects eg. PORTUGUESE_P vs PORTUGUESE_B
 			{
 				lang =  ( RiddR.locale.substring(0,2) == detected.languages[0].language )? RiddR.locale : detected.languages[0].language;
 
@@ -54,7 +56,25 @@
 			})
 		}
 	}
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Get language from it's ISO code
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	this.lang_from_code = function ( code )
+	{
+		if ( RiddR.data.languages[code] != undefined )
+			return Object.assign ( RiddR.data.languages[code], { code : code } );
+		
+		else if ( RiddR.data.languages[code.substr(0,2)] != undefined) // failback to official if dialect is not found 
+			return Object.assign ( RiddR.data.languages[code.substr(0,2)], { code : code.substr(0,2) } );
 
+		else
+		{
+			RiddR.log('Requested language code: ' + code + ' is not in RiddR language list.', 'warn');
+			return false;
+		}
+	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Localize all DOM i18n elements
