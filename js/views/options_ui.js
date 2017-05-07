@@ -232,18 +232,18 @@
 				if( $(event.target).parent()[0] == select.next()[0] )
 				{	
 					// remove previous selections in options element and update the selected element
-					$(select).find("[selected]").removeAttr('selected'); 
+					$(select).find("[selected]").prop('selected',false); 
 					$(select).find('option').filter(function()
 					{
 						return $(this).text() === $(event.target).text()
-					}).attr('selected','selected');
-
-					// trigger on change event 
-					$(select).trigger("change");
+					}).prop('selected',true);
 
 					// remove previous selections from the custom dropwown menu
 					$(select).next().find('[selected]').removeAttr('selected');
 					$(event.target).attr('selected','');
+
+					// trigger on change event 
+					$(select).trigger("change");
 				}
 
 				// remove active atribut, desdtroy the event listener and force height
