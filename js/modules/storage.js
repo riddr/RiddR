@@ -55,6 +55,9 @@
 
 			callback = ( typeof arguments[arguments.length-1] === 'function' )? arguments[arguments.length-1] : undefined;
  
+ 			// update cached values
+ 			_update_cache( data );
+
 			this.area.set( data, callback );
 		},
 
@@ -82,6 +85,17 @@
 			this.area.clear( callback );
 		}
 	}	
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Update cached variables
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _update_cache = function ( data )
+	{
+		for( key in data )
+			RiddR.defaults[key] = data[key];
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
