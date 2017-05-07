@@ -86,14 +86,15 @@
 		RiddR.storage.set( arguments, function ()
 		{
 			// update UI if nesecery after options are properly saved
-			_update_UI( action );
+			if( _update_UI( action ) )
+			{
+				// automaticly speak the test utterance on save if auto test is enabled
+				if(RiddR.storage.get('auto_test'))
+					test_speech( $('#utterance').val(), UI.reading );
 
-			// automaticly speak the test utterance on save if auto test is enabled
-			if(RiddR.storage.get('auto_test'))
-				test_speech( $('#utterance').val(), UI.reading );
-
-			// show snack bar
-			UI.snackbar('Options were successfuly saved!', 1500);
+				// show snack bar
+				UI.snackbar('Options were successfuly saved!', 1500);
+			}
 		});
 	}
 
@@ -179,10 +180,14 @@
 	{
 		switch ( action )
 		{
+			case 'language':
 			case 'TTS_engine':
-				UI.update_tts_parameters();
+				_on_TTS_update();
 			break;
+
 		}
+
+		return true;
 	}
 
 /*
@@ -259,6 +264,24 @@
 				}
 			}
 		}
+	}
+
+	// update option UI on main TTS engine change
+	var _on_TTS_update = function()
+	{
+		// TO-DO: pass this into UI, CHECK FOR CONNECTION STATUS IF REMOTE 
+		language = RiddR.storage.get('language');
+		engine = RiddR.options.TTS_engines[RiddR.storage.get('TTS_engine')];
+
+		// determine RiddR language selection 
+		default_lang = ( ( typeof engine.lang == 'object' )? engine.default_lang : engine.lang ) || 'auto';
+
+		// TO-DO: check against array of supported languages 
+		if( default_lang != language )
+			RiddR.storage.set( {'language': default_lang } );
+
+		// update TTS UI 
+		UI.update_tts_parameters();
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------

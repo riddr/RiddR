@@ -32,6 +32,7 @@ var RiddR = ( function ( API )
 			pitch 			: 1,
 			auto_test 		: true,
 			language 		: 'en-US',
+			translate		: false,
 			shortcuts 		: {},
 			transcribe 		: true,
 			transcription  	: { "riddr"	: "reader" },
