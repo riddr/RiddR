@@ -165,11 +165,7 @@
 			// determine if the label or the range itself was clicked
 			range = $(this).is('label')? $(this).next() : $(this);
 
-			if(range.is(":disabled"))
-			{
-				_snackbar('TTS engine dosen\'t support this feature.', 2200);
-			}
-			else if(range.is(":active") )
+			if(range.is(":active") )
 			{
 				// calucate thumb position based on element position
 				offset =  ((range.outerWidth()-30) / (range.attr('max') - range.attr('min')) * (range.val()-range.attr('min')));
@@ -183,7 +179,7 @@
 
 		// Set selectbox UI listeners
 		$(document).on('mousedown','select', function( event )
-		{   
+		{
 			var select = $(this);
 			var dropdown = $("<ul></ul>");
 
@@ -230,7 +226,7 @@
 			{
 				// compare if the clicked element was some from the dropdown menu
 				if( $(event.target).parent()[0] == select.next()[0] )
-				{   
+				{
 					// remove previous selections in options element and update the selected element
 					$(select).find("[selected]").prop('selected',false); 
 					$(select).find('option').filter(function()
@@ -253,6 +249,14 @@
 			});
 
 			return false;
+		});
+
+		// show information for disabled option elements 
+		$(document).on('mousedown','.material', function()
+		{
+			if( $(this).has(":disabled").length > 0 )
+				setTimeout(function(){_snackbar('TTS engine dosen\'t support this feature.');},10);
+
 		});
 	
 		// Set listeners for new custom shortuct button     
@@ -331,6 +335,9 @@
 
 		// update language list depending on supported languages from the TTS engine
 		_language_list( engine.lang, 'language' );
+
+		// update translate checkbox
+		_update_lang_translate();
 	}
 
 	// update language select list
@@ -361,10 +368,13 @@
 		$('#'+list_elem_id).html( list_html );
 
 		// disable / enable dropdown list
-		if(languages.length == 1)
-			$('#'+list_elem_id).prop('disabled', true);
-		else
-			$('#'+list_elem_id).prop('disabled', false);
+		$('#'+list_elem_id).prop('disabled', (languages.length == 1) );
+	}
+
+	// update the state of language translate button
+	var _update_lang_translate = function ()
+	{
+		$("#translate").prop('disabled',  (RiddR.storage.get('language') == 'auto') );
 	}
 
 /*

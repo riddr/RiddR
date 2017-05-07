@@ -217,6 +217,11 @@
 				background: rgba(0, 191, 255, 0.4);
 			}
 
+			.switch input:disabled + span
+			{
+				background: #bbb !important;
+			}
+
 		.switch input + span::before 
 		{
 			content: '';
@@ -238,6 +243,11 @@
 			{
 				background: #00bfff;
 				transform: translate(18px, 0);
+			}
+			.switch input:disabled + span::before
+			{
+				background: #fff;	
+				transform: translate(0, 0) !important;
 			}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -406,6 +416,7 @@
 		}
 		.material > select:disabled
 		{
+			cursor: default;
 			border-bottom: 1px solid #aaa !important;
 		}
 		.material.select:after
