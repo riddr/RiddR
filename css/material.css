@@ -197,6 +197,7 @@
 			.switch input:disabled
 			{
 				opacity:0;
+				cursor:not-allowed !important;
 			}
 		.switch span 
 		{
@@ -219,6 +220,8 @@
 
 			.switch input:disabled + span
 			{
+				opacity: 0.7 !important;
+				cursor:not-allowed !important;
 				background: #bbb !important;
 			}
 
@@ -247,6 +250,7 @@
 			.switch input:disabled + span::before
 			{
 				background: #fff;	
+				cursor: not-allowed !important;
 				transform: translate(0, 0) !important;
 			}
 /*
@@ -275,7 +279,7 @@
 		input[type=range]:disabled
 		{
 			opacity:0.4;
-			cursor:default;
+			cursor:not-allowed;
 		}
 
 	input[type=range]::-webkit-slider-runnable-track 
@@ -416,7 +420,7 @@
 		}
 		.material > select:disabled
 		{
-			cursor: default;
+			cursor: not-allowed;
 			border-bottom: 1px solid #aaa !important;
 		}
 		.material.select:after
