@@ -33,6 +33,10 @@
 
 		trigger : function( event_id, data )
 		{
+			// trigger the event in the current instance / page
+			_trigger( event_id, data );
+
+			// triger the event in all other instances /pages
 			this.send( { action: 'trigger', id: event_id, data: data } );
 		}
 	}
@@ -103,7 +107,7 @@
 */
 	var _trigger = function ( event_id, data )
 	{
-		event = new CustomEvent(event_id, data );
+		event = new CustomEvent(event_id, { detail: data } );
 		window.dispatchEvent(event);
 	}
 
