@@ -21,6 +21,10 @@
 	this.read = function ( utterance, handler )
 	{
 
+		// don't forget chrome's max utterace length predefined from Chrome
+
+		// update RiddR global state 
+		_trigger({state:'reading'});
 	}
 
 /*
@@ -30,7 +34,10 @@
 */
 	this.pause = function ()
 	{
+		chrome.tts.pause();
 
+		// update RiddR global state 
+		_trigger({state:'paused'});
 	}
 
 /*
@@ -40,7 +47,10 @@
 */
 	this.resume = function ()
 	{
+		chrome.tts.resume();
 
+		// update RiddR global state 
+		_trigger({state:'reading'});
 	}
 
 /*
@@ -50,7 +60,10 @@
 */
 	this.stop = function ()
 	{
+		chrome.tts.stop();
 
+		// update RiddR global state 
+		_trigger({state:'end'});
 	}
 
 /*
@@ -58,9 +71,22 @@
  * Check if RiddR is currently reading something 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.is_reading = function (  )
+	this.is_reading = function ( callback )
 	{
+		chrome.tts.isSpeaking ( callback ); 
+	}
 
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * PRIVATE METHODS
+ *
+ * Trigger onStateUpdate event trough all RiddR pages
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _trigger = function ( state )
+	{
+		RiddR.IO.trigger( 'onStateUpdate', state );
 	}
 
 }).apply(RiddR);

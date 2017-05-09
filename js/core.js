@@ -19,7 +19,7 @@ var RiddR = ( function ( API )
 	var data 				= {},
 		loaded 				= false,
 		is_online			= navigator.onLine,
-		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
+		modules 		 	= ['utils','i18n', 'io', 'storage', 'riddr'], // default modules
 		background_modules  = ['TTS']
 		defaults 			= 
 		{
@@ -139,7 +139,7 @@ var RiddR = ( function ( API )
 
 	// load views specific modules and 3-rd party libraries
 	_load_rte();
-
+	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Register connectivity event listeners
