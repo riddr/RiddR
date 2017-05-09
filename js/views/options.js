@@ -197,7 +197,7 @@
  * get all avaliable TTS engines / voices and store them in global object with their supported parameters
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _get_TTS_voices = function ()
+	var _get_TTS_voices = function () // @To-Do: move this into background in order to avoid code repetition 
 	{
 		chrome.tts.getVoices(function ( voices )
 		{
@@ -273,12 +273,15 @@
 		language = RiddR.storage.get('language');
 		engine = RiddR.options.TTS_engines[RiddR.storage.get('TTS_engine')];
 
-		// determine RiddR language selection 
-		default_lang = ( ( typeof engine.lang == 'object' )? engine.default_lang : engine.lang ) || 'auto';
+		// put languages in more idexable format 
+		engine.lang = ( ( typeof engine.lang == 'string' )? [engine.lang] : engine.lang ) || ['auto'];
 
-		// TO-DO: check against array of supported languages 
-		if( default_lang != language )
+		// check if the selected language is supported, otherwise revert to the default or first language
+		if( engine.lang.indexOf(language) == -1 )
+		{
+			default_lang = ( engine.default_lang != undefined )? engine.default_lang : engine.lang[0];
 			RiddR.storage.set( {'language': default_lang } );
+		}
 
 		// update TTS UI 
 		UI.update_tts_parameters();
