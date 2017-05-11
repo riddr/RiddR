@@ -132,9 +132,9 @@
  * Validate TTS event request
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var _load_TTS_engine = function ( voice )
+	var _load_TTS_engine = function ( voice, callback )
 	{
-		RiddR.load(RiddR.TTS.path+voice.voiceName+'.js');
+		RiddR.load(RiddR.TTS.path+voice.voiceName+'.js', callback );
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -156,7 +156,11 @@
 		for( voice_id in voices )
 		{
 			if(voices[voice_id].extensionId == chrome.runtime.id )
-				_load_TTS_engine(voices[voice_id]);
+			{
+				_load_TTS_engine(voices[voice_id], function ()
+				{
+				});
+			}
 		}
 	});
 
