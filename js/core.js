@@ -88,7 +88,7 @@ var RiddR = ( function ( API )
  * RiddR loader
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var load = function( file, callback = undefined )
+	var load = function( file, callback = undefined , data = undefined)
 	{
 		// determine filetype of the requested file
 		type =  file.split('.').pop();
@@ -114,7 +114,7 @@ var RiddR = ( function ( API )
 
 		// call specific callback on element load if needed 
 		if( typeof callback == 'function' )
-			element.onload = callback;
+			element.onload = ( !data )? callback : function() { callback(data); }; // return custom data 
 
 		// load requested file into the DOM
 		document.body.appendChild(element);
