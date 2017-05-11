@@ -20,7 +20,7 @@ var RiddR = ( function ( API )
 		loaded 				= false,
 		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'io', 'storage', 'riddr'], // default modules
-		background_modules  = ['TTS']
+		background_modules  = ['data/TTS_parameters', 'TTS']
 		defaults 			= 
 		{
 			debug 			: true,
@@ -139,7 +139,19 @@ var RiddR = ( function ( API )
 		modules = modules.concat(background_modules); // register background modules
 
 	for ( module in modules ) // load default modules
-		load('/js/modules/'+modules[module]+'.js');
+	{
+		// get raw module
+		module = modules[module].split('/');
+
+		// determine module directory 
+		module = ( module.length > 1)
+		? 
+			{dir: module[0] , name: module[1]} 
+		:
+			{dir: 'modules' , name: module[0]};
+
+		load('/js/'+module.dir+'/'+module.name+'.js');
+	}
 
 	// load views specific modules and 3-rd party libraries
 	_load_rte();
