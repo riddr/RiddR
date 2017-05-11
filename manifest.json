@@ -13,7 +13,8 @@
 
 	"background": 
 	{
-		"scripts": ["/js/core.js"]
+		"scripts": ["/js/core.js"],
+		"persistent": true
 	},
 	
 	"permissions": 
