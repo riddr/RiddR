@@ -127,17 +127,4 @@
 			if(object[key] == value ) 
 				return key;
 	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Prepare the utterance for reading. Filter out bad characters and transcribe it if needed  
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	this.prepare = function ( utterance )
-	{
-		for( key in RiddR.defaults.transcription )
-			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
-
-		return utterance;
-	}
 }).apply(RiddR);

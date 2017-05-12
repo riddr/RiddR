@@ -66,8 +66,11 @@
 					options
 				);
 
+				// send loading event to the callback
+				_TTS_handler( { type : 'loading' }, callback );
 			});
 		}, options.lang );
+
 
 		// update RiddR global state 
 		_trigger({state:'reading'});
@@ -144,6 +147,24 @@
 
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
+	}
+
+	// form utterance, check it's length, language, transliteration & translation
+	var _prepare_utterance = function ( utterance )
+	{
+		// transcription 
+		utterance = _transcribe ( utterance );
+
+		return utterance;
+	}
+
+	// 
+	var _transcribe = function ( utterance )
+	{
+		for( key in RiddR.defaults.transcription )
+			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
+
+		return utterance;
 	}
 
 	// validate options parameter 
