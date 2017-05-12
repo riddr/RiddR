@@ -11,7 +11,12 @@
 
 (function () 
 {
-
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Define private variables
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _max_length = 32768; // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -20,52 +25,49 @@
 */
 	this.read = function ( utterance, callback )
 	{
-		if( !utterance ) // sent interuption to the TTS engine
-			chrome.tts.stop();
-		else
+		//prepare utterance for reading
+		utterance = _prepare_utterance( utterance );
+
+
+		// set test options object
+		options = 
 		{
-			//prepare utterance for reading
-			utterance = RiddR.prepare( utterance );
-
-			// set test options object
-			options = 
-			{
-				voiceName 	: RiddR.storage.get('TTS_engine'),
-				enqueue 	: RiddR.storage.get('enqueue'),
-				lang 		: RiddR.storage.get('language'),
-				rate 		: RiddR.storage.get('rate'),
-				pitch 		: RiddR.storage.get('pitch'),
-				volume 		: RiddR.storage.get('volume')
-			}
-
-			// connectivity failback to offline TTS engine
-			if ( !RiddR.is_online )
-				options.voiceName = RiddR.storage.get('offline_engine');
-
-			// attach event captuing callback if needed
-			if( callback !== undefined )
-				options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
-
-			RiddR._lang( utterance, function ( lang )
-			{
-				// update language if needed
-				options.lang = lang;
-
-				// start reading
-				chrome.tts.isSpeaking( function ( state )
-				{
-					if( state && options.enqueue == false ) // interupt
-						chrome.tts.stop();
-
-					// To-Do: determine action
-					chrome.tts.speak
-					( 
-						utterance,
-						options
-					);
-				});
-			}, options.lang );
+			voiceName 	: RiddR.storage.get('TTS_engine'),
+			enqueue 	: RiddR.storage.get('enqueue'),
+			lang 		: RiddR.storage.get('language'),
+			volume 		: RiddR.storage.get('volume'),
+			rate 		: _validate_parameter ( RiddR.storage.get('rate'),  RiddR.TTS.engines[RiddR.storage.get('TTS_engine')].rate),
+			pitch 		: _validate_parameter ( RiddR.storage.get('pitch'), RiddR.TTS.engines[RiddR.storage.get('TTS_engine')].pitch),
 		}
+
+		// connectivity failback to offline TTS engine
+		if ( !RiddR.is_online )
+			options.voiceName = RiddR.storage.get('offline_engine');
+
+		// attach event captuing callback if needed
+		if( callback !== undefined )
+			options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
+
+		RiddR._lang( utterance, function ( lang )
+		{
+			// update language if needed
+			options.lang = lang;
+
+			// start reading
+			chrome.tts.isSpeaking( function ( state )
+			{
+				if( state && options.enqueue == false ) // interupt
+					chrome.tts.stop();
+
+				// To-Do: determine action
+				chrome.tts.speak
+				( 
+					utterance,
+					options
+				);
+
+			});
+		}, options.lang );
 
 		// update RiddR global state 
 		_trigger({state:'reading'});
@@ -133,7 +135,7 @@
 		RiddR.IO.trigger( 'onStateUpdate', state );
 	}
 
-
+	// handle TTS events and errors 
 	var _TTS_handler = function ( event, callback )
 	{
 		console.log(event);
@@ -143,5 +145,18 @@
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
 	}
+
+	// validate options parameter 
+	var _validate_parameter = function ( current_value, parameters )
+	{
+		if( parameters && current_value > parameters.max )
+			return parameters.default;
+
+		if ( parameters && current_value < parameters.min )
+			return parameters.default;
+
+		return  current_value;
+	}
+
 
 }).apply(RiddR);
