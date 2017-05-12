@@ -101,52 +101,7 @@
 	// Read / stop reading the test sentence, used for testing TTS options 
 	var test_speech = function ( utterance, callback = undefined )
 	{
-		if( !utterance ) // sent interuption to the TTS engine
-			chrome.tts.stop();
-		else
-		{
-			//prepare utterance for reading
-			utterance = RiddR.prepare( utterance );
-
-			// set test options object
-			options = 
-			{
-				voiceName 	: RiddR.storage.get('TTS_engine'),
-				enqueue 	: RiddR.storage.get('enqueue'),
-				lang 		: RiddR.storage.get('language'),
-				rate 		: RiddR.storage.get('rate'),
-				pitch 		: RiddR.storage.get('pitch'),
-				volume 		: RiddR.storage.get('volume')
-			}
-
-			// connectivity failback to offline TTS engine
-			if ( !RiddR.is_online )
-				options.voiceName = RiddR.storage.get('offline_engine');
-
-			// attach event captuing callback if needed
-			if( callback !== undefined )
-				options.onEvent = callback;
-
-			RiddR._lang( utterance, function ( lang )
-			{
-				// update language if needed
-				options.lang = lang;
-
-				// start reading
-				chrome.tts.isSpeaking( function ( state )
-				{
-					if( state && options.enqueue == false ) // interupt
-						chrome.tts.stop();
-
-					// To-Do: determine action
-					chrome.tts.speak
-					( 
-						utterance,
-						options,
-						_TTS_handler
-					);
-				});
-			}, options.lang );
+		RiddR.read( utterance, callback );
 	}
 
 /*
