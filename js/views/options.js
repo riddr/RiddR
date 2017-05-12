@@ -147,7 +147,6 @@
 					);
 				});
 			}, options.lang );
-		}
 	}
 
 /*
@@ -197,31 +196,15 @@
  * get all avaliable TTS engines / voices and store them in global object with their supported parameters
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _get_TTS_voices = function () // @To-Do: move this into background in order to avoid code repetition 
+	var _get_TTS_voices = function () 
 	{
-		chrome.tts.getVoices(function ( voices )
-		{
-			RiddR.IO.call('TTS.parameters', {}, function( embed_TTS ) // get parameters of embed TTS engines
+			RiddR.IO.get('TTS.engines', function( engines ) // get registered TTS engines
 			{
-				for( v_key in voices )
-				{
-					if(embed_TTS[voices[v_key].voiceName] != undefined && voices[v_key].extensionId == chrome.runtime.id)
-						voices[v_key] = Object.assign(voices[v_key], embed_TTS[voices[v_key].voiceName]);
+				// push TTS engine into RiddR global object
+				RiddR.options.TTS_engines = engines;
 
-					// get predefined parameters
-					o_key = voices[v_key].extensionId || voices[v_key].voiceName;
-
-					if( RiddR.data.TTS_parameters[o_key] != undefined )
-						voices[v_key] = Object.assign(voices[v_key], RiddR.data.TTS_parameters[o_key]);
-
-					// push TTS engine into RiddR global object
-					RiddR.options.TTS_engines[voices[v_key].voiceName] = voices[v_key];
-				}
-
-				
 				_async(); // mark async action as complete 
 			});
-		});
 	}
 
 	// get predefined shortcuts / commands 

@@ -18,10 +18,11 @@
  * Define basic public TTS variables
  * ---------------------------------------------------------------------------------------------------------------------
 */	
+		embed   : {},
 		engines : {},
 		engine 	: null,
-		path	: '/js/TTS/',
 		state 	: 'end',
+		path	: '/js/TTS/',
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Define TTS Engine event callbacks 
@@ -58,15 +59,6 @@
 		onLoad : function()
 		{
 			chrome.tts.stop();			
-		},
-
-		// return supported TTS engines parameters 
-		parameters : function()
-		{
-			for( TTS_id in RiddR.TTS.engines )
-				TTS_caps =  Object.assign({}, { [TTS_id]: RiddR.TTS.engines[TTS_id].parameters});
-
-			return TTS_caps;
 		}
 	}
 
@@ -113,13 +105,13 @@
 
 		if( RiddR.TTS.engine == null || RiddR.TTS.engine.name != options.voiceName ) // check if new TTS engine is called
 		{
-			if(RiddR.TTS.engines[options.voiceName] !== undefined) // check if the requested TTS engine is loaded
+			if(RiddR.TTS.embed[options.voiceName] !== undefined) // check if the requested TTS engine is loaded
 			{	
 				// gracefully stop old TTS engine if playing
 				RiddR.TTS.events.onStop();
 
 				// set current TTS engine
-				RiddR.TTS.engine = RiddR.TTS.engines[options.voiceName]; 
+				RiddR.TTS.engine = RiddR.TTS.embed[options.voiceName]; 
 			}
 			else
 				return false;
@@ -134,7 +126,29 @@
 */	
 	var _load_TTS_engine = function ( voice, callback )
 	{
-		RiddR.load(RiddR.TTS.path+voice.voiceName+'.js', callback );
+		RiddR.load(RiddR.TTS.path+voice.voiceName+'.js', callback , voice );
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Register all avaliable TTS engines and load their parameter values 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	var _register_TTS_engine = function ( engine, embed = false )
+	{
+		// define TTS engine selection key based on ID or it's NAME 
+		o_key = engine.extensionId || engine.voiceName;
+
+		// assign embed parameters if defined
+		if( embed && RiddR.TTS.embed[engine.voiceName].parameters )
+		{
+			engine = Object.assign( engine, RiddR.TTS.embed[engine.voiceName].parameters )
+		}
+		else if ( RiddR.data.TTS_parameters[o_key] ) // otherwise try to assign predefined parameters
+			engine = Object.assign( engine, RiddR.data.TTS_parameters[o_key] );
+
+		// register the TTS engine
+		RiddR.TTS.engines[engine.voiceName] = engine;
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -148,7 +162,7 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Load all built in TTS engines
+ * Load all built in TTS engines and register all installed TTS engines
  * ---------------------------------------------------------------------------------------------------------------------
 */	
 	chrome.tts.getVoices( function( voices )
@@ -157,10 +171,13 @@
 		{
 			if(voices[voice_id].extensionId == chrome.runtime.id )
 			{
-				_load_TTS_engine(voices[voice_id], function ()
+				_load_TTS_engine(voices[voice_id], function ( engine )
 				{
+					_register_TTS_engine( engine, true );
 				});
 			}
+			else
+				_register_TTS_engine( voices[voice_id] );
 		}
 	});
 

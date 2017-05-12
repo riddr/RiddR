@@ -12,7 +12,7 @@
 (function () 
 {
 	// define public methods and variables
-	var TTS = this.TTS.engines.SpeakIt  = 
+	var TTS = this.TTS.embed.SpeakIt  = 
 	{ 
 		// set global variables
 		name 			: 'SpeakIt',
