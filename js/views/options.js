@@ -13,6 +13,9 @@
 {
 	var UI;
 
+	// extend RiddR object
+	this.TTS = {};
+
 	// extendd RiddR global options object 
 	this.options = new Proxy
 	(
@@ -156,7 +159,7 @@
 			RiddR.IO.get('TTS.engines', function( engines ) // get registered TTS engines
 			{
 				// push TTS engine into RiddR global object
-				RiddR.options.TTS_engines = engines;
+				RiddR.TTS.engines = engines;
 
 				_async(); // mark async action as complete 
 			});
@@ -209,7 +212,7 @@
 	{
 		// TO-DO: pass this into UI, CHECK FOR CONNECTION STATUS IF REMOTE 
 		language = RiddR.storage.get('language');
-		engine = RiddR.options.TTS_engines[RiddR.storage.get('TTS_engine')];
+		engine = RiddR.TTS.engines[RiddR.storage.get('TTS_engine')];
 
 		// put languages in more idexable format 
 		engine.lang = ( ( typeof engine.lang == 'string' )? [engine.lang] : engine.lang ) || ['auto'];
@@ -222,7 +225,7 @@
 		}
 
 		// update TTS UI 
-		UI.update_tts_parameters();
+		UI.update_tts_parameters( engine );
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------

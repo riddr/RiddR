@@ -293,7 +293,7 @@
 	{
 		tts_list = '';
 
-		for ( engine in RiddR.options.TTS_engines)
+		for ( engine in RiddR.TTS.engines)
 		{
 			tts_list += '<option value="'+engine+'">'+engine+'</option>'            
 		}
@@ -302,10 +302,8 @@
 	}
 
 	// update TTS engine parametrs   @To-Do: make this function more roubst in order to handle keyboard shortcuts sliders
-	var _update_tts_parameters = function() 
+	var _update_tts_parameters = function( engine ) 
 	{
-		engine = RiddR.options.TTS_engines[RiddR.defaults.TTS_engine];
-
 		// update TTS sliders
 		$('#rate, #pitch').each(function()
 		{
@@ -390,7 +388,7 @@
 			_generate_tts_list();
 
 			// update TTS engine parameters
-			_update_tts_parameters();
+			_update_tts_parameters( RiddR.TTS.engines[RiddR.storage.get('TTS_engine')] );
 		},
 
 		render : function()
