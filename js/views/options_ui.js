@@ -382,13 +382,13 @@
 */
 	RiddR.options.UI = 
 	{
-		generate : function()
+		generate : function( engine )
 		{
 			// generate list of avaliable TTS engines 
 			_generate_tts_list();
 
 			// update TTS engine parameters
-			_update_tts_parameters( RiddR.TTS.engines[RiddR.storage.get('TTS_engine')] );
+			_update_tts_parameters( engine );
 		},
 
 		render : function()

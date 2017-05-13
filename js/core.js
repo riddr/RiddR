@@ -26,6 +26,7 @@ var RiddR = ( function ( API )
 			debug 			: true,
 			TTS_engine 		: 'SpeakIt',
 			offline_engine	: 'native',
+			failover_engine : 'SpeakIt',
 			enqueue 		: true,
 			volume			: 1,
 			rate 			: 1,

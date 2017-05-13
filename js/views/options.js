@@ -20,8 +20,8 @@
 	this.options = new Proxy
 	(
 		{
-			TTS_engines : {},
-			environment : 0
+			environment : 0,
+			TTS_engines : {}
 		},
 		{   // define magic method for catching all requests to the global options object
 			get: function(target, property)
@@ -63,8 +63,8 @@
 			// initialize options UI
 			UI = RiddR.options.UI;
 
-			// generate UI interface
-			UI.generate();
+			// generate UI interface by passing validated TTS engine
+			UI.generate( RiddR.validate_TTS( RiddR.storage.get('TTS_engine') ) );
 
 			// load saved options 
 			_load_options();
@@ -212,7 +212,7 @@
 	{
 		// TO-DO: pass this into UI, CHECK FOR CONNECTION STATUS IF REMOTE 
 		language = RiddR.storage.get('language');
-		engine = RiddR.TTS.engines[RiddR.storage.get('TTS_engine')];
+		engine = RiddR.validate_TTS( RiddR.storage.get('TTS_engine') );
 
 		// put languages in more idexable format 
 		engine.lang = ( ( typeof engine.lang == 'string' )? [engine.lang] : engine.lang ) || ['auto'];

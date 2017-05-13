@@ -127,4 +127,11 @@
 			if(object[key] == value ) 
 				return key;
 	}
+
+	// validate seleted TTS engine & switch to failover TTS engine if needed
+	this.validate_TTS = function ( TTS_engine )
+	{
+	 	return RiddR.TTS.engines[TTS_engine] || RiddR.TTS.engines[RiddR.defaults.failover_engine];
+	}
+
 }).apply(RiddR);
