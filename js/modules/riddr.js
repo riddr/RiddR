@@ -119,7 +119,7 @@
 */
 	var _trigger = function ( state )
 	{
-		RiddR.IO.trigger( 'onStateUpdate', state );
+		RiddR.IO.trigger( 'onTTSupdate', state );
 	}
 
 	// handle TTS events and errors 
@@ -127,6 +127,10 @@
 	{
 		if( callback )
 			callback(event);
+
+		// trigger TTS update event
+		if( event )
+			_trigger( event );
 
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
