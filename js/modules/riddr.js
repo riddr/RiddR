@@ -16,7 +16,8 @@
  * Define private variables
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _max_length = 32768; // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
+	var _engine,
+		_max_length = 32768; // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -26,10 +27,10 @@
 	this.read = function ( utterance, callback  = null )
 	{
 		// determine the selected TTS engine based on client connection state 
-		engine =  ( RiddR.is_online ) ? RiddR.storage.get('TTS_engine') : RiddR.storage.get('offline_engine')
+		engine_name =  ( RiddR.is_online ) ? RiddR.storage.get('TTS_engine') : RiddR.storage.get('offline_engine');
 
 		// get the parameters of the selected TTS engine
-		engine = RiddR.validate_TTS(engine);
+		_engine = RiddR.validate_TTS(engine_name);
 
 		//prepare utterance for reading
 		utterance = _prepare_utterance( utterance );
@@ -37,12 +38,12 @@
 		// set test options object
 		options = 
 		{
-			voiceName 	: engine.voiceName,
+			voiceName 	: _engine.voiceName,
 			enqueue 	: RiddR.storage.get('enqueue'),
 			lang 		: RiddR.storage.get('language'),
 			volume 		: RiddR.storage.get('volume'),
-			rate 		: _validate_parameter ( RiddR.storage.get('rate'),  engine.rate),
-			pitch 		: _validate_parameter ( RiddR.storage.get('pitch'), engine.pitch),
+			rate 		: _validate_parameter ( RiddR.storage.get('rate'),  _engine.rate),
+			pitch 		: _validate_parameter ( RiddR.storage.get('pitch'), _engine.pitch),
 		}
 
 		// attach event capturing callback if needed
@@ -67,9 +68,6 @@
 				_TTS_handler( { type : 'loading' }, callback );
 				
 		}, options.lang );
-
-		// update RiddR global state 
-		_trigger({state:'reading'});
 	}
 
 /*
@@ -77,12 +75,9 @@
  * Pauses speech synthesis if it was reading
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.pause = function ()
+	this.pause = function ( callback )
 	{
-		chrome.tts.pause();
-
-		// update RiddR global state 
-		_trigger({state:'paused'});
+		_media_control( 'pause', callback );
 	}
 
 /*
@@ -90,12 +85,9 @@
  * Resume speaking if the reading was paused 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.resume = function ()
+	this.resume = function ( callback )
 	{
-		chrome.tts.resume();
-
-		// update RiddR global state 
-		_trigger({state:'reading'});
+		_media_control( 'resume', callback );
 	}
 
 /*
@@ -106,9 +98,6 @@
 	this.stop = function ()
 	{
 		chrome.tts.stop();
-
-		// update RiddR global state 
-		_trigger({state:'end'});
 	}
 
 /*
@@ -120,7 +109,6 @@
 	{
 		chrome.tts.isSpeaking ( callback ); 
 	}
-
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -137,9 +125,8 @@
 	// handle TTS events and errors 
 	var _TTS_handler = function ( event, callback )
 	{
-		console.log(event);
-
-		callback(event);
+		if( callback )
+			callback(event);
 
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
@@ -173,6 +160,24 @@
 			return parameters.default;
 
 		return  current_value;
+	}
+
+	// media controll for sending failback pause / resume events 
+	var _media_control = function ( action, callback )
+	{
+		RiddR.is_reading( function( reading ) // check if TTS engine is reading
+		{
+			if ( reading )
+			{
+				chrome.tts[action]();
+
+				// failback send pause event @To-Do: file a bug regards unsuported events ( pause, resume ) in ttsEngines
+				if( _engine && _engine.eventTypes.indexOf(action) == -1 )
+					_TTS_handler( { type : action }, callback );
+				else if ( callback ) // avoid empty calls 
+					callback();
+			}
+		});
 	}
 
 
