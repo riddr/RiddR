@@ -1,7 +1,7 @@
 /*
  * RiddR
  *
- * RiddR's main text to speech synthesizer  
+ * RiddR's main text to speech synthesizer module
  *
  * @package		RiddR
  * @category	Core
@@ -23,54 +23,50 @@
  * RiddR main reading method // don't forget chrome's max utterace length predefined from Chrome
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.read = function ( utterance, callback )
+	this.read = function ( utterance, callback  = null )
 	{
+		// determine the selected TTS engine based on client connection state 
+		engine =  ( RiddR.is_online ) ? RiddR.storage.get('TTS_engine') : RiddR.storage.get('offline_engine')
+
+		// get the parameters of the selected TTS engine
+		engine = RiddR.validate_TTS(engine);
+
 		//prepare utterance for reading
 		utterance = _prepare_utterance( utterance );
-
 
 		// set test options object
 		options = 
 		{
-			voiceName 	: RiddR.storage.get('TTS_engine'),
+			voiceName 	: engine.voiceName,
 			enqueue 	: RiddR.storage.get('enqueue'),
 			lang 		: RiddR.storage.get('language'),
 			volume 		: RiddR.storage.get('volume'),
-			rate 		: _validate_parameter ( RiddR.storage.get('rate'),  RiddR.TTS.engines[RiddR.storage.get('TTS_engine')].rate),
-			pitch 		: _validate_parameter ( RiddR.storage.get('pitch'), RiddR.TTS.engines[RiddR.storage.get('TTS_engine')].pitch),
+			rate 		: _validate_parameter ( RiddR.storage.get('rate'),  engine.rate),
+			pitch 		: _validate_parameter ( RiddR.storage.get('pitch'), engine.pitch),
 		}
 
-		// connectivity failback to offline TTS engine
-		if ( !RiddR.is_online )
-			options.voiceName = RiddR.storage.get('offline_engine');
-
-		// attach event captuing callback if needed
-		if( callback !== undefined )
+		// attach event capturing callback if needed
+		if( callback !== null )
 			options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
 
+		// determine utterance language
 		RiddR._lang( utterance, function ( lang )
 		{
 			// update language if needed
 			options.lang = lang;
 
-			// start reading
-			chrome.tts.isSpeaking( function ( state )
-			{
-				if( state && options.enqueue == false ) // interupt
-					chrome.tts.stop();
+			// To-Do: determine action
+			chrome.tts.speak
+			( 
+				utterance,
+				options
+			);
 
-				// To-Do: determine action
-				chrome.tts.speak
-				( 
-					utterance,
-					options
-				);
-
-				// send loading event to the callback
+			// send loading event to the callback for remote TTS engines
+			if( engine.remote )
 				_TTS_handler( { type : 'loading' }, callback );
-			});
+				
 		}, options.lang );
-
 
 		// update RiddR global state 
 		_trigger({state:'reading'});
