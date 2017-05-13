@@ -146,6 +146,8 @@
 		}
 		else if ( RiddR.data.TTS_parameters[o_key] ) // otherwise try to assign predefined parameters
 			engine = Object.assign( engine, RiddR.data.TTS_parameters[o_key] );
+		else
+			engine = Object.assign ( engine,  RiddR.data.TTS_parameters.defaults )
 
 		// register the TTS engine
 		RiddR.TTS.engines[engine.voiceName] = engine;

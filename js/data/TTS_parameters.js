@@ -14,7 +14,7 @@
 	this.data.TTS_parameters = 
 	{
 		// OS native TTS engine 
-		native : 
+		defaults : 
 		{
 			pitch 	: { min:   0, max: 2,  default: 1.0},
 			rate 	: { min: 0.1, max: 10, default: 1.0},
