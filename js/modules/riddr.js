@@ -58,17 +58,18 @@
 		RiddR.lang( utterance, function ( lang )
 		{
 			//prepare utterance for reading
-			utterance = _prepare_utterance( utterance );
+			_prepare_utterance( utterance, lang, function ( utterance ) 
+			{
+				// update language if needed
+				options.lang = lang;
 
-			// update language if needed
-			options.lang = lang;
-
-			// To-Do: determine action
-			chrome.tts.speak
-			( 
-				utterance,
-				options
-			);
+				// To-Do: determine action
+				chrome.tts.speak
+				( 
+					utterance,
+					options
+				);
+			});
 
 			// send loading event to the callback for remote TTS engines
 			if( engine.remote )
@@ -170,21 +171,30 @@
  * form utterance, check it's length, language, transliterate it & translate it
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _prepare_utterance = function ( utterance )
+	var _prepare_utterance = function ( utterance, language, callback )
 	{
-		// transcription 
+		// transcribe the utterance 
 		utterance = _transcribe ( utterance );
 
-		return utterance;
+		if( RiddR.storage.get('translate') && RiddR.storage.get('language') != 'auto' ) // translate utterance if auto translate feature is enabled
+			_translate( utterance, language,  callback );
+		else
+			callback(utterance);
 	}
 
-	// 
+	// transcribe userdefined words for better pronouncing 
 	var _transcribe = function ( utterance )
 	{
 		for( key in RiddR.defaults.transcription )
 			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
 
 		return utterance;
+	}
+
+	// translate utterance to to the specified language if needed 
+	var _translate = function ( utterance, language, callback )
+	{
+		return callback(utterance);
 	}
 
 }).apply(RiddR);
