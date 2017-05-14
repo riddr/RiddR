@@ -51,7 +51,7 @@
 			options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
 
 		// temporary fix for Chrome pause bug // @To-Do: file bug to Google regards this
-		if(_TTS_state.type == 'pause' )
+		if(_TTS_state == 'pause' )
 			RiddR.stop();
 
 		// determine utterance language
@@ -72,9 +72,13 @@
 			});
 
 			// send loading event to the callback for remote TTS engines
-			if( engine.remote )
+			if( _engine.remote && _TTS_state != 'start' && _TTS_state != 'enqueued' )
+			{
 				_TTS_handler( { type : 'loading' }, callback );
-				
+			}
+			else if( RiddR.storage.get('enqueue') ) // send event that new utterance was added into the queue
+				_TTS_handler( { type : 'enqueued' }, callback );
+
 		}, options.lang );
 	}
 
@@ -123,10 +127,6 @@
 	// Trigger onStateUpdate event trough all RiddR pages
 	var _trigger = function ( state )
 	{
-		// update local reading state 
-		if(state.type != 'word' && state.type != 'sentence' && state.type != 'marker' )
-			_TTS_state = state;
-
 		RiddR.IO.trigger( 'onTTSupdate', state );
 	}
 
@@ -140,6 +140,10 @@
 		// execute callback 
 		if( callback && event )
 			callback(event);
+
+		// update local reading state 
+		if(event.type != 'word' && event.type != 'sentence' && event.type != 'marker' )
+			_TTS_state = event.type;
 
 		// @To-Do: implement better error handling 
 		if (chrome.runtime.lastError) 

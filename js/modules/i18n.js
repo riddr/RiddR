@@ -50,7 +50,7 @@
 			// pass detected language into ouput variable
 			lang.detected = detected.languages[0].language;
 
-			// determine local variation of language based on the browser UI
+			// determine local variation of language based on the browser UI in BCP-47 standard
 			lang.local =  ( RiddR.locale.substring(0,2) == lang.detected )? RiddR.locale : lang.detected;
 			
 			// set reading language
