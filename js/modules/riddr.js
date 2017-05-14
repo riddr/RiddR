@@ -55,13 +55,13 @@
 			RiddR.stop();
 
 		// determine utterance language
-		RiddR.lang( utterance, function ( lang )
+		RiddR.detect_lang( utterance, function ( lang )
 		{
 			//prepare utterance for reading
 			_prepare_utterance( utterance, lang, function ( utterance ) 
 			{
 				// update language if needed
-				options.lang = lang;
+				options.lang = lang.read;
 
 				// To-Do: determine action
 				chrome.tts.speak
@@ -176,8 +176,9 @@
 		// transcribe the utterance 
 		utterance = _transcribe ( utterance );
 
-		if( RiddR.storage.get('translate') && RiddR.storage.get('language') != 'auto' ) // translate utterance if auto translate feature is enabled
-			_translate( utterance, language,  callback );
+		// translate utterance if auto translate feature is enabled
+		if( RiddR.storage.get('translate') && language.input != 'auto' &&  language.read.substr(0,2) != language.detected ) 
+			RiddR.translate( utterance, language.detected, language.requested,  callback );
 		else
 			callback(utterance);
 	}
@@ -189,12 +190,6 @@
 			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
 
 		return utterance;
-	}
-
-	// translate utterance to to the specified language if needed 
-	var _translate = function ( utterance, language, callback )
-	{
-		return callback(utterance);
 	}
 
 }).apply(RiddR);

@@ -40,21 +40,35 @@
  * Detect language from text input
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	this.lang = function ( text, callback, lang )
+	this.detect_lang = function ( text, callback, lang = 'auto' )
 	{
-		if ( lang !== undefined && lang !== 'auto' ) // skip language detection if the language is forced
-			callback(lang);
-		else
-		{
-			chrome.i18n.detectLanguage ( text, function( detected ) // @To-Do: make more advanced / en-US / universal locale detection
-			// @To-Do: implement better language detection https://src.chromium.org/viewvc/chrome/trunk/src/third_party/cld/languages/internal/languages.cc
-			// make some tests about language dialects eg. PORTUGUESE_P vs PORTUGUESE_B
-			{
-				lang =  ( RiddR.locale.substring(0,2) == detected.languages[0].language )? RiddR.locale : detected.languages[0].language;
+		// pas input language into ouput variable
+		lang = { requested: lang };
 
-				callback( lang );
-			})
-		}
+		chrome.i18n.detectLanguage ( text, function( detected )
+		{
+			// pass detected language into ouput variable
+			lang.detected = detected.languages[0].language;
+
+			// determine local variation of language based on the browser UI
+			lang.local =  ( RiddR.locale.substring(0,2) == lang.detected )? RiddR.locale : lang.detected;
+			
+			// set reading language
+			lang.read = ( lang.requested != 'auto' )? lang.requested : lang.local;
+
+			// send the detected language
+			callback( lang );
+		})
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Translate text from one into another language
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	this.translate = function ( text, from, to, callback )
+	{
+		callback(text);
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
