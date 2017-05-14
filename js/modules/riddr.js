@@ -35,9 +35,6 @@
 		// get the parameters of the selected TTS engine
 		_engine = RiddR.validate_TTS(engine_name);
 
-		//prepare utterance for reading
-		utterance = _prepare_utterance( utterance );
-
 		// set test options object
 		options = 
 		{
@@ -58,8 +55,11 @@
 			RiddR.stop();
 
 		// determine utterance language
-		RiddR._lang( utterance, function ( lang )
+		RiddR.lang( utterance, function ( lang )
 		{
+			//prepare utterance for reading
+			utterance = _prepare_utterance( utterance );
+
 			// update language if needed
 			options.lang = lang;
 
@@ -103,14 +103,26 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * PRIVATE METHODS
+ * PRIVATE TTS HANDLING & MEDIA CONTROL METHODS
  *
- * Trigger onStateUpdate event trough all RiddR pages
+ * Validate options parameter
  * ---------------------------------------------------------------------------------------------------------------------
 */
+	var _validate_parameter = function ( current_value, parameters )
+	{
+		if( parameters && current_value > parameters.max )
+			return parameters.default;
+
+		if ( parameters && current_value < parameters.min )
+			return parameters.default;
+
+		return  current_value;
+	}
+
+	// Trigger onStateUpdate event trough all RiddR pages
 	var _trigger = function ( state )
 	{
-		// update local readung state 
+		// update local reading state 
 		if(state.type != 'word' && state.type != 'sentence' && state.type != 'marker' )
 			_TTS_state = state;
 
@@ -128,38 +140,9 @@
 		if( callback && event )
 			callback(event);
 
+		// @To-Do: implement better error handling 
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
-	}
-
-	// form utterance, check it's length, language, transliteration & translation
-	var _prepare_utterance = function ( utterance )
-	{
-		// transcription 
-		utterance = _transcribe ( utterance );
-
-		return utterance;
-	}
-
-	// 
-	var _transcribe = function ( utterance )
-	{
-		for( key in RiddR.defaults.transcription )
-			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
-
-		return utterance;
-	}
-
-	// validate options parameter 
-	var _validate_parameter = function ( current_value, parameters )
-	{
-		if( parameters && current_value > parameters.max )
-			return parameters.default;
-
-		if ( parameters && current_value < parameters.min )
-			return parameters.default;
-
-		return  current_value;
 	}
 
 	// media controll for sending failback pause / resume events 
@@ -180,5 +163,28 @@
 		});
 	}
 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * PRIVATE UTTERANCE FORMING METHODS 
+ *
+ * form utterance, check it's length, language, transliterate it & translate it
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _prepare_utterance = function ( utterance )
+	{
+		// transcription 
+		utterance = _transcribe ( utterance );
+
+		return utterance;
+	}
+
+	// 
+	var _transcribe = function ( utterance )
+	{
+		for( key in RiddR.defaults.transcription )
+			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
+
+		return utterance;
+	}
 
 }).apply(RiddR);

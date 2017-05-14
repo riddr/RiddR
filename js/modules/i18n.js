@@ -40,7 +40,7 @@
  * Detect language from text input
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	this._lang = function ( text, callback, lang )
+	this.lang = function ( text, callback, lang )
 	{
 		if ( lang !== undefined && lang !== 'auto' ) // skip language detection if the language is forced
 			callback(lang);
