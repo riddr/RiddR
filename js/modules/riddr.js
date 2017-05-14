@@ -17,11 +17,14 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var _engine,
+		_TTS_state = 'end',
 		_max_length = 32768; // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * RiddR main reading method // don't forget chrome's max utterace length predefined from Chrome
+ * RiddR SYNTHESIZER CONTROL METHODS 
+ *
+ * main read method 
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	this.read = function ( utterance, callback  = null )
@@ -50,6 +53,10 @@
 		if( callback !== null )
 			options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
 
+		// temporary fix for Chrome pause bug // @To-Do: file bug to Google regards this
+		if(_TTS_state.type == 'pause' )
+			RiddR.stop();
+
 		// determine utterance language
 		RiddR._lang( utterance, function ( lang )
 		{
@@ -70,41 +77,25 @@
 		}, options.lang );
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Pauses speech synthesis if it was reading
- * ---------------------------------------------------------------------------------------------------------------------
-*/
+	// Pauses speech synthesis if it was reading
 	this.pause = function ( callback )
 	{
 		_media_control( 'pause', callback );
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Resume speaking if the reading was paused 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
+	// Resume speaking if the reading was paused 
 	this.resume = function ( callback )
 	{
 		_media_control( 'resume', callback );
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Stop any current reading and flush the queue of any pending utterances  
- * ---------------------------------------------------------------------------------------------------------------------
-*/
+	// Stop any current reading and flush the queue of any pending utterances  
 	this.stop = function ()
 	{
 		chrome.tts.stop();
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Check if RiddR is currently reading something 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
+	// Check if RiddR is currently reading something 
 	this.is_reading = function ( callback )
 	{
 		chrome.tts.isSpeaking ( callback ); 
@@ -119,18 +110,23 @@
 */
 	var _trigger = function ( state )
 	{
+		// update local readung state 
+		if(state.type != 'word' && state.type != 'sentence' && state.type != 'marker' )
+			_TTS_state = state;
+
 		RiddR.IO.trigger( 'onTTSupdate', state );
 	}
 
 	// handle TTS events and errors 
 	var _TTS_handler = function ( event, callback )
 	{
-		if( callback )
-			callback(event);
-
-		// trigger TTS update event
-		if( event )
+		// trigger TTS update event if no callback is provided
+		if( event && !callback )
 			_trigger( event );
+
+		// execute callback 
+		if( callback && event )
+			callback(event);
 
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
