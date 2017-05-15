@@ -104,7 +104,7 @@
 	// Read / stop reading the test sentence, used for testing TTS options 
 	var test_speech = function ( utterance, callback = undefined )
 	{
-		RiddR.read( utterance, callback );
+		RiddR.read( utterance, {}, callback );
 	}
 
 /*

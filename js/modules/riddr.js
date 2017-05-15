@@ -27,10 +27,12 @@
  * main read method 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.read = function ( utterance, callback  = null )
+	this.read = function ( utterance, options = {}, callback )
 	{
 		// determine the selected TTS engine based on client connection state 
-		engine_name =  ( RiddR.is_online ) ? RiddR.storage.get('TTS_engine') : RiddR.storage.get('offline_engine');
+		engine_name =  ( RiddR.is_online ) ? 
+			options.TTS_engine || RiddR.storage.get('TTS_engine') :
+			RiddR.storage.get('offline_engine');
 
 		// get the parameters of the selected TTS engine
 		_engine = RiddR.validate_TTS(engine_name);
@@ -39,15 +41,15 @@
 		options = 
 		{
 			voiceName 	: _engine.voiceName,
-			enqueue 	: RiddR.storage.get('enqueue'),
-			lang 		: RiddR.storage.get('language'),
-			volume 		: RiddR.storage.get('volume'),
-			rate 		: _validate_parameter ( RiddR.storage.get('rate'),  _engine.rate),
-			pitch 		: _validate_parameter ( RiddR.storage.get('pitch'), _engine.pitch),
+			enqueue 	: options.enqueue 						|| RiddR.storage.get('enqueue'),
+			lang 		: options.lang 							|| RiddR.storage.get('language'),
+			volume 		: options.volume 						|| RiddR.storage.get('volume'),
+			rate 		: _validate_parameter ( options.rate 	|| RiddR.storage.get('rate'),  _engine.rate),
+			pitch 		: _validate_parameter ( options.pitch 	|| RiddR.storage.get('pitch'), _engine.pitch),
 		}
 
 		// attach event capturing callback if needed
-		if( callback !== null )
+		if( callback )
 			options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
 
 		// temporary fix for Chrome pause bug // @To-Do: file bug to Google regards this
