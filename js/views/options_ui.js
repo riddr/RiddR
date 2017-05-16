@@ -377,6 +377,41 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * UI SHORTCUTS RELATED FUNCTIONS 
+ * 
+ * Generate global keyboard shortcuts / commands  
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	var _render_global_commands = function()
+	{
+		for( cmd_id in RiddR.options.commands )
+		{
+			command = RiddR.options.commands[cmd_id];
+
+			// form shortcut html 
+			shortcut_html = `<div class="material"> 
+								<label for="kb-read">`+RiddR.__('shortcut_'+command.name)+`</label> 
+								<div class="keys" id="kb-read">`
+									+ _get_shortcut_html( command.shortcut ) +
+							`	</div>
+							</div>`;
+
+			// push shortcut html into shortcut container element 
+			$("#global-shortcuts-container").append( shortcut_html );
+		}
+	}
+
+	// generate shortcut html from shortcut code in the following format: ( Alt+Shift+R )
+	var _get_shortcut_html = function( code, html = '' )
+	{
+		for ( key_id in keys = code.split('+') )
+			html += `<span key="`+keys[key_id].toLowerCase()+`">` + keys[key_id] + `</span>`;
+
+		return html;
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * 
  * ---------------------------------------------------------------------------------------------------------------------
 */
@@ -389,6 +424,9 @@
 
 			// update TTS engine parameters
 			_update_tts_parameters( engine );
+
+			// generate global keyboard shortcuts / commands  
+			_render_global_commands();
 		},
 
 		render : function()
