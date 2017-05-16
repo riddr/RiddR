@@ -134,4 +134,10 @@
 	 	return RiddR.TTS.engines[TTS_engine] || RiddR.TTS.engines[RiddR.defaults.failover_engine];
 	}
 
+	// truncate some string on specific length 
+	String.prototype.truncate = function ( length )
+	{
+		return ( this.length > length ) ? this.substr( 0, length-1 ) + '&hellip;' : this;
+	};
+
 }).apply(RiddR);
