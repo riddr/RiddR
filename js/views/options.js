@@ -20,8 +20,9 @@
 	this.options = new Proxy
 	(
 		{
-			environment : 0,
-			TTS_engines : {}
+			environment 	: 0,
+			TTS_engines 	: {},
+			avaliable_keys 	: 'QWERTYUIOPASDFGHJKLZXCVBNM' // list of avaliable shortcut keys
 		},
 		{   // define magic method for catching all requests to the global options object
 			get: function(target, property)
@@ -72,6 +73,27 @@
 			// render UI interface
 			UI.render();
 		}
+	}
+
+	// generate new shortcut 
+	var newShortcut = function ()
+	{
+		// generate random shortcut key
+		key = 'Alt+Shift+' + RiddR.options.avaliable_keys[Math.floor(Math.random() * RiddR.options.avaliable_keys.length)];
+		  
+		shortcut = { [key] : {
+								TTS_engine 	: 'SpeakIt',
+								language 	: 'auto',
+								translate 	: false,
+								volume			: 1,
+								rate 			: 1,
+								pitch 			: 1,
+
+							} 
+					};
+
+
+		return shortcut;
 	}
 
 /*
