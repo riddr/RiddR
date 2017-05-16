@@ -187,7 +187,7 @@
 			if( select.parent().has('ul').length == 0 )
 			{
 				select.find('option').each(function() {
-					dropdown.append('<li>'+$(this).html()+'</li>');
+					dropdown.append('<li>'+$(this).attr('display')+'</li>');
 				});
 
 				select.parent().append(dropdown);
@@ -231,7 +231,7 @@
 					$(select).find("[selected]").prop('selected',false); 
 					$(select).find('option').filter(function()
 					{
-						return $(this).text() === $(event.target).text()
+						return $(this).attr('display') === $(event.target).text()
 					}).prop('selected',true);
 
 					// remove previous selections from the custom dropwown menu
@@ -258,15 +258,6 @@
 				setTimeout(function(){_snackbar('TTS engine dosen\'t support this feature.');},10);
 
 		});
-	
-		// Set listeners for new custom shortuct button     
-		$(document).on('click', '#add_shortcut', function()
-		{
-			$("#shortcuts").append(RiddR.options.html.shortuct());
-
-			// scroll to bottom of the container
-			$("content section:nth-child(2)").scrollTop($("content section:nth-child(2)").prop("scrollHeight"));
-		});
 
 		// Set scroll listeners for the sticky headers              
 		$('section').on('scroll', function()
@@ -287,18 +278,18 @@
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * UI HTML generation methods
+ *
+ * Generate TTS engine list
  * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _generate_tts_list = function ()
+*/	
+	var _generate_tts_list = function (  selected, truncate = 25, html = '' )
 	{
-		tts_list = '';
-
-		for ( engine in RiddR.TTS.engines)
+		for ( engine in RiddR.TTS.engines )
 		{
-			tts_list += '<option value="'+engine+'">'+engine+'</option>'            
+			html += '<option display="'+engine+'" '+( ( engine == selected )? 'selected' : '' )+' value="'+engine+'">'+engine.truncate(truncate)+'</option>'            
 		}
 
-		$("#TTS_engine").html(tts_list);
+		return html;
 	}
 
 	// update TTS engine parametrs   @To-Do: make this function more roubst in order to handle keyboard shortcuts sliders
@@ -358,7 +349,7 @@
 				// determine if the language option should be preselected
 				selected = (language.code == RiddR.storage.get('language'))? 'selected' : '';
 
-				list_html += '<option '+selected+' value="'+language.code+'">'+language.name+'</option>';
+				list_html += '<option display="'+language.name+'" '+selected+' value="'+language.code+'">'+language.name+'</option>';
 			}
 		}
 	
@@ -382,7 +373,7 @@
  * Generate global keyboard shortcuts / commands  
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var _render_global_commands = function()
+	var _render_global_commands = function ()
 	{
 		for( cmd_id in RiddR.options.commands )
 		{
@@ -392,7 +383,7 @@
 			shortcut_html = `<div class="material"> 
 								<label for="kb-read">`+RiddR.__('shortcut_'+command.name)+`</label> 
 								<div class="keys" id="kb-read">`
-									+ _get_shortcut_html( command.shortcut ) +
+									+ _get_shortcut_keys( command.shortcut ) +
 							`	</div>
 							</div>`;
 
@@ -402,7 +393,7 @@
 	}
 
 	// generate shortcut html from shortcut code in the following format: ( Alt+Shift+R )
-	var _get_shortcut_html = function( code, html = '' )
+	var _get_shortcut_keys = function ( code, html = '' )
 	{
 		for ( key_id in keys = code.split('+') )
 			html += `<span key="`+keys[key_id].toLowerCase()+`">` + keys[key_id] + `</span>`;
@@ -420,7 +411,7 @@
 		generate : function( engine )
 		{
 			// generate list of avaliable TTS engines 
-			_generate_tts_list();
+			$("#TTS_engine").html( _generate_tts_list() );
 
 			// update TTS engine parameters
 			_update_tts_parameters( engine );
