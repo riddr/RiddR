@@ -141,6 +141,15 @@
 		{
 			RiddR.options.save( $(this).attr('id'), $(this).val() );
 		})
+
+		// Set listeners for new custom shortuct button     
+		$(document).on('click', '#add_shortcut', function()
+		{
+			_add_shortcut();
+
+			// scroll to bottom of the container
+			$("content section:nth-child(2)").scrollTop($("content section:nth-child(2)").prop("scrollHeight"));
+		});
 	}
 
 /*
@@ -388,6 +397,13 @@
 		}
 	}
 
+	// generate user defined keyboard shortcuts 
+	var _render_shortcuts = function ()
+	{
+		for ( sh_id in shortcuts = RiddR.storage.get('shortcuts') )
+			_add_shortcut({ [sh_id] : shortcuts[sh_id] });
+	}
+
 	// generate shortcut html from shortcut code in the following format: ( Alt+Shift+R )
 	var _get_shortcut_keys = function ( code, html = '' )
 	{
@@ -395,6 +411,56 @@
 			html += `<span key="`+keys[key_id].toLowerCase()+`">` + keys[key_id] + `</span>`;
 
 		return html;
+	}
+
+	// generate shortcut HTML
+	var _get_shortcut_html = function ( shortcut )
+	{
+		// get shortcut key
+		_key = (Object.keys(shortcut)[0]);
+		// extract shortuct options from the shortcut object
+		shortcut = shortcut[_key];
+
+		return `<ul>
+					<li><div class="keys" id="kb-read">`+_get_shortcut_keys(_key)+`</div></li>
+					<li>
+						<div class="material select stripped">
+							<select id="`+_key+`_TTS">
+							`+_generate_tts_list( shortcut.TTS_engine )+` 
+							</select>
+						</div>						
+					</li>
+					<li>
+						<div class="material select stripped">
+							<select id="`+_key+`_language"> 
+								`+_language_list( RiddR.TTS.engines[shortcut.TTS_engine].lang, shortcut.language )+`
+							</select>
+						</div>							
+					</li>
+					<li>
+						<div class="material switch stripped">
+							<input id="`+_key+`_translate" type="checkbox"/>
+							<span></span>
+						</div>						
+					</li>
+					<li>
+						<i class="material-icons">settings_input_component</i>
+						<i class="material-icons" id="`+_key+`_delete" >delete</i>
+					</li>
+				</ul>`;
+	}
+
+	// add shortcut into shortcut container 
+	var _add_shortcut = function ( shortcut )
+	{
+		// get new shortcut from the options 
+		shortcut = shortcut || RiddR.options.newShortcut();
+
+		// generate shortcut html
+		html = _get_shortcut_html( shortcut );
+
+		// add generated HTML into the shortcuts container
+		$("#shortcuts").append(html);
 	}
 
 /*
@@ -414,6 +480,9 @@
 
 			// generate global keyboard shortcuts / commands  
 			_render_global_commands();
+
+			// render saved shortcuts
+			_render_shortcuts();
 		},
 
 		render : function()
