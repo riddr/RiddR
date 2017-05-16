@@ -411,6 +411,7 @@
 				max-width:100%;
 				border:none !important;
 				text-align-last:center;
+				font-size:16px;
 			}
 		.material > select:enabled:hover
 		{
