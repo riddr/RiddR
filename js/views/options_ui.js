@@ -323,14 +323,14 @@
 		});
 
 		// update language list depending on supported languages from the TTS engine
-		_language_list( engine.lang, 'language' );
+		$("#language").html( _language_list( engine.lang ) );
 
 		// update translate checkbox
 		_update_lang_translate();
 	}
 
 	// update language select list
-	var _language_list = function ( languages , list_elem_id , list_html = '')
+	var _language_list = function ( languages, selected , html = '')
 	{
 		// form valid language array
 		languages = (languages == undefined )?  ['auto'] : languages;
@@ -349,15 +349,11 @@
 				// determine if the language option should be preselected
 				selected = (language.code == RiddR.storage.get('language'))? 'selected' : '';
 
-				list_html += '<option display="'+language.name+'" '+selected+' value="'+language.code+'">'+language.name+'</option>';
+				html += '<option display="'+language.name+'" '+selected+' value="'+language.code+'">'+language.name+'</option>';
 			}
 		}
 	
-		// update list content
-		$('#'+list_elem_id).html( list_html );
-
-		// disable / enable dropdown list
-		$('#'+list_elem_id).prop('disabled', (languages.length == 1) );
+		return html;
 	}
 
 	// update the state of language translate button
