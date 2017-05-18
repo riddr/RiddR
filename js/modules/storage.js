@@ -93,8 +93,7 @@
 */
 	var _update_cache = function ( data )
 	{
-		for( key in data )
-			RiddR.defaults[key] = data[key];
+		RiddR.defaults = RiddR.merge( RiddR.defaults, data );
 	}
 
 /*
@@ -104,8 +103,13 @@
 */
 	chrome.storage.onChanged.addListener( function ( changes ) 
 	{
+		buffer = {};
+		
 		for( key in changes )
-			RiddR.defaults[key] = changes[key].newValue;
+			buffer[key] = changes[key].newValue;
+
+		// update locally stored objects
+		RiddR.defaults = RiddR.merge( RiddR.defaults, data );
 	});
 
 }).apply(RiddR);
