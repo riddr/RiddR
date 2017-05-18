@@ -58,7 +58,7 @@
  			// update cached values
  			_update_cache( data );
 
-			this.area.set( data, callback );
+			this.area.set( RiddR.merge( RiddR.defaults, data ), callback );
 		},
 
 		// sync RiddR saved options
