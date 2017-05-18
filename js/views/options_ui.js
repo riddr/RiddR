@@ -392,6 +392,9 @@
 							`	</div>
 							</div>`;
 
+			// register global shortcut
+			RiddR.options.registerShortcut( command.shortcut.substr(-1) );
+
 			// push shortcut html into shortcut container element 
 			$("#global-shortcuts-container").append( shortcut_html );
 		}
@@ -401,7 +404,12 @@
 	var _render_shortcuts = function ()
 	{
 		for ( sh_id in shortcuts = RiddR.storage.get('shortcuts') )
+		{
 			_add_shortcut({ [sh_id] : shortcuts[sh_id] });
+
+			// register custom shortcuts
+			RiddR.options.registerShortcut( sh_id.substr(-1) );
+		}
 	}
 
 	// generate shortcut html from shortcut code in the following format: ( Alt+Shift+R )

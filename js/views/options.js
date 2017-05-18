@@ -75,27 +75,6 @@
 		}
 	}
 
-	// generate new shortcut 
-	var newShortcut = function ()
-	{
-		// generate random shortcut key
-		key = 'Alt+Shift+' + RiddR.options.avaliable_keys[Math.floor(Math.random() * RiddR.options.avaliable_keys.length)];
-		  
-		shortcut = { [key] : {
-								TTS_engine 	: 'SpeakIt',
-								language 	: 'auto',
-								translate 	: false,
-								volume			: 1,
-								rate 			: 1,
-								pitch 			: 1,
-
-							} 
-					};
-
-
-		return shortcut;
-	}
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * PUBLIC OPTIONS METHODS
@@ -131,6 +110,34 @@
 	var test_speech = function ( utterance, callback = undefined )
 	{
 		RiddR.read( utterance, {}, callback );
+	}
+
+	// generate new shortcut 
+	var newShortcut = function ()
+	{
+		// get new shortcut key
+		key = RiddR.options.registerShortcut();
+		  
+		return  { ['Alt+Shift+' + key] : {
+											TTS_engine 	: 'SpeakIt',
+											language 	: 'auto',
+											translate 	: false,
+											volume		: 1,
+											rate 		: 1,
+											pitch 		: 1,
+										} 
+		};
+	}
+
+	// register shortcut key, so the same key won't be used multiple times
+	var registerShortcut = function ( key )
+	{
+		// generate random shortcut key if not provided 
+		key = key || RiddR.options.avaliable_keys[Math.floor(Math.random() * RiddR.options.avaliable_keys.length)]
+
+		RiddR.options.avaliable_keys = RiddR.options.avaliable_keys.split(key).join('');
+
+		return key; // return the key
 	}
 
 /*
