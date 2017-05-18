@@ -108,6 +108,10 @@
 		// define save action
 		action = arguments[0];
 
+		// detect keyboard save action 
+		if( action.indexOf('+') != -1 && action.indexOf('-') != -1 )
+			arguments = _form_shortcut_data( arguments );
+
 		RiddR.storage.set( arguments, function ()
 		{
 			// update UI if nesecery after options are properly saved
@@ -249,6 +253,22 @@
 		// update TTS UI 
 		UI.update_tts_parameters( engine );
 	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * KEYBOARD SHORTCUTS RELATED METHODS
+ *
+ * set keyboard shortcut data in valid saving format
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _form_shortcut_data = function ( data )
+	{
+		value 	 = data[1];
+		selector = data[0].split('-');
+
+		return { "shortcuts" : { [selector[0]] : { [selector[1]] : value }  } };
+	}	
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Load options UI after the global options object is fully loaded

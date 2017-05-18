@@ -425,21 +425,21 @@
 					<li><div class="keys" id="kb-read">`+_get_shortcut_keys(_key)+`</div></li>
 					<li>
 						<div class="material select stripped">
-							<select id="`+_key+`_TTS">
-							`+_generate_tts_list( shortcut.TTS_engine )+` 
+							<select id="`+_key+`-TTS_engine">
+							`+_generate_tts_list( shortcut.TTS_engine , 20 )+` 
 							</select>
 						</div>						
 					</li>
 					<li>
 						<div class="material select stripped">
-							<select id="`+_key+`_language"> 
+							<select id="`+_key+`-language"> 
 								`+_language_list( RiddR.TTS.engines[shortcut.TTS_engine].lang, shortcut.language )+`
 							</select>
 						</div>							
 					</li>
 					<li>
 						<div class="material switch stripped">
-							<input id="`+_key+`_translate" type="checkbox"/>
+							<input id="`+_key+`-translate" type="checkbox"/>
 							<span></span>
 						</div>						
 					</li>
