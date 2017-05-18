@@ -140,4 +140,44 @@
 		return ( this.length > length ) ? this.substr( 0, length-1 ) + '&hellip;' : this;
 	};
 
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * DEEP OBJECT MERGE
+ * 
+ * Validate if a given item is an object
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	this.isObject = function ( item ) 
+	{
+		return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
+	}
+
+	// deep merge two objects 
+	this.merge = function ( target, source ) 
+	{
+		if ( RiddR.isObject( target ) && RiddR.isObject( source ) ) 
+		{
+			Object.keys( source ).forEach
+			(
+				key => 
+				{
+					if ( RiddR.isObject( source[key] ) ) 
+					{
+						if ( !target[key] ) 
+							Object.assign( target, { [key]: {} } );
+
+						RiddR.merge( target[key], source[key] );
+					}
+					else
+					{
+						Object.assign( target, { [key]: source[key] } );
+					}
+				}
+			);
+		}
+
+		return target;
+	}
+
 }).apply(RiddR);
