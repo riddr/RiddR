@@ -118,15 +118,20 @@
 		// get new shortcut key
 		key = RiddR.options.registerShortcut();
 		  
-		return  { ['Alt+Shift+' + key] : {
-											TTS_engine 	: 'SpeakIt',
-											language 	: 'auto',
-											translate 	: false,
-											volume		: 1,
-											rate 		: 1,
-											pitch 		: 1,
-										} 
+		shortcut = { ['Alt+Shift+' + key] : {
+												TTS_engine 	: 'SpeakIt',
+												language 	: 'auto',
+												translate 	: false,
+												volume		: 1,
+												rate 		: 1,
+												pitch 		: 1,
+											} 
 		};
+
+		// add new shortcut into the storage
+		RiddR.storage.set( { shortcuts : shortcut } );
+
+		return shortcut;
 	}
 
 	// register shortcut key, so the same key won't be used multiple times

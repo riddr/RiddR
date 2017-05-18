@@ -447,13 +447,12 @@
 					</li>
 					<li>
 						<div class="material switch stripped">
-							<input id="`+_key+`-translate" type="checkbox"/>
+							<input id="`+_key+`-translate" type="checkbox" `+ ( (shortcut.translate)? 'checked' : '' ) +` />
 							<span></span>
 						</div>						
 					</li>
 					<li>
-						<i class="material-icons">settings_input_component</i>
-						<i class="material-icons" id="`+_key+`_delete" >delete</i>
+						<i class="material-icons remove_shortcut" key="`+_key+`">delete</i>
 					</li>
 				</ul>`;
 	}
