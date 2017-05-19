@@ -199,21 +199,31 @@
 		// Set selectbox UI listeners
 		$(document).on('mousedown','select', function( event )
 		{
-			var select = $(this);
-			var dropdown = $("<ul></ul>");
+			var select 	 = $(this);
+			var dropdown = ( select.next().length == 0 ) ? $("<ul></ul>") : select.next();
 
-			// generate custom dropdown menu if it is not allready generated
-			if( select.parent().has('ul').length == 0 )
+			// generate custom dropdown menu if it not generated or updated 
+			if( dropdown.text().length == 0 || select.attr('updated') ) // avoid unnecessary DOM requests
 			{
-				select.find('option').each(function() {
+				// clear out the dropdown menu
+				dropdown.html('');
+
+				select.find('option').each(function() 
+				{
 					dropdown.append('<li>'+$(this).attr('display')+'</li>');
 				});
 
-				select.parent().append(dropdown);
-			}
+				if( select.parent().has('ul').length == 0 )
+					select.parent().append(dropdown);
+				else
+					select.next().replaceWith(dropdown);
+				
+				// remove updated attribute once the dropdown menu is generated. 
+				select.removeAttr('updated');
 
-			// get full dropdown element
-			dropdown = $(this).next();
+				// get newly generated menu
+				dropdown = $(this).next();
+			}
 
 			// determine dropdown position
 			dtop    = select.offset().top,
@@ -341,8 +351,8 @@
 			}
 		});
 
-		// update language list depending on supported languages from the TTS engine
-		$("#language").html( _language_list( engine.lang ) );
+		// update language box
+		_update_select_box( 'language', _language_list(engine.lang) );
 
 		// update translate checkbox
 		_update_lang_translate();
@@ -379,6 +389,19 @@
 	var _update_lang_translate = function ()
 	{
 		$("#translate").prop('disabled',  (RiddR.storage.get('language') == 'auto') );
+	}
+
+	// update dropdown / select menu  
+	var _update_select_box = function ( box_id, list )
+	{
+		// get list container / box
+		box = $("#" + box_id);
+
+		// ubdate box html and status
+		box.html( list ).attr('updated', true);
+
+		// update box state
+		box.prop('disabled', (box.children().length == 1) );
 	}
 
 /*
@@ -531,8 +554,9 @@
 
 		snackbar	: _snackbar,
 		modal 		: _modal,
-		hide_modal 	: _hide_modal,
-		update_tts_parameters : _update_tts_parameters 
+		hideModal 	: _hide_modal,
+		updateTTSParameters : _update_tts_parameters,
+		updateSelectBox : _update_select_box 
 	}
 
 }).apply( RiddR );
