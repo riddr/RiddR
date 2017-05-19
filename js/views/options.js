@@ -84,25 +84,22 @@
 */
 	var save = function ()
 	{
-		// define save action
-		action = arguments[0];
+		// form input data 
+		input = _get_save_data( arguments );
 
-		// detect keyboard save action 
-		if( action.indexOf('+') != -1 && action.indexOf('-') != -1 )
-			arguments = _form_shortcut_data( arguments );
-
-		RiddR.storage.set( arguments, function ()
+		RiddR.storage.set( input.data, function ()
 		{
 			// update UI if nesecery after options are properly saved
-			if( _update_UI( action ) )
+			if( _update_UI( input.action ) )
 			{
 				// automaticly speak the test utterance on save if auto test is enabled
 				if(RiddR.storage.get('auto_test'))
 					test_speech( $('#utterance').val(), UI.reading );
 
-				// show snack bar
-				UI.snackbar('Options were successfuly saved!', 1500);
 			}
+
+			// show snack bar
+			UI.snackbar('Options were successfuly saved!', 1500);
 		});
 	}
 
@@ -145,6 +142,16 @@
 		return key; // return the key
 	}
 
+	// remove shortcut by shortcut key 
+	var removeShortcut = function ( shortcut )
+	{
+		// remove nested object key from shorctus object 
+		delete RiddR.defaults.shortcuts[shortcut];
+
+		// update objects storage
+		RiddR.storage.set(RiddR.defaults.shortcuts);
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * PRIVATE COMMON OPTIONS METHODS
@@ -170,14 +177,39 @@
 		}
 	}
 
+	// validate and put saving data in proper format 
+	var _get_save_data = function ( data )
+	{
+		// define save action
+		action = { id : data[0] };
+
+		// detect keyboard save action 
+		if( action.id.indexOf('+') != -1 && action.id.indexOf('-') != -1 )
+		{
+			action = {
+					 	id : 'shortcuts', 
+					 	key :  action.id.split('-')[0],
+					 	type : action.id.split('-')[1]
+					 };
+
+			data = _form_shortcut_data( data );
+		}
+
+		return { action : action, data : data };
+	}
+
 	// update options UI on change
 	var _update_UI = function ( action )
 	{
-		switch ( action )
+		switch ( action.id )
 		{
 			case 'language':
 			case 'TTS_engine':
 				_on_TTS_update();
+			break;
+
+			case 'shortcuts':
+				return _on_shortcut_update(action);
 			break;
 
 		}
@@ -279,7 +311,13 @@
 		selector = data[0].split('-');
 
 		return { "shortcuts" : { [selector[0]] : { [selector[1]] : value }  } };
-	}	
+	}
+
+	// post save shortcut update action
+	var _on_shortcut_update = function ( data )
+	{
+		return false;
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------

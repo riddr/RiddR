@@ -290,3 +290,9 @@ content > section > div
 				{
 					width:10%;
 				}
+
+/* ACTION BUTTONS / ICONS */
+.remove_shortcut
+{
+	cursor:pointer;
+}

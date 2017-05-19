@@ -150,6 +150,16 @@
 			// scroll to bottom of the container
 			$("content section:nth-child(2)").scrollTop($("content section:nth-child(2)").prop("scrollHeight"));
 		});
+
+		// set listenr for shortcut removal    
+		$(document).on('click', '.remove_shortcut', function()
+		{
+			// remove shortcut from stored objects 
+			RiddR.options.removeShortcut( $(this).attr('key') );
+
+			// remove shorctu from the UI
+			$(this).closest('ul').fadeOut();
+		});
 	}
 
 /*
@@ -447,7 +457,7 @@
 					</li>
 					<li>
 						<div class="material switch stripped">
-							<input id="`+_key+`-translate" type="checkbox" `+ ( (shortcut.translate)? 'checked' : '' ) +` />
+							<input title="Coming soon..." disabled id="`+_key+`-translate" type="checkbox" `+ ( (shortcut.translate)? 'checked' : '' ) +` />
 							<span></span>
 						</div>						
 					</li>
