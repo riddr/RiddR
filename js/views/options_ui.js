@@ -158,7 +158,10 @@
 			RiddR.options.removeShortcut( $(this).attr('key') );
 
 			// remove shorctu from the UI
-			$(this).closest('ul').fadeOut();
+			$(this).closest('ul').animate({'height' : 0, opacity: 0, margin: 0, padding: 0}, 400, function()
+			{
+				$(this).remove();
+			});
 		});
 	}
 
@@ -352,14 +355,14 @@
 		});
 
 		// update language box
-		_update_select_box( 'language', _language_list(engine.lang) );
+		_update_select_box( 'language', _language_list(engine.lang, RiddR.storage.get('language') ) );
 
 		// update translate checkbox
-		_update_lang_translate();
+		//_update_lang_translate();
 	}
 
 	// update language select list
-	var _language_list = function ( languages, selected , html = '')
+	var _language_list = function ( languages, selected_lang , html = '')
 	{
 		// form valid language array
 		languages = (languages == undefined )?  ['auto'] : languages;
@@ -376,9 +379,9 @@
 			if ( language = RiddR.lang_from_code ( languages[i] ) )
 			{
 				// determine if the language option should be preselected
-				selected = (language.code == RiddR.storage.get('language'))? 'selected' : '';
+				selected = ( language.code == selected_lang )? 'selected' : '';
 
-				html += '<option display="'+language.name+'" '+selected+' value="'+language.code+'">'+language.name+'</option>';
+				html += `<option ${selected} display="${language.name}" value="${language.code}">${language.name}</option>`;
 			}
 		}
 	
@@ -395,13 +398,25 @@
 	var _update_select_box = function ( box_id, list )
 	{
 		// get list container / box
-		box = $("#" + box_id);
+		box = $("#" + box_id.replace( /(:|\.|\[|\]|,|\+|=|@)/g, "\\$1" ));
 
 		// ubdate box html and status
 		box.html( list ).attr('updated', true);
 
 		// update box state
 		box.prop('disabled', (box.children().length == 1) );
+	}
+
+	// update language select box
+	var _update_language_box = function ( box_id, languages, active_lang )
+	{
+		_update_select_box( box_id, _language_list( languages, active_lang ) );
+	}
+
+	// determine weither select box should be active 
+	var _select_is_active = function ( data )
+	{
+		return ( data.length == 1 || typeof data == 'string' ) ? 'disabled' : '';
 	}
 
 /*
@@ -459,6 +474,7 @@
 	{
 		// get shortcut key
 		_key = (Object.keys(shortcut)[0]);
+		
 		// extract shortuct options from the shortcut object
 		shortcut = shortcut[_key];
 
@@ -473,7 +489,7 @@
 					</li>
 					<li>
 						<div class="material select stripped">
-							<select id="`+_key+`-language"> 
+							<select id="`+_key+`-language" ${ _select_is_active( RiddR.TTS.engines[shortcut.TTS_engine].lang ) } > 
 								`+_language_list( RiddR.TTS.engines[shortcut.TTS_engine].lang, shortcut.language )+`
 							</select>
 						</div>							
@@ -552,11 +568,11 @@
 			}
 		},
 
-		snackbar	: _snackbar,
-		modal 		: _modal,
-		hideModal 	: _hide_modal,
-		updateTTSParameters : _update_tts_parameters,
-		updateSelectBox : _update_select_box 
+		modal 				: _modal,
+		snackbar			: _snackbar,
+		hideModal 			: _hide_modal,
+		updateLanguageBox 	: _update_language_box,
+		updateTTSParameters : _update_tts_parameters
 	}
 
 }).apply( RiddR );

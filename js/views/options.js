@@ -22,7 +22,7 @@
 		{
 			environment 	: 0,
 			TTS_engines 	: {},
-			avaliable_keys 	: 'QWERTYUIOPASDFGHJKLZXCVBNM' // list of avaliable shortcut keys
+			avaliable_keys 	: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // list of avaliable shortcut keys
 		},
 		{   // define magic method for catching all requests to the global options object
 			get: function(target, property)
@@ -199,7 +199,7 @@
 	}
 
 	// update options UI on change
-	var _update_UI = function ( action )
+	var _update_UI = function ( action , update = true )
 	{
 		switch ( action.id )
 		{
@@ -209,12 +209,12 @@
 			break;
 
 			case 'shortcuts':
-				return _on_shortcut_update(action);
+				update = _on_shortcut_update(action);
 			break;
 
 		}
 
-		return true;
+		return update;
 	}
 
 /*
@@ -277,10 +277,10 @@
 		}
 	}
 
-	// update option UI on main TTS engine change
-	var _on_TTS_update = function()
+	// update option UI on main TTS engine change @To-Do: avoid excessive UI / DOM update requests 
+	var _on_TTS_update = function() 
 	{
-		// TO-DO: pass this into UI, CHECK FOR CONNECTION STATUS IF REMOTE 
+		// TO-DO: CHECK FOR CONNECTION STATUS IF REMOTE 
 		language = RiddR.storage.get('language');
 		engine = RiddR.validate_TTS( RiddR.storage.get('TTS_engine') );
 
@@ -295,7 +295,7 @@
 		}
 
 		// update TTS UI 
-		UI.update_tts_parameters( engine );
+		UI.updateTTSParameters( engine );
 	}
 
 /*
@@ -313,9 +313,17 @@
 		return { "shortcuts" : { [selector[0]] : { [selector[1]] : value }  } };
 	}
 
-	// post save shortcut update action
+	// post save shortcut update action @To-Do: create unified script for langauge support check and avoid constant UI updates 
 	var _on_shortcut_update = function ( data )
 	{
+		if( data.type == 'TTS_engine' )
+		{
+			shortcut 	= RiddR.storage.get('shortcuts')[data.key];
+			engine 		= RiddR.TTS.engines[shortcut.TTS_engine];
+
+			UI.updateLanguageBox( data.key+'-language', engine.lang, shortcut.language );
+		}
+
 		return false;
 	}
 
