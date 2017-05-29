@@ -192,8 +192,15 @@
 	// transcribe userdefined words for better pronouncing 
 	var _transcribe = function ( utterance )
 	{
-		for( key in RiddR.defaults.transcription )
-			utterance = utterance.replace( RegExp(key,'ig'), RiddR.defaults.transcription[key]);
+		if( RiddR.storage.get('transcribe') )
+		{
+			for( key in RiddR.defaults.transcription )
+			{
+				transcript_key = Object.keys( RiddR.defaults.transcription[key] )[0];
+
+				utterance = utterance.replace( RegExp(transcript_key,'ig'), RiddR.defaults.transcription[key][transcript_key] );
+			}
+		}
 
 		return utterance;
 	}

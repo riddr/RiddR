@@ -36,7 +36,7 @@ var RiddR = ( function ( API )
 			translate		: false,
 			shortcuts 		: {},
 			transcribe 		: true,
-			transcription  	: { "riddr"	: "reader" },
+			transcription  	: { 0 : { "RiddR"	: "reader"} },
 			error_repoting 	: true   // report JavaScript runtime errors to remote server
 		};
 
