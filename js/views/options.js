@@ -143,13 +143,27 @@
 	}
 
 	// remove shortcut by shortcut key 
-	var removeShortcut = function ( shortcut )
+	var removeShortcut = function ( key )
 	{
-		// remove nested object key from shorctus object 
-		delete RiddR.defaults.shortcuts[shortcut];
+		_remove_item ( RiddR.defaults.shortcuts, key );
+	}
 
-		// update objects storage
-		RiddR.storage.set(RiddR.defaults.shortcuts);
+	// generate new transcription item 
+	var newTranscript = function ( transcript = { from : '', to : '' } )
+	{
+		// set transcript
+		transcript.id = Object.keys( RiddR.defaults.transcription).length;
+
+		// push the new transcript into RiddR storage
+		RiddR.storage.set( { transcription : { [transcript.id] : { [transcript.from] : transcript.to } } } );
+
+		return transcript;
+	}
+
+	// remove transcript by transcript key
+	var removeTranscript = function ( key )
+	{
+		_remove_item ( RiddR.defaults.transcription, key );
 	}
 
 /*
@@ -215,6 +229,15 @@
 		}
 
 		return update;
+	}
+
+	// remove nested item from RiddR storage object 
+	var _remove_item = function ( object, id )
+	{
+		delete object[id];
+
+		// update objects storage
+		RiddR.storage.set( object );
 	}
 
 /*

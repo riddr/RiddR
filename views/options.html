@@ -29,7 +29,7 @@
 	<div class="slider" ></div>
 </nav>
 <content>
-	<section style="margin-left: calc(-100%);">
+	<section style="margin-left: calc(-200%);">
 		<div id="vocal-container">
 			<h1><i class="material-icons">record_voice_over</i>Vocal settings</h1>
 			<div id="tts-engine">
@@ -107,10 +107,29 @@
 				</ul>
 			</div>
 		</div>
-		<div id="add_shortcut" title="Add custom shortcut" class="material add">+</div>
+		<div title="Add custom shortcut" class="material add" action="shortcut" >+</div>
 	</section>
 	<section>
-		TAB 3
+		<div id="transcription-container">
+			<div id="transcription" class="material switch">
+				<label for="transcribe"><h1><i class="material-icons">translate</i>Transcription</h1></label>
+				<input id="transcribe" type="checkbox" checked="checked"/>
+				<span></span>
+			</div>
+			<p>Transcription in the linguistic sense is the systematic representation of language in written form. <br> 
+			The source can either be utterances (speech or sign language) or preexisting text in another writing system.</p>
+
+			<div id="transcriptions"> 
+				<ul class="sticky">
+					<li>From</li>
+					<li></li>
+					<li>To</li>
+					<li></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		<div title="Add transcription item" class="material add" action="transcript">+</div>
 	</section>
 	<section>
 		TAB 4

@@ -142,15 +142,6 @@
 			RiddR.options.save( $(this).attr('id'), $(this).val() );
 		})
 
-		// Set listeners for new custom shortuct button     
-		$(document).on('click', '#add_shortcut', function()
-		{
-			_add_shortcut();
-
-			// scroll to bottom of the container
-			$("content section:nth-child(2)").scrollTop($("content section:nth-child(2)").prop("scrollHeight"));
-		});
-
 		// set listenr for shortcut removal    
 		$(document).on('click', '.remove_shortcut', function()
 		{
@@ -158,11 +149,35 @@
 			RiddR.options.removeShortcut( $(this).attr('key') );
 
 			// remove shorctu from the UI
-			$(this).closest('ul').animate({'height' : 0, opacity: 0, margin: 0, padding: 0}, 400, function()
-			{
-				$(this).remove();
-			});
+			_remove_list_item( $(this) );
 		});
+
+		// Set listeners for new transcription item     
+		$(document).on('click', '.add', function()
+		{
+			switch ( $(this).attr('action') )
+			{
+				case 'shortcut':
+					_add_shortcut();
+				break;
+
+				case 'transcript':
+					_add_transcript();
+				break;
+			}
+
+			// scroll to bottom of the container
+			_scroll_to_bottom( $(this).parent() );
+		});
+
+		$(document).on('click', '.delete_transcript', function()
+		{
+			RiddR.options.removeTranscript ( $(this).closest('ul').attr('key') );
+
+			// remove shorctu from the UI
+			_remove_list_item( $(this) );
+		});
+
 	}
 
 /*
@@ -419,6 +434,21 @@
 		return ( data.length == 1 || typeof data == 'string' ) ? 'disabled' : '';
 	}
 
+	// remove UL item from data list
+	var _remove_list_item = function ( item )
+	{
+		item.closest('ul').animate({'height' : 0, opacity: 0, margin: 0, padding: 0}, 400, function()
+		{
+			$(this).remove();
+		});
+	}
+
+	// scroll to botton of specific element 
+	var _scroll_to_bottom = function ( element )
+	{
+		element.scrollTop(element.prop("scrollHeight"));
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * UI SHORTCUTS RELATED FUNCTIONS 
@@ -521,6 +551,60 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * UI TRANSCRIPTION RELATED FUNCTIONS 
+ * 
+ * Generate user defined transcription items / transcripts  
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	var _render_transcripts = function ()
+	{
+		for ( key in transcripts = RiddR.storage.get('transcription') ) 
+		{
+			if( transcript = transcripts[key] )
+			{
+				_add_transcript
+				(
+					{
+						id 		: key,
+						from 	: Object.keys(transcript)[0],
+						to 		: transcript[Object.keys(transcript)[0]]
+					}
+				);		
+			}
+		}
+	}
+
+	// generate  transcription item html
+	var _get_transcript_html = function ( transcript )
+	{
+		return `<ul key="${transcript.id}">
+					<li>
+						<input type="text" value="${transcript.from}">
+					</li>
+					<li><i class="material-icons">chevron_right</i></li>
+					<li>
+						<input type="text" value="${transcript.to}">
+					</li>
+					<li>
+						<i class="material-icons read_transcript">record_voice_over</i>
+						<i class="material-icons  delete_transcript">delete</i>
+					</li>
+				</ul>`;
+	}
+
+	// add transcription item 
+	_add_transcript = function ( transcript )
+	{
+		// generate transcript data
+		transcript = ( transcript )? transcript : RiddR.options.newTranscript();
+
+		html = _get_transcript_html(transcript);
+
+		$("#transcriptions").append(html);
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * 
  * ---------------------------------------------------------------------------------------------------------------------
 */
@@ -539,6 +623,9 @@
 
 			// render saved shortcuts
 			_render_shortcuts();
+
+			// render transcription items
+			_render_transcripts();
 		},
 
 		render : function()
