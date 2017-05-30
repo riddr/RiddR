@@ -255,7 +255,7 @@
 				RiddR.TTS.engines = engines;
 
 				_async(); // mark async action as complete 
-			});
+			}, 'background' );
 	}
 
 	// get predefined shortcuts / commands 

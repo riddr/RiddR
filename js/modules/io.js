@@ -21,14 +21,14 @@
 		},
 
 		// get specific 
-		get : function( selector, callback )
+		get : function( selector, callback, target )
 		{
-			this.send( { action: 'get', selector: selector }, callback );
+			this.send( { action: 'get', selector: selector, target: target }, callback );
 		},
 
-		call : function( selector, data, callback )
+		call : function( selector, data, callback, target )
 		{
-			this.send( { action: 'call', selector: selector, data: data }, callback );
+			this.send( { action: 'call', selector: selector, data: data, target: target }, callback );
 		},
 
 		trigger : function( event_id, data )
@@ -46,7 +46,7 @@
  * Update global options object on change 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _handler = function ( request, sender, response )
+	var _handler = function ( request, sender, callback )
 	{
 		// check request action and validate module 
 		if( request.action !== undefined )
@@ -54,11 +54,11 @@
 			switch ( request.action )
 			{
 				case 'get' :
-					response( _get( request ) );
+					return _response( _get( request ), callback );
 				break;
 
 				case 'call':
-					response( _call(request) );
+					return _response( _call( request ), callback );
 				break;
 
 				case 'trigger':
@@ -66,6 +66,19 @@
 				break;
 			}
 		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Handle communication channel response 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	var _response = function ( result, callback )
+	{
+		if( result === true ) // keep the communication channel open 
+			return result;
+		else
+			callback( result );
 	}
 
 /*
@@ -78,13 +91,15 @@
 		// split object selector into array
 		selector = request.selector.split('.');
 
-		if( selector.length > 1 && module != selector[0])
-			return null;
-		else
+		if( request.target == undefined || _validate_target( request.target ) )
+		{
 			return selector.reduce( function ( object, property )
 			{
 				return object[property];
 			}, RiddR );
+		}
+		else
+			return true;
 	}
 
 /*
@@ -94,7 +109,7 @@
 */
 	var _call = function ( request )
 	{
-		if( callee = _get( request ))
+		if( callee = _get( request ) && typeof callee == 'function' )
 			return callee(request.data);
 		else
 			return '{ error: "Invalid method requested:' + request.selector + '"}';
@@ -109,6 +124,24 @@
 	{
 		event = new CustomEvent(event_id, { detail: data } );
 		window.dispatchEvent(event);
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * validate if the IO request is within the specified target 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _validate_target = function ( target )
+	{
+		if( location.protocol == 'chrome-extension:') // detect weither the is in extension page 
+		{
+			if( location.pathname == '/_generated_background_page.html' )
+				return target == 'background';
+			else
+				return target == location.pathname.split('/').pop().split('.')[0];
+		}
+		else // or in content script
+			return target == 'content';
 	}
 
 /*
