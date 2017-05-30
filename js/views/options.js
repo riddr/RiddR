@@ -152,7 +152,7 @@
 	var newTranscript = function ( transcript = { from : '', to : '' } )
 	{
 		// set transcript
-		transcript.id = Object.keys( RiddR.defaults.transcription).length;
+		transcript.id =  Number( Object.keys( RiddR.defaults.transcription).pop() ) + 1;
 
 		// push the new transcript into RiddR storage
 		RiddR.storage.set( { transcription : { [transcript.id] : { [transcript.from] : transcript.to } } } );
