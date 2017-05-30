@@ -23,6 +23,15 @@ body
 	padding-top:48px;
 }
 
+.add
+{
+	bottom:-60px !important;
+}
+	content section:hover > .add
+	{
+		bottom:15px !important;
+	}
+
 /*----------------------------------------------------------------------------------------------------------------------
 											  PRELOADER
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -239,15 +248,6 @@ content > section > div
 /*----------------------------------------------------------------------------------------------------------------------
 										Shortcuts section
 ----------------------------------------------------------------------------------------------------------------------*/
-#add_shortcut
-{
-	bottom:-60px;
-}
-	content section:nth-child(2):hover #add_shortcut
-	{
-		bottom:15px;
-	}
-
 #global-shortcuts-container
 {
 	display:block;
@@ -299,9 +299,89 @@ content > section > div
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
+										Transcription section
+----------------------------------------------------------------------------------------------------------------------*/
+#transcription-container
+{
+
+}
+	#transcription-container p 
+	{
+		font-size:12px;
+	}
+	#transcription-container #transcriptions > ul
+	{
+		margin:0px;
+		width:600px;
+		list-style:none;
+		padding:10px 0px;
+		border-bottom:1px solid rgba(0,0,0,0.1);
+	}
+		#transcription-container #transcriptions > ul:last-child
+		{
+			border:none;
+		}
+		#transcription-container #transcriptions > ul > li
+		{
+			width:41%;
+			font-size:14px;
+			text-align:left;
+			display:inline-block;
+			vertical-align:middle;
+		}
+			#transcription-container #transcriptions > ul > li > input
+			{
+				width:100%;
+				color: #000;
+				border: none;
+				padding: 0px 5px;
+
+				background: linear-gradient(#000, #000), linear-gradient(#000, #000), linear-gradient(#000, #000);
+				background-size: 1px 20%, 100% 1px, 1px 20%;
+				background-position: bottom left, bottom center, bottom right;
+				background-repeat: no-repeat;
+			}
+				#transcription-container #transcriptions > ul > li > input:focus
+				{
+					color: #00bfff;
+					background: linear-gradient(#00bfff, #00bfff), linear-gradient(#00bfff, #00bfff), linear-gradient(#00bfff, #00bfff);
+					background-size: 1px 20%, 100% 1px, 1px 20%;
+					background-position: bottom left, bottom center, bottom right;
+					background-repeat: no-repeat;
+				}
+
+			#transcription-container #transcriptions > ul > li:nth-child(2)
+			{
+				width:6%;
+				font-size:20px;
+				text-align:center;
+			}
+				#transcription-container #transcriptions > ul > li:nth-child(4)
+				{
+					width:12%;
+					text-align: right;
+				}
+				#transcription-container #transcriptions > ul > li:nth-child(4) > i
+				{
+					cursor:pointer;
+				}
+
+#transcription
+{
+	margin:0px;
+	padding:0px;
+}
+	#transcription h1
+	{
+		display:inline-block;
+		color: rgb(51, 51, 51);
+		margin:0px 0px 10px 0px;
+	}
+
+/*----------------------------------------------------------------------------------------------------------------------
 								CROSS-OS COMPATIBILITY 
 ----------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-height: 480px) 
+@media screen and (max-height: 470px) 
 {
 	body
 	{
