@@ -87,7 +87,7 @@
 		// form input data 
 		input = _get_save_data( arguments );
 
-		RiddR.storage.set( input.data, function ()
+		RiddR.storage.set( input.data, input.overwrite, function ()
 		{
 			// update UI if nesecery after options are properly saved
 			if( _update_UI( input.action ) )
@@ -152,7 +152,7 @@
 	var newTranscript = function ( transcript = { from : '', to : '' } )
 	{
 		// set transcript
-		transcript.id =  Number( Object.keys( RiddR.defaults.transcription).pop() ) + 1;
+		transcript.id =  Number( Object.keys( RiddR.defaults.transcription).pop() ) + 1 || 0;
 
 		// push the new transcript into RiddR storage
 		RiddR.storage.set( { transcription : { [transcript.id] : { [transcript.from] : transcript.to } } } );
@@ -209,7 +209,7 @@
 			data = _form_shortcut_data( data );
 		}
 
-		return { action : action, data : data };
+		return { action : action, data : data, overwrite : data[3] };
 	}
 
 	// update options UI on change
@@ -224,6 +224,10 @@
 
 			case 'shortcuts':
 				update = _on_shortcut_update(action);
+			break;
+
+			case 'transcription':
+				update = false;
 			break;
 
 		}

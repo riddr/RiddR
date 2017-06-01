@@ -178,6 +178,20 @@
 			_remove_list_item( $(this) );
 		});
 
+		// Event listeners for on transcript change 
+		$(document).on('change', '#transcriptions input', function( )
+		{
+			// get transcript container
+			_transcript = $(this).closest('ul');
+
+			RiddR.options.save ( 'transcription', 
+			{
+				[_transcript.attr('key')] : { [_transcript.find('input:first-child').val()] : _transcript.find('input:last').val() }
+			}, 'parent' ); // flush parent storage item
+
+			$(this).blur();
+		});
+
 	}
 
 /*
