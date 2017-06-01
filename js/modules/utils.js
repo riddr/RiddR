@@ -143,7 +143,7 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * DEEP OBJECT MERGE
+ * OBJECT HANDLING HELPERS
  * 
  * Validate if a given item is an object
  * ---------------------------------------------------------------------------------------------------------------------
@@ -151,6 +151,38 @@
 	this.isObject = function ( item ) 
 	{
 		return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
+	}
+
+	// check if given object is empty 
+	this.isEmpty = function ( object )
+	{
+		return Object.keys( object ).length === 0 && object.constructor === Object;	
+	}
+
+	// Remove property from object 
+	this.deleteObjectProperty = function ( selector, object )
+	{	
+		Object.keys(selector).forEach( function ( key ) 
+		{
+			if(!(key in object))
+				return;
+
+			if ( RiddR.isObject( selector[key] ) && !RiddR.isEmpty( selector[key] ) )
+				RiddR.deleteObjectProperty( selector[key], object[key] );
+			else
+				delete object[key];
+		});
+	}
+
+	// get parent object by removing the last nested child
+	this.getParentObject = function ( object )
+	{
+		// deep clone the object 
+		object = JSON.parse( JSON.stringify(object) );
+
+		RiddR.deleteObjectProperty( object, object );
+
+		return object;
 	}
 
 	// deep merge two objects 

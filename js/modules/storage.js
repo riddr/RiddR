@@ -54,11 +54,11 @@
 				{ [arguments[0]] : arguments[1] };
 
 			callback = ( typeof arguments[arguments.length-1] === 'function' )? arguments[arguments.length-1] : undefined;
- 
- 			// update cached values
- 			_update_cache( data );
 
-			this.area.set( RiddR.merge( RiddR.defaults, data ), callback );
+ 			// update cached values
+ 			_update_cache( data, arguments[0][2] ); // send cache flush parameter
+
+			this.area.set( RiddR.defaults, callback );
 		},
 
 		// sync RiddR saved options
@@ -91,8 +91,17 @@
  * Update cached variables
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _update_cache = function ( data )
+	var _update_cache = function ( data, flush )
 	{
+		if( flush ) // flush cache if needed in order to avoid stange merge behaviour  
+		{
+			// determine weither the parent cache object should be flushed 
+			selector = ( flush == 'parent' )? RiddR.getParentObject( data ) : data; 
+			
+			RiddR.deleteObjectProperty( selector, RiddR.defaults );
+		}
+
+		// merge RiddR caching object with the new values
 		RiddR.defaults = RiddR.merge( RiddR.defaults, data );
 	}
 
@@ -103,13 +112,8 @@
 */
 	chrome.storage.onChanged.addListener( function ( changes ) 
 	{
-		buffer = {};
-		
 		for( key in changes )
-			buffer[key] = changes[key].newValue;
-
-		// update locally stored objects
-		RiddR.defaults = RiddR.merge( RiddR.defaults, data );
+			RiddR.defaults[key] = changes[key].newValue;
 	});
 
 }).apply(RiddR);
