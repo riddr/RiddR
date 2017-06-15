@@ -1,0 +1,169 @@
+/*
+ * PopUp
+ *
+ * RiddR popup CSS rules
+ *
+ * @package		RiddR
+ * @author		Tracjhe Petrov
+ * @link 		https://github.com/skechboy/RiddR/blob/master/css/popup.css
+*/
+
+/*----------------------------------------------------------------------------------------------------------------------
+											   MAIN RULE's
+----------------------------------------------------------------------------------------------------------------------*/
+body
+{
+	margin: 10px;
+	padding: 0px;
+	user-select: none;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+											PLAYER CONTROLS
+----------------------------------------------------------------------------------------------------------------------*/
+#controls
+{
+	min-width: 140px;
+	min-height: 140px;
+	position:relative;
+}
+	#controls #background
+	{
+		top:0px;
+		z-index:1;
+		width:140px;
+		height:140px;
+		border-radius:100%;
+		background:#E2E9F1;
+		position: absolute;
+	}
+	#controls #container
+	{
+		top:20px;
+		left:10px;
+		z-index:2;
+		width:120px;
+		height:120px;
+		background:#FFF;
+		overflow:hidden;
+		border-radius:100%;
+		position: absolute;
+		vertical-align: middle;
+		margin:auto 0px;
+		box-shadow: 0px -2px 2px 1px rgba(0, 0, 0, 0.2)
+	}
+		#controls #container > div
+		{
+			/* fix for fast events */
+			left: -100px; 
+
+			z-index:2;
+			cursor:pointer;
+			position:absolute;
+			transform: scale(0);
+			border-radius: 100%;
+			display: inline-block;
+			transition: transform 0.8s;
+			transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+			
+			color:#FFF;
+			font-size: 29px;
+			line-height:30px;
+			text-align:center;
+			box-sizing:border-box;
+			padding: 15px 0px;
+		}
+			#controls #container > div:after
+			{
+				opacity:0;
+				z-index:-1;
+				content: '';
+				width: 120px;
+				height: 120px;
+				position: absolute;
+				background: inherit;
+				border-radius: 100%;
+				pointer-events: none;
+				top: calc( 50% - 60px );
+				left: calc( 50% - 60px );
+				transform: scale( 1.4, 1.4);
+				transition: transform 0.75s, opacity 1s;
+			}
+				#controls #container > div:active:after
+				{
+					opacity: 0.5;
+					transition: 0s;
+					transform: scale(0, 0);
+				}
+
+
+			#controls #container #play
+			{
+				background:#00bcd4;
+			}
+			#controls #container #stop
+			{
+				background: #c62828;
+			}
+			#controls #container #pause
+			{
+				background: #ff8f00;
+			}
+			#controls #container #loader
+			{
+				background:lightgreen;
+			}
+			#controls #container #error
+			{
+				background: #b71c1c;
+			}
+			#controls #container #replay
+			{
+				background:#00bcd4;
+			}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+											PLAYER STATE ANIMATIONS
+----------------------------------------------------------------------------------------------------------------------*/
+	.loading div#loader, .start div#pause, .end div#replay, .error div#error
+	{
+		width: 60px;
+		height: 60px;
+		transform: scale(1) !important;
+		top: calc( 50% - 30px ) !important;
+		left: calc( 50% - 30px ) !important;
+	}
+		.paused div#stop, .paused div#play
+		{
+			width: 46px;
+			height: 46px;
+			transform: scale(1) !important;
+			top: calc( 50% - 23px ) !important;
+			padding-top: calc( 25% - 22px) !important;
+		}
+			.paused div#stop
+			{
+				left: 10% !important;
+			}
+			.paused div#play
+			{
+				left: calc(90% - 46px ) !important;
+			}
+
+	[class^="loading "] div#loader,
+	[class^="start "] div#pause,
+	[class^="end "] div#replay,
+	[class^="error "] div#error,
+	[class^="paused "] div#stop, [class^="paused "] div#play	
+	{
+		transform: scale(0) !important;
+	}
+
+/* 	#controls #container > div:active button rotation
+{
+	transition: 0s;
+	transform-origin: center;
+	transform: scale(1) rotate(360deg) !important;
+} */
