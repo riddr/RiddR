@@ -92,7 +92,7 @@
 
 		resume : function()
 		{
-			_state('speaking');
+			_state('start');
 			TTS.channels[TTS.current.channel].play();
 		},
 
@@ -384,7 +384,10 @@
 	var _auto_speak = function ( event )
 	{
 		if( TTS.current.channel == 0 )
+		{
+			_state('start');
 			TTS.channels[TTS.current.channel].play();
+		}
 	}
 
 	// called when audio stats playing for first time or on resum after pause of buffering
@@ -470,8 +473,6 @@
 	// start speaking
 	var _speak = function (input)
 	{
-		_state('start');
-
 		// start loading utterances
 		_preload_utterance();
 	}
