@@ -11,7 +11,7 @@
 
 (function () 
 {
-	var _ui_events = [ 'start', 'end', 'loading', 'paused' ];
+	var _ui_events = [ 'start', 'end', 'loading', 'pause', 'interrupted' ];
 	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -45,6 +45,15 @@
 	// call user requested action
 	var _call_action = function ( action )
 	{
+		switch( action )
+		{
+			case 'stop':
+			case 'pause':
+			case 'resume':
+			case 'replay':
+				RiddR.IO.call( action, null, null, 'background' );
+			break;
+		}
  	}
 
  	// update popup UI state 
@@ -87,7 +96,7 @@
 		{
 			element.addEventListener('click' , function( event ) 
 			{
-				_call_action( this );
+				_call_action( this.id );
 			});
 		});
 	}
