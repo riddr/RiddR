@@ -98,7 +98,7 @@ body
 				}
 
 
-			#controls #container #play
+			#controls #container #resume
 			{
 				background:#00bcd4;
 			}
@@ -127,7 +127,7 @@ body
 /*----------------------------------------------------------------------------------------------------------------------
 											PLAYER STATE ANIMATIONS
 ----------------------------------------------------------------------------------------------------------------------*/
-	.loading div#loader, .start div#pause, .end div#replay, .error div#error
+	.loading div#loader, .start div#pause, .end div#replay, .interrupted div#replay, .error div#error
 	{
 		width: 60px;
 		height: 60px;
@@ -135,7 +135,7 @@ body
 		top: calc( 50% - 30px ) !important;
 		left: calc( 50% - 30px ) !important;
 	}
-		.paused div#stop, .paused div#play
+		.pause div#stop, .pause div#resume
 		{
 			width: 46px;
 			height: 46px;
@@ -143,20 +143,20 @@ body
 			top: calc( 50% - 23px ) !important;
 			padding-top: calc( 25% - 22px) !important;
 		}
-			.paused div#stop
+			.pause div#stop
 			{
 				left: 10% !important;
 			}
-			.paused div#play
+			.pause div#resume
 			{
 				left: calc(90% - 46px ) !important;
 			}
 
 	[class^="loading "] div#loader,
 	[class^="start "] div#pause,
-	[class^="end "] div#replay,
+	[class^="end "] div#replay, [class^="interrupted "] div#replay,
 	[class^="error "] div#error,
-	[class^="paused "] div#stop, [class^="paused "] div#play	
+	[class^="pause "] div#stop, [class^="pause "] div#resume	
 	{
 		transform: scale(0) !important;
 	}
