@@ -136,7 +136,7 @@
 	var _TTS_handler = function ( event, callback )
 	{
 		// trigger TTS update event if no callback is provided
-		if( event && !callback )
+		if( event )
 			_trigger( event );
 
 		// execute callback 
@@ -144,7 +144,7 @@
 			callback(event);
 
 		// update local reading state 
-		if(event.type != 'word' && event.type != 'sentence' && event.type != 'marker' )
+		//if(event.type != 'word' && event.type != 'sentence' && event.type != 'marker' )
 			_TTS_state = event.type;
 
 		// @To-Do: implement better error handling 
