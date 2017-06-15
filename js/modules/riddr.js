@@ -49,8 +49,7 @@
 		}
 
 		// attach event capturing callback if needed
-		if( callback )
-			options.onEvent = function ( event ){ _TTS_handler( event, callback ) };
+		options.onEvent = ( callback )? function ( event ){ _TTS_handler( event, callback ) } : _TTS_handler;
 
 		// temporary fix for Chrome pause bug // @To-Do: file bug to Google regards this
 		if(_TTS_state == 'pause' )
