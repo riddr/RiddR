@@ -11,7 +11,7 @@
 
 (function () 
 {
-	var _ui_events = [ 'start', 'end', 'loading', 'pause', 'interrupted' ];
+	var _ui_events = [ 'start', 'end', 'loading', 'pause', 'resume', 'interrupted' ];
 	
 /*
  * ---------------------------------------------------------------------------------------------------------------------

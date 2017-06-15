@@ -127,7 +127,7 @@ body
 /*----------------------------------------------------------------------------------------------------------------------
 											PLAYER STATE ANIMATIONS
 ----------------------------------------------------------------------------------------------------------------------*/
-	.loading div#loader, .start div#pause, .end div#replay, .interrupted div#replay, .error div#error
+	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error
 	{
 		width: 60px;
 		height: 60px;
@@ -153,7 +153,7 @@ body
 			}
 
 	[class^="loading "] div#loader,
-	[class^="start "] div#pause,
+	[class^="start "] div#pause, [class^="resume "] div#pause,
 	[class^="end "] div#replay, [class^="interrupted "] div#replay,
 	[class^="error "] div#error,
 	[class^="pause "] div#stop, [class^="pause "] div#resume	
