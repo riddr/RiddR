@@ -109,10 +109,12 @@
 */
 	var _call = function ( request )
 	{
-		if( callee = _get( request ) && typeof callee == 'function' )
-			return callee(request.data);
-		else
-			return '{ error: "Invalid method requested:' + request.selector + '"}';
+		if( callee = _get( request ) )
+			if( typeof callee == 'function' ) // validate if the selected request is function
+				return callee(request.data);
+
+		//else
+		return '{ error: "Invalid method requested:' + request.selector + '"}';
 	}
 
 /*
