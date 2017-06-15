@@ -76,17 +76,17 @@
 			switch( action ) // validate action per request type in order to avoid TTS engine errors
 			{
 				case 'stop':
-					if( RiddR.TTS.state == 'speaking' || RiddR.TTS.state == 'pause' || RiddR.TTS.state == 'start' )
+					if( RiddR.TTS.state == 'resume' || RiddR.TTS.state == 'pause' || RiddR.TTS.state == 'start' )
 						return true;
 				break;
 
 				case 'pause':
-					if( RiddR.TTS.state == 'speaking' || RiddR.TTS.state == 'start' )
+					if( RiddR.TTS.state == 'start' )
 						return true;
 				break;
 
 				case 'resume':
-					if( RiddR.TTS.state == 'paused' )
+					if( RiddR.TTS.state == 'pause' )
 						return true;
 				break;
 			}

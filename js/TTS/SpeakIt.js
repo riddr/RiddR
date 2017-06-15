@@ -86,13 +86,13 @@
 
 		pause : function()
 		{
-			_state('paused');
+			_state('pause');
 			TTS.channels[TTS.current.channel].pause();
 		},
 
 		resume : function()
 		{
-			_state('start');
+			_state('resume');
 			TTS.channels[TTS.current.channel].play();
 		},
 
