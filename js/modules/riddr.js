@@ -18,7 +18,8 @@
 */
 	var _engine,
 		_TTS_state = 'end',
-		_max_length = 32768; // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
+		_max_length = 32768, // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
+		_last_utterance = '';
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -29,6 +30,8 @@
 */
 	this.read = function ( utterance, options = {}, callback )
 	{
+		_last_utterance = utterance;
+
 		// determine the selected TTS engine based on client connection state 
 		engine_name =  ( RiddR.is_online ) ? 
 			options.TTS_engine || RiddR.storage.get('TTS_engine') :
@@ -99,6 +102,12 @@
 	this.stop = function ()
 	{
 		chrome.tts.stop();
+	}
+
+	// replay last readed utterance @To-Do: implement "replay on last request" not just the last utterance
+	this.replay = function ()
+	{
+		RiddR.read( _last_utterance );
 	}
 
 	// Check if RiddR is currently reading something 
