@@ -114,7 +114,11 @@ body
 			{
 				background:lightgreen;
 			}
-			#controls #container #error
+			#controls #container #error,
+			#controls #container #no-input
+			{
+				background: #b71c1c;
+			}
 			{
 				background: #b71c1c;
 			}
@@ -127,7 +131,8 @@ body
 /*----------------------------------------------------------------------------------------------------------------------
 											PLAYER STATE ANIMATIONS
 ----------------------------------------------------------------------------------------------------------------------*/
-	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error
+	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error,
+	.idle div#no-input
 	{
 		width: 60px;
 		height: 60px;
@@ -156,10 +161,28 @@ body
 	[class^="start "] div#pause, [class^="resume "] div#pause,
 	[class^="end "] div#replay, [class^="interrupted "] div#replay,
 	[class^="error "] div#error,
-	[class^="pause "] div#stop, [class^="pause "] div#resume	
+	[class^="pause "] div#stop, [class^="pause "] div#resume,
+	[class^="idle "] div#no-input
 	{
 		transform: scale(0) !important;
 	}
+
+	/* IDLE STATE */
+	#message
+	{
+		display:none;
+		margin-top:10px;
+		white-space: nowrap;
+	}
+		.idle + #message
+		{
+			display:block;
+		}
+			.idle + #message > span
+			{
+				font-size:20px;
+				vertical-align:middle;
+			}
 
 /* 	#controls #container > div:active button rotation
 {
