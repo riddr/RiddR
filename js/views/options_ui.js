@@ -124,7 +124,7 @@
 		// test TTS audio 
 		$(document).on('click','#test_btn', function()
 		{
-			RiddR.options.test_speech( $("#utterance").val(), RiddR.options.UI.reading );
+			RiddR.options.test_speech( $("#utterance").val() );
 		});
 
 		$(document).on('change', "input[type=checkbox]", function()

@@ -6,7 +6,7 @@
  * @package		RiddR
  * @category	Core
  * @author		Trajche Petrov
- * @link		https://github.com/skechboy/RiddR
+ * @link		https://github.com/skechboy/RiddR/blob/master/js/modules/riddr.js
 */
 
 (function () 
@@ -19,7 +19,7 @@
 	var _engine,
 		_TTS_state = 'end',
 		_max_length = 32768, // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
-		_last_utterance = '';
+		_last_request = '';
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -28,13 +28,11 @@
  * main read method 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.read = function ( utterance, options = {}, callback )
+	this.read = function ( data )
 	{
-		_last_utterance = utterance;
-
 		// determine the selected TTS engine based on client connection state 
 		engine_name =  ( RiddR.is_online ) ? 
-			options.TTS_engine || RiddR.storage.get('TTS_engine') :
+			data.options.TTS_engine || RiddR.storage.get('TTS_engine') :
 			RiddR.storage.get('offline_engine');
 
 		// get the parameters of the selected TTS engine
@@ -44,25 +42,25 @@
 		options = 
 		{
 			voiceName 	: _engine.voiceName,
-			enqueue 	: options.enqueue 						|| RiddR.storage.get('enqueue'),
-			lang 		: options.lang 							|| RiddR.storage.get('language'),
-			volume 		: options.volume 						|| RiddR.storage.get('volume'),
-			rate 		: _validate_parameter ( options.rate 	|| RiddR.storage.get('rate'),  _engine.rate),
-			pitch 		: _validate_parameter ( options.pitch 	|| RiddR.storage.get('pitch'), _engine.pitch),
+			enqueue 	: data.options.enqueue 						|| RiddR.storage.get('enqueue'),
+			lang 		: data.options.lang 						|| RiddR.storage.get('language'),
+			volume 		: data.options.volume 						|| RiddR.storage.get('volume'),
+			rate 		: _validate_parameter ( data.options.rate 	|| RiddR.storage.get('rate'),  _engine.rate),
+			pitch 		: _validate_parameter ( data.options.pitch 	|| RiddR.storage.get('pitch'), _engine.pitch),
 		}
 
 		// attach event capturing callback if needed
-		options.onEvent = ( callback )? function ( event ){ _TTS_handler( event, callback ) } : _TTS_handler;
+		options.onEvent = ( data.callback )? function ( event ){ _TTS_handler( event, data.callback ) } : _TTS_handler;
 
 		// temporary fix for Chrome pause bug // @To-Do: file bug to Google regards this
 		if(_TTS_state == 'pause' )
 			RiddR.stop();
 
 		// determine utterance language
-		RiddR.detect_lang( utterance, function ( lang )
+		RiddR.detect_lang( data.utterance, function ( lang )
 		{
 			//prepare utterance for reading
-			_prepare_utterance( utterance, lang, function ( utterance ) 
+			_prepare_utterance( data.utterance, lang, function ( utterance ) 
 			{
 				// update language if needed
 				options.lang = lang.read;
@@ -78,12 +76,15 @@
 			// send loading event to the callback for remote TTS engines
 			if( _engine.remote && _TTS_state != 'start' && _TTS_state != 'enqueued' )
 			{
-				_TTS_handler( { type : 'loading' }, callback );
+				_TTS_handler( { type : 'loading' }, data.callback );
 			}
 			else if( RiddR.storage.get('enqueue') ) // send event that new utterance was added into the queue
-				_TTS_handler( { type : 'enqueued' }, callback );
+				_TTS_handler( { type : 'enqueued' }, data.callback );
 
 		}, options.lang );
+
+		// log last reading request
+		_last_request = data;
 	}
 
 	// Pauses speech synthesis if it was reading
@@ -107,7 +108,7 @@
 	// replay last readed utterance @To-Do: implement "replay on last request" not just the last utterance
 	this.replay = function ()
 	{
-		RiddR.read( _last_utterance );
+		RiddR.read( _last_request );
 	}
 
 	// Check if RiddR is currently reading something 
