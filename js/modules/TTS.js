@@ -81,7 +81,7 @@
 				break;
 
 				case 'pause':
-					if( RiddR.TTS.state == 'start' )
+					if( RiddR.TTS.state == 'start' || RiddR.TTS.state == 'resume' )
 						return true;
 				break;
 
