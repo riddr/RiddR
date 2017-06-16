@@ -97,7 +97,6 @@ body
 					transform: scale(0, 0);
 				}
 
-
 			#controls #container #resume
 			{
 				background:#00bcd4;
@@ -112,7 +111,8 @@ body
 			}
 			#controls #container #loader
 			{
-				background:lightgreen;
+				padding:0px;
+				cursor: progress;
 			}
 			#controls #container #error,
 			#controls #container #no-input
@@ -131,6 +131,7 @@ body
 /*----------------------------------------------------------------------------------------------------------------------
 											PLAYER STATE ANIMATIONS
 ----------------------------------------------------------------------------------------------------------------------*/
+
 	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error,
 	.idle div#no-input
 	{
@@ -167,26 +168,72 @@ body
 		transform: scale(0) !important;
 	}
 
-	/* IDLE STATE */
-	#message
-	{
-		display:none;
-		margin-top:10px;
-		white-space: nowrap;
-	}
-		.idle + #message
-		{
-			display:block;
-		}
-			.idle + #message > span
-			{
-				font-size:20px;
-				vertical-align:middle;
-			}
+/*----------------------------------------------------------------------------------------------------------------------
+										LOADER ANIMATION
+----------------------------------------------------------------------------------------------------------------------*/
 
-/* 	#controls #container > div:active button rotation
+#loader > svg 
 {
-	transition: 0s;
-	transform-origin: center;
-	transform: scale(1) rotate(360deg) !important;
-} */
+	animation: rotation 1.4s linear infinite;
+}
+	#loader > svg  > circle
+	{
+		fill:none;
+		stroke:#00bcd4;
+		stroke-width:5px;
+		stroke-dashoffset: 0;
+		stroke-dasharray: 187;
+		stroke-linecap: round;
+		transform-origin: center;
+		animation: path 1.4s ease-in-out infinite;
+	}
+
+@keyframes rotation 
+{
+	0% 
+	{
+		transform: rotate(0deg);
+	}
+	100% 
+	{
+		transform: rotate(270deg);
+	}
+}
+
+@keyframes path 
+{
+	0% 
+	{
+		stroke-dashoffset: 187;
+	}
+	50%
+	{
+		stroke-dashoffset: 60;
+		transform: rotate(135deg);
+	}
+	100% 
+	{
+		stroke-dashoffset: 187;
+		transform: rotate(450deg);
+	}
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+											POP-UP MESSAGE BOX
+----------------------------------------------------------------------------------------------------------------------*/
+#message
+{
+	display:none;
+	margin-top:10px;
+	white-space: nowrap;
+}
+	.idle + #message
+	{
+		display:block;
+	}
+		.idle + #message > span
+		{
+			font-size:20px;
+			vertical-align:middle;
+		}
