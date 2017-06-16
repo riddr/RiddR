@@ -11,7 +11,7 @@
 
 (function () 
 {
-	var _ui_events = [ 'start', 'end', 'loading', 'pause', 'resume', 'interrupted' ];
+	var _ui_events = [ 'start', 'end', 'loading', 'pause', 'resume', 'interrupted', 'idle' ];
 	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -53,6 +53,10 @@
 			case 'replay':
 				RiddR.IO.call( action, null, null, 'background' );
 			break;
+
+			case 'no-input':
+				window.close();
+			break;
 		}
  	}
 
@@ -73,7 +77,11 @@
 			if( state.length > 2 )
 				state.shift();
 
-			ui_elem.className = state.join(' ')
+			// update 
+			if( state[0] != state[1] )
+				ui_elem.className = state.join(' ')
+			else
+				ui_elem.className = state[1];
 		}
 	}
 
@@ -84,8 +92,15 @@
 */	
 	var _init_UI = function ()
 	{
-		// register UI event listeners
-		_register_event_listeners();
+		RiddR.IO.call('state', null, function( state )
+		{
+			// update initial UI state
+			_update_UI_state( state );		
+
+			// register UI event listeners
+			_register_event_listeners();
+
+		}, 'background' );
 	}
 
 	// register UI event listeners 

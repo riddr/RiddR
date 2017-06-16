@@ -17,7 +17,7 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var _engine,
-		_TTS_state = 'end',
+		_TTS_state = 'idle',
 		_max_length = 32768, // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
 		_last_request = '';
 
@@ -115,6 +115,12 @@
 	this.is_reading = function ( callback )
 	{
 		chrome.tts.isSpeaking ( callback ); 
+	}
+
+	// return current reading state
+	this.state = function ()
+	{
+		return _TTS_state;		
 	}
 
 /*
