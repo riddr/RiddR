@@ -224,16 +224,41 @@ body
 ----------------------------------------------------------------------------------------------------------------------*/
 #message
 {
+	width:100%;
 	display:none;
 	margin-top:10px;
-	white-space: nowrap;
+	text-align:center;
+	box-sizing:border-box;
 }
-	.idle + #message
+	#message > div
+	{
+		height:0px;
+		font-size:10px;
+		overflow:hidden;
+		border-radius:4px;
+		white-space: normal;
+	}
+		#message > div.active
+		{
+			padding:3px;
+			height:auto;
+			margin-top:5px;
+		}
+
+	.idle + #message, .error + #message
 	{
 		display:block;
+		padding:5px 0px;
 	}
-		.idle + #message > span
+		.idle + #message > span, .error + #message > span
 		{
 			font-size:20px;
 			vertical-align:middle;
 		}
+
+/* type speccific message layout */
+#message > div.error
+{
+	color: #b71c1c;
+	background: rgba(183, 28, 28, 0.2);
+}

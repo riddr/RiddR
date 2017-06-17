@@ -11,8 +11,7 @@
 
 (function () 
 {
-	var _ui_events = [ 'start', 'end', 'loading', 'pause', 'resume', 'interrupted', 'idle' ];
-	
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Public accessible Pop-UP methods
@@ -42,6 +41,32 @@
 			return document.querySelectorAll( selector );
 	}
 
+	// trigger corsponding action for the received event
+ 	var _trigger_event = function ( event )
+ 	{
+ 		switch( event.type )
+ 		{
+ 			case 'end':
+ 			case 'start':
+ 			case 'pause':
+ 			case 'resume':
+ 			case 'loading':
+ 			case 'interrupted':
+ 				_update_UI_state( event.type );
+ 			break;
+
+ 			case 'error':
+ 				_update_UI_state( event.type );
+ 				_message_box( '<b>Oops!?</b></br> Something went wrong.', event.errorMessage, 'error' );
+ 			break;
+
+ 			case 'idle':
+ 				_update_UI_state( event.type );
+ 				_message_box( '<b>Howdy!</b></br>Please select some text for me to read.' );
+ 			break;
+ 		}
+ 	}
+
 	// call user requested action
 	var _call_action = function ( action )
 	{
@@ -56,6 +81,11 @@
 
 			case 'no-input':
 				window.close();
+				RiddR.IO.call("selection", null, null, "content" );
+			break;
+
+			case 'error':
+				$('#message > div')[0].classList.toggle('active');
 			break;
 		}
  	}
@@ -63,31 +93,30 @@
  	// update popup UI state 
 	var _update_UI_state = function ( new_state )
 	{
-		if( _ui_events.indexOf( new_state ) !== -1 ) // general UI updates
-		{
-			ui_elem = $("#controls");
+		ui_elem = $("#controls");
 
-			// get current state
-			state = ui_elem.className.split(' ');
+		// get current state
+		state = ui_elem.className.split(' ');
 
-			// register new UI state
-			state.push(new_state);
+		// register new UI state
+		state.push(new_state);
 
-			// remove unnecessary states
-			if( state.length > 2 )
-				state.shift();
+		// remove unnecessary states
+		if( state.length > 2 )
+			state.shift();
 
-			// update 
-			if( state[0] != state[1] )
-				ui_elem.className = state.join(' ')
-			else
-				ui_elem.className = state[1];
-		}
+		// update 
+		if( state[0] != state[1] )
+			ui_elem.className = state.join(' ')
+		else
+			ui_elem.className = state[1];
 	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Pirvate UI specific Pop-UP methods  
+ * 
+ * initialize pop-up UI
  * ---------------------------------------------------------------------------------------------------------------------
 */	
 	var _init_UI = function ()
@@ -95,7 +124,7 @@
 		RiddR.IO.call('state', null, function( state )
 		{
 			// update initial UI state
-			_update_UI_state( state );		
+			_trigger_event( { type : state } );		
 
 			// register UI event listeners
 			_register_event_listeners();
@@ -116,6 +145,19 @@
 		});
 	}
 
+	// generate pop-up message box content
+	var _message_box = function( message, extra_data = '', type = '',  icon = '' )
+	{
+		// add icon next to the message
+		message += ( icon != '' )? `<span class="material-icons">${icon}</span>` : '';
+
+		// add additional message information
+		message += ( extra_data != '' )? `<div class='${type}'>${extra_data}</div>` : '';
+
+		// update message box html
+		$("#message").innerHTML = message;
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Register TTS update listener 
@@ -123,7 +165,7 @@
 */	
 	window.addEventListener('onTTSupdate', function( event )
 	{
-		_update_UI_state( event.detail.type );
+		_trigger_event( event.detail );
 	});
 
 
