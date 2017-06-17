@@ -15,20 +15,28 @@
  	this.IO = 
 	{
 		// send message trough chrome runtime
-		send : function ( message, callback ) 
+		send : function ( message, callback, target = null ) 
 		{
-			chrome.runtime.sendMessage( message, callback );	
+			if( target == 'content' ) // send message to the content script
+			{
+				chrome.tabs.query({active: true, currentWindow: true}, function( tabs ) 
+				{
+					chrome.tabs.sendMessage(tabs[0].id, message, callback);
+				});	
+			}
+			else
+				chrome.runtime.sendMessage( message, callback );
 		},
 
 		// get specific 
 		get : function( selector, callback, target )
 		{
-			this.send( { action: 'get', selector: selector, target: target }, callback );
+			this.send( { action: 'get', selector: selector, target: target }, callback, target );
 		},
 
 		call : function( selector, data, callback, target )
 		{
-			this.send( { action: 'call', selector: selector, data: data, target: target }, callback );
+			this.send( { action: 'call', selector: selector, data: data, target: target }, callback, target );
 		},
 
 		trigger : function( event_id, data )
