@@ -17,6 +17,7 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var _engine,
+		_idle_TTL = null,
 		_TTS_state = 'idle',
 		_max_length = 32768, // define maximum utterance length https://developer.chrome.com/apps/tts#method-speak
 		_last_request = '';
@@ -165,6 +166,9 @@
 		// @To-Do: implement better error handling 
 		if (chrome.runtime.lastError) 
 			RiddR.log( chrome.runtime.lastError.message, 'error' );
+
+		// automaticaly reset the reading state after some time of inactivity
+		_reset_state( event );
 	}
 
 	// media controll for sending failback pause / resume events 
@@ -183,6 +187,21 @@
 					callback();
 			}
 		});
+	}
+
+	// reset reading state after some time of inactivity
+	var _reset_state = function ( state )
+	{
+		if( state.type == 'end' )
+		{
+			_idle_TTL = setTimeout( function ()
+			{
+				_TTS_state = 'idle'; // set reading state to iddle 
+				_trigger( {type : _TTS_state} );
+			}, 10000 );
+		}
+		else if( _idle_TTL )
+			_idle_TTL = clearTimeout( _idle_TTL );
 	}
 
 /*
