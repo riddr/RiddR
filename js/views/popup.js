@@ -22,7 +22,10 @@
 		// initialize RiddR Pop-UP
 		onLoad : function()
 		{
-			_init_UI();		
+			_init_UI();	
+
+			// get selected text in the current opened tab
+			RiddR.IO.call( "getSelection", null, null, "content" );	
 		}
 	}
 
@@ -81,7 +84,7 @@
 
 			case 'no-input':
 				window.close();
-				RiddR.IO.call("selection", null, null, "content" );
+				RiddR.IO.call( "selector", null, null, "content" );
 			break;
 
 			case 'error':

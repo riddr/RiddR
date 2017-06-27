@@ -1,0 +1,8 @@
+.riddr-selector
+{
+}
+	.riddr-selector *:hover
+	{
+		cursor:pointer;
+		background:rgba(0, 188, 212, 0.2);
+	}

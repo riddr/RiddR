@@ -32,6 +32,17 @@
 		"https://*/*"
 	],
 
+	"content_scripts": 
+	[
+		{
+			"all_frames"	: true,
+			"matches"		: ["<all_urls>"],
+			"run_at" 		: "document_start",
+			"css"			: ["css/content.css"],
+			"js"			: ["js/content.js", "js/modules/io.js"]
+		}
+	],
+
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
 	"options_ui": 
