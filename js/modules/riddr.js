@@ -192,13 +192,15 @@
 	// reset reading state after some time of inactivity
 	var _reset_state = function ( state )
 	{
-		if( state.type == 'end' )
+		console.log(state);
+
+		if( state.type == 'end' || state.type == 'error' || state.type == 'interrupted' )
 		{
 			_idle_TTL = setTimeout( function ()
 			{
 				_TTS_state = 'idle'; // set reading state to iddle 
 				_trigger( {type : _TTS_state} );
-			}, 10000 );
+			}, 5000 );
 		}
 		else if( _idle_TTL )
 			_idle_TTL = clearTimeout( _idle_TTL );
