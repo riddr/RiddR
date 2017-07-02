@@ -161,4 +161,4 @@
 */
 	chrome.runtime.onMessage.addListener( _handler );
 
-}).apply(RiddR);
+}).apply( RiddR || {} );

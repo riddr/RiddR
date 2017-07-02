@@ -69,7 +69,7 @@
 				RiddR.defaults = options; // update RiddR global defaults object
 
 				if( typeof callback === 'function' )
-					callback();
+					callback(options);
 			});
 		},
 
