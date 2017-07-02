@@ -27,16 +27,52 @@ var RiddR = ( function ( API )
 */
 	var $ = function ( selector ) 
 	{
-		return document.querySelectorAll( selector );
+		selection = document.querySelectorAll( selector );
+
+		if ( selection.length == 1 ) // return single element 
+			return selection[0];
+		else
+			return selection;
 	}
 
 	// load RiddR options
-	var _load_options = function ()
+	var _load_options = function ( callback )
 	{
 		RiddR.IO.get( 'defaults', function( options )
 		{
 			RiddR.options = options;
+
+			if( typeof callback === 'function' )
+				callback();
+
 		}, 'background' );
+	}
+
+	// extract text from various HTML elements and objects
+	var _extract_text = function ( text )
+	{
+		switch( typeof text )
+		{
+			case 'string':
+				return text;
+			break;
+
+			case 'object':
+
+				if( text.tagName ) // single HTML element detected
+					return text.innerText;
+				else
+				{
+					if( text instanceof Array ) // handle array input
+						return text.join('');
+
+					if( text instanceof NodeList) // extract text from multiple HTML elements / NodeList
+						return Object.keys(text).map( function (index){ 
+																		return text[index].innerText; 
+																	}).join('');
+				}
+			break;
+		}
 	}
 
 /*
@@ -46,30 +82,44 @@ var RiddR = ( function ( API )
 */  
 	var _get_selection = function ()
 	{
-		// gDocs
-		// div.kix-selection-overlay : div.kix-zoomdocumentplugin-outer
+		// get user selection
+		selection = _get_user_selection();
 
-		// try to find article / p elements
-
-		// drive PDF DOC preview
-		// a-b-Xa-La ( whole page ) // paragraphs a-b-Xa-La-mf-Ic // a-b-s-r-pc ( selection )
-
-		// all 
-		// document.all[0].innerText
-
+		// get auto article / paragraph / page / RiddR read selection
+		if( ( !selection || selection == '') && RiddR.options.auto_selection )
+			selection = _get_auto_selection()
 
 		// start reading the selection
 		if( selection && selection != '' )
-			RiddR.IO.call( 'read', { utterance: selection, options : {} }, null, 'background' );
+			_read( selection );
 	}
 
 	// get basic browser basic text selection
-	var _get_browser_selection = function ()
+	var _get_user_selection = function ()
 	{
-		// get current text selection
-		selection = API.getSelection();
+		// get current browser selection
+		selection = API.getSelection().toString();
 
-		return selection.toString();
+		if( selection != '' ) 
+			return selection;
+		// handle google docs user text selection
+		else if( API.location.href.startsWith('https://docs.google.com/document/d/') ) 
+			return _extract_text( $(".kix-selection-overlay ~ .kix-lineview-content") );
+
+		//@To-Do: drive PDF DOC preview 
+		// a-b-Xa-La ( whole page ) // paragraphs a-b-Xa-La-mf-Ic // a-b-s-r-pc ( selection )
+	}
+
+	var _get_auto_selection = function ()
+	{
+		// try to find article / p elements
+
+		// try to find RiddR content selection tag
+
+				// gDocs
+		// div.kix-zoomdocumentplugin-outer - for whole document
+
+		return document.body.innerText;
 	}
 
 /*
@@ -85,7 +135,7 @@ var RiddR = ( function ( API )
 		document.addEventListener( 'click', handler = function( event ) 
 		{
 			// read the inner text of the selected element
-			RiddR.IO.call( 'read', { utterance: event.srcElement.innerText, options : {} }, null, 'background' );
+			_read( event.srcElement.innerText );
 
 			// disable selection UI
 			document.body.classList.toggle('riddr-selector');
@@ -98,7 +148,10 @@ var RiddR = ( function ( API )
  * Initialize content script ( load options, shortcuts etc. ) and register Chrome API listeners
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
-	API.onload = _load_options; // load RiddR options
+	API.onload = function()
+	{
+		_load_options( _auto_read );
+	};
 
 	// register storage update event & avoid unsynced  content script options 
 	chrome.storage.onChanged.addListener( _load_options );
