@@ -25,7 +25,7 @@
 			_init_UI();	
 
 			// get selected text in the current opened tab
-			RiddR.IO.call( "getSelection", null, null, "content" );	
+			RiddR.IO.call( "popUpInit", null, null, "content" );	
 		}
 	}
 

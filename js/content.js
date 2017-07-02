@@ -14,10 +14,19 @@ var RiddR = ( function ( API )
 {
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Private variables declaration
+ * Public content script methods
+ * 
+ * execute pop-up initiated actions 
  * ---------------------------------------------------------------------------------------------------------------------
 */  
+	popUpInit = function()
+	{
+		// get text selection on pop-up initialization
+		selection = _get_selection();
 
+		if( selection && selection != '' )
+			_read( selection );
+	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * General content script methods
@@ -89,9 +98,7 @@ var RiddR = ( function ( API )
 		if( ( !selection || selection == '') && RiddR.options.auto_selection )
 			selection = _get_auto_selection()
 
-		// start reading the selection
-		if( selection && selection != '' )
-			_read( selection );
+		return selection;
 	}
 
 	// get basic browser basic text selection
@@ -191,7 +198,7 @@ var RiddR = ( function ( API )
 	return {
 				options 		: {},
 				selector 		: _select_mode,
-				getSelection 	: _get_selection
+				popUpInit 		: popUpInit 
 	}
 
 })(this);
