@@ -145,6 +145,33 @@ var RiddR = ( function ( API )
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * Reading / TTS related content script methods
+ * 
+ * start reading specific text with speciic options
+ * ---------------------------------------------------------------------------------------------------------------------
+*/  
+	var _read = function ( utterance, options = {} )
+	{
+		RiddR.IO.call( 'read', { utterance: utterance, options : options }, null, 'background' );
+	}
+
+	// automaticaly start reading if RiddR auto read key is found in the current page 
+	var _auto_read = function ()
+	{
+		// check whether auto read option is enabled 
+		if ( RiddR.options.auto_read )
+		{
+			// get predefined content 
+			content = $('.RiddR');
+
+			// if RiddR tagged elements are found proceed with auto reading
+			if( content.length != 0 ) 
+				_read( _extract_text( content ) );
+		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * Initialize content script ( load options, shortcuts etc. ) and register Chrome API listeners
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
