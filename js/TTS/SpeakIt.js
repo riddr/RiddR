@@ -364,6 +364,8 @@
 	{
 		if(TTS.current.retry < 2) // try to reload the current channel
 			_reload_channel();
+		else if( event.type == 'abort')
+			TTS.response({'type': 'error', 'errorMessage': 'Can\'t find valid audio source. ERRCODE: 302/503' });
 		else
 			TTS.response({'type': 'error', 'errorMessage': RiddR.get.media_error(event.currentTarget.error.code, event.currentTarget.networkState )});
 	}
@@ -394,7 +396,7 @@
 	var _on_play = function ( event )
 	{	
 		// determine if the event is called on first play or resume
-		if(event.currentTarget.currentTime == 0)
+		if( event.currentTarget.currentTime < 0.1 )
 		{
 			// preload next utterance if any
 			_preload_utterance();
@@ -455,7 +457,10 @@
 	// update curent and start speaking the next audio channel
 	var _speak_next = function ()
 	{
-		TTS.channels[TTS.current.channel].play();
+		if( TTS.channels[TTS.current.channel] == undefined  )
+			TTS.response({'type': 'error', 'errorMessage': 'Failed to play next sentence!' });	
+		else
+			TTS.channels[TTS.current.channel].play();
 	}
 
 	// preload the next channel in order to avoid big pauses @To-Do: add dynamic preload rate based on the user network connectivity
