@@ -88,7 +88,7 @@ body
 				top: calc( 50% - 60px );
 				left: calc( 50% - 60px );
 				transform: scale( 1.4, 1.4);
-				transition: transform 0.75s, opacity 1s;
+				transition: transform 0.75s, opacity 1s, left 1s, top 1s;
 			}
 				#controls #container > div:active:after
 				{
@@ -132,8 +132,7 @@ body
 											PLAYER STATE ANIMATIONS
 ----------------------------------------------------------------------------------------------------------------------*/
 
-	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error,
-	.idle div#no-input
+	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error
 	{
 		width: 60px;
 		height: 60px;
@@ -157,6 +156,25 @@ body
 			{
 				left: calc(90% - 46px ) !important;
 			}
+
+	.end div#no-input, .interrupted div#no-input
+	{
+		width: 60px;
+		height: 60px;
+		transform: scale(0.68) !important;
+		top: calc( 60% - 17px ) !important;
+		left: calc(80% - 40px ) !important;	
+		transition: transform 0.8s, top 0.5s, left 0.5s !important;
+	}
+		.idle div#no-input
+		{
+			width: 60px;
+			height: 60px;
+			transform: scale(1) !important;
+			top: calc( 50% - 30px ) !important;
+			left: calc( 50% - 30px ) !important;
+		}
+
 
 	[class^="loading "] div#loader,
 	[class^="start "] div#pause, [class^="resume "] div#pause,
