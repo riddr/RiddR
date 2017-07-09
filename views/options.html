@@ -30,7 +30,7 @@
 	<div class="slider" ></div>
 </nav>
 <content>
-	<section style="margin-left: calc(-200%);">
+	<section style="margin-left: calc(-300%);">
 		<div id="vocal-container">
 			<h1><i class="material-icons">record_voice_over</i>Vocal settings</h1>
 			<div id="tts-engine">
@@ -133,7 +133,52 @@
 		<div title="Add transcription item" class="material add" action="transcript">+</div>
 	</section>
 	<section>
-		TAB 4
+		<div id="advanced_options_container">
+			<div id="advanced_tts">
+				<div id="advanced_engines">
+					<h1><i class="material-icons">build</i>Advanced TTS options</h1>
+					<div class="material select">
+						<label for="offline_engine">Offline TTS Engine</label>
+						<select id="offline_engine"> </select>
+					</div>
+					<div class="material select">
+						<label for="failover_engine">Failover TTS engine</label>
+						<select id="failover_engine" disabled>
+							<option value="SpeakIt">SpeakIt</option>
+						</select>
+					</div>
+				</div>
+
+				<div id="text_selection">
+					<h1><i class="material-icons">select_all</i>Text selection</h1>
+					<div class="material switch">
+						<label for="auto_read">Auto read</label>
+						<input id="auto_read" type="checkbox" />
+						<span></span>
+					</div>
+					<div class="material switch">
+						<label for="auto_selection">Auto selection</label>
+						<input id="auto_selection" type="checkbox"/>
+						<span></span>
+					</div>
+				</div>
+			</div>
+		
+			<div id="various">
+				<h1><i class="material-icons">tune</i>Various optoins</h1>
+				<div id="" class="material switch">
+					<label for="error_repoting">Error reporting</label>
+					<input id="error_repoting" type="checkbox"/>
+					<span></span>
+				</div>
+				<div id="" class="material switch">
+					<label for="donations">Show donations button</label>
+					<input id="donations" type="checkbox"/>
+					<span></span>
+				</div>
+			</div>
+
+		</div>
 	</section>
 </content>
 <div id="snackbar" class="snackbar">Changes were successfuly saved!</div>

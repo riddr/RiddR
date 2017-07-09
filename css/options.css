@@ -379,7 +379,45 @@ content > section > div
 	}
 
 /*----------------------------------------------------------------------------------------------------------------------
-								CROSS-OS COMPATIBILITY 
+												ADVANCED OPTIONS
+----------------------------------------------------------------------------------------------------------------------*/
+#advanced_options_container
+{
+	width:100%;
+}
+	#advanced_options_container > div
+	{
+		font-size:14px;
+		vertical-align:top;
+		display:inline-block;
+	}
+
+
+#advanced_tts
+{
+	width:40%;
+	margin-right:5%;
+	border-right:1px solid rgba(0,0,0,0.05);
+}
+	#advanced_tts #advanced_engines > div
+	{
+		margin-bottom:20px;
+	}
+
+	#advanced_tts #text_selection
+	{
+		margin-top:30px;
+	}	
+
+
+#various
+{
+	width:50%;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+											CROSS-OS COMPATIBILITY 
 ----------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-height: 470px) 
 {
