@@ -36,12 +36,17 @@ var RiddR = ( function ( API )
 */
 	var $ = function ( selector ) 
 	{
+		// get the reqested elements from the DOM
 		selection = document.querySelectorAll( selector );
 
-		if ( selection.length == 1 ) // return single element 
-			return selection[0];
+		// check for single elements selection 
+		slection = ( selection.length == 1 )? selection[0] : selection;
+
+		// valdate selection 
+		if( !selection || !selection.length || selection.length == 0 )
+			return false;
 		else
-			return selection;
+			return slection;
 	}
 
 	// load RiddR options
@@ -96,7 +101,7 @@ var RiddR = ( function ( API )
 
 		// get auto article / paragraph / page / RiddR read selection
 		if( ( !selection || selection == '') && RiddR.options.auto_selection )
-			selection = _get_auto_selection()
+			return _get_auto_selection();
 
 		return selection;
 	}
@@ -117,16 +122,25 @@ var RiddR = ( function ( API )
 		// a-b-Xa-La ( whole page ) // paragraphs a-b-Xa-La-mf-Ic // a-b-s-r-pc ( selection )
 	}
 
+	// auto select text from the opened page 
 	var _get_auto_selection = function ()
 	{
-		// try to find article / p elements
+		// auto select whole document within Google Docs's
+		if( API.location.href.startsWith('https://docs.google.com/document/d/') )
+			return _extract_text( $(".kix-zoomdocumentplugin-outer") );
+		else
+		{
+			// try to find article within the page
+			if( article = $('article') )
+				return _extract_text( article );
 
-		// try to find RiddR content selection tag
+			// try to find paragraphs within the page 
+			if( paragraph = $('p') )
+				return _extract_text( paragraph );
 
-				// gDocs
-		// div.kix-zoomdocumentplugin-outer - for whole document
-
-		return document.body.innerText;
+			// else return all readable text from the opened page
+			return document.body.innerText;
+		}
 	}
 
 /*
