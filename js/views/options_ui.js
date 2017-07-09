@@ -259,9 +259,9 @@
 
 			// determine dropdown position
 			dtop    = select.offset().top,
-			height  = $(document).height() - dtop - 25;
+			height  =  ( $(document).height() < dropdown[0].scrollHeight )? $(document).height() - dtop - 25 : dropdown[0].scrollHeight;
 
-			if(height < 200) // update the dropdown size and posotion if it's to small 
+			if( height < 200 && height < dropdown[0].scrollHeight ) // update the dropdown size and posotion if it's to small 
 			{
 				dtop = 75;
 				height = $(document).height() - 100;
@@ -343,11 +343,14 @@
  * Generate TTS engine list
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var _generate_tts_list = function (  selected, truncate = 25, html = '' )
+	var _generate_tts_list = function (  selected, truncate = 25, offline = false, html = '' )
 	{
 		for ( engine in RiddR.TTS.engines )
 		{
-			html += '<option display="'+engine+'" '+( ( engine == selected )? 'selected' : '' )+' value="'+engine+'">'+engine.truncate(truncate)+'</option>'            
+			if( !offline || ( offline && !RiddR.TTS.engines[engine].remote )  )
+			{
+				html += '<option display="'+engine+'" '+( ( engine == selected )? 'selected' : '' )+' value="'+engine+'">'+engine.truncate(truncate)+'</option>'            
+			}
 		}
 
 		return html;
@@ -628,6 +631,7 @@
 		{
 			// generate list of avaliable TTS engines 
 			$("#TTS_engine").html( _generate_tts_list() );
+			$("#offline_engine").html( _generate_tts_list(RiddR.storage.get('offline_engine'), 25, true ) );
 
 			// update TTS engine parameters
 			_update_tts_parameters( engine );
