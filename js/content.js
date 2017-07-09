@@ -230,14 +230,14 @@ var RiddR = ( function ( API )
 			// extract shortcut code
 			shortcut = _extract_shortcut( event );
 			
-			// check weither there is such registered shortuct
-			if( shortuct = RiddR.options.shortcuts[shortcut] )
+			// check weither there is such registered shortcut
+			if( shortcut = RiddR.options.shortcuts[shortcut] )
 			{
 				// get selected text
 				utterance = _get_selection();
 
 				// start reading 
-				_read( utterance, shortuct );
+				_read( utterance, shortcut );
 
 				// stop event propagation
 				event.stopPropagation();

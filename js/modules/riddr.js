@@ -44,7 +44,7 @@
 		{
 			voiceName 	: _engine.voiceName,
 			enqueue 	: data.options.enqueue 						|| RiddR.storage.get('enqueue'),
-			lang 		: data.options.lang 						|| RiddR.storage.get('language'),
+			lang 		: data.options.language 					|| RiddR.storage.get('language'),
 			volume 		: data.options.volume 						|| RiddR.storage.get('volume'),
 			rate 		: _validate_parameter ( data.options.rate 	|| RiddR.storage.get('rate'),  _engine.rate),
 			pitch 		: _validate_parameter ( data.options.pitch 	|| RiddR.storage.get('pitch'), _engine.pitch),
