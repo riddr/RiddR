@@ -96,6 +96,18 @@ var RiddR = ( function ( API )
 		}
 	}
 
+	// stop default event action and event propatagion
+	var _stop = function( event )
+	{
+		// stop event propagation
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+
+		// prevent default browser actions
+		event.preventDefault();
+		return;
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Get text selection in the current tab
@@ -167,6 +179,9 @@ var RiddR = ( function ( API )
 
 			// disable select mode 
 			_disable_select_mode();
+
+			// prevent default element action
+			return _stop( event );
 		});
 	}
 
@@ -239,13 +254,7 @@ var RiddR = ( function ( API )
 				// start reading 
 				_read( utterance, shortcut );
 
-				// stop event propagation
-				event.stopPropagation();
-				event.stopImmediatePropagation();
-
-				// prevent default browser actions
-				event.preventDefault();
-				return;
+				return _stop( event );
 			}
 		}
 	}
