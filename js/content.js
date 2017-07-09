@@ -14,6 +14,13 @@ var RiddR = ( function ( API )
 {
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * Private content script variables
+ * ---------------------------------------------------------------------------------------------------------------------
+*/  
+	 var _keys = {};
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * Public content script methods
  * 
  * execute pop-up initiated actions 
@@ -158,11 +165,19 @@ var RiddR = ( function ( API )
 			// read the inner text of the selected element
 			_read( event.srcElement.innerText );
 
-			// disable selection UI
-			document.body.classList.toggle('riddr-selector');
-			document.removeEventListener( 'click', handler ); // detach the event
+			// disable select mode 
+			_disable_select_mode();
 		});
 	}
+
+	// disable select mode 
+	var _disable_select_mode = function ()
+	{
+		// disable selection UI
+		document.body.classList.remove('riddr-selector');
+		document.removeEventListener( 'click', handler ); // detach the event
+	}
+
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -193,6 +208,70 @@ var RiddR = ( function ( API )
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * Keyboard shortcuts related content script methods
+ * 
+ * handle keydown / keyup user generated events 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/  
+	var _key_handler = function ( event )
+	{
+		if( event.type == 'keyup' ) 
+			delete _keys[event.key];
+		// avoid multy execution
+		else if( !(event.key in _keys) && event.type == 'keydown' ) 
+		{
+			// exit from selector mode if Esc key is pressed and selector mode is enabled
+			if( event.keyCode == 27 && API['handler'] )
+				_disable_select_mode();
+
+			// register the pressed key 
+			_keys[event.key] = true;
+
+			// extract shortcut code
+			shortcut = _extract_shortcut( event );
+			
+			// check weither there is such registered shortuct
+			if( shortuct = RiddR.options.shortcuts[shortcut] )
+			{
+				// get selected text
+				utterance = _get_selection();
+
+				// start reading 
+				_read( utterance, shortuct );
+
+				// stop event propagation
+				event.stopPropagation();
+				event.stopImmediatePropagation();
+
+				// prevent default browser actions
+				event.preventDefault();
+				return;
+			}
+		}
+	}
+
+	// extract shortcut code from keypress event
+	var _extract_shortcut = function ( event )
+	{
+		shortcut = '';
+
+		// list of triggering keys and their coresponding readable code // true for getting the current value 
+		_triggers = { 'altKey': 'Alt' , 'ctrlKey': 'Ctrl' , 'shiftKey': 'Shift', 'metaKey': 'Cmd', 'key': true };
+
+		// form keyboard shortcut
+		for( key in _triggers )
+		{
+			if ( event[key] && _triggers[key] !== true )
+				shortcut += _triggers[key] + '+';
+			else if( _triggers[key] == true )
+				shortcut += event[key];
+		}
+
+		return shortcut;
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
  * Initialize content script ( load options, shortcuts etc. ) and register Chrome API listeners
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
@@ -203,6 +282,11 @@ var RiddR = ( function ( API )
 
 	// register storage update event & avoid unsynced  content script options 
 	chrome.storage.onChanged.addListener( _load_options );
+
+	// register keyboard event listeners 
+	API.addEventListener( 'keydown', _key_handler, false );
+	API.addEventListener( 'keyup', _key_handler );
+
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
