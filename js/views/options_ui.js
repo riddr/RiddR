@@ -631,7 +631,7 @@
 		{
 			// generate list of avaliable TTS engines 
 			$("#TTS_engine").html( _generate_tts_list() );
-			$("#offline_engine").html( _generate_tts_list(RiddR.storage.get('offline_engine'), 25, true ) );
+			$("#offline_engine").html( _generate_tts_list(RiddR.storage.get('offline_engine'), 40, true ) );
 
 			// update TTS engine parameters
 			_update_tts_parameters( engine );

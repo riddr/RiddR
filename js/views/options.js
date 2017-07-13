@@ -230,6 +230,17 @@
 				update = false;
 			break;
 
+			case 'auto_read':
+			case 'auto_selection':
+			case 'error_repoting':
+			case 'donations':
+				update = false;
+			break;
+
+			case 'offline_engine':
+				update = _on_TTS_offline_update( action );
+			break;
+
 		}
 
 		return update;
@@ -325,6 +336,23 @@
 		UI.updateTTSParameters( engine );
 	}
 
+	// on offline TTS engine update 
+	var _on_TTS_offline_update = function ()
+	{
+		RiddR.IO.call( 'read', 
+		{ 
+			utterance : $("#utterance").val(), 
+			callback : null, 
+			options : 
+			{
+				TTS_engine : RiddR.storage.get('offline_engine')
+			} 
+		}, null, 'background' );
+
+
+		return false;
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * KEYBOARD SHORTCUTS RELATED METHODS
@@ -353,7 +381,7 @@
 
 		return false;
 	}
-
+	
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Load options UI after the global options object is fully loaded
