@@ -212,11 +212,8 @@ var RiddR = ( function ( API )
 		// check whether auto read option is enabled 
 		if ( RiddR.options.auto_read )
 		{
-			// get predefined content 
-			content = $('.RiddR');
-
 			// if RiddR tagged elements are found proceed with auto reading
-			if( content.length != 0 ) 
+			if( content = $('.RiddR') ) 
 				_read( _extract_text( content ) );
 		}
 	}
