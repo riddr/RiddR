@@ -24,6 +24,13 @@
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Backdrop private methods 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Background event handler methods 
  *
  * Handle RiddR defailt shortcuts / commands 
  * ---------------------------------------------------------------------------------------------------------------------
@@ -31,6 +38,11 @@
 	var _com_handler = function ( command )
 	{
 		RiddR[command]();
+	}
+
+	// handle RiddR TTS state updates
+	var _TTS_handler = function ( state )
+	{
 	}
 
 /*
@@ -41,5 +53,11 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
 	chrome.commands.onCommand.addListener( _com_handler );
+
+	// handle TTS state update
+	window.addEventListener('onTTSupdate', function( event )
+	{
+		_TTS_handler( event.detail );
+	});
 
 }).apply(RiddR);
