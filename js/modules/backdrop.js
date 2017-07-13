@@ -45,6 +45,16 @@
 	{
 	}
 
+	// handle initial startup of the extension 
+	var _startup_handler = function ()
+	{
+	}
+
+	// handle new installations, updates and chrome updates 
+	var _install_handler = function ( details )
+	{
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Chrome API's and event listeners registration
@@ -53,6 +63,15 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
 	chrome.commands.onCommand.addListener( _com_handler );
+
+	// handle first startups  
+	chrome.runtime.onStartup.addListener( _startup_handler );
+
+	// handle new installations, updates and chrome updates 
+	chrome.runtime.onInstalled.addListener( _install_handler )
+
+	// register uninstall URL, used for surveys etc.. 
+	chrome.runtime.setUninstallURL( 'https://riddr.com/:(' );
 
 	// handle TTS state update
 	window.addEventListener('onTTSupdate', function( event )

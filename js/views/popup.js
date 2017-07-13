@@ -126,6 +126,7 @@
 	{
 		RiddR.IO.call('state', null, function( state )
 		{
+			console.log(state);
 			// update initial UI state
 			_trigger_event( { type : state } );		
 
