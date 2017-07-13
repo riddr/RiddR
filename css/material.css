@@ -38,7 +38,7 @@
 	{
 		height:30px;
 		border-radius:3px;
-		background:#00BFFF;
+		background:rgb(0, 188, 212);
 	}
 
 /*
@@ -81,7 +81,7 @@
 		line-height:50px;
 		text-align:center;
 		position: fixed;
-		background:#00BFFF;
+		background:rgb(0, 188, 212);
 		border-radius:25px;
 		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 		transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -144,7 +144,7 @@
 			height:2px; 
 			bottom:1px; 
 			position:absolute;
-			background:#00BFFF; 
+			background:rgb(0, 188, 212); 
 			transition:0.3s ease all; 
 		}
 			.material .line:before
@@ -215,7 +215,7 @@
 		}
 			.switch input:checked + span
 			{
-				background: rgba(0, 191, 255, 0.4);
+				background: rgba(0, 188, 212, 0.4);
 			}
 
 			.switch input:disabled + span
@@ -244,7 +244,7 @@
 		}
 			.switch input:checked + span::before
 			{
-				background: #00bfff;
+				background: rgb(0, 188, 212);
 				transform: translate(18px, 0);
 			}
 			.switch input:disabled + span::before
@@ -299,7 +299,7 @@
 		transition: .3s;
 		border-radius: 50%;
 		-webkit-appearance: none;
-		background-color: #00BFFF;
+		background-color: rgb(0, 188, 212);
 		transform-origin: 50% 50%;
 		margin: -5px 0px 0px 0px;
 		-webkit-transform-origin: 50% 50%;
@@ -325,7 +325,7 @@
 		margin-left:14px;
 		position: absolute;
 		border-radius: 50%;
-		background-color: #00BFFF;
+		background-color: rgb(0, 188, 212);
 		transform-origin: 50% 50%;
 		transform: rotate(-45deg);
 		transition: .25s top, 0.25s width, 0.25s height, 0.25s border, 0.25s margin, 0.25s opacity;

@@ -54,7 +54,7 @@ body
 		.preloader svg circle 
 		{
 			fill: none;
-			stroke: #00BFFF;
+			stroke: rgb(0, 188, 212);
 			stroke-linecap: square;
 			animation: arc 1320ms cubic-bezier(.8, 0, .4, .8) infinite
 		}
@@ -97,7 +97,9 @@ nav
 	z-index:9999;
 	position:fixed;
 	user-select: none;
-	background:#00BFFF; /* consider rgb(0, 188, 212); */
+
+	/*background:rgb(0, 188, 212); */
+	background: rgb(0, 188, 212);
 	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
 }
 	nav ul
@@ -146,7 +148,7 @@ nav
 	height: 4px;
 	width:120px;
 	position: absolute;
-	background: #ccff00;
+	background: rgba(255, 255,255, 0.6);
 	top: calc(100% - 4px);
 	transition: left 0.3s ease-out, width 0.3s;
 }
@@ -343,8 +345,8 @@ content > section > div
 			}
 				#transcription-container #transcriptions > ul > li > input:focus
 				{
-					color: #00bfff;
-					background: linear-gradient(#00bfff, #00bfff), linear-gradient(#00bfff, #00bfff), linear-gradient(#00bfff, #00bfff);
+					color: rgb(0, 188, 212);
+					background: linear-gradient(rgb(0, 188, 212), rgb(0, 188, 212)), linear-gradient(rgb(0, 188, 212), rgb(0, 188, 212)), linear-gradient(rgb(0, 188, 212), rgb(0, 188, 212));
 					background-size: 1px 20%, 100% 1px, 1px 20%;
 					background-position: bottom left, bottom center, bottom right;
 					background-repeat: no-repeat;
