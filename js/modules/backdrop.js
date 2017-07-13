@@ -37,7 +37,7 @@
 */	
 	var _com_handler = function ( command )
 	{
-		RiddR[command]();
+		RiddR[command](); // send pause / stop action
 	}
 
 	// handle RiddR TTS state updates
@@ -53,6 +53,12 @@
 	// handle new installations, updates and chrome updates 
 	var _install_handler = function ( details )
 	{
+	}
+
+	// handle context menu user actions
+	var _context_handler = function ( data )
+	{
+		RiddR.read( { utterance: data.selectionText, options: {} } );
 	}
 
 /*
@@ -72,6 +78,9 @@
 
 	// register uninstall URL, used for surveys etc.. 
 	chrome.runtime.setUninstallURL( 'https://riddr.com/:(' );
+
+	// register RiddR context menu event listener
+	chrome.contextMenus.onClicked.addListener( _context_handler );
 
 	// handle TTS state update
 	window.addEventListener('onTTSupdate', function( event )
