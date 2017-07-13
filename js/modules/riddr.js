@@ -145,6 +145,9 @@
 	// Trigger onStateUpdate event trough all RiddR pages
 	var _trigger = function ( state )
 	{
+		// update local reading state
+		_TTS_state = state.type;
+		
 		RiddR.IO.trigger( 'onTTSupdate', state );
 	}
 
@@ -158,10 +161,6 @@
 		// execute callback 
 		if( callback && event )
 			callback(event);
-
-		// update local reading state 
-		//if(event.type != 'word' && event.type != 'sentence' && event.type != 'marker' )
-			_TTS_state = event.type;
 
 		// @To-Do: implement better error handling 
 		if (chrome.runtime.lastError) 
