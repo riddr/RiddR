@@ -20,7 +20,7 @@ var RiddR = ( function ( API )
 		loaded 				= false,
 		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
-		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI']
+		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI', 'backdrop']
 		defaults 			= 
 		{
 			debug 			: true,
@@ -139,7 +139,7 @@ var RiddR = ( function ( API )
  * Dinamicly loar required modules for the current view
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	if( background = chrome.extension.getBackgroundPage() === API ) // detect if the call is from background
+	if( chrome.extension.getBackgroundPage() === API ) // detect if the call is from background
 		modules = modules.concat(background_modules); // register background modules
 
 	for ( module in modules ) // load default modules
@@ -178,7 +178,6 @@ var RiddR = ( function ( API )
 				loaded 	 	: loaded,
 				defaults 	: defaults,
 				is_online	: is_online,
-				background 	: background
 	}
 
 
