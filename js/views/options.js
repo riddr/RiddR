@@ -29,7 +29,7 @@
 			{
 				// deny access to "_private" properties from outside of the current scope
 				if( property[0] === '_' )
-					return function(){RiddR.log('Can\'t access private property','warn')};
+					return function(){ RiddR.log('Can\'t access private property','warn') };
 
 				if(target[property] === undefined)
 					return eval(property); // To-Do: find safer alternative

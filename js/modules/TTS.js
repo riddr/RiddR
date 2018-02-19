@@ -58,7 +58,7 @@
 		// send interrupt event and reset Chrome TTS API   @To-Do: file a bug to Google regards this
 		onLoad : function()
 		{
-			chrome.tts.stop();			
+			chrome.tts.stop();
 		}
 	}
 
@@ -102,7 +102,6 @@
 */	
 	var _probe_TTS = function ( options )
 	{
-
 		if( RiddR.TTS.engine == null || RiddR.TTS.engine.name != options.voiceName ) // check if new TTS engine is called
 		{
 			if(RiddR.TTS.embed[options.voiceName] !== undefined) // check if the requested TTS engine is loaded
@@ -152,6 +151,38 @@
 		// register the TTS engine
 		RiddR.TTS.engines[engine.voiceName] = engine;
 	}
+
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Load all built in TTS engines and register all installed TTS engines
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	var _load_TTS_engines = function ( recursion = false )
+	{
+		chrome.tts.getVoices( function( voices )
+		{
+			for( voice_id in voices )
+			{
+				if(voices[voice_id].extensionId == chrome.runtime.id )
+				{
+					_load_TTS_engine(voices[voice_id], function ( engine )
+					{
+						_register_TTS_engine( engine, true );
+					});
+
+					recursion = true;
+				}
+				else
+					_register_TTS_engine( voices[voice_id] );
+			}
+
+			// try to re-load TTS engines if embed TTS engine was not found due to undefined Chrome starup bug
+			if( !recursion )
+				_load_TTS_engines( false );
+		});
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Define default TTS engine listeners before TTS engines are loaded
@@ -164,23 +195,10 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Load all built in TTS engines and register all installed TTS engines
+ * Initialize TTS engine loading
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	chrome.tts.getVoices( function( voices )
-	{
-		for( voice_id in voices )
-		{
-			if(voices[voice_id].extensionId == chrome.runtime.id )
-			{
-				_load_TTS_engine(voices[voice_id], function ( engine )
-				{
-					_register_TTS_engine( engine, true );
-				});
-			}
-			else
-				_register_TTS_engine( voices[voice_id] );
-		}
-	});
+	_load_TTS_engines();
+
 
 }).apply(RiddR);

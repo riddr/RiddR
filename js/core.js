@@ -116,7 +116,7 @@ var RiddR = ( function ( API )
 			break;
 		}
 
-		// call specific callback on element load if needed 
+		// register callback event listerer if needed 
 		if( typeof callback == 'function' )
 			element.onload = ( !data )? callback : function() { callback(data); }; // return custom data 
 
