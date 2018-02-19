@@ -525,32 +525,33 @@
 		// extract shortuct options from the shortcut object
 		shortcut = shortcut[_key];
 
-		return `<ul>
-					<li><div class="keys" id="kb-read">`+_get_shortcut_keys(_key)+`</div></li>
-					<li>
-						<div class="material select stripped">
-							<select id="`+_key+`-TTS_engine">
-							`+_generate_tts_list( shortcut.TTS_engine , 20 )+` 
-							</select>
-						</div>						
-					</li>
-					<li>
-						<div class="material select stripped">
-							<select id="`+_key+`-language" ${ _select_is_active( RiddR.TTS.engines[shortcut.TTS_engine].lang ) } > 
-								`+_language_list( RiddR.TTS.engines[shortcut.TTS_engine].lang, shortcut.language )+`
-							</select>
-						</div>							
-					</li>
-					<li>
-						<div class="material switch stripped">
-							<input title="Coming soon..." disabled id="`+_key+`-translate" type="checkbox" `+ ( (shortcut.translate)? 'checked' : '' ) +` />
-							<span></span>
-						</div>						
-					</li>
-					<li>
-						<i class="material-icons remove_shortcut" key="`+_key+`">delete</i>
-					</li>
-				</ul>`;
+		if( RiddR.TTS.engines[shortcut.TTS_engine] != undefined ) // check if TTS engine exists ( eg. removed by 3rd party TTS extenson )
+			return `<ul>
+						<li><div class="keys" id="kb-read">`+_get_shortcut_keys(_key)+`</div></li>
+						<li>
+							<div class="material select stripped">
+								<select id="`+_key+`-TTS_engine">
+								`+_generate_tts_list( shortcut.TTS_engine , 20 )+` 
+								</select>
+							</div>						
+						</li>
+						<li>
+							<div class="material select stripped">
+								<select id="`+_key+`-language" ${ _select_is_active( RiddR.TTS.engines[shortcut.TTS_engine].lang ) } > 
+									`+_language_list( RiddR.TTS.engines[shortcut.TTS_engine].lang, shortcut.language )+`
+								</select>
+							</div>							
+						</li>
+						<li>
+							<div class="material switch stripped">
+								<input title="Coming soon..." disabled id="`+_key+`-translate" type="checkbox" `+ ( (shortcut.translate)? 'checked' : '' ) +` />
+								<span></span>
+							</div>						
+						</li>
+						<li>
+							<i class="material-icons remove_shortcut" key="`+_key+`">delete</i>
+						</li>
+					</ul>`;
 	}
 
 	// add shortcut into shortcut container 
