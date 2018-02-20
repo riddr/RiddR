@@ -29,7 +29,7 @@ var RiddR = ( function ( API )
 	popUpInit = function()
 	{
 		// disable select mode when PoP up is opened again 
-		if( handler )
+		if( API['handler'] )
 			_disable_select_mode()
 
 		// get text selection on pop-up initialization
@@ -59,6 +59,9 @@ var RiddR = ( function ( API )
 		else
 			return slection;
 	}
+
+	// Alias to Chrome's chrome.i18n internationalization API
+	var __ = chrome.i18n.getMessage;
 
 	// load RiddR options
 	var _load_options = function ( callback )
@@ -178,7 +181,7 @@ var RiddR = ( function ( API )
 
 		// show snackbar in the top window and avoid 
 		if( window == top )
-			document.body.insertAdjacentHTML('beforeend', '<div id="riddr_snackbar"><span>'+chrome.i18n.getMessage('content_snackbar')+'</span></div>');
+			document.body.insertAdjacentHTML('beforeend', '<div id="riddr_snackbar"><span>'+__('content_snackbar')+'</span></div>');
 
 		document.addEventListener( 'click', handler = function( event ) 
 		{
