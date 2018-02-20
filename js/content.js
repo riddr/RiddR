@@ -180,7 +180,7 @@ var RiddR = ( function ( API )
 		document.body.classList.toggle('riddr-selector');
 
 		// show snackbar in the top window and avoid 
-		if( window == top )
+		if( window == top && RiddR.options.snackbar  )
 			document.body.insertAdjacentHTML('beforeend', '<div id="riddr_snackbar"><span>'+__('content_snackbar')+'</span></div>');
 
 		document.addEventListener( 'click', handler = function( event ) 

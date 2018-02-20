@@ -234,6 +234,7 @@
 			case 'auto_selection':
 			case 'error_repoting':
 			case 'donations':
+			case 'snackbar':
 				update = false;
 			break;
 
