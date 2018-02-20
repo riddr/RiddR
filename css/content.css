@@ -1,8 +1,76 @@
-.riddr-selector
-{
-}
-	.riddr-selector *:hover
+/*
+ * RiddR Content CSS 
+ *
+ * Various CSS styles used from RiddR content scripts 
+ *
+ * @package		RiddR
+ * @category	Content
+ * @author		Trajche Petrov
+ * @link		https://github.com/skechboy/RiddR/blob/master/css/content.css
+*/
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * RiddR selector mode coloring
+ * ---------------------------------------------------------------------------------------------------------------------
+*/  
+	.riddr-selector
 	{
-		cursor:pointer;
-		background:rgba(0, 188, 212, 0.2);
+	}
+		.riddr-selector *:hover
+		{
+			cursor:pointer;
+			background:rgba(0, 188, 212, 0.05);
+		}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Selector mode snackbar styling 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/  
+	#riddr_snackbar
+	{
+		display:none;
+	}
+
+	.riddr-selector #riddr_snackbar
+	{
+		width: 100%;
+		height: 44px;
+
+		left: 0;
+		right: 0;
+		display:block;
+		bottom: -45px;
+		position: fixed;
+		z-index: 666666666666; /* :)*/;
+
+		text-align:center;
+
+		animation-name: snackbar;
+		animation-duration: 5s;
+		animation-timing-function: ease-out;
+	}
+		.riddr-selector #riddr_snackbar span
+		{
+
+			color: #FFF;
+			font-size: 14px;
+			line-height: 44px;
+			text-align: center;	
+
+			padding: 0px 15px;
+			display:inline-block;
+
+			border-radius: 3px 3px 0px 0px;
+			background: rgba(0, 0, 0, 0.870588);		
+		}
+		
+	/* snackbar animation */
+	@keyframes snackbar
+	{
+		0%   {bottom: -45px;}
+		3%   {bottom: 0px;}
+		97%  {bottom: 0px;}
+		100% {bottom: -45px;}
 	}

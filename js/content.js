@@ -28,6 +28,9 @@ var RiddR = ( function ( API )
 */  
 	popUpInit = function()
 	{
+		// disable select mode when PoP up is opened again 
+		_disable_select_mode()
+
 		// get text selection on pop-up initialization
 		selection = _get_selection();
 
@@ -171,6 +174,9 @@ var RiddR = ( function ( API )
 	{
 		// enable selection UI
 		document.body.classList.toggle('riddr-selector');
+
+		// @To-DO: check against options and avoid div re-adding
+		document.body.insertAdjacentHTML('beforeend', '<div id="riddr_snackbar"><span>'+chrome.i18n.getMessage('content_snackbar')+'</span></div>');
 
 		document.addEventListener( 'click', handler = function( event ) 
 		{
