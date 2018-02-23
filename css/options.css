@@ -16,6 +16,13 @@
 	box-sizing: border-box; 
 }
 
+:root
+{
+	--theme: rgba( 0, 188, 212, 1 );;
+	--theme-zero: rgba( 0, 188, 212, 0 );;
+	--theme-light: rgba( 0, 188, 212, 0.4 );;
+}
+
 body
 {
 	height:500px;
@@ -54,7 +61,7 @@ body
 		.preloader svg circle 
 		{
 			fill: none;
-			stroke: rgb(0, 188, 212);
+			stroke: var( --theme );
 			stroke-linecap: square;
 			animation: arc 1320ms cubic-bezier(.8, 0, .4, .8) infinite
 		}
@@ -99,7 +106,7 @@ nav
 	user-select: none;
 
 	/*background:rgb(0, 188, 212); */
-	background: rgb(0, 188, 212);
+	background: var( --theme );
 	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
 }
 	nav ul
@@ -345,8 +352,8 @@ content > section > div
 			}
 				#transcription-container #transcriptions > ul > li > input:focus
 				{
-					color: rgb(0, 188, 212);
-					background: linear-gradient(rgb(0, 188, 212), rgb(0, 188, 212)), linear-gradient(rgb(0, 188, 212), rgb(0, 188, 212)), linear-gradient(rgb(0, 188, 212), rgb(0, 188, 212));
+					color: var( --theme );
+					background: linear-gradient(var( --theme ), var( --theme )), linear-gradient(var( --theme ), var( --theme )), linear-gradient(var( --theme ), var( --theme ));
 					background-size: 1px 20%, 100% 1px, 1px 20%;
 					background-position: bottom left, bottom center, bottom right;
 					background-repeat: no-repeat;
@@ -366,6 +373,11 @@ content > section > div
 				#transcription-container #transcriptions > ul > li:nth-child(4) > i
 				{
 					cursor:pointer;
+				}
+				#transcription-container #transcriptions > ul.reading .read_transcript
+				{
+					border-radius:100%;
+  					animation: pulse 0.7s infinite;
 				}
 
 #transcription
