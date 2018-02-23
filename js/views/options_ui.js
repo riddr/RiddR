@@ -192,6 +192,44 @@
 			$(this).blur();
 		});
 
+		// handle read transcript requests 
+		$(document).on('click', '.read_transcript', function()
+		{
+			container = $(this).closest('ul');
+			$(".reading").removeClass('reading'); // remove previous reading states 
+			transcript = RiddR.defaults.transcription[ container.attr('key') ];
+
+			// read the transcript 
+			RiddR.IO.call( 'read', 
+			{ 
+				utterance : Object.keys( transcript)[0], // read the key in order to test the transcription
+				options : 
+				{ 
+					'TTS_engine' 	: 'SpeakIt',
+					'language'		: 'en-US' 
+				},
+
+			}, function()
+			{
+				container.addClass('reading');
+				window.addEventListener('onTTSupdate', _TUI_handler ); 
+			}, 'background' );
+		});
+
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Transcription UI handler - handle TX 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _TUI_handler = function( event )
+	{
+		if( event.detail.type == 'end' )
+		{
+			container.removeClass('reading');
+			window.removeEventListener( "onTTSupdate", _TUI_handler, true );
+		}
 	}
 
 /*
