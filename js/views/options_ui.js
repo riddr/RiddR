@@ -90,28 +90,48 @@
 		var modal = $('.modal'), 
 			modal_content_holder = $('.modal > div');
 
-		modal_content_holder.css(
+		if(modal.css('opacity') > 0 ) // check if modal is opened
 		{
-			'width': 0, 'height': 0, 
-			'top' : '50%', 'left' : '100%'
-		});
+			modal_content_holder.css(
+			{
+				'width': 0, 'height': 0, 
+				'top' : '50%', 'left' : '100%'
+			});
 
-		// set elements to their original position after the animation is done 
-		setTimeout(function()
-		{
-			modal.css({'opacity':'', 'z-index': -999 });
-			modal_content_holder.css({'width': 0, 'height': 0, 'top' : '50%', 'left' : '0%'});
+			// set elements to their original position after the animation is done 
+			setTimeout(function()
+			{
+				modal.css({'opacity':'', 'z-index': -999 });
+				modal_content_holder.css({'width': 0, 'height': 0, 'top' : '50%', 'left' : '0%'});
 
-		}, parseFloat(modal_content_holder.css('transition-duration'))*1000 ) // get animation duration from 
+			}, parseFloat(modal_content_holder.css('transition-duration'))*1000 ) // get animation duration from 
 
 
-		// remove event listeners
-		modal.off('click');
-		modal_content_holder.off('click');
+			// remove event listeners
+			modal.off('click');
+			modal_content_holder.off('click');
 
-		// execute the callback
-		if(typeof callback === 'function')
-			callback();
+			// execute the callback
+			if(typeof callback === 'function')
+				callback();
+		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Display error message 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+
+	var _error = function( message )
+	{
+		template = `<div id="error">
+						<h1>Upps!<br>Something went wrong.</h1>
+						<h2>`+message+`<h2>
+					</div>`;
+
+		// show the error
+		_modal(template);
 	}
 
 /*
@@ -122,9 +142,23 @@
 	var _load_ui_event_listeners = function()
 	{
 		// test TTS audio 
-		$(document).on('click','#test_btn', function()
+		$(document).on('click','#test_box i', function()
 		{
-			RiddR.options.test_speech( $("#utterance").val() );
+			action = $(this).data('action');
+			switch(action)
+			{
+				case 'read':
+					RiddR.options.test_speech( $("#utterance").val() );
+				break;
+
+				case 'stop':
+					RiddR.options.stop_reading();
+				break;	
+
+				case 'error':
+					_error(RiddR.options.lastError);
+				break;
+			}
 		});
 
 		$(document).on('change', "input[type=checkbox]", function()
@@ -228,8 +262,41 @@
 		if( event.detail.type == 'end' )
 		{
 			container.removeClass('reading');
-			window.removeEventListener( "onTTSupdate", _TUI_handler, true );
+			window.removeEventListener( "onTTSupdate", _TUI_handler );
 		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Test button UI handler
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _TEST_handler = function ( event, state = false )
+	{
+		switch( event.detail.type )
+		{
+			case 'start':
+				state = RiddR.storage.get('enqueue') ? 'enqueue reading' : 'reading';
+			break;
+
+			// avoid other states 
+			case 'end':
+			case 'idle':
+			case 'interrupted':
+				state = event.detail.type;
+				_hide_modal();
+			break;
+
+			case 'error':
+				state = 'error';
+				RiddR.options.lastError = event.detail.errorMessage;
+				_error(RiddR.options.lastError);
+			break;
+		}
+
+		// update test box state 
+		if( state )
+			$("#test_box").attr( 'class', state );
 	}
 
 /*
@@ -697,26 +764,14 @@
 			$('.preloader').fadeOut();
 		},
 
-		reading : function ( event )
-		{
-			switch( event.type )
-			{
-				case 'start':
-					$("#test_btn").html( RiddR.storage.get('enqueue') ? 'add <i id="test_btn" class="material-icons">stop</i>' :'stop');
-				break;
-
-				case 'end':
-				case 'interrupted':
-					$("#test_btn").html('volume_up');
-				break;
-			}
-		},
-
 		modal 				: _modal,
 		snackbar			: _snackbar,
 		hideModal 			: _hide_modal,
 		updateLanguageBox 	: _update_language_box,
 		updateTTSParameters : _update_tts_parameters
 	}
+
+	// register TTS update event listener
+	window.addEventListener('onTTSupdate', _TEST_handler ); 
 
 }).apply( RiddR );

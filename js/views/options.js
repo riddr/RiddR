@@ -106,7 +106,13 @@
 	// Read / stop reading the test sentence, used for testing TTS options 
 	var test_speech = function ( utterance, callback = undefined )
 	{
-		RiddR.IO.call( 'read', { utterance : utterance, callback : callback, options : {} }, null, 'background' );
+		RiddR.IO.call( 'read', { utterance : utterance, options : {} }, callback, 'background' );
+	}
+
+	// Stop reading alias function
+	var stop_reading = function ()
+	{
+		RiddR.IO.call( 'stop', null, null, 'background' );
 	}
 
 	// generate new shortcut 
