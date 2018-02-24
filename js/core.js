@@ -40,6 +40,7 @@ var RiddR = ( function ( API )
 			auto_read 		: true,
 			donations		: true,
 			snackbar		: true,
+			SSML			: true,
 			transcription  	: { 0 : { "RiddR"	: "reader"} },
 			error_repoting 	: true   // report JavaScript runtime errors to remote server
 		};

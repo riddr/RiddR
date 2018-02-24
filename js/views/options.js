@@ -241,6 +241,7 @@
 			case 'error_repoting':
 			case 'donations':
 			case 'snackbar':
+			case 'SSML':
 				update = false;
 			break;
 

@@ -225,6 +225,10 @@
 		// transcribe the utterance 
 		utterance = _transcribe ( utterance );
 
+		// check whether SSML markup is disabled
+		if( !RiddR.storage.get('SSML') ) 
+			utterance = utterance.replace( /(<([^>]+)>)/ig , "");
+
 		// translate utterance if auto translate feature is enabled
 		if( RiddR.storage.get('translate') && language.input != 'auto' &&  language.read.substr(0,2) != language.detected ) 
 			RiddR.translate( utterance, language.detected, language.requested,  callback );
