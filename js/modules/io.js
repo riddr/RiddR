@@ -121,8 +121,9 @@
 			if( typeof callee == 'function' ) // validate if the selected request is function
 				return callee(request.data);
 
-		//else
-		return '{ error: "Invalid method requested:' + request.selector + '"}';
+		// else return error avter target validation
+		if( _validate_target( request.target ) )
+			return '{ error: "Invalid method requested:' + request.selector + '"}';
 	}
 
 /*
