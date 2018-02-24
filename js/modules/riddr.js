@@ -198,7 +198,7 @@
 
 		if( idle_states.indexOf(state.type) != -1 )
 		{
-			var _idle_TTL = setTimeout( function ()
+			_idle_TTL = setTimeout( function ()
 			{
 				// avoid sending idle state after legit interuption
 				if( idle_states.indexOf( _TTS_state ) != -1 ) 
