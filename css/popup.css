@@ -115,7 +115,8 @@ body
 				cursor: progress;
 			}
 			#controls #container #error,
-			#controls #container #no-input
+			#controls #container #no-input,
+			#controls #container #sys-error
 			{
 				background: #b71c1c;
 			}
@@ -132,7 +133,8 @@ body
 											PLAYER STATE ANIMATIONS
 ----------------------------------------------------------------------------------------------------------------------*/
 
-	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error
+	.loading div#loader, .start div#pause, .resume div#pause, .end div#replay, .interrupted div#replay, .error div#error,
+	.cancelled div#sys-error
 	{
 		width: 60px;
 		height: 60px;
@@ -179,7 +181,7 @@ body
 	[class^="loading "] div#loader,
 	[class^="start "] div#pause, [class^="resume "] div#pause,
 	[class^="end "] div#replay, [class^="interrupted "] div#replay, [class^="interrupted start"] div#no-input,
-	[class^="error "] div#error,
+	[class^="error "] div#error, [class^="cancelled "] div#sys-error, [class^="interrupted cancelled"] div#no-input,
 	[class^="pause "] div#stop, [class^="pause "] div#resume,
 	[class^="idle "] div#no-input
 	{
@@ -263,7 +265,7 @@ body
 			margin-top:5px;
 		}
 
-	.idle + #message, .error + #message
+	.idle + #message, .error + #message, .cancelled + #message
 	{
 		display:block;
 		padding:5px 0px;

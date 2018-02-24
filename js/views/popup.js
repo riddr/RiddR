@@ -59,6 +59,7 @@
  			break;
 
  			case 'error':
+ 			case 'cancelled':
  				_update_UI_state( event.type );
  				_message_box( '<b>Oops!?</b></br> Something went wrong.', event.errorMessage, 'error' );
  			break;
@@ -80,6 +81,11 @@
 			case 'resume':
 			case 'replay':
 				RiddR.IO.call( action, null, null, 'background' );
+			break;
+
+			case 'sys-error':
+				RiddR.IO.call( "backdrop.reload", null, null, "background" );
+				location.reload();
 			break;
 
 			case 'no-input':
