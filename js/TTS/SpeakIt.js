@@ -111,16 +111,17 @@
 */
 	var _state = function ( state , gSTATE = true )
 	{
-		switch ( state )
-		{
-			case 'start':
-				TTS.response({'type': 'start', 'charIndex': 0});
-			break;
+		if( RiddR.TTS.state != state )	// avoid sending double events
+			switch ( state )
+			{
+				case 'start':
+					TTS.response({'type': 'start', 'charIndex': 0});
+				break;
 
-			case 'end':
-				TTS.response({'type': 'end', 'charIndex': TTS.utterance.raw.length});
-			break;
-		}
+				case 'end':
+					TTS.response({'type': 'end', 'charIndex': TTS.utterance.raw.length});
+				break;
+			}
 
 		// pass the state into global state
 		if(gSTATE)
