@@ -53,8 +53,8 @@
 		// attach event capturing callback if needed
 		options.onEvent = ( data.callback )? function ( event ){ _TTS_handler( event, data.callback ) } : _TTS_handler;
 
-		// temporary fix for Chrome pause bug // @To-Do: file bug to Google regards this
-		if(_TTS_state == 'pause' )
+		// temporary fix for Chrome pause bug in native TTS engines // @To-Do: file bug to Google regards this
+		if( _TTS_state == 'pause' || _TTS_state == 'cancelled' )
 			RiddR.stop();
 
 		// determine utterance language
@@ -145,8 +145,9 @@
 	// Trigger onStateUpdate event trough all RiddR pages
 	var _trigger = function ( state )
 	{
-		// update local reading state
-		_TTS_state = state.type;
+		// update local reading state by ignoring word and sentence due to chrome bug which is sending events after pause 
+		if( state.type != 'word' && state.type != 'sentence' )
+			_TTS_state = state.type;
 		
 		RiddR.IO.trigger( 'onTTSupdate', state );
 	}
@@ -181,7 +182,9 @@
 
 				// failback send pause event @To-Do: file a bug regards unsuported events ( pause, resume ) in ttsEngines
 				if( _engine && _engine.eventTypes.indexOf(action) == -1 )
+				{
 					_TTS_handler( { type : action }, callback );
+				}
 				else if ( callback ) // avoid empty calls 
 					callback();
 			}
@@ -191,12 +194,19 @@
 	// reset reading state after some time of inactivity
 	var _reset_state = function ( state )
 	{
-		if( state.type == 'end' || state.type == 'error' || state.type == 'interrupted' )
+		idle_states = [ 'end', 'error', 'interrupted', 'cancelled' ];
+
+		if( idle_states.indexOf(state.type) != -1 )
 		{
-			_idle_TTL = setTimeout( function ()
+			var _idle_TTL = setTimeout( function ()
 			{
-				_TTS_state = 'idle'; // set reading state to iddle 
-				_trigger( {type : _TTS_state} );
+				// avoid sending idle state after legit interuption
+				if( idle_states.indexOf( _TTS_state ) != -1 ) 
+				{
+					_TTS_state = 'idle'; // set reading state to iddle 
+					_trigger( {type : _TTS_state} );
+				}
+
 			}, 5000 );
 		}
 		else if( _idle_TTL )
