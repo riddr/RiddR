@@ -178,7 +178,7 @@ body
 
 	[class^="loading "] div#loader,
 	[class^="start "] div#pause, [class^="resume "] div#pause,
-	[class^="end "] div#replay, [class^="interrupted "] div#replay,
+	[class^="end "] div#replay, [class^="interrupted "] div#replay, [class^="interrupted start"] div#no-input,
 	[class^="error "] div#error,
 	[class^="pause "] div#stop, [class^="pause "] div#resume,
 	[class^="idle "] div#no-input
@@ -273,6 +273,10 @@ body
 			font-size:20px;
 			vertical-align:middle;
 		}
+	.start + #message
+	{
+		display:none;
+	}
 
 /* type speccific message layout */
 #message > div.error
