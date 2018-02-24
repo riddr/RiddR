@@ -35,7 +35,7 @@
 			charindex   : 0,
 			retry		: 0
 		},
-		max_length		: 100, // set sentence max length 
+		max_length		: 200, // set sentence max length 
 		response 		: null,
 		initialized 	: false,
 		api_url			: 'https://translate.google.com/translate_tts',
@@ -211,20 +211,20 @@
 		TTS.utterance.safe = safe_utterance = []; // reset previous utterances
 
 		// split the text on specific places and then join it in sentences limited to max length
-		sentences = _length_join(TTS.utterance.raw.match(/\n|([^\r\n.;:,!?]+([.;:,!?]+|$))/gim)); // improved split
+		sentences = _length_join( TTS.utterance.raw.match(/\n|([^\r\n.;:,!?]+([.;:,!?]+|$))/gim) ); // improved split
 
-		for(var s_id in sentences)
+		for( var s_id in sentences )
 		{
-			sentence = _process_element(sentences[s_id]); // process and filter each sentence
-			safe_utterance.push.apply(safe_utterance,sentence);
+			sentence = _process_element( sentences[s_id] ); // process and filter each sentence
+			safe_utterance.push.apply( safe_utterance, sentence );
 		}
 
 		// re-join the elements again and set global variable
-		TTS.utterance.safe = _length_join(safe_utterance);
+		TTS.utterance.safe = _length_join( safe_utterance );
 	}
 
 	// Join elements in strings limited to max width
-	var _length_join = function (elements)
+	var _length_join = function ( elements )
 	{
 		tmp_element = '',
 		safe_elements = [];
@@ -232,19 +232,19 @@
 		for(var element_id in elements)
 		{
 			// set next element id
-			nxt_id = (Number(element_id)+1);
+			nxt_id = ( Number(element_id)+1 );
 
 			// preset temporary element on beginning of new loop
-			tmp_element = (tmp_element == ''? elements[element_id] : tmp_element);
+			tmp_element = ( tmp_element == ''? elements[element_id] : tmp_element );
 
 			// merge current element with the next element
 			nxt_el = tmp_element+' '+elements[nxt_id];
 
-			if(nxt_el.length < TTS.max_length && nxt_id < elements.length)
+			if( nxt_el.length < TTS.max_length && nxt_id < elements.length )
 				tmp_element = nxt_el;
 			else
 			{
-				safe_elements.push(tmp_element);
+				safe_elements.push( tmp_element );
 				tmp_element = ''; // reset the temporary element variable
 			}
 		}
@@ -255,14 +255,12 @@
 	// Split the utterance in sentences so Google TTS API can process them
 	var _process_element = function ( element )
 	{	
-		//element = RiddR.filter( element ); // filter bad chars 
-
-		if( element.length >= this.max_length ) // do extra check for non breakable elements
+		if( element.length >= TTS.max_length ) // do extra check for non breakable elements
 		{
-			return this._length_join(element.split(/\s+/));
+			return _length_join( element.split(/\s+/) ); // if so break on space and then join them
 		}
 		else
-			return new Array(element); // all good here
+			return [ element.replace(/(^,)|(,$)/g, "") ]; // avoid commas in beginning and end on each uterance chunk to avoid weird pauses
 	}
 
 /*
@@ -277,7 +275,7 @@
 		// reset variables to avoid utterance colision
 		TTS.urls = [];
 
-		for(ut_id in TTS.utterance.safe)
+		for( ut_id in TTS.utterance.safe )
 		{
 			parms = 
 			{
@@ -289,11 +287,11 @@
 				tl: TTS.options.lang,
 				client: 't',
 				q: encodeURIComponent(TTS.utterance.safe[ut_id]),
-				tk: tk(TTS.utterance.safe[ut_id])
+				tk: tk( TTS.utterance.safe[ut_id] )
  			}
 
 			// build query URL
-			_build_query(parms);
+			_build_query( parms );
 		}
 	}
 
@@ -306,12 +304,10 @@
 	{
 		url_parms = [];
 
-		for(parm_key in parms)
-		{
-			url_parms.push(parm_key+'='+parms[parm_key]);
-		}
+		for( parm_key in parms )
+			url_parms.push( parm_key+'='+parms[parm_key] );
 
-		TTS.urls.push(TTS.api_url+'?'+url_parms.join('&'));
+		TTS.urls.push( TTS.api_url+'?'+url_parms.join('&') );
 	}
 
 /*
