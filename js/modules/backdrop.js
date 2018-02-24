@@ -2,7 +2,7 @@
  * Backdrop
  *
  * RiddR main background controll module 
- * ( Wondering why backdrop ? It seemd cool and U wanted to avoid confusion with Chrome's background logic ) 
+ * ( Wondering why backdrop ? It seemd cool and I wanted to avoid confusion with Chrome's background logic ) 
  *
  * @package		RiddR
  * @category	background 
@@ -19,7 +19,17 @@
 */	
 	this.backdrop = 
 	{
+		// reload RiddR core 
+		reload : function()
+		{
+			location.reload();
+		},
 
+		// reload whole extension
+		restart : function()
+		{
+			chrome.runtime.restart();
+		}
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -53,6 +63,14 @@
 	// handle new installations, updates and chrome updates 
 	var _install_handler = function ( details )
 	{
+		// on install: register context menu
+		chrome.contextMenus.create(
+			{
+				id : 'RiddR',
+				title: 'Read the selection!',
+				contexts: [ 'selection' ]
+			}
+		);
 	}
 
 	// handle context menu user actions
@@ -70,6 +88,9 @@
 */ 
 	chrome.commands.onCommand.addListener( _com_handler );
 
+	// register RiddR context menu event listener
+	chrome.contextMenus.onClicked.addListener( _context_handler );
+
 	// handle first startups  
 	chrome.runtime.onStartup.addListener( _startup_handler );
 
@@ -78,9 +99,6 @@
 
 	// register uninstall URL, used for surveys etc.. 
 	chrome.runtime.setUninstallURL( 'https://riddr.com/:(' );
-
-	// register RiddR context menu event listener
-	chrome.contextMenus.onClicked.addListener( _context_handler );
 
 	// handle TTS state update
 	window.addEventListener('onTTSupdate', function( event )
