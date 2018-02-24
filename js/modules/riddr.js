@@ -91,7 +91,10 @@
 	// Pauses speech synthesis if it was reading
 	this.pause = function ( callback )
 	{
-		_media_control( 'pause', callback );
+		if( _TTS_state == 'pause' )
+			this.resume( callback );
+		else
+			_media_control( 'pause', callback );
 	}
 
 	// Resume speaking if the reading was paused 
