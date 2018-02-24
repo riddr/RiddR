@@ -421,7 +421,10 @@
 		$(document).on('mousedown','.material', function()
 		{
 			if( $(this).has(":disabled").length > 0 )
-				setTimeout(function(){_snackbar('TTS engine dosen\'t support this feature.');},10);
+			{
+				message = $(this).data('message') || 'TTS engine dosen\'t support this feature.';
+				setTimeout(function(){_snackbar(message);},10);
+			}
 
 		});
 
