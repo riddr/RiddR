@@ -193,7 +193,7 @@ var RiddR = ( function ( API )
 
 			// prevent default element action
 			return _stop( event );
-		});
+		}, { capture: true } );
 	}
 
 	// disable select mode 
@@ -201,7 +201,7 @@ var RiddR = ( function ( API )
 	{
 		// disable selection UI
 		document.body.classList.remove('riddr-selector');
-		document.removeEventListener( 'click', handler ); // detach the event
+		document.removeEventListener( 'click', handler, true ); // detach the event
 
 		// remove snackbar 
 		if( snackbar = $('#riddr_snackbar') )
