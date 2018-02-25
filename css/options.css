@@ -336,7 +336,7 @@ content > section > div
 ----------------------------------------------------------------------------------------------------------------------*/
 #transcription-container
 {
-
+	width:100%;
 }
 	#transcription-container p 
 	{
@@ -415,6 +415,57 @@ content > section > div
 		color: rgb(51, 51, 51);
 		margin:0px 0px 10px 0px;
 	}
+
+/*----------------------------------------------------------------------------------------------------------------------
+											NO DATA STYLING 
+----------------------------------------------------------------------------------------------------------------------*/
+.no-data
+{
+	opacity: 0;
+	height: 0px;
+	overflow:hidden;
+	text-align:center;
+	transition: opacity 0.2s, height 0.3s;
+}
+	.no-data h2
+	{
+		font-size:18px;
+		margin:10px 0px;
+	}
+	.no-data i
+	{
+		font-size:60px;
+	}
+
+	.no-data .add
+	{
+		color:#FFF;
+		font-size:14px;
+		
+		cursor: pointer;
+		border-radius:4px;
+		padding: 10px 20px;
+		display:inline-block;
+		background: var( --theme );
+	}
+
+/* hide sticky bar */	
+.auto-data ul:only-of-type
+{
+	opacity:0;
+	overflow:hidden;
+	transition: opacity 0.2s;
+}
+/* hide no-data container  */
+.auto-data > *:first-child:nth-last-child(2)
+{
+	opacity: 1;
+	height: 140px;
+}
+#transcriptions > *:first-child:nth-last-child(2)
+{
+	margin-top:80px;
+}
 
 /*----------------------------------------------------------------------------------------------------------------------
 												ADVANCED OPTIONS
