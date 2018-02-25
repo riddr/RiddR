@@ -243,16 +243,16 @@ var RiddR = ( function ( API )
 	var _key_handler = function ( event )
 	{
 		if( event.type == 'keyup' ) 
-			delete _keys[event.key];
+			delete _keys[event.code];
 		// avoid multy execution
-		else if( !(event.key in _keys) && event.type == 'keydown' ) 
+		else if( !(event.code in _keys) && event.type == 'keydown' ) 
 		{
 			// exit from selector mode if Esc key is pressed and selector mode is enabled
 			if( event.keyCode == 27 && API['handler'] )
 				_disable_select_mode();
 
 			// register the pressed key 
-			_keys[event.key] = true;
+			_keys[event.code] = true;
 
 			// extract shortcut code
 			shortcut = _extract_shortcut( event );
@@ -277,7 +277,7 @@ var RiddR = ( function ( API )
 		shortcut = '';
 
 		// list of triggering keys and their coresponding readable code // true for getting the current value 
-		_triggers = { 'altKey': 'Alt' , 'ctrlKey': 'Ctrl' , 'shiftKey': 'Shift', 'metaKey': 'Cmd', 'key': true };
+		_triggers = { 'altKey': 'Alt' , 'ctrlKey': 'Ctrl' , 'shiftKey': 'Shift', 'metaKey': 'Cmd', 'code': true };
 
 		// form keyboard shortcut
 		for( key in _triggers )
@@ -285,7 +285,7 @@ var RiddR = ( function ( API )
 			if ( event[key] && _triggers[key] !== true )
 				shortcut += _triggers[key] + '+';
 			else if( _triggers[key] == true )
-				shortcut += event[key];
+				shortcut += event[key].replace('Key','');
 		}
 
 		return shortcut;
@@ -305,7 +305,7 @@ var RiddR = ( function ( API )
 	chrome.storage.onChanged.addListener( _load_options );
 
 	// register keyboard event listeners 
-	API.addEventListener( 'keydown', _key_handler, false );
+	API.addEventListener( 'keydown', _key_handler, true );
 	API.addEventListener( 'keyup', _key_handler );
 
 
