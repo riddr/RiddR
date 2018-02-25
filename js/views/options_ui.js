@@ -719,7 +719,7 @@
 	}
 
 	// add transcription item 
-	_add_transcript = function ( transcript )
+	var _add_transcript = function ( transcript )
 	{
 		// generate transcript data
 		transcript = ( transcript )? transcript : RiddR.options.newTranscript();

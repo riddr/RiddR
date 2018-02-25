@@ -148,8 +148,11 @@
 		else
 			engine = Object.assign ( engine,  RiddR.data.TTS_parameters.defaults )
 
-		// register the TTS engine
-		RiddR.TTS.engines[engine.voiceName] = engine;
+		// register the TTS engines
+		if( embed ) // put embed TTS engines in top
+			RiddR.TTS.engines = Object.assign( { [engine.voiceName]: engine }, RiddR.TTS.engines );
+		else
+			RiddR.TTS.engines[engine.voiceName] = engine;
 	}
 
 
