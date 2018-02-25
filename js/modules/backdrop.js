@@ -33,10 +33,37 @@
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Backdrop private methods 
+ * BACKDROP PRIVATE METHODS
+ *
+ * Set offline TTS engine
  * ---------------------------------------------------------------------------------------------------------------------
 */	
+	var _set_offline_TTS_engine = function ()
+	{
+		// avoid gener discrimination :) 
+		gender = ['male','female'][ Math.floor(Math.random()*2) ];
 
+		// go trough all avaliable TTS engines
+		for ( engine in RiddR.TTS.engines )
+		{
+			if( RiddR.TTS.engines[engine].remote != undefined && !RiddR.TTS.engines[engine].remote )
+			{
+				// get first found TTS engine or overrite it if some local TTS is avaliable 
+				offlineTTS = ( RiddR.TTS.engines[engine].lang == RiddR.locale ? engine : engine );
+
+				// find personalized TTS engine 
+				if( RiddR.TTS.engines[engine].lang == RiddR.locale &&  RiddR.TTS.engines[engine].gender == gender )
+				{
+					offlineTTS = engine;
+					break;
+				}
+
+			}
+		}
+
+		// set RiddR offline TTS engine
+		RiddR.storage.set( {'offline_engine': offlineTTS } );
+	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -71,6 +98,9 @@
 				contexts: [ 'selection' ]
 			}
 		);
+
+		// set offline TTS engine
+		_set_offline_TTS_engine();
 	}
 
 	// handle context menu user actions
