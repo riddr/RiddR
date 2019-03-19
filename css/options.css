@@ -18,9 +18,9 @@
 
 :root
 {
-	--theme: rgba( 0, 188, 212, 1 );;
-	--theme-zero: rgba( 0, 188, 212, 0 );;
-	--theme-light: rgba( 0, 188, 212, 0.4 );;
+	--theme: rgba( 51, 103, 214, 1 );;
+	--theme-zero: rgba( 51, 103, 214, 0 );;
+	--theme-light: rgba( 51, 103, 214, 0.4 );;
 }
 
 body
