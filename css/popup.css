@@ -180,7 +180,7 @@ body
 
 	[class^="loading "] div#loader,
 	[class^="start "] div#pause, [class^="resume "] div#pause,
-	[class^="end "] div#replay, [class^="interrupted "] div#replay, [class^="interrupted start"] div#no-input,
+	[class^="end "] div#replay, [class^="interrupted "] div#replay, [class^="interrupted start"] div#no-input, [class^="end loading"] div#no-input,
 	[class^="error "] div#error, [class^="cancelled "] div#sys-error, [class^="interrupted cancelled"] div#no-input,
 	[class^="pause "] div#stop, [class^="pause "] div#resume,
 	[class^="idle "] div#no-input
@@ -191,13 +191,13 @@ body
 /*----------------------------------------------------------------------------------------------------------------------
 										LOADER ANIMATION
 ----------------------------------------------------------------------------------------------------------------------*/
-
-#loader > svg 
+.loading div#loader > svg 
 {
 	animation: rotation 1.4s linear infinite;
 }
-	#loader > svg  > circle
+	.loading div#loader > svg  > circle
 	{
+		display:none;
 		fill:none;
 		stroke:#00bcd4;
 		stroke-width:5px;
@@ -205,8 +205,12 @@ body
 		stroke-dasharray: 187;
 		stroke-linecap: round;
 		transform-origin: center;
-		animation: path 1.4s ease-in-out infinite;
 	}
+		[class$=loading] div#loader > svg  > circle
+		{
+			display:block;
+			animation: path 1.4s ease-in-out infinite;
+		}
 
 @keyframes rotation 
 {
