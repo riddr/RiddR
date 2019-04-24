@@ -13,7 +13,7 @@
 {
 	this.data.languages = 
 	{
-		"auto" 	: { name : "Autodetection", 		native: "Autodetection"},
+		"auto" 	: { name : RiddR.__('autodetect'), 	native: "Autodetection"},
 		"aa" 	: {	name : "Afar",					native: "Afaraf" },
 		"ab" 	: {	name : "Abkhaz",				native: "Аҧсуа" },
 		"ae" 	: {	name : "Avestan",				native: "Avesta" },

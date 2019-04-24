@@ -61,12 +61,12 @@
  			case 'error':
  			case 'cancelled':
  				_update_UI_state( event.type );
- 				_message_box( '<b>Oops!?</b></br> Something went wrong.', event.errorMessage, 'error' );
+ 				_message_box( RiddR.__('popUpError'), event.errorMessage, 'error' );
  			break;
 
  			case 'idle':
  				_update_UI_state( event.type );
- 				_message_box( '<b>Howdy!</b></br>Please select some text for me to read.' );
+ 				_message_box( RiddR.__('popUpSelector') );
  			break;
  		}
  	}

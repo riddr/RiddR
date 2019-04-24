@@ -30,7 +30,7 @@
 		else
 		{
 			// log missing locale messages
-			RiddR.log('Undefined message name: ' + message_name + ' in ' + RiddR.locale + ' locale!','warn');
+			RiddR.log('Undefined message name: ' + message_name + ' in ' + RiddR.locale + ' locale!', 'warn');
 			return false;
 		}
 	}
@@ -117,7 +117,7 @@
 */
 	var _update = function( message, element )
 	{
-		if( element.innerHTML == '' ) // update just the title if element content is empty eg. <i i18n='enquene'></i>
+		if( element.innerHTML == '' || element.title != '' ) // update just the title if element content is empty eg. <i i18n='enquene'></i>
 			element.title = message;
 		else
 		{

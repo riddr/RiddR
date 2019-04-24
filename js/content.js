@@ -181,7 +181,7 @@ var RiddR = ( function ( API )
 
 		// show snackbar in the top window and avoid 
 		if( window == top && RiddR.options.snackbar  )
-			document.body.insertAdjacentHTML('beforeend', '<div id="riddr_snackbar"><span>'+__('content_snackbar')+'</span></div>');
+			document.body.insertAdjacentHTML('beforeend', '<div id="riddr_snackbar"><span>'+__('contentSnackbar')+'</span></div>');
 
 		document.addEventListener( 'click', handler = function( event ) 
 		{

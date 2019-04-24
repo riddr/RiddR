@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>RiddR Options</title>
+	<title i18n="OPTIONS">RiddR Options</title>
 	<link rel="stylesheet" type="text/css" href="../css/material.css">
 	<link rel="stylesheet" type="text/css" href="../css/options.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700' rel='stylesheet' type='text/css'>
@@ -22,55 +22,55 @@
 </div>
 <nav>
 	<ul>
-		<li>General</li>
-		<li>Shortcuts</li>
-		<li>Transcription</li>
-		<li>Advanced</li>
+		<li i18n="generalOptions">General</li>
+		<li i18n="shortcutsOptions">Shortcuts</li>
+		<li i18n="transcriptionOptions">Transcription</li>
+		<li i18n="advancedOptions">Advanced</li>
 	</ul>
 	<div class="slider" ></div>
 </nav>
 <content>
 	<section>
 		<div id="vocal-container">
-			<h1><i class="material-icons">record_voice_over</i>Vocal settings</h1>
+			<h1><i class="material-icons">record_voice_over</i><lang i18n="vocalSettings">Vocal settings</lang></h1>
 			<div id="tts-engine">
 				<div class="material select">
-					<label for="engine">Text To Speech Engine</label>
+					<label for="engine" i18n="TTSengine" >Text To Speech Engine</label>
 					<select id="TTS_engine"> </select>
 				</div>
 				<div class="material switch">
-					<label for="enqueue">Enquene mode</label>
+					<label for="enqueue" i18n="enqueneMode">Enquene mode</label>
 					<input id="enqueue" type="checkbox" checked="checked"/>
 					<span></span>
 				</div>
 			</div>
 			<div id="tts-options">
 					<div class="material range">
-						<label for="volume">Default volume level</label>
+						<label for="volume" i18n="defaultVolume">Default volume level</label>
 						<input type="range" id="volume" step="0.01" min="0" max="1" value="1"></input>
 						<span slider-value="1"></span>
 					</div>
 					<div class="material range">
-						<label for="rate">Speaking rate</label>
+						<label for="rate" i18n="speakingRate">Speaking rate</label>
 						<input type="range" id="rate" min="0.1" step="0.01" max="4" value="1"></input>
 						<span slider-value="1"></span>
 					</div>
 					<div class="material range">
-						<label for="pitch">Voice pitch</label>
+						<label for="pitch" i18n="voicePitch">Voice pitch</label>
 						<input type="range" id="pitch" step="0.01" min="0" max="2" value="1"></input>
 						<span slider-value="1"></span>
 					</div>			
 			</div>
 			<div id="testing">
-				<h1><i class="material-icons">hearing</i> Testing</h1>
+				<h1><i class="material-icons">hearing</i> <lang i18n="testing">Testing</lang></h1>
 				<div class="material switch">
-					<label for="auto_test">Auto test</label>
+					<label for="auto_test" i18n="autoTest">Auto test</label>
 					<input id="auto_test" type="checkbox" checked="checked"/>
 					<span></span>
 				</div>
 				<div class="material" id="text-input">
 					<input id="utterance" type="text" value="This is a test text for google chrome extension called RiddR." required>
-					<label for="utterance">Test sentence</label>
+					<label for="utterance" i18n="testSentence">Test sentence</label>
 					<span class="line"></span>
 				</div>
 				<div id="test_box" class="end" >
@@ -82,15 +82,15 @@
 		</div>
 
 		<div id="language-container">
-			<h1><i class="material-icons">language</i>Language</h1>
+			<h1><i class="material-icons">language</i> <lang i18n="language">Language</lang></h1>
 			<div class="material select">
-				<label for="language">Default language</label>
+				<label for="language" i18n="defaultLanguage">Default language</label>
 				<select id="language"> 
 				</select>
 			</div>
 
 			<div class="material switch" data-message="This feature is coming in the next release :)">
-				<label for="translate">Auto translate</label>
+				<label for="translate" i18n="autoTranslate">Auto translate</label>
 				<input id="translate" type="checkbox" disabled title="Coming soon..."/>
 				<span></span>
 			</div>
@@ -98,65 +98,65 @@
 	</section>
 	<section>
 		<div id="global-shortcuts-container">
-			<h1><i class="material-icons">public</i>Global shortcuts</h1>
+			<h1><i class="material-icons">public</i><lang i18n="SHORTCUTS">Global shortcuts</lang></h1>
 		</div>
 		<div id="custom-shortcuts-container">
-			<h1><i class="material-icons">keyboard</i>Custom shortcuts</h1>
+			<h1><i class="material-icons">keyboard</i><span i18n="customShortcuts" >Custom shortcuts</span></h1>
 			<div id="shortcuts" class="auto-data" >
 				<div class="no-data">
 					<i class="material-icons">weekend</i>
-					<h2>Upps, seams you haven't added any shortcuts yet.</h2>
-					<div class="add" action="shortcut">Add shortcut</div>
+					<h2 i18n="noCustomShortcuts">Upps, seams you haven't added any shortcuts yet.</h2>
+					<div class="add" action="shortcut" i18n="addShortcut">Add shortcut</div>
 				</div>
 				<ul class="sticky">
-					<li>Keyboard shortcut</li>
-					<li>TTS Engine</li>
-					<li>Language</li>
-					<li>Auto translate</li>
-					<li>Options</li>
+					<li i18n="keyboardShortcut">Keyboard shortcut</li>
+					<li i18n="TTSengine_short">TTS Engine</li>
+					<li i18n="language">Language</li>
+					<li i18n="autoTranslate">Auto translate</li>
+					<li i18n="OPTIONS">Options</li>
 				</ul>
 			</div>
 		</div>
-		<div title="Add custom shortcut" class="material add" action="shortcut" >+</div>
+		<div title="Add shortcut" i18n="addShortcut" class="material add" action="shortcut" >+</div>
 	</section>
 	<section>
 		<div id="transcription-container">
 			<div id="transcription" class="material switch">
-				<label for="transcribe"><h1><i class="material-icons">translate</i>Transcription</h1></label>
+				<label for="transcribe"><h1><i class="material-icons">translate</i><lang i18n="TRANSCRIPTION" >Transcription</lang></h1></label>
 				<input id="transcribe" type="checkbox" checked="checked"/>
 				<span></span>
 			</div>
-			<p>Transcription in the linguistic sense is the systematic representation of language in written form. <br> 
+			<p i18n="defineTranscription">Transcription in the linguistic sense is the systematic representation of language in written form. <br> 
 			The source can either be utterances (speech or sign language) or preexisting text in another writing system.</p>
 
 			<div id="transcriptions" class="auto-data">
 				<div class="no-data">
 					<i class="material-icons">weekend</i>
-					<h2>Upps, seams you haven't added any transcripts yet.</h2>
-					<div class="add" action="transcript">Add transcript</div>
+					<h2 i18n="noTranscripts">Upps, seams you haven't added any transcripts yet.</h2>
+					<div class="add" i18n="addTranscript" action="transcript">Add transcript</div>
 				</div>
 				<ul class="sticky">
-					<li>From</li>
+					<li i18n="from">From</li>
 					<li></li>
-					<li>To</li>
+					<li i18n="to">To</li>
 					<li></li>
 				</ul>
 			</div>
 			</div>
 		</div>
-		<div title="Add transcription item" class="material add" action="transcript">+</div>
+		<div title="Add transcription item" i18n="addTranscript" class="material add" action="transcript">+</div>
 	</section>
 	<section>
 		<div id="advanced_options_container">
 			<div id="advanced_tts">
 				<div id="advanced_engines">
-					<h1><i class="material-icons">build</i>Advanced TTS options</h1>
+					<h1><i class="material-icons">build</i><lang i18n="ADVANCED">Advanced TTS options</lang></h1>
 					<div class="material select">
-						<label for="offline_engine">Offline TTS Engine</label>
+						<label for="offline_engine" i18n="offlineTTS">Offline TTS Engine</label>
 						<select id="offline_engine"> </select>
 					</div>
 					<div class="material select">
-						<label for="failover_engine">Failover TTS engine</label>
+						<label for="failover_engine" i18n="failoverTTS">Failover TTS engine</label>
 						<select id="failover_engine" disabled>
 							<option value="SpeakIt">SpeakIt</option>
 						</select>
@@ -164,14 +164,14 @@
 				</div>
 
 				<div id="text_selection">
-					<h1><i class="material-icons">select_all</i>Text selection</h1>
+					<h1><i class="material-icons">select_all</i><lang i18n="SELECTION">Text selection</lang></h1>
 					<div class="material switch">
-						<label for="auto_read">Auto read</label>
+						<label for="auto_read" i18n="autoRead">Auto read</label>
 						<input id="auto_read" type="checkbox" />
 						<span></span>
 					</div>
 					<div class="material switch">
-						<label for="auto_selection">Auto selection</label>
+						<label for="auto_selection" i18n="autoSelection">Auto selection</label>
 						<input id="auto_selection" type="checkbox"/>
 						<span></span>
 					</div>
@@ -179,24 +179,24 @@
 			</div>
 		
 			<div id="various">
-				<h1><i class="material-icons">tune</i>Miscellaneous</h1>
+				<h1><i class="material-icons">tune</i><lang i18n="MISCELLANEOUS">Miscellaneous</lang></h1>
 				<div id="" class="material switch">
-					<label for="error_repoting">Error reporting</label>
+					<label for="error_repoting" i18n="errorReporting">Error reporting</label>
 					<input id="error_repoting" type="checkbox"/>
 					<span></span>
 				</div>
 				<div id="" class="material switch">
-					<label for="SSML">Enable <b title="Speech Synthesis Markup Language">SSML</b> markup</label>
+					<label for="SSML" i18n="ssmlOption">Enable <b title="Speech Synthesis Markup Language">SSML</b> markup</label>
 					<input id="SSML" type="checkbox"/>
 					<span></span>
 				</div>
 				<div id="" class="material switch">
-					<label for="donations">Show donations button</label>
+					<label for="donations" i18n="donationsOption">Show donations button</label>
 					<input id="donations" type="checkbox"/>
 					<span></span>
 				</div>
 				<div id="" class="material switch">
-					<label for="snackbar">Show snackbar in selector mode</label>
+					<label for="snackbar" i18n="snackbarOption" >Show snackbar in selector mode</label>
 					<input id="snackbar" type="checkbox"/>
 					<span></span>
 				</div>
@@ -205,7 +205,7 @@
 		</div>
 	</section>
 </content>
-<div id="snackbar" class="snackbar">Changes were successfuly saved!</div>
+<div id="snackbar" class="snackbar" i18n="optionsSaved">Changes were successfuly saved!</div>
 </body>
 <script src="../js/core.js"></script>
 </html>

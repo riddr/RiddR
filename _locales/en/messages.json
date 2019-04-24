@@ -1,9 +1,263 @@
 {
-
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * General language 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	"RiddR":{
+		"message":"RiddR - Text To Speech reader for Chrome"
+	},
 	"title": {
 		"message": "Read the selected text."
 	},
 	"desc": {
-		"message": "Tired of reading? Select text you want to read and listen to it. RiddR converts text into speech so you no longer need to read."
+		"message": "Tired of reading? Riddr is a FREE TTS app that can read your news, favorite blogs, emails, PDF’s in 50+ languages with one click."
+	},
+
+	// basic actions
+	"add": {
+		"message": "Add"
+	},	
+	"remove": {
+		"message": "Remove"
+	},
+	"from": {
+		"message": "From"
+	},
+	"to": {
+		"message": "To"
+	},
+	"read": {
+		"message": "Read it!"
+	},
+
+	"language": {
+		"message": "Language"
+	},
+	"autodetect": {
+		"message": "Autodetection"
+	},
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Options interface langage variables 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	"options" : 
+	{
+		"message" 		: "Options"
+	},
+	"generalOptions" : 
+	{
+		"message" 		: "General"
+	},
+	"shortcutsOptions" : 
+	{
+		"message" 		: "Shortcuts"
+	},
+	"transcriptionOptions" : 
+	{
+		"message" 		: "Transcription"
+	},
+	"advancedOptions" : 
+	{
+		"message" 		: "Advanced"
+	},
+
+	// General Options
+	"vocalSettings" : 
+	{
+		"message" 		: "Vocal settings"
+	},
+	"TTSengine" : 
+	{
+		"message" 		: "Text To Speech Engine"
+	},
+	"TTSengine_short" : 
+	{
+		"message" 		: "TTS Engine"
+	},
+	"enqueneMode" : 
+	{
+		"message" 		: "Enquene mode"
+	},
+	"defaultVolume" : 
+	{
+		"message" 		: "Default volume level"
+	},
+	"speakingRate" : 
+	{
+		"message" 		: "Speaking rate"
+	},
+	"voicePitch" : 
+	{
+		"message" 		: "Voice pitch"
+	},
+	"testing" : 
+	{
+		"message" 		: "Testing"
+	},
+	"autoTest" : 
+	{
+		"message" 		: "Auto test"
+	},
+	"testSentence" : 
+	{
+		"message" 		: "Test sentence"
+	},
+	"defaultLanguage" : 
+	{
+		"message" 		: "Default language"
+	},
+	"autoTranslate" : 
+	{
+		"message" 		: "Auto translate"
+	},
+
+	// Global shortcut options
+	"SHORTCUTS" : 
+	{
+		"message" 		: "Global shortcuts"
+	},
+	"SHORTCUTS__execute_browser_action": 
+	{
+		"message": "Start reading",
+		"description"	: "Used as decription of global shortcut for start of the reading in global shortcut options"
+	},
+	"SHORTCUTS_pause": 
+	{
+		"message": "Pause reading",
+		"description"	: "Used as decription of global shortcut action for pausing the current reading in global shortcut options"
+	},
+	"SHORTCUTS_stop": 
+	{
+		"message": "Stop reading",
+		"description"	: "Used as decription of global shortcut for stop of the reading in global shortcut options"
+	},
+	// Custom shortcuts 
+	"customShortcuts": 
+	{
+		"message": "Custom shortcuts",
+		"description"	: "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": 
+	{
+		"message": "Upps, seams you haven't added any shortcuts yet.",
+		"description"	: "Message shown when the user hasn't created any custom shortcuts."
+	},
+	"addShortcut": 
+	{
+		"message": "Add shortcut",
+		"description"	: "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": 
+	{
+		"message": "Keyboard shortcut",
+		"description"	: "Definition for RiddR custom keyboard shortcuts, used in the shortcuts options."
+	},
+
+	// TRANSCRIPTION
+	"TRANSCRIPTION": 
+	{
+		"message": "Transcription"
+	},	
+	"defineTranscription": 
+	{
+		"message": "Transcription in the linguistic sense is the systematic representation of language in written form.<br>The source can either be utterances (speech or sign language) or preexisting text in another writing system.",
+		"description": "Definition of what is transcription."
+	},
+	"noTranscripts": 
+	{
+		"message": "Upps, seams you haven't added any transcripts yet.",
+		"description": "An message shown when user haven't added any transcripts, yet."
+	},
+	"addTranscript": 
+	{
+		"message": "Add transcript",
+		"description": "Button, for adding transcriptions."
+	},
+
+	// Advanced options
+	"ADVANCED": 
+	{
+		"message": "Advanced TTS options"
+	},	
+	"offlineTTS": 
+	{
+		"message": "Offline TTS Engine",
+		"description": "Definition of offline text to sheech engine"
+	},	
+	"failoverTTS": 
+	{
+		"message": "Failover TTS engine",
+		"description": "Definition of failover text to speech engine."
+	},	
+
+	"SELECTION": 
+	{
+		"message": "Text selection"
+	},	
+	"autoRead": 
+	{
+		"message": "Auto read"
+	},	
+	"autoSelection": 
+	{
+		"message": "Auto selection"
+	},	
+
+	"MISCELLANEOUS": 
+	{
+		"message": "Add transcript",
+		"description": "Button, for adding transcriptions."
+	},	
+	"errorReporting": 
+	{
+		"message": "Error reporting",
+		"description": "Advanced option feature, used for enabling / desabling reporting of errors to remote server."
+	},	
+	"ssmlOption": 
+	{
+		"message": "Enable <b title=\"Speech Synthesis Markup Language\">SSML</b> markup",
+		"description": "Advanced option for enabling / disabling SSML markup."
+	},	
+	"donationsOption": 
+	{
+		"message": "Show donations button"
+	},	
+	"snackbarOption": 
+	{
+		"message": "Show snackbar in selector mode",
+		"description": "Advanced option used for showing snackbar when the client is using selection mode."
+	},		
+
+	// snackbar 
+	"optionsSaved": 
+	{
+		"message": "Changes were successfuly saved!",
+		"description": "Message whown, uppon sucess, in the RiddR options when user modifies some option."
+	},		
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Popup language variables
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	"popUpError": {
+		"message": "<b>Oops!?</b></br> Something went wrong."
+	},
+	"popUpSelector": {
+		"message": "<b>Howdy!</b></br>Please select some text for me to read."
+	},
+
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Content script langage variables 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	"contentSnackbar": {
+		"message": "Click over some text paragraph in order RiddR to read it, or press ESC to cancel."
 	}
+
 }
