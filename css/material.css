@@ -11,7 +11,7 @@
 }
 	.material > label:nth-of-type(1)
 	{
-		color:#9E9E9E;
+		color: var( --theme-label );
 		font-size:14px;
 		cursor:pointer;
 		user-select: none;
@@ -26,11 +26,12 @@
 	::-webkit-scrollbar 
 	{
 		width: 5px;
+		background:none;
 	}
 
 	::-webkit-scrollbar-track 
 	{
-		background:#FFF;
+		background: var( --theme-background );
 		border-radius:3px;
 	}
 
@@ -108,8 +109,10 @@
 		display:block;
 		font-size:18px;
 		margin-top:20px;
+		background: none; 
 		padding:10px 10px 10px 0px;
-		border-bottom:1px solid #757575;
+		color: var( --theme-default-font );
+		border-bottom:1px solid var( --theme-border );
 	}
 		.material input[type^='text']:focus 
 		{
@@ -123,7 +126,7 @@
 		position:absolute;
 		font-weight:normal;
 		pointer-events:none;
-		transition:0.2s ease all; 
+		transition:0.2s ease all;
 	}
 		.material input[type^='text']:focus ~ label, .material input[type^='text']:valid ~ label 
 		{
@@ -390,6 +393,8 @@
 			text-overflow: ellipsis;
 
 		border-bottom:1px solid #444;
+		text-shadow: none;
+		color: var( --theme-default-font );
 	}
 		.material > select option
 		{
@@ -418,6 +423,7 @@
 		{
 			background:none;
 			box-shadow:none;
+			color: var( --theme-default-font );
 			border-bottom:1px solid #444;
 		}
 		.material > select:disabled
@@ -449,7 +455,7 @@
 			z-index: -1;
 			position: fixed;
 			overflow:hidden;
-			background: #FFF;
+			background: var( --theme-background );
 			list-style: none;
 			border-radius:3px;
 			transition: .25s height, .20s opacity, .25s top;
@@ -458,13 +464,13 @@
 			.material select + ul li
 			{
 				padding:15px;
-				color:#333;
+				color: var( --theme-default-font );
 				cursor:pointer;
 				text-align:left;
 			}
 				.material select + ul li:hover, .material select + ul li[selected]
 				{
-					background:#EAEAEA;
+					background: var( --theme-select-hoverbg );
 				}
 		.material select + ul[active]
 		{
@@ -525,7 +531,7 @@
 
 	.label
 	{
-		color:#9E9E9E;
+		color: var( --theme-label );
 		font-size:14px;
 		user-select: none;
 		font-weight:200 !important;

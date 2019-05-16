@@ -17,10 +17,19 @@
 }
 
 :root
-{
-	--theme: rgba( 51, 103, 214, 1 );;
-	--theme-zero: rgba( 51, 103, 214, 0 );;
-	--theme-light: rgba( 51, 103, 214, 0.4 );;
+{	
+	--theme: 				rgba( 51, 103, 214, 1 );
+	--theme-zero: 			rgba( 51, 103, 214, 0 );
+	--theme-light: 			rgba( 51, 103, 214, 0.4 );
+	--theme-background: 	#FFF;
+
+	--theme-label: 			#9E9E9E;
+	--theme-default-font: 	rgb(51, 51, 51);
+
+	--theme-border: 		#757575;  
+	--theme-border-fade: 	rgba(0,0,0,0.05); 
+
+	--theme-select-hoverbg: #EAEAEA;
 }
 
 body
@@ -28,6 +37,9 @@ body
 	height:500px;
 	width:1000px;
 	padding-top:48px;
+
+	color: var( --theme-default-font );
+	background: var( --theme-background );
 }
 
 .add
@@ -211,7 +223,7 @@ content > section > div
 	{
 		width:60%;
 		margin-right:5%;
-		border-right:1px solid rgba(0,0,0,0.05);
+		border-right:1px solid var( --theme-border-fade );
 	}
 		#vocal-container > div
 		{
@@ -310,7 +322,7 @@ content > section > div
 			width:900px;
 			list-style:none;
 			padding:10px 0px;
-			border-bottom:1px solid rgba(0,0,0,0.1);
+			border-bottom:1px solid var( --theme-border-fade );
 		}
 			#shortcuts > ul > li
 			{
@@ -348,7 +360,7 @@ content > section > div
 		width:600px;
 		list-style:none;
 		padding:10px 0px;
-		border-bottom:1px solid rgba(0,0,0,0.1);
+		border-bottom:1px solid var( --theme-border-fade );
 	}
 		#transcription-container #transcriptions > ul:last-child
 		{
@@ -365,11 +377,11 @@ content > section > div
 			#transcription-container #transcriptions > ul > li > input
 			{
 				width:100%;
-				color: #000;
+				color: var( --theme-default-font );
 				border: none;
 				padding: 0px 5px;
 
-				background: linear-gradient(#000, #000), linear-gradient(#000, #000), linear-gradient(#000, #000);
+				background: linear-gradient(var(--theme-border), var(--theme-border)), linear-gradient(var(--theme-border), var(--theme-border)), linear-gradient(var(--theme-border), var(--theme-border));
 				background-size: 1px 20%, 100% 1px, 1px 20%;
 				background-position: bottom left, bottom center, bottom right;
 				background-repeat: no-repeat;
@@ -412,8 +424,8 @@ content > section > div
 	#transcription h1
 	{
 		display:inline-block;
-		color: rgb(51, 51, 51);
 		margin:0px 0px 10px 0px;
+		color: var( --theme-default-font );
 	}
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -486,7 +498,7 @@ content > section > div
 {
 	width:40%;
 	margin-right:5%;
-	border-right:1px solid rgba(0,0,0,0.05);
+	border-right:1px solid var( --theme-border-fade );
 }
 	#advanced_tts #advanced_engines > div
 	{
