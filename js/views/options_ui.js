@@ -589,7 +589,7 @@
 
 			// form shortcut html 
 			shortcut_html = `<div class="material"> 
-								<label for="kb-read">`+RiddR.__('shortcut_'+command.name)+`</label> 
+								<label for="kb-read">`+RiddR.__('SHORTCUTS_'+command.name)+`</label> 
 								<div class="keys" id="kb-read">`
 									+ _get_shortcut_keys( command.shortcut ) +
 							`	</div>

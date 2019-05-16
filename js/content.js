@@ -51,13 +51,13 @@ var RiddR = ( function ( API )
 		selection = document.querySelectorAll( selector );
 
 		// check for single elements selection 
-		slection = ( selection.length == 1 )? selection[0] : selection;
+		selection = ( selection.length == 1 )? selection[0] : selection;
 
 		// valdate selection 
 		if( !selection || !selection.length || selection.length == 0 )
 			return false;
 		else
-			return slection;
+			return selection;
 	}
 
 	// Alias to Chrome's chrome.i18n internationalization API
