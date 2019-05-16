@@ -32,6 +32,22 @@
 	--theme-select-hoverbg: #EAEAEA;
 }
 
+/* Dark theme support */
+@media (prefers-color-scheme: dark)	
+{
+
+	:root
+	{
+		--theme: 				rgba( 40, 104, 138, 1 );
+		--theme-zero: 			rgba( 40, 104, 138, 0 );
+		--theme-light: 			rgba( 40, 104, 138, 0.4 );
+		--theme-background: 	#292a2d;
+		--theme-border-fade: 	rgba(255,255,255,0.1); 
+		--theme-default-font: 	#FFF;
+		--theme-select-hoverbg: #313336;
+	}
+}
+
 body
 {
 	height:500px;
