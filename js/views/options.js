@@ -260,7 +260,7 @@
 		delete object[id];
 
 		// update objects storage
-		RiddR.storage.set( object );
+		RiddR.storage.update();
 	}
 
 /*

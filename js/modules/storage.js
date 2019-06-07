@@ -61,6 +61,12 @@
 			this.area.set( RiddR.defaults, callback );
 		},
 
+		// update the storage object
+		update : function ( callback )
+		{
+			this.area.set( RiddR.defaults, callback );
+		},
+
 		// sync RiddR saved options
 		load : function ( callback )
 		{
