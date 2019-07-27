@@ -19,7 +19,7 @@ var RiddR = ( function ( API )
 	var data 				= {},
 		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
-		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI', 'backdrop']
+		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI', 'user', 'backdrop']
 		defaults 			= 
 		{
 			debug 			: true,
@@ -34,6 +34,7 @@ var RiddR = ( function ( API )
 			language 		: 'en-US',
 			translate		: false,
 			shortcuts 		: {},
+			user 			: {},
 			transcribe 		: true,
 			auto_selection 	: false,
 			auto_read 		: true,
