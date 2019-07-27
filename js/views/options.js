@@ -43,19 +43,9 @@
  * ---------------------------------------------------------------------------------------------------------------------
  * PUBLIC INITIALIZATION OPTIONS METHODS
  * 
- * start loading options enviroment
+ * render options UI when options enviroment has been loaded 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var onLoad = function ()
-	{
-		// load TTS voices 
-		_get_TTS_voices.apply( _async() );
-
-		// load chrome defined commands / shortcuts 
-		_get_chrome_commands.apply( _async() );
-	}
-
-	// render options UI when options enviroment has been loaded 
 	var onLoadComplete = function()
 	{
 		// check if all async functions were completed  
@@ -176,9 +166,19 @@
  * ---------------------------------------------------------------------------------------------------------------------
  * PRIVATE COMMON OPTIONS METHODS
  *
- * Basic error handler, for displaying errors and debug info in options screen
+ * start loading options enviroment
  * ---------------------------------------------------------------------------------------------------------------------
 */
+	var _onLoad = function ()
+	{
+		// load TTS voices 
+		_get_TTS_voices.apply( _async() );
+
+		// load chrome defined commands / shortcuts 
+		_get_chrome_commands.apply( _async() );
+	}
+
+	// Basic error handler, for displaying errors and debug info in options screen
 	var _TTS_handler = function () // @To-Do: create RiddR runtime error handler
 	{	
 		if (chrome.runtime.lastError) 
@@ -396,5 +396,14 @@
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	RiddR.load('/js/views/options_ui.js');
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * REGISTER EVENT LISTENERS
+ * 
+ * Initialize options UI when RiddR is fully loaded 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	RiddR.on('load', _onLoad );
 
 }).apply(RiddR);

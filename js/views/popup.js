@@ -19,14 +19,6 @@
 */	
 	this.popup = 
 	{
-		// initialize RiddR Pop-UP
-		onLoad : function()
-		{
-			_init_UI();	
-
-			// get selected text in the current opened tab
-			RiddR.IO.call( "popUpInit", null, null, "content" );	
-		}
 	}
 
 /*
@@ -125,9 +117,19 @@
  * ---------------------------------------------------------------------------------------------------------------------
  * Pirvate UI specific Pop-UP methods  
  * 
- * initialize pop-up UI
+ * initialize RiddR Pop-UP
  * ---------------------------------------------------------------------------------------------------------------------
 */	
+	var _onLoad = function()
+	{
+		_init_UI();	
+
+		// get selected text in the current opened tab
+		RiddR.IO.call( "popUpInit", null, null, "content" );	
+	}
+
+
+	// initialize pop-up UI
 	var _init_UI = function ()
 	{
 		RiddR.IO.call('state', null, function( state )
@@ -169,6 +171,8 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
+ * REGISTER EVENT LISTENERS
+ * 
  * Register TTS update listener 
  * ---------------------------------------------------------------------------------------------------------------------
 */	
@@ -177,5 +181,7 @@
 		_trigger_event( event.detail );
 	});
 
+	// initialize the Pop-UP 
+	RiddR.on('load', _onLoad );
 
 }).apply(RiddR);

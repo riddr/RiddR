@@ -94,7 +94,7 @@
  * Localize all DOM i18n elements
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	this.localize = function()
+	var _localize = function()
 	{
 		elements = document.querySelectorAll('[i18n]')
 
@@ -141,5 +141,14 @@
 				element.title = message;
 		}
 	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * REGISTER EVENT LISTENERS
+ * 
+ * Localize DOM content when DOM is fully loaded 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	RiddR.on('load', _localize);
 
 }).apply(RiddR);

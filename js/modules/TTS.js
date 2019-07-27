@@ -53,13 +53,17 @@
 				if(_valid_TTS_request('resume'))
 					RiddR.TTS.engine.resume();
 			}
-		},
-
-		// send interrupt event and reset Chrome TTS API   @To-Do: file a bug to Google regards this
-		onLoad : function()
-		{
-			chrome.tts.stop();
 		}
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * RiddR on load TTS event handler 
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	var _onLoad = function()
+	{		
+		chrome.tts.stop(); 	// send interrupt event and reset Chrome TTS API  @To-Do: file a bug to Google regards this
 	}
 
 /*
@@ -69,7 +73,7 @@
 */	
 	var _valid_TTS_request = function ( action )
 	{
-		if( RiddR.TTS.engine == null || RiddR.loaded === false ) // prevent sending requests before extension is loaded
+		if( RiddR.TTS.engine == null || RiddR.loaded !== true ) // prevent sending requests before extension is loaded
 			return false;
 		else
 		{
@@ -195,6 +199,9 @@
 	chrome.ttsEngine.onStop.addListener(this.TTS.events.onStop);
 	chrome.ttsEngine.onPause.addListener(this.TTS.events.onPause);
 	chrome.ttsEngine.onResume.addListener(this.TTS.events.onResume);
+
+	// register RiddR load event
+	RiddR.on('load', _onLoad );
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------

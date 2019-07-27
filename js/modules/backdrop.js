@@ -65,13 +65,33 @@
 		RiddR.storage.set( {'offline_engine': offlineTTS } );
 	}
 
+	// register RiddR context menu
+	var _register_context_menu = function ()
+	{
+		chrome.contextMenus.create
+		({
+			id : 'RiddR',
+			title: 'Read the selection!',
+			contexts: [ 'selection' ]
+		});
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Background event handler methods 
+ * BACKGROUND EVENT HANDLER METHODS 
  *
- * Handle RiddR defailt shortcuts / commands 
+ * Dispatch events uppon new installations, updates and chrome updates, startup
  * ---------------------------------------------------------------------------------------------------------------------
 */	
+	var _event_dispatcher = function ( details )
+	{
+		// register RiddR's context menu
+		_register_context_menu();
+
+		RiddR.dispatch( new Event(details.reason) );
+	}
+
+	// Handle RiddR defailt shortcuts / commands 
 	var _com_handler = function ( command )
 	{
 		RiddR[command](); // send pause / stop action
@@ -82,31 +102,34 @@
 	{
 	}
 
-	// handle initial startup of the extension 
+	// alias handler for initial startup of the extension 
 	var _startup_handler = function ()
 	{
-	}
-
-	// handle new installations, updates and chrome updates 
-	var _install_handler = function ( details )
-	{
-		// on install: register context menu
-		chrome.contextMenus.create(
-			{
-				id : 'RiddR',
-				title: 'Read the selection!',
-				contexts: [ 'selection' ]
-			}
-		);
-
-		// set offline TTS engine
-		_set_offline_TTS_engine();
+		_event_dispatcher( {'reason' : 'startup'} );
 	}
 
 	// handle context menu user actions
 	var _context_handler = function ( data )
 	{
 		RiddR.read( { utterance: data.selectionText, options: {} } );
+	}
+
+	// Update network connectivity status
+	var _connectivity = function( event )
+	{
+		RiddR.is_online = ( event.type == 'online') ? true : false;
+	}
+
+	// handle new installations
+	var _on_install = function()
+	{
+		// set offline TTS engine
+		_set_offline_TTS_engine();
+	}
+
+	// handle post extension update
+	var _on_update = function()
+	{
 	}
 
 /*
@@ -125,13 +148,22 @@
 	chrome.runtime.onStartup.addListener( _startup_handler );
 
 	// handle new installations, updates and chrome updates 
-	chrome.runtime.onInstalled.addListener( _install_handler )
+	chrome.runtime.onInstalled.addListener( _event_dispatcher );
 
 	// register uninstall URL, used for surveys etc.. 
 	chrome.runtime.setUninstallURL( 'https://riddr.com/:(' );
 
+	// handle connectivity status
+	window.addEventListener('online',  _connectivity);
+	window.addEventListener('offline', _connectivity);
+
+
+	// define RiddR event listeners and handlers
+	RiddR.on('install', _on_install );
+	RiddR.on('update', _on_update );
+	
 	// handle TTS state update
-	window.addEventListener('onTTSupdate', function( event )
+	RiddR.on('onTTSupdate', function( event )
 	{
 		_TTS_handler( event.detail );
 	});
