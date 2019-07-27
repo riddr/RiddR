@@ -17,7 +17,6 @@ var RiddR = ( function ( API )
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	var data 				= {},
-		loaded 				= false,
 		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
 		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI', 'backdrop']
@@ -55,17 +54,34 @@ var RiddR = ( function ( API )
 		// load saved options
 		RiddR.storage.load( function ()
 		{
-			// localize the current view
-			RiddR.localize();
+			RiddR.loaded = true; // failback flag synchronous legacy code
 
-			RiddR.loaded = true;
-
-			// send signal to modules that the DOM is loaded
-			for( module in RiddR)
-				if( RiddR[module].onLoad !== undefined )
-					RiddR[module].onLoad();
+			// dispatch event 
+			RiddR.dispatch( new Event('load') );
 		});
 	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * Simple event listening and trigering methods
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _add_event = function( type, callback )
+	{
+		// check if the event queue for specifc type was created
+		RiddR.events[ type ] = RiddR.events[ type ] || [];
+
+		// add event into the queue
+		RiddR.events[ type ].push(callback);
+	};
+
+	// trigger specific event
+	var _dispatch_event = function( event )
+	{
+		if( RiddR.events[event.type] !== undefined ) 
+			RiddR.events[event.type].forEach( callback => { callback( event ); } );
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Load view modules and libraries
@@ -124,16 +140,6 @@ var RiddR = ( function ( API )
 
 		// load requested file into the DOM
 		document.body.appendChild(element);
-	}	
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Update network connectivity status
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _connectivity = function( event )
-	{
-		RiddR.is_online = ( event.type == 'online') ? true : false;
 	}
 	
 /*
@@ -161,14 +167,7 @@ var RiddR = ( function ( API )
 
 	// load views specific modules and 3-rd party libraries
 	_load_rte();
-	
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Register connectivity event listeners
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	API.addEventListener('online',  _connectivity);
-	API.addEventListener('offline', _connectivity);
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Return public variables and methods
@@ -177,9 +176,13 @@ var RiddR = ( function ( API )
 	return {
 				data		: data,
 				load 		: load, 
-				loaded 	 	: loaded,
 				defaults 	: defaults,
 				is_online	: is_online,
+
+				// define event listening objects 
+				events		: [],
+				on 			: _add_event,
+				dispatch 	: _dispatch_event
 	}
 
 
