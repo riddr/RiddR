@@ -54,10 +54,10 @@
 	"browser_action": 
 	{
 		"default_icon": 
-		{                    // optional
-			"16": "images/small_icon.png",           // optional
-			"24": "images/small_icon.png",           // optional
-			"32": "images/small_icon.png"            // optional
+		{
+			"16": "images/small_icon.png",
+			"24": "images/small_icon.png",
+			"32": "images/small_icon.png"
 		},
 		"default_title": "Read the selected text.",
 		"default_popup": "views/popup.html"
