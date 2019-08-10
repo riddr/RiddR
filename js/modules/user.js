@@ -19,6 +19,24 @@
 */	
 	this.user = 
 	{
+		// grant access to the Chrome identity API's
+		APIgrant : function ( handler )
+		{
+			chrome.permissions.request( { permissions: ['identity'] }, handler )
+		},
+
+		// grant access to user data 
+		getToken : function ( interactive = true, callback )
+		{
+			// validate grant type ( interactive or not )
+			if( typeof interactive === "function" ) 
+			{
+				callback = interactive;
+				interactive = false;
+			}
+
+			chrome.identity.getAuthToken( { 'interactive': interactive }, callback )
+		}
 	}
 
 /*
@@ -65,7 +83,6 @@
 					c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
 				)
 	}
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Backdrop public accessible methods 
