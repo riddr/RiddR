@@ -163,11 +163,11 @@
 		URI = URI.replace( '#','?' )
 
 		// create URL object
-		URL = new URL( URI )
+		URI = new URL( URI )
 
 		// get URL parameters 
-		parameters = new URLSearchParams( URL.search )
-		parameters = URL.searchParams; 
+		parameters = new URLSearchParams( URI.search )
+		parameters = URI.searchParams; 
 
 		// put paramaters into object 
 		for ( pair of parameters.entries() )
@@ -176,6 +176,17 @@
 		return PARMS
 	} 
 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * TIME HANDLING HELPERS
+ * 
+ * Return UNIX timestamp in seconds
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	Date.timestamp = function() 
+	{
+		return Date.now()/1000|0 
+	};
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * OBJECT HANDLING HELPERS
