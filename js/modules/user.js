@@ -11,7 +11,6 @@
 
 (function () 
 {
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Backdrop public accessible methods 
@@ -19,23 +18,25 @@
 */	
 	this.user = 
 	{
+		// define subscription object
+		subscription : {},
+
+		// define OAuth object
+		OAuth : {},
+
 		// grant access to the Chrome identity API's
 		APIgrant : function ( handler )
 		{
-			chrome.permissions.request( { permissions: ['identity'] }, handler )
+			browser.permissions.request( { permissions: ['identity'] }, handler )
 		},
 
 		// grant access to user data 
 		getToken : function ( interactive = true, callback )
 		{
-			// validate grant type ( interactive or not )
-			if( typeof interactive === "function" ) 
-			{
-				callback = interactive;
-				interactive = false;
-			}
-
-			chrome.identity.getAuthToken( { 'interactive': interactive }, callback )
+			if( this.OAuth.token != undefined && this.OAuth.expires_on > Date.timestamp() )
+				return this.OAuth.token;
+			else
+				return _fetchOAuthToken();
 		}
 	}
 
@@ -83,6 +84,53 @@
 					c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
 				)
 	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * OAUTH SPECIFIC PRIVATE METHODS
+ *
+ * Fetch OAUTH Token
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	var _fetchOAuthToken = function ( INTERACTIVE = true )
+	{
+		// define OAuth Request URL
+		oAuthURL = RiddR.urlFromObject
+		(
+			{
+				'base' 			: 'https://accounts.google.com/o/oauth2/auth',
+				'response_type' : 'token',
+				'client_id'		: '632094124816-rj8vc90oejiv4o0ar13nmu6tpdell9bd.apps.googleusercontent.com',
+				'scope'			: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+				'redirect_uri'	: browser.identity.getRedirectURL("oauth2")
+			}
+		)
+
+		// launch browser web authentication 
+		browser.identity.launchWebAuthFlow( { 'url': oAuthURL, 'interactive': INTERACTIVE }, function ( response ) 
+		{
+			if ( response ) 
+			{
+				// extract token data from response 
+				token = RiddR.getURLParms( response )
+
+				// set the OAuth object
+				RiddR.user.OAuth = 
+				{
+					token 		: token.access_token,
+					expires_on 	: parseInt( token.expires_in ) + Date.timestamp()
+				}
+
+				// save user object with the new token
+				RiddR.storage.set( { 'user' : RiddR.user } );
+
+				return RiddR.user.OAuth.token
+			} 
+			else 
+				return false
+		});
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * Backdrop public accessible methods 
