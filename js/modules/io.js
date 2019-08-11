@@ -62,11 +62,11 @@
 			switch ( request.action )
 			{
 				case 'get' :
-					return _response( _get( request ), callback );
+					return _response( _get( request ), callback, request.target );
 				break;
 
 				case 'call':
-					return _response( _call( request ), callback );
+					return _response( _call( request ), callback, request.target );
 				break;
 
 				case 'trigger':
@@ -81,11 +81,11 @@
  * Handle communication channel response 
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var _response = function ( result, callback )
+	var _response = function ( result, callback, target )
 	{
 		if( result === true ) // keep the communication channel open 
 			return result;
-		else
+		else if( _validate_target( target ) )
 			callback( result );
 	}
 
