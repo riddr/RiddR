@@ -140,6 +140,41 @@
 		return ( this.length > length ) ? this.substr( 0, length-1 ) + '&hellip;' : this;
 	};
 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * URL HANDLING HELPERS
+ * 
+ * Form URL from object or array
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	this.urlFromObject = function( URL )
+	{
+		return URL.base + '?' + Object.keys(URL).map( ( key ) => 
+		{ 
+			if( key != 'base')
+				return key + '=' + encodeURIComponent( URL[key] ) 
+		} ).join('&');
+	}
+
+	// get URI query parameters and return them as object
+	this.getURLParms = function ( URI, PARMS = [] )
+	{
+		// handle hash URI's as query parameters 
+		URI = URI.replace( '#','?' )
+
+		// create URL object
+		URL = new URL( URI )
+
+		// get URL parameters 
+		parameters = new URLSearchParams( URL.search )
+		parameters = URL.searchParams; 
+
+		// put paramaters into object 
+		for ( pair of parameters.entries() )
+			PARMS[pair[0]] = pair[1]
+
+		return PARMS
+	} 
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
