@@ -284,7 +284,7 @@ var RiddR = ( function ( API )
 		{
 			if ( event[key] && _triggers[key] !== true )
 				shortcut += _triggers[key] + '+';
-			else if( _triggers[key] == true )
+			else if( _triggers[key] == true && event[key] != undefined )
 				shortcut += event[key].replace('Key','');
 		}
 
