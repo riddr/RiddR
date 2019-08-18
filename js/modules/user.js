@@ -27,16 +27,18 @@
 		// grant access to the Chrome identity API's
 		APIgrant : function ( handler )
 		{
-			browser.permissions.request( { permissions: ['identity'] }, handler )
+			chrome.permissions.request( { permissions: ['identity'] }, handler )
 		},
 
 		// grant access to user data 
 		getToken : function ( interactive = true, callback )
 		{
-			if( this.OAuth.token != undefined && this.OAuth.expires_on > Date.timestamp() )
+			if( this.OAuth.token != undefined && this.OAuth.expires_on > ( Date.timestamp() ) )
 				return this.OAuth.token;
+			else if( _fetchOAuthToken() )
+				return this.OAuth.token
 			else
-				return _fetchOAuthToken();
+				return false
 		}
 	}
 
@@ -92,7 +94,7 @@
  * Fetch OAUTH Token
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _fetchOAuthToken = function ( INTERACTIVE = true )
+	var _fetchOAuthToken = async function ( INTERACTIVE = true )
 	{
 		// define OAuth Request URL
 		oAuthURL = RiddR.urlFromObject
@@ -102,12 +104,12 @@
 				'response_type' : 'token',
 				'client_id'		: '632094124816-rj8vc90oejiv4o0ar13nmu6tpdell9bd.apps.googleusercontent.com',
 				'scope'			: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-				'redirect_uri'	: browser.identity.getRedirectURL("oauth2")
+				'redirect_uri'	: chrome.identity.getRedirectURL("oauth2")
 			}
 		)
 
 		// launch browser web authentication 
-		browser.identity.launchWebAuthFlow( { 'url': oAuthURL, 'interactive': INTERACTIVE }, function ( response ) 
+		await chrome.identity.launchWebAuthFlow( { 'url': oAuthURL, 'interactive': INTERACTIVE }, function ( response ) 
 		{
 			if ( response ) 
 			{
@@ -123,12 +125,13 @@
 
 				// save user object with the new token
 				RiddR.storage.set( { 'user' : RiddR.user } );
-
-				return RiddR.user.OAuth.token
 			} 
 			else 
 				return false
-		});
+		})
+
+		// return freshly updated OAuth token
+		return RiddR.user.OAuth.token
 	}
 
 /*
