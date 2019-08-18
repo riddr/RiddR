@@ -242,8 +242,12 @@ var RiddR = ( function ( API )
 */  
 	var _key_handler = function ( event )
 	{
-		if( event.type == 'keyup' ) 
-			delete _keys[event.code];
+		if( event.type == 'keyup' )
+			if( event.key == 'Meta' ) // MacOS bug for not registering keyup events when meta key is clicked
+				_keys = []
+			else
+				delete _keys[event.code];
+
 		// avoid multy execution
 		else if( !(event.code in _keys) && event.type == 'keydown' ) 
 		{
