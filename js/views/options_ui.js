@@ -636,7 +636,7 @@
 
 		// define key mapping
 		osKEYS = 	{ 
-						mac : 	{ 'alt' : '⌥', 'shift' : '⇧' }
+						mac : 	{ 'alt' : '⌥', 'shift' : '⇧', 'cmd' : '⌘', 'ctrl' : '⌃' }
 					}
 
 		// do the replacement 

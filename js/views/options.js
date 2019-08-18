@@ -110,8 +110,11 @@
 	{
 		// get new shortcut key
 		key = RiddR.options.registerShortcut();
+
+		// determine shortcut base
+		base = ( RiddR.defaults.platform.os == 'mac' )? 'Ctrl+Cmd+' : 'Alt+Shift+'
 		  
-		shortcut = { ['Alt+Shift+' + key] : {
+		shortcut = { [ base + key] : {
 												TTS_engine 	: 'SpeakIt',
 												language 	: 'auto',
 												translate 	: false,
@@ -130,6 +133,16 @@
 	// register shortcut key, so the same key won't be used multiple times
 	var registerShortcut = function ( key )
 	{
+		// determine bad shortcut keys platform specific
+		badKEYS = 	new RegExp(	{
+									mac : '[QDF]'
+								}
+								[RiddR.defaults.platform.os], 'g' )
+
+		// remove OS specific bad shortcut keys
+		if( badKEYS != '/(?:)/g' )
+			RiddR.options.avaliable_keys = RiddR.options.avaliable_keys.replace( badKEYS ,'')
+
 		// generate random shortcut key if not provided 
 		key = key || RiddR.options.avaliable_keys[Math.floor(Math.random() * RiddR.options.avaliable_keys.length)]
 
