@@ -618,10 +618,32 @@
 	// generate shortcut html from shortcut code in the following format: ( Alt+Shift+R )
 	var _get_shortcut_keys = function ( code, html = '' )
 	{
-		for ( key_id in keys = code.split('+') )
-			html += `<span key="`+keys[key_id].toLowerCase()+`">` + keys[key_id] + `</span>`;
+		// split keys based on their delimiter ( Chrome on MacOS returns global shortcuts without delimiter )
+		keys = ( code.includes('+') )? code.split('+') : code.split('')
+
+		for ( key_id in keys )
+			html += `<span key="`+keys[key_id].toLowerCase()+`">` + _os_key(keys[key_id]) + `</span>`;
 
 		return html;
+	}
+
+	// convert key to it's specific OS representation
+	var _os_key = function ( key )
+	{
+		// set code key ID and fetch platorm info
+		keyID = key.toLowerCase()
+		platform = RiddR.defaults.platform
+
+		// define key mapping
+		osKEYS = 	{ 
+						mac : 	{ 'alt' : '⌥' }
+					}
+
+		// do the replacement 
+		if( osKEYS[platform.os] && osKEYS[platform.os][keyID] !== undefined )
+			return osKEYS[platform.os][keyID]
+		else
+			return key
 	}
 
 	// generate shortcut HTML
