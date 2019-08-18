@@ -35,6 +35,7 @@ var RiddR = ( function ( API )
 			translate		: false,
 			shortcuts 		: {},
 			user 			: {},
+			platform		: {},
 			transcribe 		: true,
 			auto_selection 	: false,
 			auto_read 		: true,

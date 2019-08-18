@@ -65,6 +65,15 @@
 		RiddR.storage.set( {'offline_engine': offlineTTS } );
 	}
 
+	// get and set platform info
+	var _set_platform_info = function ()
+	{
+		chrome.runtime.getPlatformInfo( ( info ) =>
+		{
+			RiddR.storage.set( {'platform': info } );
+		});
+	}
+
 	// register RiddR context menu
 	var _register_context_menu = function ()
 	{
@@ -125,6 +134,9 @@
 	{
 		// set offline TTS engine
 		_set_offline_TTS_engine();
+
+		// get platform info ( like OS, architecture etc. )
+		_set_platform_info()
 	}
 
 	// handle post extension update
