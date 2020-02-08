@@ -69,8 +69,7 @@
 		{
 			"suggested_key": 
 			{
-				"default"	: "Alt+Shift+P",
-				"mac"		: "MacCtrl+Command+P"
+				"default"	: "Alt+P"
 			},
 			"description": "Pause reading"
 		},
@@ -78,8 +77,7 @@
 		{
 			"suggested_key": 
 			{
-				"default"	: "Alt+Shift+S",
-				"mac"		: "MacCtrl+Command+S"
+				"default"	: "Alt+S"
 			},
 			"description": "Stop reading"
 		},
@@ -87,8 +85,7 @@
 		{
 			"suggested_key": 
 			{
-				"default"	: "Alt+Shift+R",
-				"mac"		: "MacCtrl+Command+R"
+				"default"	: "Alt+R"
 			}
 		}
 	},
