@@ -21,6 +21,8 @@
 	{
 	}
 
+	var _is_readable = true
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * General Pop-Up methids 
@@ -122,7 +124,7 @@
 */	
 	var _onLoad = async function ()
 	{
-		_init_UI();	
+		_init_UI();
 
 		// check if RiddR is initiated in the current tab
 		chrome.tabs.executeScript(
@@ -131,6 +133,12 @@
 
 		}, async function ( result ) 
 		{
+			if( result == undefined || chrome.runtime.lastError != undefined )
+			{
+				_is_readable = false;
+ 				return _trigger_event( { type : 'error', 'errorMessage' : RiddR.__('ERROR_pageNotReadable') } )
+			}
+
 			if ( result.includes( null ) ) // initialize RiddR content script
 				await _inject_script( [ 'js/content.js', 'js/modules/io.js' ] )
 
@@ -146,7 +154,8 @@
 		RiddR.IO.call('state', null, function( state )
 		{
 			// update initial UI state
-			_trigger_event( { type : state } );		
+			if ( _is_readable !== false )
+				_trigger_event( { type : state } );		
 
 			// register UI event listeners
 			_register_event_listeners();

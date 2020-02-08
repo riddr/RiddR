@@ -246,6 +246,9 @@
 	"popUpError": {
 		"message": "<b>Oops!?</b></br> Something went wrong."
 	},
+	"ERROR_pageNotReadable": {
+		"message": "This website can't be readed.<br>Please try another one."
+	},
 	"popUpSelector": {
 		"message": "<b>Howdy!</b></br>Please select some text for me to read."
 	},
