@@ -9,7 +9,7 @@
  * @link		https://github.com/skechboy/RiddR/blob/master/js/views/popup.js
 */
 
-(function () 
+( async function () 
 {
 
 /*
@@ -120,14 +120,25 @@
  * initialize RiddR Pop-UP
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var _onLoad = function()
+	var _onLoad = async function ()
 	{
 		_init_UI();	
 
-		// get selected text in the current opened tab
-		RiddR.IO.call( "popUpInit", null, null, "content" );	
-	}
+		// check if RiddR is initiated in the current tab
+		chrome.tabs.executeScript(
+		{
+			code: 'window["RiddR"]'
 
+		}, async function ( result ) 
+		{
+			if ( result.includes( null ) ) // initialize RiddR content script
+				await _inject_script( [ 'js/content.js', 'js/modules/io.js' ] )
+
+			// get selected text in the current opened tab
+			RiddR.IO.call( "popUpInit", null, null, "content" );
+
+		});		
+	}
 
 	// initialize pop-up UI
 	var _init_UI = function ()
@@ -167,6 +178,18 @@
 
 		// update message box html
 		$("#message").innerHTML = message;
+	}
+
+	// inject content script in the opened tab
+	var _inject_script = async function ( SCRIPTS )
+	{
+		SCRIPTS.map( function ( script )
+		{
+			return new Promise ( ( resolve, reject ) => 
+			{
+				chrome.tabs.executeScript ( { file: script }, () => { resolve(true) } )
+			}); 
+		})
 	}
 
 /*
