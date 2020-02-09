@@ -256,17 +256,21 @@ body
 }
 	#message > div
 	{
-		height:0px;
+		opacity: 1;
+		padding:3px;
+		max-height:100px;
+		margin-top:5px;
 		font-size:10px;
 		overflow:hidden;
 		border-radius:4px;
 		white-space: normal;
+		transition: all 0.25s ease-in-out;
 	}
 		#message > div.active
 		{
-			padding:3px;
-			height:auto;
-			margin-top:5px;
+			padding:0;
+			opacity:0;
+			max-height:0;
 		}
 
 	.idle + #message, .error + #message, .cancelled + #message
