@@ -26,7 +26,7 @@ var RiddR = ( function ( API )
 			TTS_engine 		: 'SpeakIt',
 			offline_engine	: 'native',
 			failover_engine : 'SpeakIt',
-			enqueue 		: true,
+			enqueue 		: false,
 			volume			: 1,
 			rate 			: 1,
 			pitch 			: 1,
@@ -80,8 +80,18 @@ var RiddR = ( function ( API )
 	// trigger specific event
 	var _dispatch_event = function( event )
 	{
+		console.log(  )
+
 		if( RiddR.events[event.type] !== undefined ) 
 			RiddR.events[event.type].forEach( callback => { callback( event ); } );
+	}
+
+	// remove specific event listener
+	var _remove_event = function ( event, callback )
+	{
+		for( eventID in RiddR.events[event] )
+			if ( RiddR.events[event][eventID] === callback )
+				RiddR.events[event].splice( eventID, 1 );
 	}
 
 /*
@@ -184,7 +194,8 @@ var RiddR = ( function ( API )
 				// define event listening objects 
 				events		: [],
 				on 			: _add_event,
-				dispatch 	: _dispatch_event
+				dispatch 	: _dispatch_event,
+				removeEvent : _remove_event
 	}
 
 
