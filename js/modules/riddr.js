@@ -98,7 +98,7 @@
 	}
 
 	// Resume speaking if the reading was paused 
-	this.resume = function ( callback )
+	this.resume = this.play = function ( callback ) // this.play is used as alias from media session controll 
 	{
 		_media_control( 'resume', callback );
 	}

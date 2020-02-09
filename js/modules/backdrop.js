@@ -100,9 +100,12 @@
 		RiddR.dispatch( new Event(details.reason) );
 	}
 
-	// Handle RiddR defailt shortcuts / commands 
-	var _com_handler = function ( command )
+	// Handle RiddR default keyboard shortcuts and media session commands
+	var _state_handler = function ( command )
 	{
+		// validate command 
+		command = ( typeof command == 'object' && 'action' in command ) ? command.action : command;
+
 		RiddR[command](); // send pause / stop action
 	}
 
@@ -151,7 +154,7 @@
  * Catch RiddR's default commands
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
-	chrome.commands.onCommand.addListener( _com_handler );
+	chrome.commands.onCommand.addListener( _state_handler );
 
 	// register RiddR context menu event listener
 	chrome.contextMenus.onClicked.addListener( _context_handler );
@@ -169,6 +172,13 @@
 	window.addEventListener('online',  _connectivity);
 	window.addEventListener('offline', _connectivity);
 
+	// register media session event listeners and handlers
+	if ('mediaSession' in navigator) 
+	{
+		navigator.mediaSession.setActionHandler( 'play', 	_state_handler );
+		navigator.mediaSession.setActionHandler( 'pause', 	_state_handler );
+		navigator.mediaSession.setActionHandler( 'stop', 	_state_handler );
+	}
 
 	// define RiddR event listeners and handlers
 	RiddR.on('install', _on_install );
