@@ -109,11 +109,6 @@
 		RiddR[command](); // send pause / stop action
 	}
 
-	// handle RiddR TTS state updates
-	var _TTS_handler = function ( state )
-	{
-	}
-
 	// alias handler for initial startup of the extension 
 	var _startup_handler = function ()
 	{
@@ -183,11 +178,5 @@
 	// define RiddR event listeners and handlers
 	RiddR.on('install', _on_install );
 	RiddR.on('update', _on_update );
-	
-	// handle TTS state update
-	RiddR.on('onTTSupdate', function( event )
-	{
-		_TTS_handler( event.detail );
-	});
 
 }).apply(RiddR);
