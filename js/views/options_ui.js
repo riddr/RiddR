@@ -246,7 +246,7 @@
 			}, function()
 			{
 				container.addClass('reading');
-				window.addEventListener('onTTSupdate', _TUI_handler ); 
+				RiddR.on('onTTSupdate', _TUI_handler ); 
 			}, 'background' );
 		});
 
@@ -262,7 +262,7 @@
 		if( event.detail.type == 'end' )
 		{
 			container.removeClass('reading');
-			window.removeEventListener( "onTTSupdate", _TUI_handler );
+			RiddR.removeEvent( "onTTSupdate", _TUI_handler );
 		}
 	}
 
@@ -797,6 +797,6 @@
 	}
 
 	// register TTS update event listener
-	window.addEventListener('onTTSupdate', _TEST_handler ); 
+	RiddR.on('onTTSupdate', _TEST_handler ); 
 
 }).apply( RiddR );

@@ -134,7 +134,7 @@
 	var _trigger = function ( event_id, data )
 	{
 		event = new CustomEvent(event_id, { detail: data } );
-		window.dispatchEvent(event);
+		RiddR.dispatch(event);
 	}
 
 /*

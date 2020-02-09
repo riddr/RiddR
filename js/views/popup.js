@@ -208,7 +208,7 @@
  * Register TTS update listener 
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	window.addEventListener('onTTSupdate', function( event )
+	RiddR.on('onTTSupdate', function( event )
 	{
 		_trigger_event( event.detail );
 	});
