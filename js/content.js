@@ -262,7 +262,7 @@ var RiddR = ( function ( API )
 			shortcut = _extract_shortcut( event );
 			
 			// check weither there is such registered shortcut
-			if( shortcut = RiddR.options.shortcuts[shortcut] )
+			if( RiddR.options.shortcuts != undefined && ( shortcut = RiddR.options.shortcuts[shortcut] ) )
 			{
 				// get selected text
 				utterance = _get_selection();
@@ -300,7 +300,7 @@ var RiddR = ( function ( API )
  * Initialize content script ( load options, shortcuts etc. ) and register Chrome API listeners
  * ---------------------------------------------------------------------------------------------------------------------
 */ 
-	API.onload = function()
+	API.onload = _init = function()
 	{
 		_load_options( _auto_read );
 	};
@@ -319,6 +319,7 @@ var RiddR = ( function ( API )
  * ---------------------------------------------------------------------------------------------------------------------
 */  
 	return {
+				init 			: _init,
 				options 		: {},
 				selector 		: _select_mode,
 				popUpInit 		: popUpInit 
