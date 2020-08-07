@@ -96,7 +96,11 @@
 
 			}, function ( result ) 
 			{
-				if( result != undefined && chrome.runtime.lastError == undefined && result.includes( null ))
+				if 	( 	
+						chrome.runtime.lastError == undefined && 
+						result != undefined && 
+						result.includes( null )
+					)
 				{
 					RiddR.injectScript( [ 'js/content.js', 'js/modules/io.js', 'css/content.css' ] ).then ( () =>
 					{

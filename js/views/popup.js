@@ -133,7 +133,7 @@
 
 		}, async function ( result ) 
 		{
-			if( result == undefined || chrome.runtime.lastError != undefined )
+			if( chrome.runtime.lastError != undefined || result == undefined )
 			{
 				_is_readable = false;
  				return _trigger_event( { type : 'error', 'errorMessage' : RiddR.__('ERROR_pageNotReadable') } )
