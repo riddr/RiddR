@@ -250,6 +250,11 @@
 			}, 'background' );
 		});
 
+		// open chrome global shortcuts window
+		$(document).on('click', '#global-shortcuts-container .material', function()
+		{
+			chrome.tabs.create({ 'url': 'chrome://extensions/shortcuts' });
+		});
 	}
 
 /*
