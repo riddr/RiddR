@@ -140,7 +140,7 @@
 			}
 
 			if ( result.includes( null ) ) // initialize RiddR content script
-				await _inject_script( [ 'js/content.js', 'js/modules/io.js' ] )
+				await RiddR.injectScript( [ 'js/content.js', 'js/modules/io.js', 'css/content.css' ] )
 
 			// get selected text in the current opened tab
 			RiddR.IO.call( "popUpInit", null, null, "content" );
@@ -187,18 +187,6 @@
 
 		// update message box html
 		$("#message").innerHTML = message;
-	}
-
-	// inject content script in the opened tab
-	var _inject_script = async function ( SCRIPTS )
-	{
-		SCRIPTS.map( function ( script )
-		{
-			return new Promise ( ( resolve, reject ) => 
-			{
-				chrome.tabs.executeScript ( { file: script }, () => { resolve(true) } )
-			}); 
-		})
 	}
 
 /*

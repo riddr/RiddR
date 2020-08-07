@@ -258,4 +258,29 @@
 		return target;
 	}
 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * GENERAL CONTENT SCRIPT HANDLERS 
+ * 
+ * Inject content script in the opened tab
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
+	this.injectScript = async function ( SCRIPTS, LOAD = [] )
+	{
+		SCRIPTS.map( function ( script )
+		{
+			LOAD.push( new Promise ( ( resolve, reject ) => 
+			{
+				// determine DOM injector
+				injector = ( script.includes('.css') )? chrome.tabs.insertCSS : chrome.tabs.executeScript
+
+				injector( { file: script, allFrames: true, runAt: 'document_start' }, () => { resolve(true) } )
+			}))
+		})
+
+
+		// define 
+		return Promise.all(LOAD)
+	}
+
 }).apply(RiddR);

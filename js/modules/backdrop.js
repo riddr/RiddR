@@ -85,6 +85,29 @@
 		});
 	}
 
+	// inject content script on new tab creation if allowed from the user
+	var _inject_content_script = async function ( tabID, RESULT )
+	{
+		if( RESULT.status == 'complete' && Object.keys(RiddR.defaults.shortcuts).length > 0 )
+		{
+			chrome.tabs.executeScript(
+			{
+				code: 'window["RiddR"]'
+
+			}, function ( result ) 
+			{
+				if( result != undefined && chrome.runtime.lastError == undefined && result.includes( null ))
+				{
+					RiddR.injectScript( [ 'js/content.js', 'js/modules/io.js', 'css/content.css' ] ).then ( () =>
+					{
+ 						// initialize content script 
+						chrome.tabs.executeScript ( { code: "RiddR.init()", allFrames: true } )
+					})
+				}
+			});
+		}
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * BACKGROUND EVENT HANDLER METHODS 
@@ -162,6 +185,9 @@
 
 	// register uninstall URL, used for surveys etc.. 
 	chrome.runtime.setUninstallURL( 'https://riddr.com/:(' );
+
+	// inject RiddR content script
+	chrome.tabs.onUpdated.addListener( _inject_content_script );
 
 	// handle connectivity status
 	window.addEventListener('online',  _connectivity);

@@ -692,14 +692,42 @@
 	// add shortcut into shortcut container 
 	var _add_shortcut = function ( shortcut )
 	{
-		// get new shortcut from the options 
-		shortcut = shortcut || RiddR.options.newShortcut();
+		// grant access to content scripts for all URL's 
+		chrome.permissions.contains(
+		{
+			origins: ['<all_urls>']
+		}, function ( granted )
+		{
+			if ( granted )
+			{
+				// get new shortcut from the options 
+				shortcut = shortcut || RiddR.options.newShortcut();
 
-		// generate shortcut html
-		html = _get_shortcut_html( shortcut );
+				// generate shortcut html
+				html = _get_shortcut_html( shortcut );
 
-		// add generated HTML into the shortcuts container
-		$("#shortcuts").append(html);
+				// add generated HTML into the shortcuts container
+				$("#shortcuts").append(html);
+			}
+			else
+				_grant_shortuct_perms( _add_shortcut, shortcut );
+		})
+	}
+
+	// grant permissions for custom shortcuts
+	var _grant_shortuct_perms = function ( callback, data )
+	{
+		// grant access to content scripts for all URL's 
+		chrome.permissions.request(
+		{
+			origins: ['<all_urls>']
+		}, function ( granted )
+		{
+			if ( granted )
+				callback(data);
+			else
+				_error('Sorry, in order to use custom shortcuts RiddR needs some additional permissions.')
+		})
 	}
 
 /*
