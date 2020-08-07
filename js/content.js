@@ -54,7 +54,7 @@ var RiddR = ( function ( API )
 		selection = ( selection.length == 1 )? selection[0] : selection;
 
 		// valdate selection 
-		if( !selection || !selection.length || selection.length == 0 )
+		if( !selection || ( selection.length != undefined && selection.length == 0 ) )
 			return false;
 		else
 			return selection;
