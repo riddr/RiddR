@@ -260,7 +260,7 @@
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * GENERAL CONTENT SCRIPT HANDLERS 
+ * BROWSER HANDLERS 
  * 
  * Inject content script in the opened tab
  * ---------------------------------------------------------------------------------------------------------------------
@@ -281,6 +281,12 @@
 
 		// define 
 		return Promise.all(LOAD)
+	}
+
+	// open new browser tab
+	this.newTab = function( URL )
+	{
+		chrome.tabs.create({ 'url': URL });
 	}
 
 }).apply(RiddR);

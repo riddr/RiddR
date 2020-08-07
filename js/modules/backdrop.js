@@ -161,12 +161,18 @@
 		_set_offline_TTS_engine();
 
 		// get platform info ( like OS, architecture etc. )
-		_set_platform_info()
+		_set_platform_info();
+
+		// show welcome page
+		RiddR.newTab('https://riddr.com/welcome')
+
 	}
 
 	// handle post extension update
 	var _on_update = function()
 	{
+		// show RiddR release log
+		RiddR.newTab('https://riddr.com/release-log/' + RiddR.APP.version )
 	}
 
 /*

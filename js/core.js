@@ -195,7 +195,9 @@ var RiddR = ( function ( API )
 				events		: [],
 				on 			: _add_event,
 				dispatch 	: _dispatch_event,
-				removeEvent : _remove_event
+				removeEvent : _remove_event,
+
+				APP 		: chrome.app.getDetails()
 	}
 
 
