@@ -42,6 +42,7 @@ var RiddR = ( function ( API )
 			donations		: true,
 			snackbar		: true,
 			SSML			: true,
+			update_notify	: true,
 			transcription  	: { 0 : { "RiddR"	: "reader"} },
 			error_repoting 	: true   // report JavaScript runtime errors to remote server
 		};
@@ -80,8 +81,6 @@ var RiddR = ( function ( API )
 	// trigger specific event
 	var _dispatch_event = function( event )
 	{
-		console.log(  )
-
 		if( RiddR.events[event.type] !== undefined ) 
 			RiddR.events[event.type].forEach( callback => { callback( event ); } );
 	}

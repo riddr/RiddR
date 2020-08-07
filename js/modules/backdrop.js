@@ -124,7 +124,12 @@
 		// register RiddR's context menu
 		_register_context_menu();
 
-		RiddR.dispatch( new Event(details.reason) );
+		if( RiddR.loaded )
+			RiddR.dispatch( new Event(details.reason) );
+		else
+			RiddR.on('load', () => {
+				RiddR.dispatch( new Event(details.reason) );
+			});
 	}
 
 	// Handle RiddR default keyboard shortcuts and media session commands
@@ -171,8 +176,9 @@
 	// handle post extension update
 	var _on_update = function()
 	{
-		// show RiddR release log
-		RiddR.newTab('https://riddr.com/release-log/' + RiddR.APP.version )
+		// show RiddR release log if opted out
+		if( RiddR.defaults.update_notify )
+			RiddR.newTab('https://riddr.com/release-log/' + RiddR.APP.version )
 	}
 
 /*
