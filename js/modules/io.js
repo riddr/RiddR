@@ -162,4 +162,8 @@
 */
 	chrome.runtime.onMessage.addListener( _handler );
 
+	// re-intialize RiddR content script 
+	if ( _validate_target('content') && Object.keys(RiddR.options).length == 0 )
+		RiddR.init();
+
 }).apply( RiddR || {} );
