@@ -2,7 +2,7 @@
 	"default_locale": "en",
 	"name": "__MSG_RiddR__",
 	"description": "__MSG_desc__",
-	"version": "0.1",
+	"version": "0.4.1",
 	"manifest_version": 2,
 	"minimum_chrome_version": "47",
 	"icons": 
@@ -23,24 +23,12 @@
 		"ttsEngine",
 		"activeTab",
 		"contextMenus",
-		"storage",
-		"unlimitedStorage"
+		"storage"
 	],
 
 	"optional_permissions":
 	[
-		"identity"
-	],
-
-	"content_scripts": 
-	[
-		{
-			"all_frames"	: true,
-			"matches"		: ["<all_urls>"],
-			"run_at" 		: "document_start",
-			"css"			: ["css/content.css"],
-			"js"			: ["js/content.js", "js/modules/io.js"]
-		}
+		"identity", "<all_urls>"
 	],
 
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
