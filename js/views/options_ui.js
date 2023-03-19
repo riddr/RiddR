@@ -69,11 +69,12 @@
 			// prevent onclick action just for the content within the modal
 			modal_content_holder.on('click', function( event ) 
 			{
-				event.stopPropagation();
+				if( event.target.id != "close" ) 
+					event.stopPropagation();
 			});
 
 			// hide modal if some elswere is clickedr
-			$(document).on('click', '.modal',function( event )
+			$(document).on('click', '.modal, .modal_close',function( event )
 			{
 				_hide_modal( callback );
 			});
@@ -126,8 +127,10 @@
 	var _error = function( message )
 	{
 		template = `<div id="error">
-						<h1>Upps!<br>Something went wrong.</h1>
-						<h2>`+message+`<h2>
+						<i class="material-icons">warning</i>
+						<h1>Oh snap!</h1>
+						<h2>`+message+`</h2>
+						<p id="close" class="modal_close">Dismiss</p>
 					</div>`;
 
 		// show the error

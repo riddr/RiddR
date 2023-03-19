@@ -551,14 +551,37 @@ content > section > div
 ----------------------------------------------------------------------------------------------------------------------*/
 #error 
 {
-
+	padding-top:20px;
 }
+	#error > i
+	{
+		color: #f65656;
+		font-size: 60px;
+	}
 	#error h1
 	{
+		color: #415868;
+		font-size: 28px;
 		margin:20px 0px 25px 0px;
 	}
-
-
+	#error > h2
+	{
+		margin: 0px;
+		color: #82919b;
+		font-size: 18px;
+		font-weight: 200;
+	}
+	#error > #close
+	{
+		color: #FFF;
+		cursor:pointer;
+		font-size: 22px;
+		font-weight: 200;
+		padding: 5px 0px;
+		text-align: center;
+		background: #f75656;
+		margin: 25px 0px 0px 0px;
+	}
 
 /*----------------------------------------------------------------------------------------------------------------------
 											CROSS-OS COMPATIBILITY 

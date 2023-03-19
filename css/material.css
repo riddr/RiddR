@@ -589,6 +589,7 @@
 		position: fixed;
 		text-align:center;
 		background:rgba(0,0,0,0.2);
+		backdrop-filter: blur(3px);
 	}
 		.modal > div
 		{
@@ -598,7 +599,7 @@
 			height:0px;
 			overflow:hidden;
 			background:#FFF;
-			border-radius:3px;
+			border-radius:5px;
 			position: absolute;
 			display:inline-block;
 	
@@ -608,17 +609,8 @@
 			transition-property:left, top, width, height;
 			transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
 		}
-			.modal > div:after
-			{
-				width:20px;
-				height:20px;
-				content: "x";
-				display:block;
-				background:red;
-			}
 			.modal > div > div
 			{
-				padding:10px;
 				min-width:500px;
 				min-height: 150px;
 			}
