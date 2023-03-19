@@ -202,6 +202,9 @@
 	});
 
 	// initialize the Pop-UP 
-	RiddR.on('load', _onLoad );
+	if( RiddR.loaded ) // failbach for premature DOM load events
+		setTimeout( _onLoad, 100 );
+	else
+		RiddR.on('load', _onLoad );
 
 }).apply(RiddR);

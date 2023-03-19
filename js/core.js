@@ -19,7 +19,7 @@ var RiddR = ( function ( API )
 	var data 				= {},
 		is_online			= navigator.onLine,
 		modules 		 	= ['utils','i18n', 'io', 'storage'], // default modules
-		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI', 'user', 'backdrop']
+		background_modules  = ['data/TTS_parameters', 'TTS', 'riddr', 'UI', 'backdrop']
 		defaults 			= 
 		{
 			debug 			: true,
@@ -177,7 +177,7 @@ var RiddR = ( function ( API )
 	}
 
 	// load views specific modules and 3-rd party libraries
-	_load_rte();
+	setTimeout( _load_rte, 25 );
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
