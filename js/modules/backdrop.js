@@ -178,7 +178,7 @@
 	{
 		// show RiddR release log if opted out
 		if( RiddR.defaults.update_notify )
-			RiddR.newTab('https://riddr.com/release-log/' + RiddR.APP.version )
+			RiddR.newTab('https://riddr.com/release/' + RiddR.APP.version )
 	}
 
 /*
@@ -200,7 +200,7 @@
 	chrome.runtime.onInstalled.addListener( _event_dispatcher );
 
 	// register uninstall URL, used for surveys etc.. 
-	chrome.runtime.setUninstallURL( 'https://riddr.com/:(' );
+	chrome.runtime.setUninstallURL( 'https://riddr.com/this-is-sad' );
 
 	// inject RiddR content script
 	chrome.tabs.onUpdated.addListener( _inject_content_script );
