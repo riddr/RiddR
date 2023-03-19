@@ -30,15 +30,33 @@
 			chrome.permissions.request( { permissions: ['identity'] }, handler )
 		},
 
-		// grant access to user data 
-		getToken : function ( interactive = true, callback )
+		revokeToken : function (  )
 		{
-			if( this.OAuth.token != undefined && this.OAuth.expires_on > ( Date.timestamp() ) )
-				return this.OAuth.token;
-			else if( _fetchOAuthToken() )
-				return this.OAuth.token
-			else
-				return false
+			chrome.identity.removeCachedAuthToken ( { token: this.OAuth.token }, () => 
+			{
+				this.OAuth = {}
+			} ); 
+		},
+
+		reauthToken : function ()
+		{
+			this.OAuth = {}
+
+			return this.getToken();
+		},
+
+		// grant access to user data 
+		getToken : async function ()
+		{
+			if( this.OAuth.token == undefined || this.OAuth.expires_on <= ( Date.timestamp() ) )
+				await _fetchOAuthToken ( !this.OAuth.token ? true : false )
+
+			return this.OAuth.token
+		},
+
+		updateToken : function ( INTERACTIVE )
+		{
+			_fetchOAuthToken ( INTERACTIVE )
 		}
 	}
 
@@ -94,7 +112,7 @@
  * Fetch OAUTH Token
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	var _fetchOAuthToken = async function ( INTERACTIVE = true )
+	var _fetchOAuthToken = function ( INTERACTIVE )
 	{
 		// define OAuth Request URL
 		oAuthURL = RiddR.urlFromObject
@@ -108,30 +126,45 @@
 			}
 		)
 
-		// launch browser web authentication 
-		await chrome.identity.launchWebAuthFlow( { 'url': oAuthURL, 'interactive': INTERACTIVE }, function ( response ) 
+		return new Promise( async ( resolve, reject ) => 
 		{
-			if ( response ) 
+			try 
 			{
-				// extract token data from response 
-				token = RiddR.getURLParms( response )
-
-				// set the OAuth object
-				RiddR.user.OAuth = 
+				// launch browser web authentication 
+				chrome.identity.launchWebAuthFlow( { 'url': oAuthURL, 'interactive': INTERACTIVE }, function ( response ) 
 				{
-					token 		: token.access_token,
-					expires_on 	: parseInt( token.expires_in ) + Date.timestamp()
-				}
+					if ( chrome.runtime.lastError )
+					{
+						if ( chrome.runtime.lastError.message == 'User interaction required.' )
+							RiddR.user.reauthToken();
+						else
+							reject( chrome.runtime.lastError )
+					}
 
-				// save user object with the new token
-				RiddR.storage.set( { 'user' : RiddR.user } );
+					if ( response ) 
+					{
+						// extract token data from response 
+						token = RiddR.getURLParms( response )
+
+						// set the OAuth object
+						RiddR.user.OAuth = 
+						{
+							token 		: token.access_token,
+							expires_on 	: parseInt( token.expires_in ) + Date.timestamp()
+						}
+
+						// save user object with the new token
+						RiddR.storage.set( { 'user' : RiddR.user } );
+
+						resolve( token );
+					}
+				})
 			} 
-			else 
-				return false
+			catch ( error )
+			{
+				reject( error )
+			}
 		})
-
-		// return freshly updated OAuth token
-		return RiddR.user.OAuth.token
 	}
 
 /*
@@ -141,5 +174,7 @@
 */
 	RiddR.on('load', _onLoad );
 	RiddR.on('install', _install );
+
+	chrome.identity.onSignInChanged.addListener( (data) => { console.log(data) } )
 
 }).apply(RiddR);

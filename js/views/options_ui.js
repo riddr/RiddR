@@ -190,7 +190,7 @@
 		});
 
 		// Set listeners for new transcription item     
-		$(document).on('click', '.add', function()
+		$(document).on('click', '.add, .button', function()
 		{
 			switch ( $(this).attr('action') )
 			{
@@ -200,6 +200,14 @@
 
 				case 'transcript':
 					_add_transcript();
+				break;
+
+				case 'join':
+					if( !$(this).hasClass('loading'))
+					{
+						$(this).addClass('loading');
+						_join();
+					}
 				break;
 			}
 
@@ -256,7 +264,7 @@
 		// open chrome global shortcuts window
 		$(document).on('click', '#global-shortcuts-container .material', function()
 		{
-			chrome.tabs.create({ 'url': 'chrome://extensions/shortcuts' });
+			RiddR.newTab('chrome://extensions/shortcuts');
 		});
 	}
 
@@ -785,6 +793,32 @@
 		html = _get_transcript_html(transcript);
 
 		$("#transcriptions").append(html);
+	}
+
+
+	var _join = function ()
+	{	
+		RiddR.user.APIgrant( ( grant ) => 
+		{
+			if( grant )
+			{
+				RiddR.user.getToken()
+				.then( ( result ) => 
+				{
+					console.log(result);
+				})
+				.catch( ( error ) => 
+				{
+					console.log( error.message )
+				})
+				.finally( () => 
+				{
+					$("#join-now").toggleClass('loading');
+				})
+			}
+			else
+				_error('Nable to get chrome API grant');
+		});
 	}
 
 /*
