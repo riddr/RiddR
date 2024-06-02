@@ -1,7 +1,7 @@
 /*
  * IO  
  *
- * RiddR message manager used to enable comminication between RiddR internal modules and for external apps 
+ * RiddR message broker used to enable comminication between RiddR internal modules and for external apps 
  *
  * @package		RiddR
  * @category	Messenger 
@@ -9,161 +9,150 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-(function () 
-{
-	// define global storage object 
- 	this.IO = 
+/*if( typeof IO !== 'function' )
+{*/
+	class IO 
 	{
-		// send message trough chrome runtime
-		send : function ( message, callback, target = null ) 
-		{
-			if( target == 'content' ) // send message to the content script
-			{
-				chrome.tabs.query({active: true, currentWindow: true}, function( tabs ) 
-				{
-					chrome.tabs.sendMessage(tabs[0].id, message, callback);
-				});	
-			}
-			else
-				chrome.runtime.sendMessage( message, callback );
-		},
-
-		// get specific 
-		get : function( selector, callback, target )
-		{
-			this.send( { action: 'get', selector: selector, target: target }, callback, target );
-		},
-
-		call : function( selector, data, callback, target )
-		{
-			this.send( { action: 'call', selector: selector, data: data, target: target }, callback, target );
-		},
-
-		trigger : function( event_id, data )
-		{
-			// trigger the event in the current instance / page
-			_trigger( event_id, data );
-
-			// triger the event in all other instances /pages
-			this.send( { action: 'trigger', id: event_id, data: data } );
-		}
-	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Update global options object on change 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _handler = function ( request, sender, callback )
-	{
-		// check request action and validate module 
-		if( request.action !== undefined )
-		{
-			switch ( request.action )
-			{
-				case 'get' :
-					return _response( _get( request ), callback, request.target );
-				break;
-
-				case 'call':
-					return _response( _call( request ), callback, request.target );
-				break;
-
-				case 'trigger':
-					_trigger( request.id, request.data );
-				break;
-			}
-		}
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Handle communication channel response 
+ * Define 
  * ---------------------------------------------------------------------------------------------------------------------
 */	
-	var _response = function ( result, callback, target )
-	{
-		if( result === true ) // keep the communication channel open 
-			return result;
-		else if( _validate_target( target ) )
-			callback( result );
-	}
+		constructor()
+		{
+			console.log('construct');
+
+			this.listeners = []
+
+			this.context = this.#context();
+
+			// register message handler
+			chrome.runtime.onMessage.addListener( this.handler.bind(this) );
+
+			// register content script commumication
+			chrome.runtime.onConnect.addListener( this.content.bind(this) );
+		}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Get element / property from another RiddR instance 
+ *  Public IO methods
+ * 
+ *  Initialize the extension by dispatcing the on.load event
  * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _get = function ( request )
-	{
-		// split object selector into array
-		selector = request.selector.split('.');
-
-		if( request.target == undefined || _validate_target( request.target ) )
+*/	
+		init( )
 		{
-			return selector.reduce( function ( object, property )
+			this.dispatch( 'load', [], this.context );
+		}
+
+		// register multimodal event listener
+		on ( event, callback )
+		{
+			// create empty event opject if not allreayd registered 
+			this.listeners[event] = this.listeners[event] || []
+
+			// push the event and its callback to the event object
+			this.listeners[event].push( callback )
+		}
+
+		// dispatch event to specific target
+		dispatch ( event, args, target )
+		{
+			// set message 
+			let message = 
+			{ 
+				event: event, 
+				data: args ?? [], 
+				target: target, 
+				sender: this.context 
+			};
+
+			// execute local registered event listeners
+			if( this.listeners[event] )
+				this.listeners[event].forEach( callback => callback( args ) );
+
+			// send message to the other extension modules
+			if( target != null && target != this.context )
 			{
-				return object[property];
-			}, RiddR );
+				chrome.runtime.sendMessage( message );
+
+				// send message to the content scripts
+				if ( target == 'content' || target == 'global' )
+					chrome.tabs.query({active: true, currentWindow: true}, function( tabs ) 
+					{
+						chrome.tabs.sendMessage(tabs[0].id, message );
+					});	
+			}
 		}
-		else
-			return true;
-	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Call some method from another RiddR instance and return it's result 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _call = function ( request )
-	{
-		if( callee = _get( request ) )
-			if( typeof callee == 'function' ) // validate if the selected request is function
-				return callee(request.data);
-
-		// else return error avter target validation
-		if( _validate_target( request.target ) )
-			return '{ error: "Invalid method requested:' + request.selector + '"}';
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Trigger event listener trough all other RiddR instances
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _trigger = function ( event_id, data )
-	{
-		event = new CustomEvent(event_id, { detail: data } );
-		RiddR.dispatch(event);
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * validate if the IO request is within the specified target 
- * ---------------------------------------------------------------------------------------------------------------------
-*/
-	var _validate_target = function ( target )
-	{
-		if( location.protocol == 'chrome-extension:') // detect weither the is in extension page 
+		// syntax sugar for shorthad event emitting
+		// eg. IO.emit('event'), ...('event', 'target'), ...('event', { object }, 'target' )
+		emit( EVENT, DATA, TARGET )
 		{
-			if( location.pathname == '/_generated_background_page.html' )
-				return target == 'background';
-			else
-				return target == location.pathname.split('/').pop().split('.')[0];
+			this.dispatch
+			( 
+				EVENT, 
+				typeof DATA !== 'object' ? {} : DATA, 
+				typeof DATA === 'string' ? DATA : TARGET ?? 'global'
+			);
 		}
-		else // or in content script
-			return target == 'content';
-	}
+
+		// message handler 
+		handler( request, sender, callback )
+		{
+			console.log( request );
+
+			if( request.target == this.context || request.target == 'global' )
+				this.dispatch( request.event, request.data || [] );
+		}
+
+		content ( port )
+		{
+			console.log(port);
+
+			  port.onMessage.addListener(function(msg) 
+			  {
+			  	console.log(msg);
+
+			    if (msg.action === "sendMessageToContent") {
+			      port.postMessage({ action: "messageFromBackground", data: 'wazap mate' });
+			    }
+			  });
+		}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Register chrome message event listener
+ *  Provider IO helpers
+ * 
+ *  determine the contenxt in which the IO module is located
  * ---------------------------------------------------------------------------------------------------------------------
-*/
-	chrome.runtime.onMessage.addListener( _handler );
+*/	
+		#context ()
+		{
+			if( location.protocol == 'chrome-extension:') // detect weither the is in extension page 
+			{
+				if( typeof window ===  'undefined' )
+						return 'background';
 
-	// re-intialize RiddR content script 
-	if ( _validate_target('content') && Object.keys(RiddR.options).length == 0 )
-		RiddR.init();
+				return location.pathname.split('/').pop().split('.')[0];
+			}
+			
+			return 'content';
+		}
+	}
 
-}).apply( RiddR || {} );
+	export default new IO();
+
+
+/*// IO intitialization
+// determine in which context is the document loaded 
+	if( typeof ServiceWorkerGlobalScope === 'function' )
+		self.IO = new IO() // instantiate and pass it to the serviceworker for using it as facade
+	else
+	{
+		// alternatevley the IO module is loaded in non-ES module context
+		window.IO = new IO();
+	}
+
+}*/

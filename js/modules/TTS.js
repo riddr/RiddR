@@ -9,112 +9,132 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-(function () 
+import IO from '../modules/io.js';
+
+// Import embed TTS engines and DATA
+import SpeakIt from '../TTS/SpeakIt.js';
+import DATA 	from '../data/TTS_parameters.js';
+
+class TTS
 {
-	this.TTS = 
+	debug 	= false
+	state 	= null
+	engine 	= null
+	handler = null
+	engines = {}
+	embed 	= { SpeakIt3 : SpeakIt };
+
+	constructor()
 	{
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Define basic public TTS variables
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-		embed   : {},
-		engines : {},
-		engine 	: null,
-		state 	: 'end',
-		path	: '/js/TTS/',
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Define TTS Engine event callbacks 
- * ---------------------------------------------------------------------------------------------------------------------
-*/		
-		events : 
+		// register chrome event listeners
+		chrome.ttsEngine.onSpeak.addListener 	( this.onSpeak.bind(this) );
+		chrome.ttsEngine.onStop.addListener 	( this.onStop.bind(this) );
+		chrome.ttsEngine.onPause.addListener 	( this.onPause.bind(this) );
+		chrome.ttsEngine.onResume.addListener 	( this.onResume.bind(this) );
+
+		// initialize the TTS module
+		this.#init();
+
+		// registering various TTS event handlers
+		IO.on( 'TTS_update', this.#TTS_update.bind(this) );
+	}
+
+	async onSpeak ( utterance, options, TTS_response ) 
+	{
+		setTimeout( async () => // delaying speak execution in case of canceled / interupt events
 		{
-			onSpeak : function( utterance, options, TTS_response ) 
-			{
-				if( _probe_TTS(options) ) // probe selected TTS engine
-					RiddR.TTS.engine.speak( utterance, options, TTS_response );
-			},
+			// register TTS_response handler for later references
+			this.handler = TTS_response;
 
-			onStop	: function()
+			if( this.#probe( options ) )
 			{
-				if(_valid_TTS_request('stop'))
-					RiddR.TTS.engine.stop();
-			},
-
-			onPause	: function()
-			{
-				if(_valid_TTS_request('pause'))
-					RiddR.TTS.engine.pause();
-			},
-
-			onResume : function()
-			{
-				if(_valid_TTS_request('resume'))
-					RiddR.TTS.engine.resume();
+				if( await this.#reader() ) // make sure that audio 
+					this.engine.speak( utterance, options, TTS_response );
 			}
-		}
+
+		}, 10 );
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * RiddR on load TTS event handler 
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	var _onLoad = function()
-	{		
-		chrome.tts.stop(); 	// send interrupt event and reset Chrome TTS API  @To-Do: file a bug to Google regards this
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Validate TTS event request
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	var _valid_TTS_request = function ( action )
+	async onStop ()
 	{
-		if( RiddR.TTS.engine == null || RiddR.loaded !== true ) // prevent sending requests before extension is loaded
-			return false;
+		if(this.#valid('stop'))
+			this.engine.stop();
+	}
+
+	onPause	()
+	{
+		if(this.#valid('pause'))
+			this.engine.pause();
+	}
+
+	onResume ()
+	{
+		if(this.#valid('resume'))
+			this.engine.resume();
+	}
+
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ * PRIVATE TTS METHODS
+ * 
+ * Initialize TTS module
+ * ---------------------------------------------------------------------------------------------------------------------
+*/	
+	async #init ()
+	{
+		// send interrupt event and reset Chrome TTS API  @To-Do: file a bug to Google regards this
+		chrome.tts.stop();
+
+		// load TTS engines & their data
+		await this.#load();
+	}
+
+	// Load all built-in TTS engines and register all installed TTS engines
+	async #load ( recursion = false )
+	{
+		await 	chrome.tts.getVoices()
+				.then(  voices => 
+						{
+							for( const voice_id in voices )
+								this.#register( voices[voice_id] );
+						})
+	}
+
+	// register TTS engine
+	#register ( engine )
+	{
+		// put embed TTS engines on the top 
+		if( engine.extensionId == chrome.runtime.id )
+			this.engines = { ...{ [engine.voiceName] : this.#config( engine ) }, ...this.engines }
 		else
-		{
-			switch( action ) // validate action per request type in order to avoid TTS engine errors
-			{
-				case 'stop':
-					if( RiddR.TTS.state == 'resume' || RiddR.TTS.state == 'pause' || RiddR.TTS.state == 'start' )
-						return true;
-				break;
-
-				case 'pause':
-					if( RiddR.TTS.state == 'start' || RiddR.TTS.state == 'resume' )
-						return true;
-				break;
-
-				case 'resume':
-					if( RiddR.TTS.state == 'pause' )
-						return true;
-				break;
-			}
-
-			return false;
-		}
+			this.engines[engine.voiceName] = this.#config( engine );
 	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Probe TTS engine and validate the current request
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	var _probe_TTS = function ( options )
+	// fetch and assign configuration data for each TTS engine 
+	#config ( engine )
 	{
-		if( RiddR.TTS.engine == null || RiddR.TTS.engine.name != options.voiceName ) // check if new TTS engine is called
+		return { ...engine, ...( this.embed[engine.voiceName] ?? DATA[engine.extensionId] ?? DATA.defaults ) };
+	}
+
+	#valid ( action )
+	{
+		if( this.engine == null ) // prevent sending requests before extension is loaded
+			return false;
+
+		return true;
+	}
+
+	// load embed TTS engine 
+	#probe ( options )
+	{
+		if( this.engine == null || this.engine.name != options.voiceName ) // check if new TTS engine is called
 		{
-			if(RiddR.TTS.embed[options.voiceName] !== undefined) // check if the requested TTS engine is loaded
+			if(this.embed[options.voiceName] !== undefined) // check if the requested TTS engine is loaded
 			{	
-				// gracefully stop old TTS engine if playing
-				RiddR.TTS.events.onStop();
+				//chrome.offscreen.closeDocument();
 
 				// set current TTS engine
-				RiddR.TTS.engine = RiddR.TTS.embed[options.voiceName]; 
+				this.engine = this.embed[options.voiceName]; 
 			}
 			else
 				return false;
@@ -122,93 +142,77 @@
 
 		return true;
 	}
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Validate TTS event request
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	var _load_TTS_engine = function ( voice, callback )
-	{
-		RiddR.load(RiddR.TTS.path+voice.voiceName+'.js', callback , voice );
-	}
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Register all avaliable TTS engines and load their parameter values 
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	var _register_TTS_engine = function ( engine, embed = false )
-	{
-		// define TTS engine selection key based on ID or it's NAME 
-		o_key = engine.extensionId || engine.voiceName;
-
-		// assign embed parameters if defined
-		if( embed && RiddR.TTS.embed[engine.voiceName].parameters )
-		{
-			engine = Object.assign( engine, RiddR.TTS.embed[engine.voiceName].parameters )
-		}
-		else if ( RiddR.data.TTS_parameters[o_key] ) // otherwise try to assign predefined parameters
-			engine = Object.assign( engine, RiddR.data.TTS_parameters[o_key] );
-		else
-			engine = Object.assign ( engine,  RiddR.data.TTS_parameters.defaults )
-
-		// register the TTS engines
-		if( embed ) // put embed TTS engines in top
-			RiddR.TTS.engines = Object.assign( { [engine.voiceName]: engine }, RiddR.TTS.engines );
-		else
-			RiddR.TTS.engines[engine.voiceName] = engine;
-	}
-
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Load all built in TTS engines and register all installed TTS engines
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	var _load_TTS_engines = function ( recursion = false )
-	{
-		chrome.tts.getVoices( function( voices )
-		{
-			for( voice_id in voices )
-			{
-				if(voices[voice_id].extensionId == chrome.runtime.id )
-				{
-					_load_TTS_engine(voices[voice_id], function ( engine )
-					{
-						_register_TTS_engine( engine, true );
-					});
-
-					recursion = true;
-				}
-				else
-					_register_TTS_engine( voices[voice_id] );
-			}
-
-			// try to re-load TTS engines if embed TTS engine was not found due to undefined Chrome starup bug
-			if( !recursion )
-				_load_TTS_engines( false );
-		});
-	}
-
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Define default TTS engine listeners before TTS engines are loaded
+ * AUDIO Reader
+ * 
+ * Initialize offscreen document that is able to handle DOM & Audio events 
  * ---------------------------------------------------------------------------------------------------------------------
 */
-	chrome.ttsEngine.onSpeak.addListener(this.TTS.events.onSpeak);
-	chrome.ttsEngine.onStop.addListener(this.TTS.events.onStop);
-	chrome.ttsEngine.onPause.addListener(this.TTS.events.onPause);
-	chrome.ttsEngine.onResume.addListener(this.TTS.events.onResume);
+	async #reader ()
+	{
+		if( ! await this.#has_reader() )
+		{
+			await chrome.offscreen.createDocument(
+			{
+				url: '../views/reader.html',
+				reasons: [ 'AUDIO_PLAYBACK', 'LOCAL_STORAGE' ],
+				justification: 'Text to speech reproduction, LOCAL_STORAGE is needed for indefinete lifetime due to Audio.pause() feature',
+			});
+		}
 
-	// register RiddR load event
-	RiddR.on('load', _onLoad );
+		return true;
+	}
 
-/*
- * ---------------------------------------------------------------------------------------------------------------------
- * Initialize TTS engine loading
- * ---------------------------------------------------------------------------------------------------------------------
-*/	
-	_load_TTS_engines();
+	// check if offscrean document is opened
+	async #has_reader ()
+	{
+		const contexts = await chrome.runtime.getContexts(
+		{
+			contextTypes: ['OFFSCREEN_DOCUMENT'] // no need for aditional filters as RiddR has only one offscreen document
+		});
 
+		return Boolean(contexts.length);
+	}
 
-}).apply(RiddR);
+	// handle events sent from the AUDIO reader and use the TTS_call back handler to send event updates to the TTS API
+	async #TTS_update ( DATA )
+	{
+		let response;
+		const { event, payload } = DATA;
+
+		if( this.state != event ) // avoid duplicate updates
+		{
+			switch ( event )
+			{
+				case 'pause':
+				case 'resume':
+					// file a bug regards unsuported events ( pause, resume ) in ttsEngines
+				break;
+
+				case 'error':
+					this.handler( { 'type': 'error', 'errorMessage': payload } );
+				break;
+
+				default:
+					await this.handler( { 'type': event, 'charIndex': payload } );
+			}
+		}
+
+		// trigger state actions
+		this.#state_trigger( event );
+	}
+
+	// execute specific actions based on the STATE value
+	#state_trigger ( STATE )
+	{
+		this.state = STATE;
+
+		if( STATE == 'end' || STATE == 'error' )
+			chrome.offscreen.closeDocument();
+	}
+}
+
+// TTS module registration
+	export default new TTS();

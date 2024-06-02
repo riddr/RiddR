@@ -9,25 +9,24 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-(function () 
+class DATA
 {
-	this.data.TTS_parameters = 
+	// OS native TTS engine 
+	defaults = 
 	{
-		// OS native TTS engine 
-		defaults : 
-		{
-			pitch 	: { min:   0, max: 2,  default: 1.0},
-			rate 	: { min: 0.1, max: 10, default: 1.0},
-			volume 	: { min:   0, max: 1,  default: 1.0},
-		},
+		pitch 	: { min:   0, max: 2,  default: 1.0},
+		rate 	: { min: 0.1, max: 10, default: 1.0},
+		volume 	: { min:   0, max: 1,  default: 1.0}
+	}
 
-		// all Google Chrome embed TTS engines
-		neajdppkdcdipfabeoofebfddakdcjhd : 
-		{
-			pitch 	: { min:   0, max: 2, default: 1.0},
-			rate 	: { min: 0.1, max: 2, default: 1.0},
-			volume 	: { min:   0, max: 1, default: 1.0},
-		}
-	}	
+	// all Google Chrome embed TTS engines
+	neajdppkdcdipfabeoofebfddakdcjhd = 
+	{
+		pitch 	: { min:   0, max: 2, default: 1.0},
+		rate 	: { min: 0.1, max: 2, default: 1.0},
+		volume 	: { min:   0, max: 1, default: 1.0}
+	}
+}
 
-}).apply(RiddR);
+// TTS module registration
+	export default new DATA();
