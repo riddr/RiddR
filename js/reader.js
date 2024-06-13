@@ -11,7 +11,7 @@
 */
 
 // Load dependencies 
-import IO from './modules/io.js';
+import IO from './facades/io.js';
 import Error from './modules/error.js';
 
 class Reader
@@ -32,7 +32,7 @@ class Reader
 	constructor()
 	{
 		// emit message that the offscrean document is ready
-		IO.dispatch( 'ready', [], 'global' );
+		IO.dispatch( 'ready', [], 'background' );
 
 		// register event listener for audio actions
 		IO.on( 'audio', this.handler.bind(this) );
@@ -41,6 +41,10 @@ class Reader
 	// action handler router, routes various actions eg. play, pause, stop etc.
 	handler ( DATA )
 	{
+		console.group(' READER HANDLER ');
+		console.log(DATA);
+		console.groupEnd();
+
 		this[DATA.action]?.bind(this)( DATA.data );
 	}
 

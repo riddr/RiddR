@@ -9,10 +9,15 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-/*if( typeof IO !== 'function' )
-{*/
+if( typeof IO !== 'function' )
+{
 	class IO 
 	{
+
+		port 		= null;
+		context 	= null;
+		listeners 	= [];
+		queue 		= [];
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -21,17 +26,14 @@
 */	
 		constructor()
 		{
-			console.log('construct');
-
-			this.listeners = []
-
+			// determine the context mode 
 			this.context = this.#context();
 
-			// register message handler
-			chrome.runtime.onMessage.addListener( this.handler.bind(this) );
-
-			// register content script commumication
-			chrome.runtime.onConnect.addListener( this.content.bind(this) );
+			// dynamicaly register background message handlers  
+			if( this.context === 'background' )
+				chrome.runtime.onConnect.addListener( this.connect.bind(this) );
+			else // open communication channel
+				this.connect();
 		}
 
 /*
@@ -68,21 +70,18 @@
 				sender: this.context 
 			};
 
-			// execute local registered event listeners
-			if( this.listeners[event] )
-				this.listeners[event].forEach( callback => callback( args ) );
-
 			// send message to the other extension modules
-			if( target != null && target != this.context )
+			if( target != null )
 			{
-				chrome.runtime.sendMessage( message );
-
-				// send message to the content scripts
-				if ( target == 'content' || target == 'global' )
-					chrome.tabs.query({active: true, currentWindow: true}, function( tabs ) 
-					{
-						chrome.tabs.sendMessage(tabs[0].id, message );
-					});	
+				if( target != this.context )
+				{
+					if( this.port !== null ) 
+						this.port.postMessage( message ); 	// send the message directly
+					else
+						this.queue.push(message); 			// or add it to the queue for delayed delivery
+				}
+				else // trigger local event listeners
+					this.handler( message );
 			}
 		}
 
@@ -90,6 +89,8 @@
 		// eg. IO.emit('event'), ...('event', 'target'), ...('event', { object }, 'target' )
 		emit( EVENT, DATA, TARGET )
 		{
+			console.log(EVENT);
+
 			this.dispatch
 			( 
 				EVENT, 
@@ -99,26 +100,40 @@
 		}
 
 		// message handler 
-		handler( request, sender, callback )
+		handler( request, sender )
 		{
-			console.log( request );
-
-			if( request.target == this.context || request.target == 'global' )
-				this.dispatch( request.event, request.data || [] );
+			// execute local registered event listeners
+			if( ( request.target == this.context || request.target == 'global' ) && this.listeners[request.event] )
+					this.listeners[request.event].forEach( callback => callback( request.data ?? [] ) );
 		}
 
-		content ( port )
+		// open communuication channels between the extension contexts 
+		connect ( PORT = null )
 		{
-			console.log(port);
+			// attach to an existing or create new communication channel			
+			this.port = ( PORT === null ) ? chrome.runtime.connect( {name: "RiddR"} ) : PORT;
 
-			  port.onMessage.addListener(function(msg) 
-			  {
-			  	console.log(msg);
+			// register message handker
+			this.port.onMessage.addListener( this.handler.bind(this) );;
 
-			    if (msg.action === "sendMessageToContent") {
-			      port.postMessage({ action: "messageFromBackground", data: 'wazap mate' });
-			    }
-			  });
+			// register channel disconection 
+			this.port.onDisconnect.addListener( () => { this.port = null } );
+
+			// process queued messages
+			this.queued();
+		}
+
+
+		// process delayed/queued messages
+		queued ()
+		{
+			// send queued messages once the channel is established
+			this.queue.forEach( ( message ) => { 
+													this.port.postMessage( message ) 
+												});
+
+			// reset the queue as the messages has been sent
+			this.queue = [];
 		}
 
 /*
@@ -142,17 +157,16 @@
 		}
 	}
 
-	export default new IO();
-
-
-/*// IO intitialization
-// determine in which context is the document loaded 
+/*
+ * ---------------------------------------------------------------------------------------------------------------------
+ *  Provider IO helpers
+ * 
+ *  determine the contenxt in which the IO module is located
+ * ---------------------------------------------------------------------------------------------------------------------
+*/
 	if( typeof ServiceWorkerGlobalScope === 'function' )
 		self.IO = new IO() // instantiate and pass it to the serviceworker for using it as facade
 	else
-	{
 		// alternatevley the IO module is loaded in non-ES module context
 		window.IO = new IO();
-	}
-
-}*/
+}

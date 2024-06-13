@@ -12,15 +12,9 @@
 
 var RiddR = ( function ( API ) 
 {
-	console.log(this);
+	IO.on( 'wazap', (message) => console.log(message) );
 
-	let port = chrome.runtime.connect({name: "RiddR"});
-	port.postMessage({ action: "sendMessageToContent", data: "Hello from content script!" });
-	port.onMessage.addListener(function(msg) {
-	  if (msg.action === "messageFromBackground") {
-	    console.log("Message from background:", msg.data);
-	  }
-	 });
+	IO.emit('utterance', 'background' );
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------

@@ -9,7 +9,7 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-import IO from '../modules/io.js';
+import IO from '../facades/io.js';
 
 class SpeakIt
 {

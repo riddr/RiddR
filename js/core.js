@@ -9,9 +9,9 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-import IO  		from './modules/io.js';
+import IO  		from './facades/io.js';
 import TTS 		from './modules/TTS.js'
-import Injector 	from './modules/injector.js'
+import Injector from './modules/injector.js'
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@ import Injector 	from './modules/injector.js'
  * ---------------------------------------------------------------------------------------------------------------------
 */
 
-let defaults 			= 
+	var defaults 			= 
 	{
 		debug 			: true,
 		TTS_engine 		: 'SpeakIt',

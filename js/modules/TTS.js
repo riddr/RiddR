@@ -9,7 +9,7 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-import IO from '../modules/io.js';
+import IO from '../facades/io.js';
 
 // Import embed TTS engines and DATA
 import SpeakIt from '../TTS/SpeakIt.js';
