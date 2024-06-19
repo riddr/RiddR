@@ -1,17 +1,17 @@
 /*
  * Reader  
  *
- * RiddR main HTML audio reader
- * An offscreen document, responsible for playing the audio streams provided by the TTS engine  
+ * RiddR default browser action a.k.a the pop-up controller
  *
  * @package		RiddR
- * @category	Offscreen 
+ * @category	PopUP
  * @author		Trajche Petrov
  * @link		https://github.com/riddr/RiddR
 */
 
 // Load dependencies 
-import IO from './modules/io.js';
+import IO   from './facades/io.js';
+import i18n from './modules/i18n.js';
 
 class PopUP
 {
@@ -23,17 +23,8 @@ class PopUP
 		// register state change listener
 		IO.on( 'state', this.#stateUpdate.bind(this) );
 
-
-		this.$("body").forEach( function(element) 
-		{
-			element.addEventListener('click' , function( event ) 
-			{
-				chrome.permissions.request( { origins: ['*://*/*'] } );
-			});
-		});
-
 		// trigger event that the popup has been opened
-		IO.emit( 'default_action' );
+		IO.emit( 'default_action', 'background' );
 	}
 
 	$ ( selector ) 
@@ -52,13 +43,14 @@ class PopUP
 		{
 			element.addEventListener('click' , function( event ) 
 			{
-				this.#call_action( this.id );
-			});
-		});
+				this.call_action( element.id );
+
+			}.bind(this));
+		}.bind(this) );
 	}
 
 	// call user requested action
-	#call_action ( action )
+	call_action ( action )
 	{
 		switch( action )
 		{
@@ -66,18 +58,17 @@ class PopUP
 			case 'pause':
 			case 'resume':
 			case 'replay':
-				console.log('action');
-				//RiddR.IO.call( action, null, null, 'background' );
+				IO.emit('command', { action: action }, 'background' );
 			break;
 
 			case 'sys-error':
-				//RiddR.IO.call( "backdrop.reload", null, null, "background" );
+				IO.emit('reload', 'background' );
 				location.reload();
 			break;
 
 			case 'no-input':
+				IO.emit( 'selector', 'background' );
 				window.close();
-				IO.emit( 'selector' );
 			break;
 
 			case 'error':
@@ -90,7 +81,7 @@ class PopUP
 	// trigger corsponding action for the received event
  	#stateUpdate ( STATE )
  	{
- 		switch( STATE.event )
+ 		switch( STATE.type )
  		{
  			case 'end':
  			case 'start':
@@ -98,18 +89,18 @@ class PopUP
  			case 'resume':
  			case 'loading':
  			case 'interrupted':
- 				this.#updateUI( STATE.event );
+ 				this.#updateUI( STATE.type );
  			break;
 
  			case 'error':
  			case 'cancelled':
- 				this.#updateUI( STATE.event );
- 				this.#message( RiddR.__('popUpError'), event.errorMessage, 'error' );
+ 				this.#updateUI( STATE.type );
+ 				this.#message( i18n.popUpError, STATE.errorMessage, 'error' );
  			break;
 
  			case 'idle':
- 				this.#updateUI( STATE.event );
- 				this.#message( RiddR.__('popUpSelector') );
+ 				this.#updateUI( STATE.type );
+ 				this.#message( i18n.popUpSelector );
  			break;
  		}
  	}

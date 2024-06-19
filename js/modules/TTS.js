@@ -207,7 +207,8 @@ class TTS
 	// execute specific actions based on the STATE value
 	#state_trigger ( STATE )
 	{
-		this.state = STATE;
+		if( STATE != 'sentence' && STATE != 'word' )
+			this.state = STATE;
 
 		if( STATE == 'end' || STATE == 'error' )
 			chrome.offscreen.closeDocument();
