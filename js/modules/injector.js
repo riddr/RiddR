@@ -15,13 +15,37 @@ import IO from '../facades/io.js';
 
 class Injector
 {
-	constructor ()
+	// handle popup 
+	load = async ( TAB, ACTION = null, MODE = null ) =>
 	{
-		// load the content script when popup window is opened
-		IO.on( 'default_action', this.load.bind(this) );
+		// execute the content script injection on specific status updates or when invoked from the user
+		if( ACTION === null || ACTION.status === 'loading'  )
+		{
+			let tab = typeof TAB === 'number' ? TAB : await this.current_tab();
 
-		// lodad content script when tab is updated ( used only when proper access is given by the user)
-		chrome.tabs.onUpdated.addListener( this.load.bind(this) );
+			await chrome.scripting.executeScript(
+			{
+				target 	: { tabId: tab },
+				func	: () => { return window['RiddR']; }, // see if IO tab has been
+			}).then( async ( result ) => 
+			{
+				// if RiddR is not present then load the content script
+				if( result[0].result === null )
+					await this.inject( [ 'js/modules/io.js', 'js/content.js', 'css/content.css' ], tab );
+
+				// open up communication channel if the injection was trigered by user action eg. popup click
+				if( MODE !== null )
+				{
+					await chrome.scripting.executeScript 	({	
+																target 	: { tabId: tab },
+																func	: () => { return window['IO']?.connect(); },
+															})
+					// then pass the opened channel ID
+					.then( ( result ) => { IO.lastCH = result[0].result; } )
+				}
+
+			}).catch( (error) => { console.log(error) } );
+		}	
 	}
 
 	// get current tab ID 
@@ -30,28 +54,6 @@ class Injector
 		let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
 		return tab.id; 
-	}
-
-	// handle popup 
-	async load ( TAB, ACTION = null )
-	{
-		// execute the content script injection on specific status updates or when invoked from the user
-		if( ACTION === null || ACTION.status === 'loading'  )
-		{
-			let tab = typeof TAB === 'number' ? TAB : await this.current_tab();
-
-			chrome.scripting.executeScript(
-			{
-				target 	: { tabId: tab },
-				func	: () => { return window['RiddR']; } // get info if RddR object exists 
-			}).then( async ( result ) => 
-			{ 	
-				// if RiddR is not present then load the content script
-				if( result[0].result === null )
-					await this.inject( [ 'js/modules/io.js', 'js/content.js', 'css/content.css' ], tab );
-
-			}).catch( (error) => { console.log(error) } );
-		}	
 	}
 
 	async inject ( SCRIPTS, TAB, LOAD = [] )
@@ -63,13 +65,12 @@ class Injector
 				// determine DOM injector
 				let injector = ( script.includes('.css') )? chrome.scripting.insertCSS : chrome.scripting.executeScript
 
-				injector( { target: { tabId: TAB, allFrames: true }, files: [ script ] }, () => { resolve(true) } )
+				injector( { target: { tabId: TAB, allFrames: true }, files: [ script ] }, () => { resolve(true); } )
 			}))
 		})
 
-
 		// define 
-		return Promise.all(LOAD)
+		return await Promise.all(LOAD)
 	}
 }
 
