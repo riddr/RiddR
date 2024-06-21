@@ -51,7 +51,7 @@ if( typeof IO !== 'function' )
  * ---------------------------------------------------------------------------------------------------------------------
  *  Public IO methods
  * 
- *  Initialize the extension by dispatcing the on.load event
+ *  Initialize the extension by dispatching the on.load event.
  * ---------------------------------------------------------------------------------------------------------------------
 */
 		// register multimodal event listener
@@ -64,10 +64,14 @@ if( typeof IO !== 'function' )
 			this.listeners[EVENT].push( CALLBACK )
 		}
 
-		// syntax sugar for shorthad event emitting
-		// eg. IO.emit('event'), ...('event', 'target'), ...('event', { object }, 'target' )
+		// syntax sugar for shorthand event emitting
+		// e.g., IO.emit('event'), ...('event', 'target'), ...('event', { object }, 'target') 
 		emit( EVENT, DATA, TARGET )
 		{
+			// make sure that there is an open channel for sending
+			if( this.channel === false )
+				this.connect();
+
 			this.dispatch
 			( 
 				EVENT, 
@@ -76,7 +80,7 @@ if( typeof IO !== 'function' )
 			);
 		}
 
-		// dispatch message to specific target
+		// dispatch message to a specific target
 		dispatch ( EVENT, ARGS, TARGET )
 		{
 			// set message 
@@ -129,7 +133,7 @@ if( typeof IO !== 'function' )
  * ---------------------------------------------------------------------------------------------------------------------
  *  Public IO methods
  * 
- *  Open communuication channels between the extension contexts 
+ *  Open communication channels between the extension contexts.
  * ---------------------------------------------------------------------------------------------------------------------
 */
 		connect ( CHANNEL = null, TEST = null )
@@ -153,14 +157,14 @@ if( typeof IO !== 'function' )
 			return this.UUID;
 		}
 
-		// hange the UUID to allow re-connection
+		// change the UUID to allow reconnection.
 		reconnect ( EVENT )
 		{
 			if( EVENT.persisted )
 				this.UUID = crypto.randomUUID();
 		}
 
-		// message handler 
+		// message handler
 		handler( REQUEST, SENDER )
 		{
 			// execute local registered event listeners
@@ -168,18 +172,18 @@ if( typeof IO !== 'function' )
 					this.listeners[REQUEST.event].forEach( callback => callback( REQUEST.data ?? [] ) );
 		}
 
-		// 
+		// handle disconnection events
 		onDisconnect ( CHANNEL )
 		{ 
-			this.channel = null;
+			this.channel = this.#in('background') ? null : false;
 
 			delete this.channels[CHANNEL.name];
 		}
 
-		// 
+		// force disconnect the current channel
 		disconnect ()
 		{
-			this.channel.disconnect();
+			this?.channel?.disconnect();
 		}
 
 /*
@@ -202,13 +206,13 @@ if( typeof IO !== 'function' )
 			return 'content';
 		}
 
-		// validation for the right execution context
+		// validation for the correct execution context
 		#in ( CONTEXT )
 		{
 			return this.context === CONTEXT;
 		}
 
-		// determine if the communication channel for particular message delivery is ready
+		// determine if the communication channel for a particular message delivery is ready
 		#ready ( MESSAGE )
 		{
 			if 	( 	// if the message target exists or the target is global
@@ -227,7 +231,7 @@ if( typeof IO !== 'function' )
 			return false;
 		}
 
-		// get channel ID/name 
+		// get channel ID/name
 		#getID ()
 		{
 			if( this.context === 'content' )
@@ -251,10 +255,10 @@ if( typeof IO !== 'function' )
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- *  IO modile instantiation
+ *  IO module instantiation
  * 
- *  Determine the contenxt in which the IO module is located and make the propper instantiation
- *  this allows the module to be run in service worker as ES modules via facades or IIFE modules
+ *  Determine the context in which the IO module is located and make the proper instantiation.
+ *  This allows the module to be run in a service worker as ES modules via facades or IIFE modules.
  * ---------------------------------------------------------------------------------------------------------------------
 */
 	if( typeof ServiceWorkerGlobalScope === 'function' )
