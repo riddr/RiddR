@@ -9,7 +9,8 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-import IO from '../facades/io.js';
+import IO 	from '../facades/io.js';
+import i18n from '../modules/i18n.js';
 
 class SpeakIt
 {
@@ -70,7 +71,8 @@ class SpeakIt
 						{ 
 							urls : this.urls, 
 							options: this.options,
-							utterance: this.utterance
+							utterance: this.utterance,
+							media: { header: i18n.nowReading, title: await this.#title() } // pass media data for mediaControll API
 						}
 					}, 
 					'reader' 
@@ -124,6 +126,13 @@ class SpeakIt
 		return true;
 	}
 
+	// get the title from the active tab	
+	async #title ()
+	{
+		let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+		return tab.title; 
+	}
 /*
  * =====================================================================================================================
  * UTTERANCE FORMATING METHODS

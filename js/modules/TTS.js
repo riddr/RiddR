@@ -10,6 +10,7 @@
 */
 
 import IO from '../facades/io.js';
+import RiddR from '../modules/riddr.js';
 
 // Import embed TTS engines and DATA
 import SpeakIt from '../TTS/SpeakIt.js';
@@ -189,6 +190,7 @@ class TTS
 				case 'pause':
 				case 'resume':
 					// file a bug regards unsuported events ( pause, resume ) in ttsEngines
+					RiddR.stated( event );
 				break;
 
 				case 'error':

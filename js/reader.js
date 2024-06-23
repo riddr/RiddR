@@ -36,15 +36,16 @@ class Reader
 
 		// register event listener for audio actions
 		IO.on( 'audio', this.handler.bind(this) );
+
+		// registering media session actions to allow controll from various devices
+		navigator.mediaSession.setActionHandler( 'play', 	this.resume.bind(this) );
+		navigator.mediaSession.setActionHandler( 'pause', 	this.pause.bind(this) );
+		navigator.mediaSession.setActionHandler( 'stop', 	this.stop.bind(this) );
 	}
 
 	// action handler router, routes various actions eg. play, pause, stop etc.
 	handler ( DATA )
 	{
-		console.group(' READER HANDLER ');
-		console.log(DATA);
-		console.groupEnd();
-
 		this[DATA.action]?.bind(this)( DATA.data );
 	}
 
@@ -65,6 +66,19 @@ class Reader
 
 		// start preloading the audio file
 		this.#preload();
+
+		navigator.mediaSession.metadata = new MediaMetadata
+		({
+			title: DATA.media?.header ?? 'Now reading...',
+			artist: DATA?.media?.title,
+			artwork: 
+			[
+				{ src: 'https://riddr.com/static/img/mediaicon-512.png', sizes: '512x512', 	type: 'image/png' },
+				{ src: 'https://riddr.com/static/img/mediaicon-256.png', sizes: '256x256', 	type: 'image/png' },
+				{ src: 'https://riddr.com/static/img/mediaicon-128.png', sizes: '128x128', 	type: 'image/png' },
+				{ src: 'https://riddr.com/static/img/mediaicon-64.png',  sizes: '64x64', 	type: 'image/png' },
+			]
+		});
 	}
 
 	pause ()

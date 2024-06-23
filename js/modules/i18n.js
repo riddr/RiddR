@@ -16,16 +16,15 @@ class i18n
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Translate text from one into another language
+ * Register various i18n methods
  * ---------------------------------------------------------------------------------------------------------------------
 */	
 	lang 		= this.#detect; // get UI locale
 	translate 	= this.#translate; // translate text/utterance to specific language
 
-
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Translate text from one into another language
+ * Register the i18n module magic handler that will allow us to make such references i18n.some-key
  * ---------------------------------------------------------------------------------------------------------------------
 */	
 	constructor ()
@@ -46,7 +45,7 @@ class i18n
 	}
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Translate text from one into another language
+ * i18n language detection and translation methods
  * 
  * Detect the language of the selected utterance and determine the reading language
  * ---------------------------------------------------------------------------------------------------------------------
