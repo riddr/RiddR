@@ -25,8 +25,7 @@ class RiddR
 	reset_after = 5000;
 	max_lenght 	= 32768; // define maximum utterance length https://developer.chrome.com/docs/extensions/reference/api/tts#method-speak
 
-
-	read ( DATA )
+	async read ( DATA )
 	{
 		// temporary fix for Chrome pause bug in native TTS engines // @To-Do: file bug to Google regards this
 		if( this.state == 'pause' || this.state == 'cancelled' )
@@ -34,7 +33,7 @@ class RiddR
 
 		let options = 
 		{
-			voiceName 	: this.#engine( DATA?.options?.engine ).voiceName,
+			voiceName 	: await this.#engine( DATA?.options?.engine, DATA?.online ).voiceName,
 			enqueue 	: DATA?.options?.enqueue 				|| CONFIG.enqueue,
 			lang 		: DATA?.options?.language 				|| CONFIG.language,
 			volume 		: DATA?.options?.volume 				|| CONFIG.volume,
@@ -42,7 +41,7 @@ class RiddR
 			pitch 		: this.#validate ( DATA?.options?.pitch || CONFIG.pitch, this.engine.pitch ),
 
 			// register the event handler
-			onEvent 	: this.#stated.bind(this)
+			onEvent 	: this.stated.bind(this)
 		}
 
 		// detect the utterance language, prepare it for reading and then read it
@@ -77,6 +76,9 @@ class RiddR
 	pause()	 { this.#TTS('pause') } 	// using custom TTS controll metod 
 	resume() { this.#TTS('resume') }	// as Chrome is not returning pause and resume events 
 	replay() { this.read( this.request ); }
+	
+	// public state checking method
+	is( STATE ) { return STATE === this.state; }
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
@@ -88,15 +90,15 @@ class RiddR
 	#init ( READING )
 	{
 		if( READING && CONFIG.enqueue ) // if the extension is reading trigger the enqueued event
-			return this.#stated('enqueued');
+			return this.stated('enqueued');
 
 		// trigger "loading" state for remote TTS engines
-		return this.#stated('loading');
+		return this.stated('loading');
 	}
 
 	// state handler 
 	// updates the module state & re-emits all TTS events globaly
-	#stated ( EVENT )
+	stated ( EVENT )
 	{
 		// allow shorthand event triggering
 		if( typeof EVENT === 'string' )
@@ -115,13 +117,13 @@ class RiddR
 
 	// determine the network connection and then
 	// fetch the coresponding TTS engine and it's parameters from the TTS module
-	#engine ( ENGINE )
+	#engine ( ENGINE, ONLINE )
 	{
 		// default back to the last configured offline_engine
 		let engine = CONFIG.offline_engine;
 
 		// check if the client has internet conneciton prior than picking the right TTS engine
-		if ( navigator.onLine ) 
+		if ( navigator.onLine || ONLINE )
 			engine = ENGINE ?? CONFIG.TTS_engine; 
 
 		// return the engine data or failback to the OS native engine 
@@ -149,7 +151,7 @@ class RiddR
 			{
 				// avoid sending idle state after legit interuption
 				if( idle.has( this.state ) ) 
-					this.#stated( 'idle' );
+					this.stated( 'idle' );
 
 			}.bind(this), this.reset_after );
 		}
@@ -161,7 +163,7 @@ class RiddR
 	#TTS ( ACTION )
 	{
 		chrome.tts[ACTION]();
-		this.#stated( ACTION );
+		this.stated( ACTION );
 	}
 
 	// TTS error handler 

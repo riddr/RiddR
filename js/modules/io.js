@@ -183,7 +183,8 @@ if( typeof IO !== 'function' )
 		// force disconnect the current channel
 		disconnect ()
 		{
-			this?.channel?.disconnect();
+			if( this.channel )
+				this.channel.disconnect();
 		}
 
 /*

@@ -31,7 +31,7 @@ class Injector
 			{
 				// if RiddR is not present then load the content script
 				if( result[0].result === null )
-					await this.inject( [ 'js/modules/io.js', 'js/content.js', 'css/content.css' ], tab );
+					await this.inject( [ 'js/modules/io.js', 'js/modules/config.js', 'js/content.js', 'css/content.css' ], tab );
 
 				// open up communication channel if the injection was trigered by user action eg. popup click
 				if( MODE !== null )

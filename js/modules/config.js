@@ -19,7 +19,7 @@ if( typeof CONFIG !== 'function' )
 		// set RiddR default options
 		#defaults 			= 
 		{
-			debug 			: true,
+			debug 			: false,
 			TTS_engine 		: 'SpeakIt',
 			offline_engine	: 'native',
 			failover_engine : 'SpeakIt',
