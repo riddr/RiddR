@@ -54,9 +54,6 @@ if( typeof CONFIG !== 'function' )
 			// sync storage data
 			this.sync();
 
-			// push the default Riddr settings into the cache storage
-			this.#cache = { ... this.#defaults ?? {} };
-
 			// register data syncing event listener
 			chrome.storage.onChanged.addListener( this.sync.bind(this) )
 
@@ -92,9 +89,9 @@ if( typeof CONFIG !== 'function' )
 		// synchronize stored data from chrome storagee
 		sync ()
 		{
-			this.provider.get().then( data => 
+			this.provider.get().then( DATA => 
 			{
-				this.#cache = { ... this.#cache, ... data }
+				this.#cache = { ... this.#defaults, ... this.#cache, ... DATA };
 			})
 		}
 
