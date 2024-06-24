@@ -109,7 +109,7 @@ class RiddR
 			this.state = EVENT.type;
 
 		// emit the state change to all extension contexts 
-		IO.emit('state', { type: EVENT.type, charIndex: EVENT.charIndex }, 'global' );
+		IO.emit('state', EVENT, 'global' );
 
 		// initate state reset counter
 		this.#reset( EVENT.type )

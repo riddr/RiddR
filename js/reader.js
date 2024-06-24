@@ -38,6 +38,7 @@ class Reader
 		IO.on( 'audio', this.handler.bind(this) );
 
 		// registering media session actions to allow controll from various devices
+		// https://w3c.github.io/mediasession/
 		navigator.mediaSession.setActionHandler( 'play', 	this.resume.bind(this) );
 		navigator.mediaSession.setActionHandler( 'pause', 	this.pause.bind(this) );
 		navigator.mediaSession.setActionHandler( 'stop', 	this.stop.bind(this) );
@@ -67,9 +68,10 @@ class Reader
 		// start preloading the audio file
 		this.#preload();
 
+		// set mediasession meta data on reading
 		navigator.mediaSession.metadata = new MediaMetadata
 		({
-			title: DATA.media?.header ?? 'Now reading...',
+			title:  ( DATA.media.title ) ? DATA.media?.header : 'Now reading...',
 			artist: DATA?.media?.title,
 			artwork: 
 			[
@@ -95,7 +97,7 @@ class Reader
 
 	stop ()
 	{
-		this.#emit( 'end', this.utterance.raw.length );
+		this.#emit( 'end', { charIndex: this.utterance.raw.length } );
 	}
 
 	volume ( DATA )
@@ -179,7 +181,7 @@ class Reader
 		if( this.current.channel == 0 )
 		{
 			this.channels[this.current.channel].play();
-			this.#emit( 'start', 0 );
+			this.#emit( 'start', { charIndex: 0, length: this.utterance.safe[this.current.channel].length } );
 		}
 	}
 
@@ -196,9 +198,9 @@ class Reader
 			if( this.current.channel > 0 )
 			{
 				// update current charIndex
-				this.current.charindex += this.utterance.safe[this.current.channel].length;
+				this.current.charindex += this.utterance.safe[this.current.channel-1].length;
 
-				this.#emit( 'sentence', this.current.charindex );
+				this.#emit( 'sentence', { charIndex: this.current.charindex, length: this.utterance.safe[this.current.channel].length } );
 			}
 		}
 		else // on resume
@@ -224,7 +226,7 @@ class Reader
 
 		// check if the utterance reached it's end
 		if(this.current.channel >= this.urls.length) 
-			this.#emit( 'end' , this.utterance.raw.length );
+			this.#emit( 'end' , { charIndex: this.utterance.raw.length } );
 		else
 			this.#speak_next();
 	}
@@ -243,9 +245,6 @@ class Reader
 	// try to reload audio channel in case of error 
 	#reload_channel  ()
 	{
-		console.log(this.current);
-		console.log(this.channels);
-
 		this.current.retry += 1; // increment the rety attempt
 
 		setTimeout(function() // reload channel with delay
@@ -298,7 +297,7 @@ class Reader
 
 	#log ( message )
 	{
-		this.#emit( 'error', message );
+		this.#emit( 'error', { errorMessage: message } );
 	}
 
 }

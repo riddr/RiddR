@@ -193,12 +193,8 @@ class TTS
 					RiddR.stated( event );
 				break;
 
-				case 'error':
-					this.handler( { 'type': 'error', 'errorMessage': payload } );
-				break;
-
 				default:
-					await this.handler( { 'type': event, 'charIndex': payload } );
+					await this.handler( { ... { type: event }, ... payload } );
 			}
 		}
 
