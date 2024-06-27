@@ -74,6 +74,13 @@ class TTS
 			this.engine.resume();
 	}
 
+	// reset the TTS state
+	reset = async () =>
+	{
+		if( await this.#has_reader() )
+			chrome.offscreen.closeDocument()
+	}
+
 /*
  * ---------------------------------------------------------------------------------------------------------------------
  * PRIVATE TTS METHODS

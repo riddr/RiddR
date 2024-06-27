@@ -31,7 +31,7 @@
 		"message": "Autodetection"
 	},
 	"nowReading": {
-		"message": "Riddr is now reading"
+		"message": "Now reading:"
 	},	
 	
 	"options" : 

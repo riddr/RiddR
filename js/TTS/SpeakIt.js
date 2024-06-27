@@ -42,7 +42,7 @@ class SpeakIt
 		[
 			'af', 'sq', 'ar', 'hy', 'bs', 'bn', 'ca', 'zh', 'zh-CN', 'zh-TW', 'hr', 'cs', 'da', 'nl', 'en', 'en-US', 
 			'en-GB', 'en-AU', 'eo', 'fi', 'fr', 'de', 'el', 'hi', 'hu', 'is', 'id', 'ja', 'km', 'ko', 'la', 'lv', 'it',
-			'mk', 'no', 'pl', 'pt', 'ro', 'ru', 'sr', 'si', 'sk', 'es', 'sw', 'sv', 'ta', 'th', 'tr', 'uk', 'vi', 'cy'
+			'bg', 'no', 'pl', 'pt', 'ro', 'ru', 'sr', 'si', 'sk', 'es', 'sw', 'sv', 'ta', 'th', 'tr', 'uk', 'vi', 'cy'
 		],
 		default_lang : 'en-US',
 	}

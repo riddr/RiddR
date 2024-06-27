@@ -85,19 +85,28 @@ class Reader
 
 	pause ()
 	{
-		this.channels[this.current.channel].pause();
+		// keep the service worker allive
+		this.#keepalive()
+
+		this.channels[this.current.channel].pause()
 		this.#emit('pause');
 	}
 
 	resume ()
 	{
-		this.channels[this.current.channel].play();
-		this.#emit('resume');
+		// end the keepalive interval on resume
+		this.#keepalive()
+
+		this.channels[this.current.channel].play()
+		this.#emit('resume')
 	}
 
 	stop ()
 	{
-		this.#emit( 'end', { charIndex: this.utterance.raw.length } );
+		// end the keepalive interval on stop
+		this.#keepalive()
+
+		this.#emit( 'end', { charIndex: this.utterance.raw.length } )
 	}
 
 	volume ( DATA )
@@ -293,6 +302,21 @@ class Reader
 			}, 
 			'background'  // target only the background script
 		);
+	}
+
+	// keep the service worker alive
+	#keepalive ()
+	{
+		if( this.interval )
+			clearInterval( this.interval );
+		else
+			this.interval = setInterval( this.#ping.bind(this) , 25000 );
+	}
+
+	// ping the service worker
+	#ping ()
+	{
+		IO.emit('ping');
 	}
 
 	#log ( message )

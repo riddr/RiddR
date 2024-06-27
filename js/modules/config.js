@@ -1,7 +1,7 @@
 /*
  *
  * RiddR configuration storage
- * used for state recordign of various extension data but mainly user iptions
+ * used for state recordign of various extension data but mainly user options
  *
  * @package		RiddR
  * @category	Modules 
