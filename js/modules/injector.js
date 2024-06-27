@@ -15,6 +15,13 @@ import IO from '../facades/io.js';
 
 class Injector
 {
+	constructor ()
+	{
+		// inject RiddR content script on tab update action
+		// used only when proper access is given by the user
+		chrome.tabs.onUpdated.addListener( this.load );
+	}
+
 	// handle popup 
 	load = async ( TAB, ACTION = null, MODE = null ) =>
 	{
