@@ -122,14 +122,18 @@ var RiddR = ( function ( API )
 	// get basic browser basic text selection
 	const _get_user_selection = () =>
 	{
-		// get current browser selection
+		// get current browser ion
 		selection = API.getSelection().toString();
 
 		if( selection != '' ) 
 			return selection;
 		// handle google docs user text selection
-		else if( API.location.href.startsWith('https://docs.google.com/document/d/') ) 
-			return _extract_text( $("rect:not(clipPath rect)") );
+		else if( API.location.href.startsWith('https://docs.google.com/document/d/') )
+		{
+			$(".docs-texteventtarget-iframe").contentDocument.querySelector('[contenteditable="true"]').dispatchEvent(new CustomEvent("copy"));
+
+			return _extract_text( $(".docs-texteventtarget-iframe").contentDocument.body.innerText );
+		}
 
 		//@To-Do: drive PDF DOC preview 
 		// a-b-Xa-La ( whole page ) // paragraphs a-b-Xa-La-mf-Ic // a-b-s-r-pc ( selection )
@@ -298,8 +302,6 @@ var RiddR = ( function ( API )
 
 	IO.on( 'fetch', _browser_action );
 	IO.on( 'selector', _selector );
-
-	IO.on( 'state', (event) => console.log(event) );
 
 /*
  * ---------------------------------------------------------------------------------------------------------------------
