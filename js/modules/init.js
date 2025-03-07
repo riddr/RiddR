@@ -15,14 +15,14 @@ class INIT
 {
 	constructor () 
 	{
-		IO.on( 'install',  	this.#install );
-		IO.on( 'update',  	this.#update );
+		//IO.on( 'install',  	this.#install );
+		//IO.on( 'update',  	this.#update );
 
 		// handle new installations, updates and chrome updates 
 		chrome.runtime.onInstalled.addListener( this.handler.bind( this ) );
 
 		// register uninstall URL, used for surveys etc.. 
-		chrome.runtime.setUninstallURL( 'https://riddr.com/this-is-sad' );
+		//chrome.runtime.setUninstallURL( 'https://riddr.com/this-is-sad' );
 	}
 
 	// context menu handler
