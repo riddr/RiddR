@@ -23,7 +23,7 @@ class TTS
 	engine 	= null
 	handler = null
 	engines = {}
-	embed 	= { SpeakIt3 : SpeakIt };
+	embed 	= { SpeakIt : SpeakIt };
 
 	constructor()
 	{
@@ -160,7 +160,7 @@ class TTS
 */
 	async #reader ()
 	{
-		if( ! await this.#has_reader() )
+		if( ! await this.#has_reader() && IO.context === 'background' )
 		{
 			await chrome.offscreen.createDocument(
 			{

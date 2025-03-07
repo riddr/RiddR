@@ -7,11 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/options.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
-	<meta require="modules" libs="riddr" type="js">
-	<meta require="lib" libs="jquery" type="js">
-	<meta require="views" libs="options" type="js">
-	<meta require="data" libs="TTS_parameters|languages" type="js">
 
 </head>
 <body>
@@ -107,7 +102,7 @@
 				<div class="no-data">
 					<i class="material-icons">weekend</i>
 					<h2 i18n="noCustomShortcuts">Upps, seams you haven't added any shortcuts yet.</h2>
-					<div class="add" action="shortcut" i18n="addShortcut">Add shortcut</div>
+					<div class="add" action="shortcuts" i18n="addShortcut">Add shortcut</div>
 				</div>
 				<ul class="sticky">
 					<li i18n="keyboardShortcut">Keyboard shortcut</li>
@@ -118,7 +113,7 @@
 				</ul>
 			</div>
 		</div>
-		<div title="Add shortcut" i18n="addShortcut" class="material add" action="shortcut" >+</div>
+		<div title="Add shortcut" i18n="addShortcut" class="material add" action="shortcuts" >+</div>
 	</section>
 	<section>
 		<div id="transcription-container">
@@ -225,5 +220,6 @@
 </content>
 <div id="snackbar" class="snackbar" i18n="optionsSaved">Changes were successfuly saved!</div>
 </body>
-<script src="../js/core.js"></script>
+<script type="module" src="../js/lib/jquery.js"></script>
+<script type="module" src="../js/options.js"></script>
 </html>

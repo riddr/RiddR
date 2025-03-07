@@ -9,11 +9,11 @@
  * @link		https://github.com/skechboy/RiddR
 */
 
-(function () 
+class DATA
 {
-	this.data.languages = 
+	languages = 
 	{
-		"auto" 	: { name : RiddR.__('autodetect'), 	native: "Autodetection"},
+		"auto" 	: { name : 'Autodetect', 			native: "Autodetection"},
 		"aa" 	: {	name : "Afar",					native: "Afaraf" },
 		"ab" 	: {	name : "Abkhaz",				native: "Аҧсуа" },
 		"ae" 	: {	name : "Avestan",				native: "Avesta" },
@@ -262,5 +262,7 @@
 		"zh-TW" : {	name : "Chinese (Taiwan)",		native: "" },
 		"zu" 	: {	name : "Zulu",					native: "" }
 	}
+}
 
-}).apply(RiddR);
+// TTS module registration
+	export default new DATA();

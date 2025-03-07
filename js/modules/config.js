@@ -6,7 +6,7 @@
  * @package		RiddR
  * @category	Modules 
  * @author		Trajche Petrov
- * @link		https://github.com/skechboy/RiddR
+ * @link		https://github.com/riddr/RiddR/blob/master/js/modules/config.js
 */
 
 if( typeof CONFIG !== 'function' )
@@ -49,7 +49,7 @@ if( typeof CONFIG !== 'function' )
 		provider = chrome.storage.sync;
 /*
  * ---------------------------------------------------------------------------------------------------------------------
- * Register various i18n methods
+ * CONFIG controller methods
  * 
  * Instantiate the storage controller
  * ---------------------------------------------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ if( typeof CONFIG !== 'function' )
 		}
 
 		// synchronize stored data from chrome storagee
-		#sync ()
+		#sync ( CHANGES )
 		{
 			this.provider.get().then( DATA => 
 			{
@@ -76,6 +76,8 @@ if( typeof CONFIG !== 'function' )
 				// trigger a local event that the configuration storage has been loaded
 				if( arguments.length === 0 )
 					IO.emit( 'config_ready', IO.context );
+				else
+					IO.emit( 'config_update', { property: Object.keys(CHANGES)[0] }, IO.context )
 			})
 		}
 
@@ -101,7 +103,7 @@ if( typeof CONFIG !== 'function' )
 			{
 				this.#cache[NAME] = VALUE;
 
-				return this.provider.set( this.#cache );
+				return 	this.provider.set( this.#cache  )
 			},
 
 			deleteProperty: ( TARGET, PROPERTY ) =>
