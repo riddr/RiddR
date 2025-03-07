@@ -2,9 +2,9 @@
 	"default_locale": "en",
 	"name": "__MSG_RiddR__",
 	"description": "__MSG_desc__",
-	"version": "0.5",
+	"version": "0.5.3",
 	"manifest_version": 3,
-	"minimum_chrome_version": "47",
+	"minimum_chrome_version": "88",
 	"icons": 
 	{ 
 		"16": "images/small_icon.png",
@@ -84,7 +84,7 @@
 		"voices":
 		[
 			{
-				"voice_name": "SpeakIt3",
+				"voice_name": "SpeakIt",
 				"remote"	: true,
 				"event_types": ["start", "marker", "sentence", "end", "error"]
 			}

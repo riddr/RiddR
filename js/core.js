@@ -6,7 +6,7 @@
  * @package		RiddR
  * @category	Core
  * @author		Trajche Petrov
- * @link		https://github.com/skechboy/RiddR
+ * @link		https://github.com/riddr/RiddR/blob/master/js/core.js
 */
 
 import IO  		from './facades/io.js'

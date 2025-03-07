@@ -33,7 +33,7 @@ class RiddR
 
 		let options = 
 		{
-			voiceName 	: await this.#engine( DATA?.options?.engine, DATA?.online ).voiceName,
+			voiceName 	: await this.#engine( DATA?.options?.TTS_engine, DATA?.online ).voiceName,
 			enqueue 	: DATA?.options?.enqueue 				|| CONFIG.enqueue,
 			lang 		: DATA?.options?.language 				|| CONFIG.language,
 			volume 		: DATA?.options?.volume 				|| CONFIG.volume,
@@ -49,7 +49,7 @@ class RiddR
 		[
 			chrome.tts.isSpeaking(),
 			this.#prepare( DATA.utterance ),
-			i18n.lang( DATA.utterance )
+			i18n.lang( DATA.utterance, DATA?.options?.language )
 		])
 		.then( ( RESULT ) => 
 		{

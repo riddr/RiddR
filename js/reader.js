@@ -7,10 +7,10 @@
  * @package		RiddR
  * @category	Offscreen 
  * @author		Trajche Petrov
- * @link		https://github.com/riddr/RiddR
+ * @link		https://github.com/riddr/RiddR/blob/master/js/reader.js
 */
 
-// Load dependencies 
+// load dependencies 
 import IO from './facades/io.js';
 import Error from './modules/error.js';
 

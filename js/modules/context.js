@@ -4,9 +4,9 @@
  * Register context menu and define it's handlers
  *
  * @package		RiddR
- * @category	Core
+ * @category	Modules
  * @author		Trajche Petrov
- * @link		https://github.com/skechboy/RiddR
+ * @link		https://github.com/riddr/RiddR/blob/master/js/modules/context.js
 */
 
 import IO 		from '../facades/io.js';
@@ -22,6 +22,7 @@ class Context
 	{
 		// create the context menu on installation
 		IO.on( 'install',  	this.#create );
+		IO.on( 'update',  	this.#create );
 
 		// register RiddR context menu event listener
 		chrome.contextMenus.onClicked.addListener( this.#handler );

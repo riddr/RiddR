@@ -6,7 +6,7 @@
  * @package		RiddR
  * @category	PopUP
  * @author		Trajche Petrov
- * @link		https://github.com/riddr/RiddR
+ * @link		https://github.com/riddr/RiddR/blob/master/js/popup.js
 */
 
 // Load dependencies 

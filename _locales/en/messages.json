@@ -108,7 +108,7 @@
 	{
 		"message" 		: "Global shortcuts"
 	},
-	"SHORTCUTS__execute_browser_action": 
+	"SHORTCUTS__execute_action": 
 	{
 		"message": "Start reading",
 		"description"	: "Used as decription of global shortcut for start of the reading in global shortcut options"

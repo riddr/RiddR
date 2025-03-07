@@ -1,12 +1,14 @@
 /*
- * Chrome Options
+ * RiddR Options CSS 
  *
- * CSS framework that unifies options page on Google Chrome extension, inspired by Chrome settings UI
+ * Various CSS styles used from RiddR options page
  *
- * @package		Chrome Options
- * @author		Tracjhe Petrov a.k.a SkechBoy
- * @link 		https://github.com/skechboy/Chrome-Options
+ * @package		RiddR
+ * @category	CSS
+ * @author		Trajche Petrov
+ * @link		https://github.com/riddr/RiddR/blob/master/css/options.css
 */
+
 
 /*----------------------------------------------------------------------------------------------------------------------
 											   MAIN MARKUP's
@@ -52,7 +54,7 @@ body
 {
 	height:500px;
 	width:1000px;
-	padding-top:48px;
+	padding-top:60px;
 
 	color: var( --theme-default-font );
 	background: var( --theme-background );
