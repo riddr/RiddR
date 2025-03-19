@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Lecteur de texte en parole pour Chrome"
+	},
+	"title": {
+		"message": "Lire le texte sélectionné."
+	},
+	"desc": {
+		"message": "Fatigué de lire ? Riddr est une extension TTS GRATUITE qui peut lire vos nouvelles, blogs préférés, courriels, PDF dans plus de 50 langues."
+	},
+	"add": {
+		"message": "Ajouter"
+	},
+	"remove": {
+		"message": "Supprimer"
+	},
+	"from": {
+		"message": "De"
+	},
+	"to": {
+		"message": "À"
+	},
+	"read": {
+		"message": "Lis-le!"
+	},
+	"language": {
+		"message": "Langue"
+	},
+	"autodetect": {
+		"message": "Détection automatique"
+	},
+	"nowReading": {
+		"message": "Lecture en cours :"
+	},
+	"options": {
+		"message": "Options"
+	},
+	"generalOptions": {
+		"message": "Général"
+	},
+	"shortcutsOptions": {
+		"message": "Raccourcis"
+	},
+	"transcriptionOptions": {
+		"message": "Transcription"
+	},
+	"advancedOptions": {
+		"message": "Avancé"
+	},
+	"vocalSettings": {
+		"message": "Paramètres vocaux"
+	},
+	"TTSengine": {
+		"message": "Moteur de synthèse vocale"
+	},
+	"TTSengine_short": {
+		"message": "Moteur TTS"
+	},
+	"enqueneMode": {
+		"message": "Mode file d'attente"
+	},
+	"defaultVolume": {
+		"message": "Niveau de volume par défaut"
+	},
+	"speakingRate": {
+		"message": "Vitesse de parole"
+	},
+	"voicePitch": {
+		"message": "Hauteur de la voix"
+	},
+	"testing": {
+		"message": "Test"
+	},
+	"autoTest": {
+		"message": "Test automatique"
+	},
+	"testSentence": {
+		"message": "Phrase de test"
+	},
+	"defaultLanguage": {
+		"message": "Langue par défaut"
+	},
+	"autoTranslate": {
+		"message": "Traduction automatique"
+	},
+	"SHORTCUTS": {
+		"message": "Raccourcis globaux"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Commencer la lecture",
+		"description": "Used as decription of global shortcut for start of the reading in global shortcut options"
+	},
+	"SHORTCUTS_pause": {
+		"message": "Mettre en pause la lecture",
+		"description": "Used as decription of global shortcut action for pausing the current reading in global shortcut options"
+	},
+	"SHORTCUTS_stop": {
+		"message": "Arrêter la lecture",
+		"description": "Used as decription of global shortcut for stop of the reading in global shortcut options"
+	},
+	"customShortcuts": {
+		"message": "Raccourcis personnalisés",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Oups, il semble que vous n'ayez pas encore ajouté de raccourcis.",
+		"description": "Message shown when the user hasn't created any custom shortcuts."
+	},
+	"addShortcut": {
+		"message": "Ajouter un raccourci",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Raccourci clavier",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Transcription"
+	},
+	"defineTranscription": {
+		"message": "La transcription, au sens linguistique, est la représentation systématique du langage sous forme écrite.<br>La source peut être des énoncés (parole ou langage des signes) ou un texte préexistant dans un autre système d'écriture.",
+		"description": "Definition of what is transcription."
+	},
+	"noTranscripts": {
+		"message": "Oups, il semble que vous n'ayez pas encore ajouté de transcriptions.",
+		"description": "An message shown when user haven't added any transcripts, yet."
+	},
+	"addTranscript": {
+		"message": "Ajouter une transcription",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Options TTS avancées"
+	},
+	"offlineTTS": {
+		"message": "Moteur TTS hors ligne",
+		"description": "Definition of offline text to sheech engine"
+	},
+	"failoverTTS": {
+		"message": "Moteur TTS de secours",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Sélection de texte"
+	},
+	"autoRead": {
+		"message": "Lecture automatique"
+	},
+	"autoSelection": {
+		"message": "Sélection automatique"
+	},
+	"MISCELLANEOUS": {
+		"message": "Ajouter une transcription",
+		"description": "Button, for adding transcriptions."
+	},
+	"errorReporting": {
+		"message": "Rapport d'erreurs",
+		"description": "Advanced option feature, used for enabling / desabling reporting of errors to remote server."
+	},
+	"ssmlOption": {
+		"message": "Activer le balisage <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling / disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Afficher le bouton de dons"
+	},
+	"snackbarOption": {
+		"message": "Afficher la barre de notification en mode sélecteur",
+		"description": "Advanced option used for showing snackbar when the client is using selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Recevoir des notifications de mise à jour",
+		"description": "Option that allows the users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Les modifications ont été enregistrées avec succès !",
+		"description": "Message whown, uppon sucess, in the Riddr options when user modifies some option."
+	},
+	"popUpError": {
+		"message": "<b>Oups!?</b></br> Quelque chose a mal tourné."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Ce site web ne peut pas être lu.<br>Veuillez en essayer un autre."
+	},
+	"popUpSelector": {
+		"message": "<b>Salut !</b></br>Veuillez sélectionner du texte pour que je le lise."
+	},
+	"MYRIDDR": {
+		"message": "Mon Riddr arrive bientôt !"
+	},
+	"joinMyRiddR": {
+		"message": "Rejoignez maintenant !"
+	},
+	"contentSnackbar": {
+		"message": "Cliquez sur un paragraphe de texte pour que Riddr le lise, ou appuyez sur ÉCHAP pour annuler."
+	}
+}

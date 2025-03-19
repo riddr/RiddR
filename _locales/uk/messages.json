@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Зчитувач тексту в мовлення для Chrome"
+	},
+	"title": {
+		"message": "Прочитати виділений текст."
+	},
+	"desc": {
+		"message": "Втомилися від читання? Riddr - це БЕЗКОШТОВНЕ розширення TTS, яке може читати ваші новини, улюблені блоги, електронні листи, PDF-файли більш ніж 50 мовами."
+	},
+	"add": {
+		"message": "Додати"
+	},
+	"remove": {
+		"message": "Видалити"
+	},
+	"from": {
+		"message": "Від"
+	},
+	"to": {
+		"message": "До"
+	},
+	"read": {
+		"message": "Прочитай це!"
+	},
+	"language": {
+		"message": "Мова"
+	},
+	"autodetect": {
+		"message": "Автоматичне виявлення"
+	},
+	"nowReading": {
+		"message": "Зараз читається:"
+	},
+	"options": {
+		"message": "Налаштування"
+	},
+	"generalOptions": {
+		"message": "Загальні"
+	},
+	"shortcutsOptions": {
+		"message": "Скорочення"
+	},
+	"transcriptionOptions": {
+		"message": "Транскрипція"
+	},
+	"advancedOptions": {
+		"message": "Розширені"
+	},
+	"vocalSettings": {
+		"message": "Налаштування голосу"
+	},
+	"TTSengine": {
+		"message": "Двигун тексту в мовлення"
+	},
+	"TTSengine_short": {
+		"message": "TTS Двигун"
+	},
+	"enqueneMode": {
+		"message": "Режим черги"
+	},
+	"defaultVolume": {
+		"message": "Рівень гучності за замовчуванням"
+	},
+	"speakingRate": {
+		"message": "Швидкість мовлення"
+	},
+	"voicePitch": {
+		"message": "Висота голосу"
+	},
+	"testing": {
+		"message": "Тестування"
+	},
+	"autoTest": {
+		"message": "Автоматичний тест"
+	},
+	"testSentence": {
+		"message": "Тестове речення"
+	},
+	"defaultLanguage": {
+		"message": "Мова за замовчуванням"
+	},
+	"autoTranslate": {
+		"message": "Автоматичний переклад"
+	},
+	"SHORTCUTS": {
+		"message": "Глобальні скорочення"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Почати читання",
+		"description": "Used as decription of global shortcut for start of the reading in global shortcut options"
+	},
+	"SHORTCUTS_pause": {
+		"message": "Призупинити читання",
+		"description": "Used as decription of global shortcut action for pausing the current reading in global shortcut options"
+	},
+	"SHORTCUTS_stop": {
+		"message": "Зупинити читання",
+		"description": "Used as decription of global shortcut for stop of the reading in global shortcut options"
+	},
+	"customShortcuts": {
+		"message": "Користувацькі скорочення",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ой, здається, ви ще не додали жодних скорочень.",
+		"description": "Message shown when the user hasn't created any custom shortcuts."
+	},
+	"addShortcut": {
+		"message": "Додати скорочення",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Клавіатурне скорочення",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Транскрипція"
+	},
+	"defineTranscription": {
+		"message": "Транскрипція в лінгвістичному сенсі - це систематичне представлення мови у письмовій формі.<br>Джерелом можуть бути висловлювання (мовлення або жестова мова) або вже існуючий текст в іншій системі письма.",
+		"description": "Definition of what is transcription."
+	},
+	"noTranscripts": {
+		"message": "Ой, здається, ви ще не додали жодних транскрипцій.",
+		"description": "An message shown when user haven't added any transcripts, yet."
+	},
+	"addTranscript": {
+		"message": "Додати транскрипцію",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Розширені налаштування TTS"
+	},
+	"offlineTTS": {
+		"message": "Офлайн двигун TTS",
+		"description": "Definition of offline text to sheech engine"
+	},
+	"failoverTTS": {
+		"message": "Резервний двигун TTS",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Вибір тексту"
+	},
+	"autoRead": {
+		"message": "Автоматичне читання"
+	},
+	"autoSelection": {
+		"message": "Автоматичний вибір"
+	},
+	"MISCELLANEOUS": {
+		"message": "Додати транскрипцію",
+		"description": "Button, for adding transcriptions."
+	},
+	"errorReporting": {
+		"message": "Звіт про помилки",
+		"description": "Advanced option feature, used for enabling / desabling reporting of errors to remote server."
+	},
+	"ssmlOption": {
+		"message": "Увімкнути розмітку <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling / disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Показати кнопку пожертв"
+	},
+	"snackbarOption": {
+		"message": "Показувати сповіщення в режимі вибору",
+		"description": "Advanced option used for showing snackbar when the client is using selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Отримувати сповіщення про оновлення",
+		"description": "Option that allows the users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Зміни успішно збережено!",
+		"description": "Message whown, uppon sucess, in the Riddr options when user modifies some option."
+	},
+	"popUpError": {
+		"message": "<b>Ой!?</b></br> Щось пішло не так."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Цей вебсайт неможливо прочитати.<br>Спробуйте інший."
+	},
+	"popUpSelector": {
+		"message": "<b>Привіт!</b></br>Будь ласка, виберіть текст для читання."
+	},
+	"MYRIDDR": {
+		"message": "Мій Riddr скоро з’явиться!"
+	},
+	"joinMyRiddR": {
+		"message": "Приєднуйтесь зараз!"
+	},
+	"contentSnackbar": {
+		"message": "Клацніть на абзац тексту, щоб Riddr його прочитав, або натисніть ESC, щоб скасувати."
+	}
+}
