@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "ريددر - قارئ النص إلى كلام لمتصفح كروم"
+	},
+	"title": {
+		"message": "اقرأ النص المحدد."
+	},
+	"desc": {
+		"message": "هل سئمت من القراءة؟ ريددر هو إضافة TTS مجانية يمكنها قراءة أخبارك، مدوناتك المفضلة، رسائلك الإلكترونية، وملفات PDF بأكثر من 50 لغة."
+	},
+	"add": {
+		"message": "إضافة"
+	},
+	"remove": {
+		"message": "إزالة"
+	},
+	"from": {
+		"message": "من"
+	},
+	"to": {
+		"message": "إلى"
+	},
+	"read": {
+		"message": "اقرأه!"
+	},
+	"language": {
+		"message": "اللغة"
+	},
+	"autodetect": {
+		"message": "الكشف التلقائي"
+	},
+	"nowReading": {
+		"message": "الآن يقرأ:"
+	},
+	"options": {
+		"message": "الخيارات"
+	},
+	"generalOptions": {
+		"message": "عام"
+	},
+	"shortcutsOptions": {
+		"message": "الاختصارات"
+	},
+	"transcriptionOptions": {
+		"message": "النسخ"
+	},
+	"advancedOptions": {
+		"message": "متقدم"
+	},
+	"vocalSettings": {
+		"message": "إعدادات الصوت"
+	},
+	"TTSengine": {
+		"message": "محرك تحويل النص إلى كلام"
+	},
+	"TTSengine_short": {
+		"message": "محرك TTS"
+	},
+	"enqueneMode": {
+		"message": "وضع الانتظار"
+	},
+	"defaultVolume": {
+		"message": "مستوى الصوت الافتراضي"
+	},
+	"speakingRate": {
+		"message": "معدل التحدث"
+	},
+	"voicePitch": {
+		"message": "نبرة الصوت"
+	},
+	"testing": {
+		"message": "الاختبار"
+	},
+	"autoTest": {
+		"message": "اختبار تلقائي"
+	},
+	"testSentence": {
+		"message": "جملة اختبار"
+	},
+	"defaultLanguage": {
+		"message": "اللغة الافتراضية"
+	},
+	"autoTranslate": {
+		"message": "الترجمة التلقائية"
+	},
+	"SHORTCUTS": {
+		"message": "الاختصارات العامة"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "بدء القراءة",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "إيقاف القراءة مؤقتًا",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "إيقاف القراءة",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "اختصارات مخصصة",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "عذرًا، يبدو أنك لم تضف أي اختصارات بعد.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "إضافة اختصار",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "اختصار لوحة المفاتيح",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "النسخ الصوتي"
+	},
+	"defineTranscription": {
+		"message": "تتيح لك هذه الميزة تخصيص نطق كلمات معينة في محرك TTS.<br>من خلال تحديد تهجئات صوتية أو نطق بديل (مثل نطق 'Riddr' كـ 'قارئ')، يمكنك ضمان أن يعكس محرك TTS<br>النطق المطلوب بدقة.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "عذرًا، يبدو أنك لم تضف أي نصوص بعد.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "إضافة نص",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "خيارات TTS المتقدمة"
+	},
+	"offlineTTS": {
+		"message": "محرك TTS دون اتصال",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "محرك TTS الاحتياطي",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "تحديد النص"
+	},
+	"autoRead": {
+		"message": "قراءة تلقائية"
+	},
+	"autoSelection": {
+		"message": "تحديد تلقائي"
+	},
+	"MISCELLANEOUS": {
+		"message": "متنوع",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "الإبلاغ عن الأخطاء",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "تمكين ترميز <b title=\"لغة ترميز التوليف الصوتي\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "إظهار زر التبرعات"
+	},
+	"snackbarOption": {
+		"message": "إظهار شريط الإشعارات في وضع التحديد",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "تلقي إشعارات التحديث",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "تم حفظ التغييرات بنجاح!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>عذرًا!</b><br>حدث خطأ ما."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "لا يمكن قراءة هذا الموقع.<br>يرجى تجربة موقع آخر."
+	},
+	"popUpSelector": {
+		"message": "<b>مرحبًا!</b><br>يرجى تحديد بعض النصوص لأقرأها."
+	},
+	"MYRIDDR": {
+		"message": "ريددر الخاص بي قادم قريبًا!"
+	},
+	"joinMyRiddR": {
+		"message": "انضم الآن!"
+	},
+	"contentSnackbar": {
+		"message": "انقر على فقرة نصية ليقرأها ريددر، أو اضغط على Esc للإلغاء."
+	}
+}

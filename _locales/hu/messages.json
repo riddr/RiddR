@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Szövegfelolvasó bővítmény Chrome-hoz"
+	},
+	"title": {
+		"message": "Olvasd fel a kijelölt szöveget."
+	},
+	"desc": {
+		"message": "Fáradt vagy az olvasástól? A Riddr egy INGYENES TTS bővítmény, amely híreket, kedvenc blogokat, e-maileket és PDF-eket tud felolvasni több mint 50 nyelven."
+	},
+	"add": {
+		"message": "Hozzáadás"
+	},
+	"remove": {
+		"message": "Eltávolítás"
+	},
+	"from": {
+		"message": "Tól"
+	},
+	"to": {
+		"message": "Ig"
+	},
+	"read": {
+		"message": "Olvasd fel!"
+	},
+	"language": {
+		"message": "Nyelv"
+	},
+	"autodetect": {
+		"message": "Automatikus felismerés"
+	},
+	"nowReading": {
+		"message": "Most olvasom:"
+	},
+	"options": {
+		"message": "Beállítások"
+	},
+	"generalOptions": {
+		"message": "Általános"
+	},
+	"shortcutsOptions": {
+		"message": "Gyorsbillentyűk"
+	},
+	"transcriptionOptions": {
+		"message": "Átírás"
+	},
+	"advancedOptions": {
+		"message": "Haladó"
+	},
+	"vocalSettings": {
+		"message": "Hangbeállítások"
+	},
+	"TTSengine": {
+		"message": "Szövegfelolvasó motor"
+	},
+	"TTSengine_short": {
+		"message": "TTS motor"
+	},
+	"enqueneMode": {
+		"message": "Sorbaállítási mód"
+	},
+	"defaultVolume": {
+		"message": "Alapértelmezett hangerőszint"
+	},
+	"speakingRate": {
+		"message": "Beszédsebesség"
+	},
+	"voicePitch": {
+		"message": "Hangmagasság"
+	},
+	"testing": {
+		"message": "Tesztelés"
+	},
+	"autoTest": {
+		"message": "Automatikus teszt"
+	},
+	"testSentence": {
+		"message": "Tesztmondat"
+	},
+	"defaultLanguage": {
+		"message": "Alapértelmezett nyelv"
+	},
+	"autoTranslate": {
+		"message": "Automatikus fordítás"
+	},
+	"SHORTCUTS": {
+		"message": "Globális gyorsbillentyűk"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Olvasás indítása",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Olvasás szüneteltetése",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Olvasás leállítása",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Egyéni gyorsbillentyűk",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Hoppá, úgy tűnik, még nem adtál hozzá gyorsbillentyűket.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Gyorsbillentyű hozzáadása",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Billentyűparancs",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonetikus átírás"
+	},
+	"defineTranscription": {
+		"message": "Ez a funkció lehetővé teszi, hogy testreszabd bizonyos szavak kiejtését a TTS motorban.<br>A fonetikus írásmódok vagy alternatív kiejtések meghatározásával (például a 'Riddr' kiejtése 'olvasó'-ként) biztosíthatod, hogy a TTS motor<br>pontosan tükrözze a kívánt beszédkimenetet.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Hoppá, úgy tűnik, még nem adtál hozzá átiratokat.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Átirat hozzáadása",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Haladó TTS beállítások"
+	},
+	"offlineTTS": {
+		"message": "Offline TTS motor",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Helyettesítő TTS motor",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Szövegkijelölés"
+	},
+	"autoRead": {
+		"message": "Automatikus olvasás"
+	},
+	"autoSelection": {
+		"message": "Automatikus kijelölés"
+	},
+	"MISCELLANEOUS": {
+		"message": "Egyéb",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Hibajelentés",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Beszédszintézis jelölőnyelv\">SSML</b> jelölés engedélyezése",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Adományozási gomb megjelenítése"
+	},
+	"snackbarOption": {
+		"message": "Értesítősáv megjelenítése kijelölési módban",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Frissítési értesítések fogadása",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "A változtatások sikeresen mentésre kerültek!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Hoppá!</b><br> Valami elromlott."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Ez a weboldal nem olvasható.<br>Kérlek, próbálj meg egy másikat."
+	},
+	"popUpSelector": {
+		"message": "<b>Üdv!</b><br>Kérlek, válassz ki egy szöveget, amit felolvashatok."
+	},
+	"MYRIDDR": {
+		"message": "A My Riddr hamarosan érkezik!"
+	},
+	"joinMyRiddR": {
+		"message": "Csatlakozz most!"
+	},
+	"contentSnackbar": {
+		"message": "Kattints egy szövegrészre, hogy a Riddr felolvassa, vagy nyomd meg az Esc billentyűt a megszakításhoz."
+	}
+}

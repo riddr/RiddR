@@ -1,12 +1,12 @@
 {
 	"RiddR": {
-		"message": "Riddr - Tekst-naar-spraak lezer voor Chrome"
+		"message": "Riddr - Tekst naar spraaklezer voor Chrome"
 	},
 	"title": {
 		"message": "Lees de geselecteerde tekst."
 	},
 	"desc": {
-		"message": "Moe van het lezen? Riddr is een GRATIS TTS-extensie die je nieuws, favoriete blogs, e-mails en PDF’s kan voorlezen in meer dan 50 talen."
+		"message": "Moe van het lezen? Riddr is een GRATIS TTS-extensie die je nieuws, favoriete blogs, e-mails en PDF's kan lezen in meer dan 50 talen."
 	},
 	"add": {
 		"message": "Toevoegen"
@@ -48,13 +48,13 @@
 		"message": "Geavanceerd"
 	},
 	"vocalSettings": {
-		"message": "Spraakinstellingen"
+		"message": "Vocale instellingen"
 	},
 	"TTSengine": {
-		"message": "Tekst-naar-spraak Engine"
+		"message": "Tekst naar spraak-engine"
 	},
 	"TTSengine_short": {
-		"message": "TTS reader"
+		"message": "TTS-engine"
 	},
 	"enqueneMode": {
 		"message": "Wachtrijmodus"
@@ -88,15 +88,15 @@
 	},
 	"SHORTCUTS__execute_action": {
 		"message": "Begin met lezen",
-		"description": "Used as decription of global shortcut for start of the reading in global shortcut options"
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
 	},
 	"SHORTCUTS_pause": {
 		"message": "Pauzeer lezen",
-		"description": "Used as decription of global shortcut action for pausing the current reading in global shortcut options"
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
 	},
 	"SHORTCUTS_stop": {
 		"message": "Stop met lezen",
-		"description": "Used as decription of global shortcut for stop of the reading in global shortcut options"
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
 	},
 	"customShortcuts": {
 		"message": "Aangepaste sneltoetsen",
@@ -104,7 +104,7 @@
 	},
 	"noCustomShortcuts": {
 		"message": "Oeps, het lijkt erop dat je nog geen sneltoetsen hebt toegevoegd.",
-		"description": "Message shown when the user hasn't created any custom shortcuts."
+		"description": "Shown when no custom shortcuts are created."
 	},
 	"addShortcut": {
 		"message": "Sneltoets toevoegen",
@@ -115,15 +115,15 @@
 		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
 	},
 	"TRANSCRIPTION": {
-		"message": "Transcriptie"
+		"message": "Fonetische transcriptie"
 	},
 	"defineTranscription": {
-		"message": "Transcriptie in taalkundige zin is de systematische weergave van taal in geschreven vorm.<br>De bron kan bestaan uit uitingen (spraak of gebarentaal) of reeds bestaande tekst in een ander schrijfsysteem.",
-		"description": "Definition of what is transcription."
+		"message": "Met deze functie kun je de uitspraak van specifieke woorden in de TTS-engine aanpassen.<br>Door fonetische spellingen of alternatieve uitspraken te definiëren (bijvoorbeeld 'Riddr' uitspreken als 'reader'), kun je ervoor zorgen dat de TTS-engine<br> de gewenste spraakuitvoer nauwkeurig weergeeft.",
+		"description": "Definition of what is phonetic transcription."
 	},
 	"noTranscripts": {
 		"message": "Oeps, het lijkt erop dat je nog geen transcripties hebt toegevoegd.",
-		"description": "An message shown when user haven't added any transcripts, yet."
+		"description": "A message shown when the user hasn't added any transcripts yet."
 	},
 	"addTranscript": {
 		"message": "Transcriptie toevoegen",
@@ -133,11 +133,11 @@
 		"message": "Geavanceerde TTS-opties"
 	},
 	"offlineTTS": {
-		"message": "Offline TTS engine",
-		"description": "Definition of offline text to sheech engine"
+		"message": "Offline TTS-engine",
+		"description": "Definition of offline text to speech engine"
 	},
 	"failoverTTS": {
-		"message": "Failover TTS Engine",
+		"message": "Failover TTS-engine",
 		"description": "Definition of failover text to speech engine."
 	},
 	"SELECTION": {
@@ -150,48 +150,48 @@
 		"message": "Automatische selectie"
 	},
 	"MISCELLANEOUS": {
-		"message": "Transcriptie toevoegen",
-		"description": "Button, for adding transcriptions."
+		"message": "Diversen",
+		"description": "Settings or features that don’t fit into other categories."
 	},
 	"errorReporting": {
 		"message": "Foutmeldingen",
-		"description": "Advanced option feature, used for enabling / desabling reporting of errors to remote server."
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
 	},
 	"ssmlOption": {
-		"message": "Schakel <b title=\"Speech Synthesis Markup Language\">SSML</b> opmaak in",
-		"description": "Advanced option for enabling / disabling SSML markup."
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b>-opmaak inschakelen",
+		"description": "Advanced option for enabling/disabling SSML markup."
 	},
 	"donationsOption": {
-		"message": "Toon donatieknop"
+		"message": "Donatieknop tonen"
 	},
 	"snackbarOption": {
-		"message": "Toon snackbar in selectiemodus",
-		"description": "Advanced option used for showing snackbar when the client is using selection mode."
+		"message": "Snackbar tonen in selectiemodus",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
 	},
 	"notifyOnUpdate": {
-		"message": "Ontvang meldingen over updates",
-		"description": "Option that allows the users to opt-in or out from update notifications."
+		"message": "Ontvang updatemeldingen",
+		"description": "Option that allows users to opt-in or out from update notifications."
 	},
 	"optionsSaved": {
 		"message": "Wijzigingen zijn succesvol opgeslagen!",
-		"description": "Message whown, uppon sucess, in the Riddr options when user modifies some option."
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
 	},
 	"popUpError": {
-		"message": "<b>Oeps!?</b></br> Er ging iets mis."
+		"message": "<b>Oeps!</b><br> Er is iets misgegaan."
 	},
 	"ERROR_pageNotReadable": {
 		"message": "Deze website kan niet worden gelezen.<br>Probeer een andere."
 	},
 	"popUpSelector": {
-		"message": "<b>Hallo!</b></br> Selecteer wat tekst die ik kan voorlezen."
+		"message": "<b>Hoi!</b><br>Selecteer wat tekst om voor te lezen."
 	},
 	"MYRIDDR": {
 		"message": "Mijn Riddr komt binnenkort!"
 	},
 	"joinMyRiddR": {
-		"message": "Sluit je nu aan!"
+		"message": "Nu lid worden!"
 	},
 	"contentSnackbar": {
-		"message": "Klik op een tekstparagraaf zodat Riddr deze kan voorlezen, of druk op ESC om te annuleren."
+		"message": "Klik op een tekstparagraaf om Riddr deze te laten lezen, of druk op Esc om te annuleren."
 	}
 }

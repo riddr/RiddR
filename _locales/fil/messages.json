@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Text to Speech reader para sa Chrome"
+	},
+	"title": {
+		"message": "Basahin ang napiling teksto."
+	},
+	"desc": {
+		"message": "Pagod na sa pagbabasa? Ang Riddr ay isang LIBRENG TTS extension na maaaring magbasa ng iyong balita, paboritong blog, email, at PDF sa mahigit 50 wika."
+	},
+	"add": {
+		"message": "Idagdag"
+	},
+	"remove": {
+		"message": "Alisin"
+	},
+	"from": {
+		"message": "Mula sa"
+	},
+	"to": {
+		"message": "Patungo sa"
+	},
+	"read": {
+		"message": "Basahin ito!"
+	},
+	"language": {
+		"message": "Wika"
+	},
+	"autodetect": {
+		"message": "Awtomatikong pagtuklas"
+	},
+	"nowReading": {
+		"message": "Ngayon ay binabasa:"
+	},
+	"options": {
+		"message": "Mga Opsyon"
+	},
+	"generalOptions": {
+		"message": "Pangkalahatan"
+	},
+	"shortcutsOptions": {
+		"message": "Mga Shortcut"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripsyon"
+	},
+	"advancedOptions": {
+		"message": "Advanced"
+	},
+	"vocalSettings": {
+		"message": "Mga setting ng boses"
+	},
+	"TTSengine": {
+		"message": "Text to Speech Engine"
+	},
+	"TTSengine_short": {
+		"message": "TTS Engine"
+	},
+	"enqueneMode": {
+		"message": "Enqueue mode"
+	},
+	"defaultVolume": {
+		"message": "Default na antas ng lakas ng tunog"
+	},
+	"speakingRate": {
+		"message": "Bilis ng pagsasalita"
+	},
+	"voicePitch": {
+		"message": "Tono ng boses"
+	},
+	"testing": {
+		"message": "Pagsubok"
+	},
+	"autoTest": {
+		"message": "Awtomatikong pagsubok"
+	},
+	"testSentence": {
+		"message": "Pangungusap sa pagsubok"
+	},
+	"defaultLanguage": {
+		"message": "Default na wika"
+	},
+	"autoTranslate": {
+		"message": "Awtomatikong pagsasalin"
+	},
+	"SHORTCUTS": {
+		"message": "Mga pandaigdigang shortcut"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Simulan ang pagbabasa",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pausahan ang pagbabasa",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Itigil ang pagbabasa",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Mga custom na shortcut",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Naku, mukhang wala ka pang naidagdag na shortcut.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Magdagdag ng shortcut",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Keyboard shortcut",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Ponetikong Transkripsyon"
+	},
+	"defineTranscription": {
+		"message": "Ang feature na ito ay nagbibigay-daan sa iyo na i-customize ang pagbigkas ng mga partikular na salita sa TTS engine.<br>Sa pamamagitan ng pagtukoy ng mga ponetikong baybay o alternatibong pagbigkas (hal., pagbigkas ng 'Riddr' bilang 'reader'), maaari mong tiyakin na ang TTS engine<br>ay tumpak na sumasalamin sa iyong ninanais na output ng pagsasalita.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Naku, mukhang wala ka pang naidagdag na transkripsyon.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Magdagdag ng transkripsyon",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Mga advanced na opsyon ng TTS"
+	},
+	"offlineTTS": {
+		"message": "Offline na TTS Engine",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Failover na TTS engine",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Pagpili ng teksto"
+	},
+	"autoRead": {
+		"message": "Awtomatikong pagbabasa"
+	},
+	"autoSelection": {
+		"message": "Awtomatikong pagpili"
+	},
+	"MISCELLANEOUS": {
+		"message": "Iba’t iba",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Pag-uulat ng error",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Paganahin ang <b title=\"Speech Synthesis Markup Language\">SSML</b> markup",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Ipakita ang pindutan ng donasyon"
+	},
+	"snackbarOption": {
+		"message": "Ipakita ang snackbar sa selector mode",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Tumanggap ng mga abiso sa update",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Matagumpay na nai-save ang mga pagbabago!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Naku!</b><br> May nangyaring mali."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Hindi mabasa ang website na ito.<br>Subukan ang isa pa."
+	},
+	"popUpSelector": {
+		"message": "<b>Kumusta!</b><br>Pumili ng teksto para basahin ko."
+	},
+	"MYRIDDR": {
+		"message": "Darating na ang Aking Riddr!"
+	},
+	"joinMyRiddR": {
+		"message": "Sumali na!"
+	},
+	"contentSnackbar": {
+		"message": "Mag-click sa isang talata ng teksto para basahin ito ng Riddr, o pindutin ang Esc para kanselahin."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Trình đọc văn bản thành giọng nói cho Chrome"
+	},
+	"title": {
+		"message": "Đọc văn bản được chọn."
+	},
+	"desc": {
+		"message": "Mệt mỏi vì đọc? Riddr là một tiện ích TTS MIỄN PHÍ có thể đọc tin tức, blog yêu thích, email và PDF của bạn bằng hơn 50 ngôn ngữ."
+	},
+	"add": {
+		"message": "Thêm"
+	},
+	"remove": {
+		"message": "Xóa"
+	},
+	"from": {
+		"message": "Từ"
+	},
+	"to": {
+		"message": "Đến"
+	},
+	"read": {
+		"message": "Đọc nó!"
+	},
+	"language": {
+		"message": "Ngôn ngữ"
+	},
+	"autodetect": {
+		"message": "Tự động phát hiện"
+	},
+	"nowReading": {
+		"message": "Đang đọc:"
+	},
+	"options": {
+		"message": "Tùy chọn"
+	},
+	"generalOptions": {
+		"message": "Chung"
+	},
+	"shortcutsOptions": {
+		"message": "Phím tắt"
+	},
+	"transcriptionOptions": {
+		"message": "Phiên âm"
+	},
+	"advancedOptions": {
+		"message": "Nâng cao"
+	},
+	"vocalSettings": {
+		"message": "Cài đặt giọng nói"
+	},
+	"TTSengine": {
+		"message": "Công cụ chuyển văn bản thành giọng nói"
+	},
+	"TTSengine_short": {
+		"message": "Công cụ TTS"
+	},
+	"enqueneMode": {
+		"message": "Chế độ xếp hàng"
+	},
+	"defaultVolume": {
+		"message": "Mức âm lượng mặc định"
+	},
+	"speakingRate": {
+		"message": "Tốc độ nói"
+	},
+	"voicePitch": {
+		"message": "Độ cao giọng nói"
+	},
+	"testing": {
+		"message": "Kiểm tra"
+	},
+	"autoTest": {
+		"message": "Kiểm tra tự động"
+	},
+	"testSentence": {
+		"message": "Câu kiểm tra"
+	},
+	"defaultLanguage": {
+		"message": "Ngôn ngữ mặc định"
+	},
+	"autoTranslate": {
+		"message": "Tự động dịch"
+	},
+	"SHORTCUTS": {
+		"message": "Phím tắt toàn cục"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Bắt đầu đọc",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Tạm dừng đọc",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Dừng đọc",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Phím tắt tùy chỉnh",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ôi, có vẻ bạn chưa thêm phím tắt nào.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Thêm phím tắt",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Phím tắt bàn phím",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Phiên âm ngữ âm"
+	},
+	"defineTranscription": {
+		"message": "Tính năng này cho phép bạn tùy chỉnh cách phát âm của các từ cụ thể trong công cụ TTS.<br>Bằng cách xác định cách viết phiên âm hoặc cách phát âm thay thế (ví dụ: phát âm 'Riddr' là 'reader'), bạn có thể đảm bảo rằng công cụ TTS<br> phản ánh chính xác đầu ra giọng nói mong muốn của bạn.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ôi, có vẻ bạn chưa thêm phiên âm nào.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Thêm phiên âm",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Tùy chọn TTS nâng cao"
+	},
+	"offlineTTS": {
+		"message": "Công cụ TTS ngoại tuyến",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Công cụ TTS dự phòng",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Lựa chọn văn bản"
+	},
+	"autoRead": {
+		"message": "Tự động đọc"
+	},
+	"autoSelection": {
+		"message": "Tự động chọn"
+	},
+	"MISCELLANEOUS": {
+		"message": "Linh tinh",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Báo cáo lỗi",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Bật đánh dấu <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Hiển thị nút quyên góp"
+	},
+	"snackbarOption": {
+		"message": "Hiển thị thanh thông báo ở chế độ chọn",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Nhận thông báo cập nhật",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Các thay đổi đã được lưu thành công!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ôi!</b><br> Có gì đó không ổn."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Trang web này không thể đọc được.<br>Vui lòng thử trang khác."
+	},
+	"popUpSelector": {
+		"message": "<b>Xin chào!</b><br>Vui lòng chọn một đoạn văn bản để tôi đọc."
+	},
+	"MYRIDDR": {
+		"message": "My Riddr sắp ra mắt!"
+	},
+	"joinMyRiddR": {
+		"message": "Tham gia ngay!"
+	},
+	"contentSnackbar": {
+		"message": "Nhấp vào một đoạn văn bản để Riddr đọc, hoặc nhấn Esc để hủy."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Teksta uz runu lasītājs Chrome pārlūkam"
+	},
+	"title": {
+		"message": "Lasīt atlasīto tekstu."
+	},
+	"desc": {
+		"message": "Noguris no lasīšanas? Riddr ir BEZMAKSAS TTS paplašinājums, kas var lasīt jūsu ziņas, iecienītākos emuārus, e-pastus un PDF failus vairāk nekā 50 valodās."
+	},
+	"add": {
+		"message": "Pievienot"
+	},
+	"remove": {
+		"message": "Noņemt"
+	},
+	"from": {
+		"message": "No"
+	},
+	"to": {
+		"message": "Uz"
+	},
+	"read": {
+		"message": "Lasīt to!"
+	},
+	"language": {
+		"message": "Valoda"
+	},
+	"autodetect": {
+		"message": "Automātiska noteikšana"
+	},
+	"nowReading": {
+		"message": "Tagad lasa:"
+	},
+	"options": {
+		"message": "Iestatījumi"
+	},
+	"generalOptions": {
+		"message": "Vispārīgi"
+	},
+	"shortcutsOptions": {
+		"message": "Īsceļi"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripcija"
+	},
+	"advancedOptions": {
+		"message": "Papildu"
+	},
+	"vocalSettings": {
+		"message": "Balss iestatījumi"
+	},
+	"TTSengine": {
+		"message": "Teksta uz runu dzinējs"
+	},
+	"TTSengine_short": {
+		"message": "TTS dzinējs"
+	},
+	"enqueneMode": {
+		"message": "Rindas režīms"
+	},
+	"defaultVolume": {
+		"message": "Noklusējuma skaļuma līmenis"
+	},
+	"speakingRate": {
+		"message": "Runas ātrums"
+	},
+	"voicePitch": {
+		"message": "Balss tonis"
+	},
+	"testing": {
+		"message": "Testēšana"
+	},
+	"autoTest": {
+		"message": "Automātiska testēšana"
+	},
+	"testSentence": {
+		"message": "Testa teikums"
+	},
+	"defaultLanguage": {
+		"message": "Noklusējuma valoda"
+	},
+	"autoTranslate": {
+		"message": "Automātiska tulkošana"
+	},
+	"SHORTCUTS": {
+		"message": "Globālie īsceļi"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Sākt lasīšanu",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pauzēt lasīšanu",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Apturēt lasīšanu",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Pielāgoti īsceļi",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ak, izskatās, ka jūs vēl neesat pievienojis nevienu īsceļu.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Pievienot īsceļu",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Tastatūras īsceļš",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonētiskā transkripcija"
+	},
+	"defineTranscription": {
+		"message": "Šī funkcija ļauj pielāgot noteiktu vārdu izrunu TTS dzinējā.<br>Definējot fonētiskās rakstības vai alternatīvas izrunas (piemēram, izrunājot 'Riddr' kā 'lasītājs'), jūs varat nodrošināt, ka TTS dzinējs<br> precīzi atspoguļo jūsu vēlamo runas izvadi.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ak, izskatās, ka jūs vēl neesat pievienojis nevienu transkriptu.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Pievienot transkriptu",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Papildu TTS opcijas"
+	},
+	"offlineTTS": {
+		"message": "Bezsaistes TTS dzinējs",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Rezerves TTS dzinējs",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Teksta atlase"
+	},
+	"autoRead": {
+		"message": "Automātiska lasīšana"
+	},
+	"autoSelection": {
+		"message": "Automātiska atlase"
+	},
+	"MISCELLANEOUS": {
+		"message": "Dažādi",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Kļūdu ziņošana",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Iespējot <b title=\"Speech Synthesis Markup Language\">SSML</b> marķējumu",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Rādīt ziedojumu pogu"
+	},
+	"snackbarOption": {
+		"message": "Rādīt uzkodu joslu atlases režīmā",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Saņemt atjauninājumu paziņojumus",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Izmaiņas tika veiksmīgi saglabātas!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ak!</b><br> Kaut kas nogāja greizi."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Šo vietni nevar nolasīt.<br>Lūdzu, izmēģiniet citu."
+	},
+	"popUpSelector": {
+		"message": "<b>Sveiki!</b><br>Lūdzu, atlasiet kādu tekstu, ko man nolasīt."
+	},
+	"MYRIDDR": {
+		"message": "Mans Riddr drīzumā būs pieejams!"
+	},
+	"joinMyRiddR": {
+		"message": "Pievienojies tagad!"
+	},
+	"contentSnackbar": {
+		"message": "Noklikšķiniet uz teksta rindkopas, lai Riddr to nolasītu, vai nospiediet Esc, lai atceltu."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Αναγνώστης Κειμένου σε Ομιλία για Chrome"
+	},
+	"title": {
+		"message": "Διάβασε το επιλεγμένο κείμενο."
+	},
+	"desc": {
+		"message": "Κουρασμένος από την ανάγνωση; Το Riddr είναι μια ΔΩΡΕΑΝ επέκταση TTS που μπορεί να διαβάσει τις ειδήσεις σου, τα αγαπημένα σου ιστολόγια, τα email και τα PDF σε 50+ γλώσσες."
+	},
+	"add": {
+		"message": "Προσθήκη"
+	},
+	"remove": {
+		"message": "Αφαίρεση"
+	},
+	"from": {
+		"message": "Από"
+	},
+	"to": {
+		"message": "Προς"
+	},
+	"read": {
+		"message": "Διάβασέ το!"
+	},
+	"language": {
+		"message": "Γλώσσα"
+	},
+	"autodetect": {
+		"message": "Αυτόματη ανίχνευση"
+	},
+	"nowReading": {
+		"message": "Τώρα διαβάζει:"
+	},
+	"options": {
+		"message": "Επιλογές"
+	},
+	"generalOptions": {
+		"message": "Γενικά"
+	},
+	"shortcutsOptions": {
+		"message": "Συντομεύσεις"
+	},
+	"transcriptionOptions": {
+		"message": "Μεταγραφή"
+	},
+	"advancedOptions": {
+		"message": "Προχωρημένες"
+	},
+	"vocalSettings": {
+		"message": "Ρυθμίσεις φωνής"
+	},
+	"TTSengine": {
+		"message": "Μηχανή Κειμένου σε Ομιλία"
+	},
+	"TTSengine_short": {
+		"message": "Μηχανή TTS"
+	},
+	"enqueneMode": {
+		"message": "Λειτουργία ουράς"
+	},
+	"defaultVolume": {
+		"message": "Προεπιλεγμένη ένταση ήχου"
+	},
+	"speakingRate": {
+		"message": "Ρυθμός ομιλίας"
+	},
+	"voicePitch": {
+		"message": "Τονικότητα φωνής"
+	},
+	"testing": {
+		"message": "Δοκιμή"
+	},
+	"autoTest": {
+		"message": "Αυτόματη δοκιμή"
+	},
+	"testSentence": {
+		"message": "Πρόταση δοκιμής"
+	},
+	"defaultLanguage": {
+		"message": "Προεπιλεγμένη γλώσσα"
+	},
+	"autoTranslate": {
+		"message": "Αυτόματη μετάφραση"
+	},
+	"SHORTCUTS": {
+		"message": "Καθολικές συντομεύσεις"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Έναρξη ανάγνωσης",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Παύση ανάγνωσης",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Διακοπή ανάγνωσης",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Προσαρμοσμένες συντομεύσεις",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ουπς, φαίνεται ότι δεν έχεις προσθέσει ακόμα συντομεύσεις.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Προσθήκη συντόμευσης",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Συντόμευση πληκτρολογίου",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Φωνητική μεταγραφή"
+	},
+	"defineTranscription": {
+		"message": "Αυτή η λειτουργία σου επιτρέπει να προσαρμόσεις την προφορά συγκεκριμένων λέξεων στη μηχανή TTS.<br>Ορίζοντας φωνητικές ορθογραφίες ή εναλλακτικές προφορές (π.χ., προφέροντας το 'Riddr' ως 'αναγνώστης'), μπορείς να εξασφαλίσεις ότι η μηχανή TTS<br>αντικατοπτρίζει με ακρίβεια την επιθυμητή σου έξοδο ομιλίας.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ουπς, φαίνεται ότι δεν έχεις προσθέσει ακόμα μεταγραφές.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Προσθήκη μεταγραφής",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Προχωρημένες επιλογές TTS"
+	},
+	"offlineTTS": {
+		"message": "Μηχανή TTS εκτός σύνδεσης",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Εφεδρική μηχανή TTS",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Επιλογή κειμένου"
+	},
+	"autoRead": {
+		"message": "Αυτόματη ανάγνωση"
+	},
+	"autoSelection": {
+		"message": "Αυτόματη επιλογή"
+	},
+	"MISCELLANEOUS": {
+		"message": "Διάφορα",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Αναφορά σφαλμάτων",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Ενεργοποίηση σήμανσης <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Εμφάνιση κουμπιού δωρεών"
+	},
+	"snackbarOption": {
+		"message": "Εμφάνιση γραμμής ειδοποιήσεων σε λειτουργία επιλογής",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Λήψη ειδοποιήσεων ενημέρωσης",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Οι αλλαγές αποθηκεύτηκαν με επιτυχία!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ουπς!</b><br> Κάτι πήγε στραβά."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Αυτός ο ιστότοπος δεν μπορεί να διαβαστεί.<br>Παρακαλώ δοκίμασε έναν άλλο."
+	},
+	"popUpSelector": {
+		"message": "<b>Γεια!</b><br>Παρακαλώ επίλεξε κάποιο κείμενο για να διαβάσω."
+	},
+	"MYRIDDR": {
+		"message": "Το My Riddr έρχεται σύντομα!"
+	},
+	"joinMyRiddR": {
+		"message": "Εγγραφείτε τώρα!"
+	},
+	"contentSnackbar": {
+		"message": "Κάνε κλικ σε μια παράγραφο κειμένου για να τη διαβάσει το Riddr, ή πάτησε Esc για ακύρωση."
+	}
+}

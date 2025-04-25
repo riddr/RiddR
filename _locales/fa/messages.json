@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "ریدر - خواننده متن به گفتار برای کروم"
+	},
+	"title": {
+		"message": "متن انتخاب‌شده را بخوانید."
+	},
+	"desc": {
+		"message": "از خواندن خسته شده‌اید؟ ریدر یک افزونه رایگان TTS است که می‌تواند اخبار، وبلاگ‌های مورد علاقه، ایمیل‌ها و فایل‌های PDF شما را به بیش از ۵۰ زبان بخواند."
+	},
+	"add": {
+		"message": "افزودن"
+	},
+	"remove": {
+		"message": "حذف"
+	},
+	"from": {
+		"message": "از"
+	},
+	"to": {
+		"message": "به"
+	},
+	"read": {
+		"message": "بخوان!"
+	},
+	"language": {
+		"message": "زبان"
+	},
+	"autodetect": {
+		"message": "تشخیص خودکار"
+	},
+	"nowReading": {
+		"message": "در حال خواندن:"
+	},
+	"options": {
+		"message": "گزینه‌ها"
+	},
+	"generalOptions": {
+		"message": "عمومی"
+	},
+	"shortcutsOptions": {
+		"message": "میانبرها"
+	},
+	"transcriptionOptions": {
+		"message": "رونویسی"
+	},
+	"advancedOptions": {
+		"message": "پیشرفته"
+	},
+	"vocalSettings": {
+		"message": "تنظیمات صوتی"
+	},
+	"TTSengine": {
+		"message": "موتور تبدیل متن به گفتار"
+	},
+	"TTSengine_short": {
+		"message": "موتور TTS"
+	},
+	"enqueneMode": {
+		"message": "حالت صف‌بندی"
+	},
+	"defaultVolume": {
+		"message": "سطح صدای پیش‌فرض"
+	},
+	"speakingRate": {
+		"message": "سرعت گفتار"
+	},
+	"voicePitch": {
+		"message": "زیر و بمی صدا"
+	},
+	"testing": {
+		"message": "آزمایش"
+	},
+	"autoTest": {
+		"message": "آزمایش خودکار"
+	},
+	"testSentence": {
+		"message": "جمله آزمایشی"
+	},
+	"defaultLanguage": {
+		"message": "زبان پیش‌فرض"
+	},
+	"autoTranslate": {
+		"message": "ترجمه خودکار"
+	},
+	"SHORTCUTS": {
+		"message": "میانبرهای سراسری"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "شروع خواندن",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "مکث خواندن",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "توقف خواندن",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "میانبرهای سفارشی",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "اوپس، به نظر می‌رسد هنوز هیچ میانبری اضافه نکرده‌اید.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "افزودن میانبر",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "میانبر صفحه‌کلید",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "رونویسی آوایی"
+	},
+	"defineTranscription": {
+		"message": "این ویژگی به شما امکان می‌دهد تلفظ کلمات خاص در موتور TTS را سفارشی کنید.<br>با تعریف املاهای آوایی یا تلفظ‌های جایگزین (مثلاً تلفظ 'ریدر' به صورت 'خواننده')، می‌توانید اطمینان حاصل کنید که موتور TTS<br> خروجی گفتاری مورد نظر شما را به دقت ارائه می‌دهد.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "اوپس، به نظر می‌رسد هنوز هیچ رونویسی اضافه نکرده‌اید.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "افزودن رونویسی",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "گزینه‌های پیشرفته TTS"
+	},
+	"offlineTTS": {
+		"message": "موتور TTS آفلاین",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "موتور TTS پشتیبان",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "انتخاب متن"
+	},
+	"autoRead": {
+		"message": "خواندن خودکار"
+	},
+	"autoSelection": {
+		"message": "انتخاب خودکار"
+	},
+	"MISCELLANEOUS": {
+		"message": "متفرقه",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "گزارش خطا",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "فعال کردن نشانه‌گذاری <b title=\"زبان نشانه‌گذاری سنتز گفتار\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "نمایش دکمه کمک مالی"
+	},
+	"snackbarOption": {
+		"message": "نمایش نوار اطلاع‌رسانی در حالت انتخاب",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "دریافت اعلان‌های به‌روزرسانی",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "تغییرات با موفقیت ذخیره شدند!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>اوپس!</b><br> چیزی اشتباه شد."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "این وب‌سایت قابل خواندن نیست.<br>لطفاً وب‌سایت دیگری را امتحان کنید."
+	},
+	"popUpSelector": {
+		"message": "<b>سلام!</b><br>لطفاً متنی را برای خواندن انتخاب کنید."
+	},
+	"MYRIDDR": {
+		"message": "ریدر من به زودی می‌آید!"
+	},
+	"joinMyRiddR": {
+		"message": "اکنون بپیوندید!"
+	},
+	"contentSnackbar": {
+		"message": "روی یک پاراگراف متنی کلیک کنید تا ریدر آن را بخواند، یا برای لغو کلید Esc را فشار دهید."
+	}
+}

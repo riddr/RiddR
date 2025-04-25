@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Text to Speech reader for Chrome"
+	},
+	"title": {
+		"message": "Read the selected text."
+	},
+	"desc": {
+		"message": "Sick of reading? Riddr is a free TTS extension that can read your news, favourite blogs, emails, and PDFs in over 50 languages."
+	},
+	"add": {
+		"message": "Add"
+	},
+	"remove": {
+		"message": "Remove"
+	},
+	"from": {
+		"message": "From"
+	},
+	"to": {
+		"message": "To"
+	},
+	"read": {
+		"message": "Have a read!"
+	},
+	"language": {
+		"message": "Language"
+	},
+	"autodetect": {
+		"message": "Auto-detection"
+	},
+	"nowReading": {
+		"message": "Now reading:"
+	},
+	"options": {
+		"message": "Settings"
+	},
+	"generalOptions": {
+		"message": "General"
+	},
+	"shortcutsOptions": {
+		"message": "Shortcuts"
+	},
+	"transcriptionOptions": {
+		"message": "Transcription"
+	},
+	"advancedOptions": {
+		"message": "Advanced"
+	},
+	"vocalSettings": {
+		"message": "Voice settings"
+	},
+	"TTSengine": {
+		"message": "Text to Speech Engine"
+	},
+	"TTSengine_short": {
+		"message": "TTS Engine"
+	},
+	"enqueneMode": {
+		"message": "Queue mode"
+	},
+	"defaultVolume": {
+		"message": "Default volume"
+	},
+	"speakingRate": {
+		"message": "Speaking speed"
+	},
+	"voicePitch": {
+		"message": "Voice pitch"
+	},
+	"testing": {
+		"message": "Testing"
+	},
+	"autoTest": {
+		"message": "Auto test"
+	},
+	"testSentence": {
+		"message": "Test sentence"
+	},
+	"defaultLanguage": {
+		"message": "Default language"
+	},
+	"autoTranslate": {
+		"message": "Auto translate"
+	},
+	"SHORTCUTS": {
+		"message": "Global shortcuts"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Start reading",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pause reading",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Stop reading",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Custom shortcuts",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Whoops, looks like you haven’t added any shortcuts yet.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Add shortcut",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Keyboard shortcut",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Phonetic Transcription"
+	},
+	"defineTranscription": {
+		"message": "This feature lets you tweak how specific words sound in the TTS engine.<br>By setting phonetic spellings or alternative pronunciations (e.g., saying 'Riddr' as 'reader'), you can make sure the TTS engine<br> nails your preferred speech output.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Whoops, seems you haven’t added any transcripts yet.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Add transcript",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Advanced TTS options"
+	},
+	"offlineTTS": {
+		"message": "Offline TTS Engine",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Backup TTS engine",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Text selection"
+	},
+	"autoRead": {
+		"message": "Auto read"
+	},
+	"autoSelection": {
+		"message": "Auto selection"
+	},
+	"MISCELLANEOUS": {
+		"message": "Other bits and bobs",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Error reporting",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Enable <b title=\"Speech Synthesis Markup Language\">SSML</b> markup",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Show donations button"
+	},
+	"snackbarOption": {
+		"message": "Show snackbar in selection mode",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Get update notifications",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Changes saved successfully!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Whoops!</b><br> Something’s gone wrong."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Can’t read this website.<br>Give another one a go."
+	},
+	"popUpSelector": {
+		"message": "<b>G’day!</b><br>Pick some text for me to read."
+	},
+	"MYRIDDR": {
+		"message": "My Riddr is coming soon!"
+	},
+	"joinMyRiddR": {
+		"message": "Jump in now!"
+	},
+	"contentSnackbar": {
+		"message": "Click a paragraph for Riddr to read it, or hit Esc to cancel."
+	}
+}

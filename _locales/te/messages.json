@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Chrome కోసం టెక్స్ట్ టు స్పీచ్ రీడర్"
+	},
+	"title": {
+		"message": "ఎంచుకున్న టెక్స్ట్‌ను చదవండి."
+	},
+	"desc": {
+		"message": "చదవడం విసిగించిందా? Riddr అనేది ఒక ఉచిత TTS ఎక్స్‌టెన్షన్, ఇది మీ వార్తలు, ఇష్టమైన బ్లాగులు, ఇమెయిల్స్ మరియు PDFలను 50+ భాషల్లో చదవగలదు."
+	},
+	"add": {
+		"message": "జోడించు"
+	},
+	"remove": {
+		"message": "తొలగించు"
+	},
+	"from": {
+		"message": "నుండి"
+	},
+	"to": {
+		"message": "కు"
+	},
+	"read": {
+		"message": "దాన్ని చదవండి!"
+	},
+	"language": {
+		"message": "భాష"
+	},
+	"autodetect": {
+		"message": "ఆటోడిటెక్షన్"
+	},
+	"nowReading": {
+		"message": "ఇప్పుడు చదువుతున్నాం:"
+	},
+	"options": {
+		"message": "ఎంపికలు"
+	},
+	"generalOptions": {
+		"message": "సాధారణం"
+	},
+	"shortcutsOptions": {
+		"message": "షార్ట్‌కట్‌లు"
+	},
+	"transcriptionOptions": {
+		"message": "ట్రాన్స్‌క్రిప్షన్"
+	},
+	"advancedOptions": {
+		"message": "అధునాతనం"
+	},
+	"vocalSettings": {
+		"message": "స్వర సెట్టింగ్‌లు"
+	},
+	"TTSengine": {
+		"message": "టెక్స్ట్ టు స్పీచ్ ఇంజన్"
+	},
+	"TTSengine_short": {
+		"message": "TTS ఇంజన్"
+	},
+	"enqueneMode": {
+		"message": "ఎన్‌క్యూ మోడ్"
+	},
+	"defaultVolume": {
+		"message": "డిఫాల్ట్ వాల్యూమ్ స్థాయి"
+	},
+	"speakingRate": {
+		"message": "మాట్లాడే వేగం"
+	},
+	"voicePitch": {
+		"message": "స్వర పిచ్"
+	},
+	"testing": {
+		"message": "పరీక్ష"
+	},
+	"autoTest": {
+		"message": "ఆటో టెస్ట్"
+	},
+	"testSentence": {
+		"message": "పరీక్ష వాక్యం"
+	},
+	"defaultLanguage": {
+		"message": "డిఫాల్ట్ భాష"
+	},
+	"autoTranslate": {
+		"message": "ఆటో అనువాదం"
+	},
+	"SHORTCUTS": {
+		"message": "గ్లోబల్ షార్ట్‌కట్‌లు"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "చదవడం ప్రారంభించు",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "చదవడం పాజ్ చేయి",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "చదవడం ఆపు",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "కస్టమ్ షార్ట్‌కట్‌లు",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "ఓహో, మీరు ఇంకా ఎలాంటి షార్ట్‌కట్‌లను జోడించలేదు.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "షార్ట్‌కట్ జోడించు",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "కీబోర్డ్ షార్ట్‌కట్",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "ఫొనెటిక్ ట్రాన్స్‌క్రిప్షన్"
+	},
+	"defineTranscription": {
+		"message": "ఈ ఫీచర్ మీరు TTS ఇంజన్‌లో నిర్దిష్ట పదాల ఉచ్చారణను అనుకూలీకరించడానికి అనుమతిస్తుంది.<br>ఫొనెటిక్ స్పెల్లింగ్‌లు లేదా ప్రత్యామ్నాయ ఉచ్చారణలను నిర్వచించడం ద్వారా (ఉదా., 'Riddr'ను 'రీడర్'గా ఉచ్చరించడం), మీరు TTS ఇంజన్<br> మీ కావలసిన స్పీచ్ ఔట్‌పుట్‌ను ఖచ్చితంగా ప్రతిబింబించేలా చేయవచ్చు.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "ఓహో, మీరు ఇంకా ఎలాంటి ట్రాన్స్‌క్రిప్ట్‌లను జోడించలేదు.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "ట్రాన్స్‌క్రిప్ట్ జోడించు",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "అధునాతన TTS ఎంపికలు"
+	},
+	"offlineTTS": {
+		"message": "ఆఫ్‌లైన్ TTS ఇంజన్",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "ఫెయిల్‌ఓవర్ TTS ఇంజన్",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "టెక్స్ట్ ఎంపిక"
+	},
+	"autoRead": {
+		"message": "ఆటో రీడ్"
+	},
+	"autoSelection": {
+		"message": "ఆటో ఎంపిక"
+	},
+	"MISCELLANEOUS": {
+		"message": "వివిధ",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "ఎర్రర్ రిపోర్టింగ్",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> మార్కప్‌ను ఎనేబుల్ చేయి",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "డొనేషన్స్ బటన్‌ను చూపించు"
+	},
+	"snackbarOption": {
+		"message": "సెలెక్టర్ మోడ్‌లో స్నాక్‌బార్‌ను చూపించు",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "అప్‌డేట్ నోటిఫికేషన్‌లను స్వీకరించు",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "మార్పులు విజయవంతంగా సేవ్ చేయబడ్డాయి!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>ఓహో!</b><br> ఏదో తప్పు జరిగింది."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "ఈ వెబ్‌సైట్ చదవబడదు.<br>దయచేసి మరొకటి ప్రయత్నించండి."
+	},
+	"popUpSelector": {
+		"message": "<b>హాయ్!</b><br>దయచేసి నేను చదవడానికి కొంత టెక్స్ట్‌ను ఎంచుకోండి."
+	},
+	"MYRIDDR": {
+		"message": "మై Riddr త్వరలో వస్తోంది!"
+	},
+	"joinMyRiddR": {
+		"message": "ఇప్పుడే చేరండి!"
+	},
+	"contentSnackbar": {
+		"message": "Riddr చదవడానికి టెక్స్ట్ పేరాగ్రాఫ్‌ను క్లిక్ చేయండి, లేదా రద్దు చేయడానికి Esc నొక్కండి."
+	}
+}

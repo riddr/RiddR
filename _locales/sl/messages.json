@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Bralnik besedila v govor za Chrome"
+	},
+	"title": {
+		"message": "Preberi izbrano besedilo."
+	},
+	"desc": {
+		"message": "Utrujeni od branja? Riddr je BREZPLAČNA razširitev TTS, ki lahko bere vaše novice, priljubljene bloge, e-pošto in PDF-je v več kot 50 jezikih."
+	},
+	"add": {
+		"message": "Dodaj"
+	},
+	"remove": {
+		"message": "Odstrani"
+	},
+	"from": {
+		"message": "Od"
+	},
+	"to": {
+		"message": "Do"
+	},
+	"read": {
+		"message": "Preberi!"
+	},
+	"language": {
+		"message": "Jezik"
+	},
+	"autodetect": {
+		"message": "Samodejno zaznavanje"
+	},
+	"nowReading": {
+		"message": "Trenutno bere:"
+	},
+	"options": {
+		"message": "Možnosti"
+	},
+	"generalOptions": {
+		"message": "Splošno"
+	},
+	"shortcutsOptions": {
+		"message": "Bližnjice"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripcija"
+	},
+	"advancedOptions": {
+		"message": "Napredno"
+	},
+	"vocalSettings": {
+		"message": "Nastavitve glasu"
+	},
+	"TTSengine": {
+		"message": "Pogon za pretvorbo besedila v govor"
+	},
+	"TTSengine_short": {
+		"message": "Pogon TTS"
+	},
+	"enqueneMode": {
+		"message": "Način vrste"
+	},
+	"defaultVolume": {
+		"message": "Privzeta raven glasnosti"
+	},
+	"speakingRate": {
+		"message": "Hitrost govora"
+	},
+	"voicePitch": {
+		"message": "Višina glasu"
+	},
+	"testing": {
+		"message": "Testiranje"
+	},
+	"autoTest": {
+		"message": "Samodejni test"
+	},
+	"testSentence": {
+		"message": "Testni stavek"
+	},
+	"defaultLanguage": {
+		"message": "Privzeti jezik"
+	},
+	"autoTranslate": {
+		"message": "Samodejno prevajanje"
+	},
+	"SHORTCUTS": {
+		"message": "Globalne bližnjice"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Začni brati",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Premor branja",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Ustavi branje",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Bližnjice po meri",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ups, zdi se, da še niste dodali nobenih bližnjic.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Dodaj bližnjico",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Bližnjica na tipkovnici",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonetična transkripcija"
+	},
+	"defineTranscription": {
+		"message": "Ta funkcija vam omogoča prilagajanje izgovorjave določenih besed v pogonu TTS.<br>Z določanjem fonetičnih zapisov ali alternativnih izgovorjav (npr. izgovarjanje 'Riddr' kot 'bralnik') lahko zagotovite, da pogon TTS<br>natančno odraža želeni govorni izhod.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ups, zdi se, da še niste dodali nobenih transkripcij.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Dodaj transkripcijo",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Napredne možnosti TTS"
+	},
+	"offlineTTS": {
+		"message": "Pogon TTS brez povezave",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Rezervni pogon TTS",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Izbor besedila"
+	},
+	"autoRead": {
+		"message": "Samodejno branje"
+	},
+	"autoSelection": {
+		"message": "Samodejna izbira"
+	},
+	"MISCELLANEOUS": {
+		"message": "Razno",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Poročanje o napakah",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Omogoči označevanje <b title=\"Jezik za označevanje sinteze govora\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Prikaži gumb za donacije"
+	},
+	"snackbarOption": {
+		"message": "Prikaži obvestilno vrstico v načinu izbire",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Prejemanje obvestil o posodobitvah",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Spremembe so bile uspešno shranjene!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ups!</b><br>Nekaj je šlo narobe."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Te spletne strani ni mogoče prebrati.<br>Poskusite z drugo."
+	},
+	"popUpSelector": {
+		"message": "<b>Pozdrav!</b><br>Prosimo, izberite nekaj besedila, da ga preberem."
+	},
+	"MYRIDDR": {
+		"message": "Moj Riddr kmalu prihaja!"
+	},
+	"joinMyRiddR": {
+		"message": "Pridruži se zdaj!"
+	},
+	"contentSnackbar": {
+		"message": "Kliknite na odstavek besedila, da ga Riddr prebere, ali pritisnite Esc za preklic."
+	}
+}

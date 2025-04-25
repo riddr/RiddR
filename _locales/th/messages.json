@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - โปรแกรมอ่านข้อความเป็นเสียงสำหรับ Chrome"
+	},
+	"title": {
+		"message": "อ่านข้อความที่เลือก"
+	},
+	"desc": {
+		"message": "เบื่อการอ่านหรือ? Riddr เป็นส่วนขยาย TTS ฟรีที่สามารถอ่านข่าว บล็อกที่ชื่นชอบ อีเมล และ PDF ในกว่า 50 ภาษา"
+	},
+	"add": {
+		"message": "เพิ่ม"
+	},
+	"remove": {
+		"message": "ลบ"
+	},
+	"from": {
+		"message": "จาก"
+	},
+	"to": {
+		"message": "ถึง"
+	},
+	"read": {
+		"message": "อ่านเลย!"
+	},
+	"language": {
+		"message": "ภาษา"
+	},
+	"autodetect": {
+		"message": "ตรวจจับอัตโนมัติ"
+	},
+	"nowReading": {
+		"message": "กำลังอ่าน:"
+	},
+	"options": {
+		"message": "ตัวเลือก"
+	},
+	"generalOptions": {
+		"message": "ทั่วไป"
+	},
+	"shortcutsOptions": {
+		"message": "ปุ่มลัด"
+	},
+	"transcriptionOptions": {
+		"message": "การถอดเสียง"
+	},
+	"advancedOptions": {
+		"message": "ขั้นสูง"
+	},
+	"vocalSettings": {
+		"message": "การตั้งค่าเสียง"
+	},
+	"TTSengine": {
+		"message": "เครื่องมือแปลงข้อความเป็นเสียง"
+	},
+	"TTSengine_short": {
+		"message": "เครื่องมือ TTS"
+	},
+	"enqueneMode": {
+		"message": "โหมดคิว"
+	},
+	"defaultVolume": {
+		"message": "ระดับเสียงเริ่มต้น"
+	},
+	"speakingRate": {
+		"message": "อัตราการพูด"
+	},
+	"voicePitch": {
+		"message": "ระดับเสียง"
+	},
+	"testing": {
+		"message": "การทดสอบ"
+	},
+	"autoTest": {
+		"message": "ทดสอบอัตโนมัติ"
+	},
+	"testSentence": {
+		"message": "ประโยคทดสอบ"
+	},
+	"defaultLanguage": {
+		"message": "ภาษาเริ่มต้น"
+	},
+	"autoTranslate": {
+		"message": "แปลอัตโนมัติ"
+	},
+	"SHORTCUTS": {
+		"message": "ปุ่มลัดทั่วไป"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "เริ่มอ่าน",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "หยุดอ่าน",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "หยุดอ่าน",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "ปุ่มลัดที่กำหนดเอง",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "อุ๊ย ดูเหมือนคุณยังไม่ได้เพิ่มปุ่มลัดใดๆ",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "เพิ่มปุ่มลัด",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "ปุ่มลัดคีย์บอร์ด",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "การถอดเสียงตามสัทศาสตร์"
+	},
+	"defineTranscription": {
+		"message": "คุณสมบัตินี้ช่วยให้คุณปรับแต่งการออกเสียงของคำเฉพาะในเครื่องมือ TTS ได้<br>โดยการกำหนดการสะกดตามสัทศาสตร์หรือการออกเสียงทางเลือก (เช่น ออกเสียง 'Riddr' เป็น 'รีดเดอร์') คุณสามารถมั่นใจว่าเครื่องมือ TTS<br>จะสะท้อนผลลัพธ์การพูดตามที่คุณต้องการ",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "อุ๊ย ดูเหมือนคุณยังไม่ได้เพิ่มการถอดเสียงใดๆ",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "เพิ่มการถอดเสียง",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "ตัวเลือก TTS ขั้นสูง"
+	},
+	"offlineTTS": {
+		"message": "เครื่องมือ TTS ออฟไลน์",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "เครื่องมือ TTS สำรอง",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "การเลือกข้อความ"
+	},
+	"autoRead": {
+		"message": "อ่านอัตโนมัติ"
+	},
+	"autoSelection": {
+		"message": "เลือกอัตโนมัติ"
+	},
+	"MISCELLANEOUS": {
+		"message": "เบ็ดเตล็ด",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "การรายงานข้อผิดพลาด",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "เปิดใช้งานมาร์กอัป <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "แสดงปุ่มบริจาค"
+	},
+	"snackbarOption": {
+		"message": "แสดงแถบแจ้งเตือนในโหมดเลือก",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "รับการแจ้งเตือนการอัปเดต",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "บันทึกการเปลี่ยนแปลงสำเร็จ!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>อุ๊ย!</b><br> เกิดข้อผิดพลาด"
+	},
+	"ERROR_pageNotReadable": {
+		"message": "เว็บไซต์นี้ไม่สามารถอ่านได้<br>กรุณาลองเว็บไซต์อื่น"
+	},
+	"popUpSelector": {
+		"message": "<b>สวัสดี!</b><br>กรุณาเลือกข้อความที่ต้องการให้ฉันอ่าน"
+	},
+	"MYRIDDR": {
+		"message": "My Riddr จะมาเร็วๆ นี้!"
+	},
+	"joinMyRiddR": {
+		"message": "เข้าร่วมเลย!"
+	},
+	"contentSnackbar": {
+		"message": "คลิกย่อหน้าข้อความเพื่อให้ Riddr อ่าน หรือกด Esc เพื่อยกเลิก"
+	}
+}

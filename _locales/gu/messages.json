@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "રિડર - ક્રોમ માટે ટેક્સ્ટ ટુ સ્પીચ રીડર"
+	},
+	"title": {
+		"message": "પસંદ કરેલ ટેક્સ્ટ વાંચો."
+	},
+	"desc": {
+		"message": "વાંચનથી કંટાળી ગયા છો? રિડર એ એક મફત TTS એક્સટેન્શન છે જે તમારા સમાચાર, મનપસંદ બ્લોગ્સ, ઈમેઈલ્સ અને પીડીએફને 50+ ભાષાઓમાં વાંચી શકે છે."
+	},
+	"add": {
+		"message": "ઉમેરો"
+	},
+	"remove": {
+		"message": "દૂર કરો"
+	},
+	"from": {
+		"message": "થી"
+	},
+	"to": {
+		"message": "સુધી"
+	},
+	"read": {
+		"message": "તેને વાંચો!"
+	},
+	"language": {
+		"message": "ભાષા"
+	},
+	"autodetect": {
+		"message": "ઓટોડિટેક્શન"
+	},
+	"nowReading": {
+		"message": "હવે વાંચી રહ્યું છે:"
+	},
+	"options": {
+		"message": "વિકલ્પો"
+	},
+	"generalOptions": {
+		"message": "સામાન્ય"
+	},
+	"shortcutsOptions": {
+		"message": "શોર્ટકટ્સ"
+	},
+	"transcriptionOptions": {
+		"message": "લિપ્યંતરણ"
+	},
+	"advancedOptions": {
+		"message": "અદ્યતન"
+	},
+	"vocalSettings": {
+		"message": "વોકલ સેટિંગ્સ"
+	},
+	"TTSengine": {
+		"message": "ટેક્સ્ટ ટુ સ્પીચ એન્જિન"
+	},
+	"TTSengine_short": {
+		"message": "TTS એન્જિન"
+	},
+	"enqueneMode": {
+		"message": "એનક્યૂ મોડ"
+	},
+	"defaultVolume": {
+		"message": "ડિફોલ્ટ વોલ્યુમ લેવલ"
+	},
+	"speakingRate": {
+		"message": "બોલવાનો દર"
+	},
+	"voicePitch": {
+		"message": "અવાજની પિચ"
+	},
+	"testing": {
+		"message": "પરીક્ષણ"
+	},
+	"autoTest": {
+		"message": "ઓટો ટેસ્ટ"
+	},
+	"testSentence": {
+		"message": "પરીક્ષણ વાક્ય"
+	},
+	"defaultLanguage": {
+		"message": "ડિફોલ્ટ ભાષા"
+	},
+	"autoTranslate": {
+		"message": "ઓટો ટ્રાન્સલેટ"
+	},
+	"SHORTCUTS": {
+		"message": "વૈશ્વિક શોર્ટકટ્સ"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "વાંચન શરૂ કરો",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "વાંચન અટકાવો",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "વાંચન બંધ કરો",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "કસ્ટમ શોર્ટકટ્સ",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "ઓહો, એવું લાગે છે કે તમે હજી કોઈ શોર્ટકટ્સ ઉમેર્યા નથી.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "શોર્ટકટ ઉમેરો",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "કીબોર્ડ શોર્ટકટ",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "ફોનેટિક લિપ્યંતરણ"
+	},
+	"defineTranscription": {
+		"message": "આ સુવિધા તમને TTS એન્જિનમાં ચોક્કસ શબ્દોના ઉચ્ચારને કસ્ટમાઇઝ કરવાની મંજૂરી આપે છે.<br>ફોનેટિક જોડણી અથવા વૈકલ્પિક ઉચ્ચારો નિર્ધારિત કરીને (દા.ત., 'Riddr' ને 'રીડર' તરીકે ઉચ્ચારવું), તમે ખાતરી કરી શકો છો કે TTS એન્જિન<br> તમારા ઇચ્છિત વાણી આઉટપુટને ચોક્કસ રીતે પ્રતિબિંબિત કરે છે.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "ઓહો, એવું લાગે છે કે તમે હજી કોઈ લિપ્યંતરણ ઉમેર્યું નથી.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "લિપ્યંતરણ ઉમેરો",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "અદ્યતન TTS વિકલ્પો"
+	},
+	"offlineTTS": {
+		"message": "ઑફલાઇન TTS એન્જિન",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "ફેલઓવર TTS એન્જિન",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "ટેક્સ્ટ પસંદગી"
+	},
+	"autoRead": {
+		"message": "ઓટો વાંચન"
+	},
+	"autoSelection": {
+		"message": "ઓટો પસંદગી"
+	},
+	"MISCELLANEOUS": {
+		"message": "વિવિધ",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "ભૂલ અહેવાલ",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> માર્કઅપ સક્ષમ કરો",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "દાન બટન બતાવો"
+	},
+	"snackbarOption": {
+		"message": "સિલેક્ટર મોડમાં સ્નેકબાર બતાવો",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "અપડેટ સૂચનાઓ પ્રાપ્ત કરો",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "ફેરફારો સફળતાપૂર્વક સાચવવામાં આવ્યા!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>ઓહો!</b><br> કંઈક ખોટું થયું."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "આ વેબસાઇટ વાંચી શકાતી નથી.<br>કૃપા કરીને બીજી એક અજમાવો."
+	},
+	"popUpSelector": {
+		"message": "<b>નમસ્તે!</b><br>કૃપા કરીને મારે વાંચવા માટે કેટલુંક ટેક્સ્ટ પસંદ કરો."
+	},
+	"MYRIDDR": {
+		"message": "માય રિડર જલ્દી આવી રહ્યું છે!"
+	},
+	"joinMyRiddR": {
+		"message": "હવે જોડાઓ!"
+	},
+	"contentSnackbar": {
+		"message": "રિડરને વાંચવા માટે ટેક્સ્ટ પેરાગ્રાફ પર ક્લિક કરો, અથવા રદ કરવા માટે Esc દબાવો."
+	}
+}

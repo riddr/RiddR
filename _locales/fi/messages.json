@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Tekstistä puheeksi -lukija Chromelle"
+	},
+	"title": {
+		"message": "Lue valittu teksti."
+	},
+	"desc": {
+		"message": "Kyllästyttääkö lukeminen? Riddr on ILMAINEN TTS-laajennus, joka voi lukea uutisesi, suosikkiblogisi, sähköpostisi ja PDF-tiedostosi yli 50 kielellä."
+	},
+	"add": {
+		"message": "Lisää"
+	},
+	"remove": {
+		"message": "Poista"
+	},
+	"from": {
+		"message": "Lähettäjä"
+	},
+	"to": {
+		"message": "Vastaanottaja"
+	},
+	"read": {
+		"message": "Lue se!"
+	},
+	"language": {
+		"message": "Kieli"
+	},
+	"autodetect": {
+		"message": "Automaattinen tunnistus"
+	},
+	"nowReading": {
+		"message": "Nyt luetaan:"
+	},
+	"options": {
+		"message": "Asetukset"
+	},
+	"generalOptions": {
+		"message": "Yleiset"
+	},
+	"shortcutsOptions": {
+		"message": "Pikanäppäimet"
+	},
+	"transcriptionOptions": {
+		"message": "Transkriptio"
+	},
+	"advancedOptions": {
+		"message": "Edistynyt"
+	},
+	"vocalSettings": {
+		"message": "Ääniasetukset"
+	},
+	"TTSengine": {
+		"message": "Tekstistä puheeksi -moottori"
+	},
+	"TTSengine_short": {
+		"message": "TTS-moottori"
+	},
+	"enqueneMode": {
+		"message": "Jonotustila"
+	},
+	"defaultVolume": {
+		"message": "Oletusäänenvoimakkuus"
+	},
+	"speakingRate": {
+		"message": "Puhumisnopeus"
+	},
+	"voicePitch": {
+		"message": "Äänen korkeus"
+	},
+	"testing": {
+		"message": "Testaus"
+	},
+	"autoTest": {
+		"message": "Automaattinen testi"
+	},
+	"testSentence": {
+		"message": "Testilause"
+	},
+	"defaultLanguage": {
+		"message": "Oletuskieli"
+	},
+	"autoTranslate": {
+		"message": "Automaattinen käännös"
+	},
+	"SHORTCUTS": {
+		"message": "Yleiset pikanäppäimet"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Aloita lukeminen",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Keskeytä lukeminen",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Lopeta lukeminen",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Mukautetut pikanäppäimet",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Hups, näyttää siltä, ettet ole vielä lisännyt yhtään pikanäppäintä.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Lisää pikanäppäin",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Näppäimistön pikanäppäin",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Foneettinen transkriptio"
+	},
+	"defineTranscription": {
+		"message": "Tämän ominaisuuden avulla voit mukauttaa tiettyjen sanojen ääntämistä TTS-moottorissa.<br>Määrittelemällä foneettisia kirjoitusasuja tai vaihtoehtoisia ääntämyksiä (esim. 'Riddr' äännetään 'lukija'), voit varmistaa, että TTS-moottori<br>heijastaa haluamaasi puhetta tarkasti.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Hups, näyttää siltä, ettet ole vielä lisännyt yhtään transkriptiota.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Lisää transkriptio",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Edistyneet TTS-asetukset"
+	},
+	"offlineTTS": {
+		"message": "Offline TTS-moottori",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Varamoottori TTS",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Tekstin valinta"
+	},
+	"autoRead": {
+		"message": "Automaattinen lukeminen"
+	},
+	"autoSelection": {
+		"message": "Automaattinen valinta"
+	},
+	"MISCELLANEOUS": {
+		"message": "Sekalaiset",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Virheraportointi",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Ota käyttöön <b title=\"Speech Synthesis Markup Language\">SSML</b>-merkintä",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Näytä lahjoituspainike"
+	},
+	"snackbarOption": {
+		"message": "Näytä välipalapalkki valintatilassa",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Vastaanota päivitysilmoituksia",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Muutokset tallennettiin onnistuneesti!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Hups!</b><br>Jotain meni pieleen."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Tätä verkkosivustoa ei voida lukea.<br>Kokeile toista."
+	},
+	"popUpSelector": {
+		"message": "<b>Hei!</b><br>Valitse tekstiä, jonka haluan lukea."
+	},
+	"MYRIDDR": {
+		"message": "Oma Riddr on tulossa pian!"
+	},
+	"joinMyRiddR": {
+		"message": "Liity nyt!"
+	},
+	"contentSnackbar": {
+		"message": "Napsauta tekstikappaletta, jotta Riddr lukee sen, tai paina Esc peruuttaaksesi."
+	}
+}

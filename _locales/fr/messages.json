@@ -1,12 +1,12 @@
 {
 	"RiddR": {
-		"message": "Riddr - Lecteur de texte en parole pour Chrome"
+		"message": "Riddr - Lecteur de texte à voix pour Chrome"
 	},
 	"title": {
 		"message": "Lire le texte sélectionné."
 	},
 	"desc": {
-		"message": "Fatigué de lire ? Riddr est une extension TTS GRATUITE qui peut lire vos nouvelles, blogs préférés, courriels, PDF dans plus de 50 langues."
+		"message": "Fatigué de lire ? Riddr est une extension TTS GRATUITE qui peut lire vos actualités, blogs préférés, e-mails et PDF dans plus de 50 langues."
 	},
 	"add": {
 		"message": "Ajouter"
@@ -21,7 +21,7 @@
 		"message": "À"
 	},
 	"read": {
-		"message": "Lis-le!"
+		"message": "Lisez-le !"
 	},
 	"language": {
 		"message": "Langue"
@@ -30,7 +30,7 @@
 		"message": "Détection automatique"
 	},
 	"nowReading": {
-		"message": "Lecture en cours :"
+		"message": "En train de lire :"
 	},
 	"options": {
 		"message": "Options"
@@ -57,7 +57,7 @@
 		"message": "Moteur TTS"
 	},
 	"enqueneMode": {
-		"message": "Mode file d'attente"
+		"message": "Mode de mise en file d'attente"
 	},
 	"defaultVolume": {
 		"message": "Niveau de volume par défaut"
@@ -88,15 +88,15 @@
 	},
 	"SHORTCUTS__execute_action": {
 		"message": "Commencer la lecture",
-		"description": "Used as decription of global shortcut for start of the reading in global shortcut options"
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
 	},
 	"SHORTCUTS_pause": {
 		"message": "Mettre en pause la lecture",
-		"description": "Used as decription of global shortcut action for pausing the current reading in global shortcut options"
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
 	},
 	"SHORTCUTS_stop": {
 		"message": "Arrêter la lecture",
-		"description": "Used as decription of global shortcut for stop of the reading in global shortcut options"
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
 	},
 	"customShortcuts": {
 		"message": "Raccourcis personnalisés",
@@ -104,7 +104,7 @@
 	},
 	"noCustomShortcuts": {
 		"message": "Oups, il semble que vous n'ayez pas encore ajouté de raccourcis.",
-		"description": "Message shown when the user hasn't created any custom shortcuts."
+		"description": "Shown when no custom shortcuts are created."
 	},
 	"addShortcut": {
 		"message": "Ajouter un raccourci",
@@ -115,15 +115,15 @@
 		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
 	},
 	"TRANSCRIPTION": {
-		"message": "Transcription"
+		"message": "Transcription phonétique"
 	},
 	"defineTranscription": {
-		"message": "La transcription, au sens linguistique, est la représentation systématique du langage sous forme écrite.<br>La source peut être des énoncés (parole ou langage des signes) ou un texte préexistant dans un autre système d'écriture.",
-		"description": "Definition of what is transcription."
+		"message": "Cette fonctionnalité vous permet de personnaliser la prononciation de mots spécifiques dans le moteur TTS.<br>En définissant des orthographes phonétiques ou des prononciations alternatives (par exemple, prononcer 'Riddr' comme 'lecteur'), vous pouvez vous assurer que le moteur TTS<br> reflète précisément la sortie vocale souhaitée.",
+		"description": "Definition of what is phonetic transcription."
 	},
 	"noTranscripts": {
 		"message": "Oups, il semble que vous n'ayez pas encore ajouté de transcriptions.",
-		"description": "An message shown when user haven't added any transcripts, yet."
+		"description": "A message shown when the user hasn't added any transcripts yet."
 	},
 	"addTranscript": {
 		"message": "Ajouter une transcription",
@@ -134,7 +134,7 @@
 	},
 	"offlineTTS": {
 		"message": "Moteur TTS hors ligne",
-		"description": "Definition of offline text to sheech engine"
+		"description": "Definition of offline text to speech engine"
 	},
 	"failoverTTS": {
 		"message": "Moteur TTS de secours",
@@ -150,40 +150,40 @@
 		"message": "Sélection automatique"
 	},
 	"MISCELLANEOUS": {
-		"message": "Ajouter une transcription",
-		"description": "Button, for adding transcriptions."
+		"message": "Divers",
+		"description": "Settings or features that don’t fit into other categories."
 	},
 	"errorReporting": {
 		"message": "Rapport d'erreurs",
-		"description": "Advanced option feature, used for enabling / desabling reporting of errors to remote server."
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
 	},
 	"ssmlOption": {
 		"message": "Activer le balisage <b title=\"Speech Synthesis Markup Language\">SSML</b>",
-		"description": "Advanced option for enabling / disabling SSML markup."
+		"description": "Advanced option for enabling/disabling SSML markup."
 	},
 	"donationsOption": {
 		"message": "Afficher le bouton de dons"
 	},
 	"snackbarOption": {
-		"message": "Afficher la barre de notification en mode sélecteur",
-		"description": "Advanced option used for showing snackbar when the client is using selection mode."
+		"message": "Afficher la barre de notification en mode sélection",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
 	},
 	"notifyOnUpdate": {
 		"message": "Recevoir des notifications de mise à jour",
-		"description": "Option that allows the users to opt-in or out from update notifications."
+		"description": "Option that allows users to opt-in or out from update notifications."
 	},
 	"optionsSaved": {
 		"message": "Les modifications ont été enregistrées avec succès !",
-		"description": "Message whown, uppon sucess, in the Riddr options when user modifies some option."
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
 	},
 	"popUpError": {
-		"message": "<b>Oups!?</b></br> Quelque chose a mal tourné."
+		"message": "<b>Oups !</b><br> Quelque chose s'est mal passé."
 	},
 	"ERROR_pageNotReadable": {
 		"message": "Ce site web ne peut pas être lu.<br>Veuillez en essayer un autre."
 	},
 	"popUpSelector": {
-		"message": "<b>Salut !</b></br>Veuillez sélectionner du texte pour que je le lise."
+		"message": "<b>Salut !</b><br>Veuillez sélectionner du texte pour que je le lise."
 	},
 	"MYRIDDR": {
 		"message": "Mon Riddr arrive bientôt !"
@@ -192,6 +192,6 @@
 		"message": "Rejoignez maintenant !"
 	},
 	"contentSnackbar": {
-		"message": "Cliquez sur un paragraphe de texte pour que Riddr le lise, ou appuyez sur ÉCHAP pour annuler."
+		"message": "Cliquez sur un paragraphe de texte pour que Riddr le lise, ou appuyez sur Échap pour annuler."
 	}
 }

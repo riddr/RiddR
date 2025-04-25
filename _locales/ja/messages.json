@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Chrome用テキスト読み上げリーダー"
+	},
+	"title": {
+		"message": "選択したテキストを読み上げる"
+	},
+	"desc": {
+		"message": "読むのに疲れた？Riddrはニュース、お気に入りのブログ、メール、PDFを50以上の言語で読み上げる無料のTTS拡張機能です。"
+	},
+	"add": {
+		"message": "追加"
+	},
+	"remove": {
+		"message": "削除"
+	},
+	"from": {
+		"message": "から"
+	},
+	"to": {
+		"message": "へ"
+	},
+	"read": {
+		"message": "読み上げる！"
+	},
+	"language": {
+		"message": "言語"
+	},
+	"autodetect": {
+		"message": "自動検出"
+	},
+	"nowReading": {
+		"message": "現在読み上げ中："
+	},
+	"options": {
+		"message": "オプション"
+	},
+	"generalOptions": {
+		"message": "一般"
+	},
+	"shortcutsOptions": {
+		"message": "ショートカット"
+	},
+	"transcriptionOptions": {
+		"message": "文字起こし"
+	},
+	"advancedOptions": {
+		"message": "詳細"
+	},
+	"vocalSettings": {
+		"message": "音声設定"
+	},
+	"TTSengine": {
+		"message": "テキスト読み上げエンジン"
+	},
+	"TTSengine_short": {
+		"message": "TTSエンジン"
+	},
+	"enqueneMode": {
+		"message": "キューイングモード"
+	},
+	"defaultVolume": {
+		"message": "デフォルト音量レベル"
+	},
+	"speakingRate": {
+		"message": "話す速度"
+	},
+	"voicePitch": {
+		"message": "声のピッチ"
+	},
+	"testing": {
+		"message": "テスト"
+	},
+	"autoTest": {
+		"message": "自動テスト"
+	},
+	"testSentence": {
+		"message": "テスト文"
+	},
+	"defaultLanguage": {
+		"message": "デフォルト言語"
+	},
+	"autoTranslate": {
+		"message": "自動翻訳"
+	},
+	"SHORTCUTS": {
+		"message": "グローバルショートカット"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "読み上げ開始",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "読み上げ一時停止",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "読み上げ停止",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "カスタムショートカット",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "おっと、ショートカットをまだ追加していませんね。",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "ショートカットを追加",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "キーボードショートカット",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "音声転写"
+	},
+	"defineTranscription": {
+		"message": "この機能では、TTSエンジンで特定の単語の発音をカスタマイズできます。<br>音声スペルや代替発音（例：'Riddr'を'リーダー'として発音）を定義することで、<br>TTSエンジンが希望する音声出力を正確に反映できます。",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "おっと、転写をまだ追加していませんね。",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "転写を追加",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "詳細TTSオプション"
+	},
+	"offlineTTS": {
+		"message": "オフラインTTSエンジン",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "フェイルオーバーTTSエンジン",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "テキスト選択"
+	},
+	"autoRead": {
+		"message": "自動読み上げ"
+	},
+	"autoSelection": {
+		"message": "自動選択"
+	},
+	"MISCELLANEOUS": {
+		"message": "その他",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "エラーレポート",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b>マークアップを有効にする",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "寄付ボタンを表示"
+	},
+	"snackbarOption": {
+		"message": "セレクターモードでスナックバーを表示",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "更新通知を受け取る",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "変更が正常に保存されました！",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>おっと！</b><br>何か問題が発生しました。"
+	},
+	"ERROR_pageNotReadable": {
+		"message": "このウェブサイトは読み上げできません。<br>別のサイトを試してください。"
+	},
+	"popUpSelector": {
+		"message": "<b>こんにちは！</b><br>読み上げるテキストを選択してください。"
+	},
+	"MYRIDDR": {
+		"message": "マイRiddrがもうすぐ登場！"
+	},
+	"joinMyRiddR": {
+		"message": "今すぐ参加！"
+	},
+	"contentSnackbar": {
+		"message": "Riddrが読み上げるテキスト段落をクリックするか、Escキーを押してキャンセルしてください。"
+	}
+}

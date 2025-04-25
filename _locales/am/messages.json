@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - ለክሮም ጽሑፍ ወደ ንግግር አንባቢ"
+	},
+	"title": {
+		"message": "የተመረጠውን ጽሑፍ አንብብ።"
+	},
+	"desc": {
+		"message": "መንበብ ሰልችቶሃል? Riddr ዜናህን፣ ተወዳጅ ብሎጎችህን፣ ኢሜይሎችህን እና ፒዲኤፎችህን በ50+ ቋንቋዎች ሊያነብ የሚችል ነፃ TTS ቅጥያ ነው።"
+	},
+	"add": {
+		"message": "ጨምር"
+	},
+	"remove": {
+		"message": "አስወግድ"
+	},
+	"from": {
+		"message": "ከ"
+	},
+	"to": {
+		"message": "ወደ"
+	},
+	"read": {
+		"message": "አንብበው!"
+	},
+	"language": {
+		"message": "ቋንቋ"
+	},
+	"autodetect": {
+		"message": "ራስ-ሰር ማወቂያ"
+	},
+	"nowReading": {
+		"message": "አሁን በማንበብ ላይ:"
+	},
+	"options": {
+		"message": "አማራጮች"
+	},
+	"generalOptions": {
+		"message": "አጠቃላይ"
+	},
+	"shortcutsOptions": {
+		"message": "አቋራጮች"
+	},
+	"transcriptionOptions": {
+		"message": "ትርጉም"
+	},
+	"advancedOptions": {
+		"message": "የላቀ"
+	},
+	"vocalSettings": {
+		"message": "የድምፅ ቅንብሮች"
+	},
+	"TTSengine": {
+		"message": "ጽሑፍ ወደ ንግግር ሞተር"
+	},
+	"TTSengine_short": {
+		"message": "TTS ሞተር"
+	},
+	"enqueneMode": {
+		"message": "ወረፋ ሁኔታ"
+	},
+	"defaultVolume": {
+		"message": "ነባሪ የድምፅ መጠን"
+	},
+	"speakingRate": {
+		"message": "የንግግር ፍጥነት"
+	},
+	"voicePitch": {
+		"message": "የድምፅ ቃና"
+	},
+	"testing": {
+		"message": "መሞከር"
+	},
+	"autoTest": {
+		"message": "ራስ-ሰር ሙከራ"
+	},
+	"testSentence": {
+		"message": "የሙከራ ዓረፍተ ነገር"
+	},
+	"defaultLanguage": {
+		"message": "ነባሪ ቋንቋ"
+	},
+	"autoTranslate": {
+		"message": "ራስ-ሰር ትርጉም"
+	},
+	"SHORTCUTS": {
+		"message": "አለምአቀፍ አቋራጮች"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "ማንበብ ጀምር",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "ማንበብ አቁም",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "ማንበብ አቁም",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "ብጁ አቋራጮች",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "እርስዎ እስካሁን ምንም አቋራጮች አልጨመሩም ይመስላል።",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "አቋራጭ ጨምር",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "የቁልፍ ሰሌዳ አቋራጭ",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "የድምፅ ትርጉም"
+	},
+	"defineTranscription": {
+		"message": "ይህ ባህሪ በTTS ሞተር ውስጥ የተወሰኑ ቃላት አነባበብ ማበጀት ያስችልዎታል።<br>በፎነቲክ ፊደል ወይም አማራጭ አነባበብ (ለምሳሌ፣ 'Riddr' እንደ 'አንባቢ' መጥራት) በመግለፅ፣<br> TTS ሞተሩ የተፈለገውን የንግግር ውጤት በትክክል እንዲያንፀባርቅ ማረጋገጥ ይችላሉ።",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "እርስዎ እስካሁን ምንም ትርጉሞች አልጨመሩም ይመስላል።",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "ትርጉም ጨምር",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "የላቀ TTS አማራጮች"
+	},
+	"offlineTTS": {
+		"message": "ከመስመር ውጭ TTS ሞተር",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "የመጠባበቂያ TTS ሞተር",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "የጽሑፍ ምርጫ"
+	},
+	"autoRead": {
+		"message": "ራስ-ሰር አንብብ"
+	},
+	"autoSelection": {
+		"message": "ራስ-ሰር ምርጫ"
+	},
+	"MISCELLANEOUS": {
+		"message": "የተለያዩ",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "የስህተት ሪፖርት",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> ማርክአፕን አንቃ",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "የመዋጮ ቁልፍን አሳይ"
+	},
+	"snackbarOption": {
+		"message": "በምርጫ ሁኔታ ስናክባር አሳይ",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "የዝማኔ ማሳወቂያዎችን ተቀበል",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "ለውጦች በተሳካ ሁኔታ ተቀምጠዋል!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>ኦህ!</b><br> አንድ ችግር ተፈጥሯል።"
+	},
+	"ERROR_pageNotReadable": {
+		"message": "ይህ ድህረ ገፅ ሊነበብ አይችልም።<br>እባክዎ ሌላ ይሞክሩ።"
+	},
+	"popUpSelector": {
+		"message": "<b>ሰላም!</b><br>እባክዎ ለመንበብ ጽሑፍ ይምረጡ።"
+	},
+	"MYRIDDR": {
+		"message": "የእኔ Riddr በቅርቡ ይመጣል!"
+	},
+	"joinMyRiddR": {
+		"message": "አሁን ተቀላቀል!"
+	},
+	"contentSnackbar": {
+		"message": "ለRiddr እንዲያነብ የጽሑፍ አንቀጽ ጠቅ ያድርጉ፣ ወይም ለመሰረዝ Esc ይጫኑ።"
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Čtečka textu na řeč pro Chrome"
+	},
+	"title": {
+		"message": "Přečtěte vybraný text."
+	},
+	"desc": {
+		"message": "Unaveni čtením? Riddr je BEZPLATNÉ rozšíření TTS, které dokáže číst vaše zprávy, oblíbené blogy, e-maily a PDF v více než 50 jazycích."
+	},
+	"add": {
+		"message": "Přidat"
+	},
+	"remove": {
+		"message": "Odebrat"
+	},
+	"from": {
+		"message": "Od"
+	},
+	"to": {
+		"message": "Do"
+	},
+	"read": {
+		"message": "Přečtěte to!"
+	},
+	"language": {
+		"message": "Jazyk"
+	},
+	"autodetect": {
+		"message": "Autodetekce"
+	},
+	"nowReading": {
+		"message": "Nyní čte:"
+	},
+	"options": {
+		"message": "Možnosti"
+	},
+	"generalOptions": {
+		"message": "Obecné"
+	},
+	"shortcutsOptions": {
+		"message": "Zkratky"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripce"
+	},
+	"advancedOptions": {
+		"message": "Pokročilé"
+	},
+	"vocalSettings": {
+		"message": "Nastavení hlasu"
+	},
+	"TTSengine": {
+		"message": "Motor převodu textu na řeč"
+	},
+	"TTSengine_short": {
+		"message": "TTS motor"
+	},
+	"enqueneMode": {
+		"message": "Režim zařazování"
+	},
+	"defaultVolume": {
+		"message": "Výchozí úroveň hlasitosti"
+	},
+	"speakingRate": {
+		"message": "Rychlost mluvení"
+	},
+	"voicePitch": {
+		"message": "Výška hlasu"
+	},
+	"testing": {
+		"message": "Testování"
+	},
+	"autoTest": {
+		"message": "Automatický test"
+	},
+	"testSentence": {
+		"message": "Testovací věta"
+	},
+	"defaultLanguage": {
+		"message": "Výchozí jazyk"
+	},
+	"autoTranslate": {
+		"message": "Automatický překlad"
+	},
+	"SHORTCUTS": {
+		"message": "Globální zkratky"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Spustit čtení",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pozastavit čtení",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Zastavit čtení",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Vlastní zkratky",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Jejda, zdá se, že jste ještě nepřidali žádné zkratky.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Přidat zkratku",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Klávesová zkratka",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonetická transkripce"
+	},
+	"defineTranscription": {
+		"message": "Tato funkce umožňuje přizpůsobit výslovnost konkrétních slov v TTS motoru.<br>Definovaním fonetických pravopisů nebo alternativních výslovností (např. výslovnost 'Riddr' jako 'čtečka') můžete zajistit, že TTS motor<br> přesně odráží váš požadovaný výstup řeči.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Jejda, zdá se, že jste ještě nepřidali žádné transkripce.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Přidat transkripci",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Pokročilé možnosti TTS"
+	},
+	"offlineTTS": {
+		"message": "Offline TTS motor",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Záložní TTS motor",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Výběr textu"
+	},
+	"autoRead": {
+		"message": "Automatické čtení"
+	},
+	"autoSelection": {
+		"message": "Automatický výběr"
+	},
+	"MISCELLANEOUS": {
+		"message": "Různé",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Hlášení chyb",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Povolit značení <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Zobrazit tlačítko pro dary"
+	},
+	"snackbarOption": {
+		"message": "Zobrazit snackbar v režimu výběru",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Přijímat oznámení o aktualizacích",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Změny byly úspěšně uloženy!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Jejda!</b><br> Něco se pokazilo."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Tento web nelze přečíst.<br>Zkuste jiný."
+	},
+	"popUpSelector": {
+		"message": "<b>Ahoj!</b><br> Vyberte prosím nějaký text, který mám přečíst."
+	},
+	"MYRIDDR": {
+		"message": "Můj Riddr přijde brzy!"
+	},
+	"joinMyRiddR": {
+		"message": "Připojte se nyní!"
+	},
+	"contentSnackbar": {
+		"message": "Klikněte na odstavec textu, aby ho Riddr přečetl, nebo stiskněte Esc pro zrušení."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Chrome için Metin Okuma okuyucusu"
+	},
+	"title": {
+		"message": "Seçilen metni oku."
+	},
+	"desc": {
+		"message": "Okumaktan yoruldunuz mu? Riddr, haberlerinizi, favori bloglarınızı, e-postalarınızı ve PDF'lerinizi 50'den fazla dilde okuyabilen ÜCRETSİZ bir TTS eklentisidir."
+	},
+	"add": {
+		"message": "Ekle"
+	},
+	"remove": {
+		"message": "Kaldır"
+	},
+	"from": {
+		"message": "Başlangıç"
+	},
+	"to": {
+		"message": "Bitiş"
+	},
+	"read": {
+		"message": "Oku!"
+	},
+	"language": {
+		"message": "Dil"
+	},
+	"autodetect": {
+		"message": "Otomatik Algılama"
+	},
+	"nowReading": {
+		"message": "Şimdi okuyor:"
+	},
+	"options": {
+		"message": "Seçenekler"
+	},
+	"generalOptions": {
+		"message": "Genel"
+	},
+	"shortcutsOptions": {
+		"message": "Kısayollar"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripsiyon"
+	},
+	"advancedOptions": {
+		"message": "Gelişmiş"
+	},
+	"vocalSettings": {
+		"message": "Ses ayarları"
+	},
+	"TTSengine": {
+		"message": "Metin Okuma Motoru"
+	},
+	"TTSengine_short": {
+		"message": "TTS Motoru"
+	},
+	"enqueneMode": {
+		"message": "Sıraya alma modu"
+	},
+	"defaultVolume": {
+		"message": "Varsayılan ses seviyesi"
+	},
+	"speakingRate": {
+		"message": "Konuşma hızı"
+	},
+	"voicePitch": {
+		"message": "Ses perdesi"
+	},
+	"testing": {
+		"message": "Test etme"
+	},
+	"autoTest": {
+		"message": "Otomatik test"
+	},
+	"testSentence": {
+		"message": "Test cümlesi"
+	},
+	"defaultLanguage": {
+		"message": "Varsayılan dil"
+	},
+	"autoTranslate": {
+		"message": "Otomatik çeviri"
+	},
+	"SHORTCUTS": {
+		"message": "Genel kısayollar"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Okumaya başla",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Okumayı duraklat",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Okumayı durdur",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Özel kısayollar",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Hata, henüz herhangi bir kısayol eklemediniz gibi görünüyor.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Kısayol ekle",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Klavye kısayolu",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonetik Transkripsiyon"
+	},
+	"defineTranscription": {
+		"message": "Bu özellik, TTS motorunda belirli kelimelerin telaffuzunu özelleştirmenizi sağlar.<br>Fonetik yazımlar veya alternatif telaffuzlar tanımlayarak (örneğin, 'Riddr' kelimesini 'okuyucu' olarak telaffuz ettirerek),<br>TTS motorunun istediğiniz konuşma çıktısını doğru bir şekilde yansıtmasını sağlayabilirsiniz.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Hata, henüz herhangi bir transkript eklemediniz gibi görünüyor.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Transkript ekle",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Gelişmiş TTS seçenekleri"
+	},
+	"offlineTTS": {
+		"message": "Çevrimdışı TTS Motoru",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Yedek TTS motoru",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Metin seçimi"
+	},
+	"autoRead": {
+		"message": "Otomatik oku"
+	},
+	"autoSelection": {
+		"message": "Otomatik seçim"
+	},
+	"MISCELLANEOUS": {
+		"message": "Çeşitli",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Hata raporlama",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Konuşma Sentezi İşaretleme Dili\">SSML</b> işaretlemesini etkinleştir",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Bağış düğmesini göster"
+	},
+	"snackbarOption": {
+		"message": "Seçici modda bilgi çubuğunu göster",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Güncelleme bildirimleri al",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Değişiklikler başarıyla kaydedildi!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Hata!</b><br> Bir şeyler ters gitti."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Bu web sitesi okunamıyor.<br>Lütfen başka birini deneyin."
+	},
+	"popUpSelector": {
+		"message": "<b>Merhaba!</b><br>Lütfen okumam için biraz metin seçin."
+	},
+	"MYRIDDR": {
+		"message": "My Riddr yakında geliyor!"
+	},
+	"joinMyRiddR": {
+		"message": "Şimdi katıl!"
+	},
+	"contentSnackbar": {
+		"message": "Riddr'ın okuması için bir metin paragrafına tıklayın veya iptal etmek için Esc tuşuna basın."
+	}
+}

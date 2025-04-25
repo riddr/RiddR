@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Четец на текст за Chrome"
+	},
+	"title": {
+		"message": "Прочетете избрания текст."
+	},
+	"desc": {
+		"message": "Уморени ли сте от четене? Riddr е БЕЗПЛАТНО разширение за TTS, което може да чете вашите новини, любими блогове, имейли и PDF файлове на над 50 езика."
+	},
+	"add": {
+		"message": "Добави"
+	},
+	"remove": {
+		"message": "Премахни"
+	},
+	"from": {
+		"message": "От"
+	},
+	"to": {
+		"message": "До"
+	},
+	"read": {
+		"message": "Прочети го!"
+	},
+	"language": {
+		"message": "Език"
+	},
+	"autodetect": {
+		"message": "Автоматично разпознаване"
+	},
+	"nowReading": {
+		"message": "Сега чете:"
+	},
+	"options": {
+		"message": "Настройки"
+	},
+	"generalOptions": {
+		"message": "Общи"
+	},
+	"shortcutsOptions": {
+		"message": "Клавишни комбинации"
+	},
+	"transcriptionOptions": {
+		"message": "Транскрипция"
+	},
+	"advancedOptions": {
+		"message": "Разширени"
+	},
+	"vocalSettings": {
+		"message": "Настройки на гласа"
+	},
+	"TTSengine": {
+		"message": "Двигател за текст в реч"
+	},
+	"TTSengine_short": {
+		"message": "TTS двигател"
+	},
+	"enqueneMode": {
+		"message": "Режим на опашка"
+	},
+	"defaultVolume": {
+		"message": "Стандартно ниво на звука"
+	},
+	"speakingRate": {
+		"message": "Скорост на говорене"
+	},
+	"voicePitch": {
+		"message": "Височина на гласа"
+	},
+	"testing": {
+		"message": "Тестване"
+	},
+	"autoTest": {
+		"message": "Автоматичен тест"
+	},
+	"testSentence": {
+		"message": "Тестово изречение"
+	},
+	"defaultLanguage": {
+		"message": "Език по подразбиране"
+	},
+	"autoTranslate": {
+		"message": "Автоматичен превод"
+	},
+	"SHORTCUTS": {
+		"message": "Глобални клавишни комбинации"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Започни четене",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Пауза на четенето",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Спри четенето",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Персонализирани клавишни комбинации",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Опа, изглежда все още не сте добавили клавишни комбинации.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Добави клавишна комбинация",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Клавишна комбинация",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Фонетична транскрипция"
+	},
+	"defineTranscription": {
+		"message": "Тази функция ви позволява да персонализирате произношението на определени думи в TTS двигателя.<br>Чрез определяне на фонетични изписвания или алтернативни произношения (напр. произнасяне на 'Riddr' като 'четец'), можете да гарантирате, че TTS двигателят<br> точно отразява желания от вас говорен изход.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Опа, изглежда все още не сте добавили транскрипции.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Добави транскрипция",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Разширени TTS опции"
+	},
+	"offlineTTS": {
+		"message": "Офлайн TTS двигател",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Резервен TTS двигател",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Избор на текст"
+	},
+	"autoRead": {
+		"message": "Автоматично четене"
+	},
+	"autoSelection": {
+		"message": "Автоматичен избор"
+	},
+	"MISCELLANEOUS": {
+		"message": "Разни",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Докладване на грешки",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Активиране на <b title=\"Speech Synthesis Markup Language\">SSML</b> маркиране",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Покажи бутон за дарения"
+	},
+	"snackbarOption": {
+		"message": "Покажи изскачащо съобщение в режим на избор",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Получавай известия за актуализации",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Промените бяха успешно запазени!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Опа!</b><br> Нещо се обърка."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Този уебсайт не може да бъде прочетен.<br>Моля, опитайте с друг."
+	},
+	"popUpSelector": {
+		"message": "<b>Здравей!</b><br>Моля, избери текст, който да прочета."
+	},
+	"MYRIDDR": {
+		"message": "Моят Riddr идва скоро!"
+	},
+	"joinMyRiddR": {
+		"message": "Присъедини се сега!"
+	},
+	"contentSnackbar": {
+		"message": "Кликни върху текстов параграф, за да го прочете Riddr, или натисни Esc, за да отмениш."
+	}
+}

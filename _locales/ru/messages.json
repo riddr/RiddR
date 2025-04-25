@@ -1,12 +1,12 @@
 {
 	"RiddR": {
-		"message": "Riddr - Читатель текста в речь для Chrome"
+		"message": "Riddr - Читалка текста для Chrome"
 	},
 	"title": {
 		"message": "Прочитать выделенный текст."
 	},
 	"desc": {
-		"message": "Устали от чтения? Riddr - это БЕСПЛАТНОЕ расширение TTS, которое может читать ваши новости, любимые блоги, электронные письма, PDF-файлы на более чем 50 языках."
+		"message": "Устали читать? Riddr - это БЕСПЛАТНОЕ расширение TTS, которое может читать ваши новости, любимые блоги, электронные письма и PDF-файлы на более чем 50 языках."
 	},
 	"add": {
 		"message": "Добавить"
@@ -51,7 +51,7 @@
 		"message": "Настройки голоса"
 	},
 	"TTSengine": {
-		"message": "Движок преобразования текста в речь"
+		"message": "Движок синтеза речи"
 	},
 	"TTSengine_short": {
 		"message": "Движок TTS"
@@ -88,42 +88,42 @@
 	},
 	"SHORTCUTS__execute_action": {
 		"message": "Начать чтение",
-		"description": "Used as decription of global shortcut for start of the reading in global shortcut options"
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
 	},
 	"SHORTCUTS_pause": {
-		"message": "Приостановить чтение",
-		"description": "Used as decription of global shortcut action for pausing the current reading in global shortcut options"
+		"message": "Пауза чтения",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
 	},
 	"SHORTCUTS_stop": {
 		"message": "Остановить чтение",
-		"description": "Used as decription of global shortcut for stop of the reading in global shortcut options"
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
 	},
 	"customShortcuts": {
 		"message": "Пользовательские горячие клавиши",
 		"description": "Defining user set shortcuts"
 	},
 	"noCustomShortcuts": {
-		"message": "Ой, похоже, вы еще не добавили ни одной горячей клавиши.",
-		"description": "Message shown when the user hasn't created any custom shortcuts."
+		"message": "Ой, похоже, вы еще не добавили горячих клавиш.",
+		"description": "Shown when no custom shortcuts are created."
 	},
 	"addShortcut": {
 		"message": "Добавить горячую клавишу",
 		"description": "Button, for adding custom keyboard shortcuts."
 	},
 	"keyboardShortcut": {
-		"message": "Клавиатурная комбинация",
+		"message": "Клавиатурная горячая клавиша",
 		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
 	},
 	"TRANSCRIPTION": {
-		"message": "Транскрипция"
+		"message": "Фонетическая транскрипция"
 	},
 	"defineTranscription": {
-		"message": "Транскрипция в лингвистическом смысле - это систематическое представление языка в письменной форме.<br>Источник может быть либо высказываниями (речь или язык жестов), либо уже существующим текстом в другой системе письма.",
-		"description": "Definition of what is transcription."
+		"message": "Эта функция позволяет настраивать произношение определенных слов в движке TTS.<br>Определяя фонетические написания или альтернативные произношения (например, произнося 'Riddr' как 'читалка'), вы можете гарантировать, что движок TTS<br> точно воспроизводит желаемый речевой выход.",
+		"description": "Definition of what is phonetic transcription."
 	},
 	"noTranscripts": {
-		"message": "Ой, похоже, вы еще не добавили ни одной транскрипции.",
-		"description": "An message shown when user haven't added any transcripts, yet."
+		"message": "Ой, похоже, вы еще не добавили транскрипций.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
 	},
 	"addTranscript": {
 		"message": "Добавить транскрипцию",
@@ -133,8 +133,8 @@
 		"message": "Расширенные настройки TTS"
 	},
 	"offlineTTS": {
-		"message": "Оффлайн движок TTS",
-		"description": "Definition of offline text to sheech engine"
+		"message": "Оффлайн-движок TTS",
+		"description": "Definition of offline text to speech engine"
 	},
 	"failoverTTS": {
 		"message": "Резервный движок TTS",
@@ -150,48 +150,48 @@
 		"message": "Автовыделение"
 	},
 	"MISCELLANEOUS": {
-		"message": "Добавить транскрипцию",
-		"description": "Button, for adding transcriptions."
+		"message": "Разное",
+		"description": "Settings or features that don’t fit into other categories."
 	},
 	"errorReporting": {
 		"message": "Сообщение об ошибках",
-		"description": "Advanced option feature, used for enabling / desabling reporting of errors to remote server."
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
 	},
 	"ssmlOption": {
 		"message": "Включить разметку <b title=\"Speech Synthesis Markup Language\">SSML</b>",
-		"description": "Advanced option for enabling / disabling SSML markup."
+		"description": "Advanced option for enabling/disabling SSML markup."
 	},
 	"donationsOption": {
 		"message": "Показать кнопку пожертвований"
 	},
 	"snackbarOption": {
-		"message": "Показывать уведомление в режиме выбора",
-		"description": "Advanced option used for showing snackbar when the client is using selection mode."
+		"message": "Показывать уведомление в режиме выделения",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
 	},
 	"notifyOnUpdate": {
 		"message": "Получать уведомления об обновлениях",
-		"description": "Option that allows the users to opt-in or out from update notifications."
+		"description": "Option that allows users to opt-in or out from update notifications."
 	},
 	"optionsSaved": {
 		"message": "Изменения успешно сохранены!",
-		"description": "Message whown, uppon sucess, in the Riddr options when user modifies some option."
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
 	},
 	"popUpError": {
-		"message": "<b>Ой!?</b></br> Что-то пошло не так."
+		"message": "<b>Ой!</b><br> Что-то пошло не так."
 	},
 	"ERROR_pageNotReadable": {
-		"message": "Этот веб-сайт невозможно прочитать.<br>Попробуйте другой."
+		"message": "Этот сайт невозможно прочитать.<br>Попробуйте другой."
 	},
 	"popUpSelector": {
-		"message": "<b>Привет!</b></br> Выделите текст, чтобы я его прочитал."
+		"message": "<b>Привет!</b><br>Пожалуйста, выделите текст для чтения."
 	},
 	"MYRIDDR": {
-		"message": "My Riddr скоро появится!"
+		"message": "Мой Riddr скоро появится!"
 	},
 	"joinMyRiddR": {
 		"message": "Присоединяйтесь сейчас!"
 	},
 	"contentSnackbar": {
-		"message": "Щелкните по текстовому абзацу, чтобы Riddr его прочитал, или нажмите ESC для отмены."
+		"message": "Нажмите на абзац текста, чтобы Riddr его прочитал, или нажмите Esc для отмены."
 	}
 }

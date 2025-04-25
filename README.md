@@ -1,6 +1,7 @@
 # RiddR
 ### Text to Speech extension for Google Chrome
 
+[![Crowdin](https://badges.crowdin.net/riddr/localized.svg)](https://crowdin.com/project/riddr)
 
 RiddR, pronounced as /ˈ𝗿𝗶ː𝗱ə/ (reader) is a Google chrome extension that converts any selected text to speech. Powered by the legendary 𝗦𝗽𝗲𝗮𝗸𝗜𝘁! TTS engine and by using state of the art artificial intelligence technologies, RiddR offers the most authentic human-like voices on the market for 𝗙𝗥𝗘𝗘. Combined with its easy to use interface you’re one click away of converting your favorite e-books, online news, documents and any other form of text into speech in more than 50 languages, so you no longer need to read. 
 

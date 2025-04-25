@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - ক্রোমের জন্য টেক্সট টু স্পিচ রিডার"
+	},
+	"title": {
+		"message": "নির্বাচিত টেক্সট পড়ুন।"
+	},
+	"desc": {
+		"message": "পড়তে ক্লান্ত? Riddr হল একটি বিনামূল্যের TTS এক্সটেনশন যা আপনার খবর, প্রিয় ব্লগ, ইমেল এবং PDF ৫০+ ভাষায় পড়তে পারে।"
+	},
+	"add": {
+		"message": "যোগ করুন"
+	},
+	"remove": {
+		"message": "সরান"
+	},
+	"from": {
+		"message": "থেকে"
+	},
+	"to": {
+		"message": "প্রতি"
+	},
+	"read": {
+		"message": "এটি পড়ুন!"
+	},
+	"language": {
+		"message": "ভাষা"
+	},
+	"autodetect": {
+		"message": "স্বয়ংক্রিয় সনাক্তকরণ"
+	},
+	"nowReading": {
+		"message": "এখন পড়ছে:"
+	},
+	"options": {
+		"message": "বিকল্প"
+	},
+	"generalOptions": {
+		"message": "সাধারণ"
+	},
+	"shortcutsOptions": {
+		"message": "শর্টকাট"
+	},
+	"transcriptionOptions": {
+		"message": "ট্রান্সক্রিপশন"
+	},
+	"advancedOptions": {
+		"message": "উন্নত"
+	},
+	"vocalSettings": {
+		"message": "ভোকাল সেটিংস"
+	},
+	"TTSengine": {
+		"message": "টেক্সট টু স্পিচ ইঞ্জিন"
+	},
+	"TTSengine_short": {
+		"message": "TTS ইঞ্জিন"
+	},
+	"enqueneMode": {
+		"message": "কিউ মোড"
+	},
+	"defaultVolume": {
+		"message": "ডিফল্ট ভলিউম লেভেল"
+	},
+	"speakingRate": {
+		"message": "কথা বলার গতি"
+	},
+	"voicePitch": {
+		"message": "কণ্ঠের পিচ"
+	},
+	"testing": {
+		"message": "পরীক্ষা"
+	},
+	"autoTest": {
+		"message": "স্বয়ংক্রিয় পরীক্ষা"
+	},
+	"testSentence": {
+		"message": "পরীক্ষার বাক্য"
+	},
+	"defaultLanguage": {
+		"message": "ডিফল্ট ভাষা"
+	},
+	"autoTranslate": {
+		"message": "স্বয়ংক্রিয় অনুবাদ"
+	},
+	"SHORTCUTS": {
+		"message": "গ্লোবাল শর্টকাট"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "পড়া শুরু করুন",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "পড়া থামান",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "পড়া বন্ধ করুন",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "কাস্টম শর্টকাট",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "ওহো, মনে হচ্ছে আপনি এখনও কোনো শর্টকাট যোগ করেননি।",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "শর্টকাট যোগ করুন",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "কীবোর্ড শর্টকাট",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "ফোনেটিক ট্রান্সক্রিপশন"
+	},
+	"defineTranscription": {
+		"message": "এই ফিচারটি আপনাকে TTS ইঞ্জিনে নির্দিষ্ট শব্দের উচ্চারণ কাস্টমাইজ করতে দেয়।<br>ফোনেটিক বানান বা বিকল্প উচ্চারণ নির্ধারণ করে (যেমন, 'Riddr' কে 'রিডার' হিসেবে উচ্চারণ করা), আপনি নিশ্চিত করতে পারেন যে TTS ইঞ্জিন<br> আপনার পছন্দসই স্পিচ আউটপুট সঠিকভাবে প্রতিফলিত করে।",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "ওহো, মনে হচ্ছে আপনি এখনও কোনো ট্রান্সক্রিপ্ট যোগ করেননি।",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "ট্রান্সক্রিপ্ট যোগ করুন",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "উন্নত TTS বিকল্প"
+	},
+	"offlineTTS": {
+		"message": "অফলাইন TTS ইঞ্জিন",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "ফেলওভার TTS ইঞ্জিন",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "টেক্সট নির্বাচন"
+	},
+	"autoRead": {
+		"message": "স্বয়ংক্রিয় পড়া"
+	},
+	"autoSelection": {
+		"message": "স্বয়ংক্রিয় নির্বাচন"
+	},
+	"MISCELLANEOUS": {
+		"message": "বিবিধ",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "ত্রুটি রিপোর্টিং",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> মার্কআপ সক্ষম করুন",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "দান বোতাম দেখান"
+	},
+	"snackbarOption": {
+		"message": "নির্বাচন মোডে স্ন্যাকবার দেখান",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "আপডেট বিজ্ঞপ্তি গ্রহণ করুন",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "পরিবর্তনগুলি সফলভাবে সংরক্ষিত হয়েছে!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>ওহো!</b><br> কিছু ভুল হয়েছে।"
+	},
+	"ERROR_pageNotReadable": {
+		"message": "এই ওয়েবসাইট পড়া যায় না।<br>অনুগ্রহ করে অন্য একটি চেষ্টা করুন।"
+	},
+	"popUpSelector": {
+		"message": "<b>হ্যালো!</b><br>অনুগ্রহ করে আমার পড়ার জন্য কিছু টেক্সট নির্বাচন করুন।"
+	},
+	"MYRIDDR": {
+		"message": "আমার Riddr শীঘ্রই আসছে!"
+	},
+	"joinMyRiddR": {
+		"message": "এখন যোগ দিন!"
+	},
+	"contentSnackbar": {
+		"message": "Riddr-এর পড়ার জন্য একটি টেক্সট প্যারাগ্রাফে ক্লিক করুন, অথবা বাতিল করতে Esc চাপুন।"
+	}
+}

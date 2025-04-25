@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Teksto į kalbą skaitytuvas Chrome naršyklei"
+	},
+	"title": {
+		"message": "Skaityti pasirinktą tekstą."
+	},
+	"desc": {
+		"message": "Pavargote nuo skaitymo? Riddr yra NEMOKAMAS TTS plėtinys, kuris gali skaityti jūsų naujienas, mėgstamus tinklaraščius, el. laiškus ir PDF failus daugiau nei 50 kalbų."
+	},
+	"add": {
+		"message": "Pridėti"
+	},
+	"remove": {
+		"message": "Pašalinti"
+	},
+	"from": {
+		"message": "Nuo"
+	},
+	"to": {
+		"message": "Iki"
+	},
+	"read": {
+		"message": "Skaityti!"
+	},
+	"language": {
+		"message": "Kalba"
+	},
+	"autodetect": {
+		"message": "Automatinis aptikimas"
+	},
+	"nowReading": {
+		"message": "Dabar skaito:"
+	},
+	"options": {
+		"message": "Nustatymai"
+	},
+	"generalOptions": {
+		"message": "Bendrieji"
+	},
+	"shortcutsOptions": {
+		"message": "Spartieji klavišai"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripcija"
+	},
+	"advancedOptions": {
+		"message": "Išplėstiniai"
+	},
+	"vocalSettings": {
+		"message": "Balso nustatymai"
+	},
+	"TTSengine": {
+		"message": "Teksto į kalbą variklis"
+	},
+	"TTSengine_short": {
+		"message": "TTS variklis"
+	},
+	"enqueneMode": {
+		"message": "Eilės režimas"
+	},
+	"defaultVolume": {
+		"message": "Numatytasis garsumo lygis"
+	},
+	"speakingRate": {
+		"message": "Kalbėjimo greitis"
+	},
+	"voicePitch": {
+		"message": "Balso aukštis"
+	},
+	"testing": {
+		"message": "Testavimas"
+	},
+	"autoTest": {
+		"message": "Automatinis testas"
+	},
+	"testSentence": {
+		"message": "Bandomasis sakinys"
+	},
+	"defaultLanguage": {
+		"message": "Numatytoji kalba"
+	},
+	"autoTranslate": {
+		"message": "Automatinis vertimas"
+	},
+	"SHORTCUTS": {
+		"message": "Globalūs spartieji klavišai"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Pradėti skaityti",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pristabdyti skaitymą",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Sustabdyti skaitymą",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Pasirinktiniai spartieji klavišai",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Oj, atrodo, dar nepridėjote jokių sparčiųjų klavišų.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Pridėti spartųjį klavišą",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Klaviatūros spartusis klavišas",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonetinė transkripcija"
+	},
+	"defineTranscription": {
+		"message": "Ši funkcija leidžia jums pritaikyti specifinių žodžių tarimą TTS variklyje.<br>Apibrėždami fonetinius rašmenis arba alternatyvius tarimus (pvz., tariant 'Riddr' kaip 'skaitytuvas'), galite užtikrinti, kad TTS variklis<br> tiksliai atspindėtų jūsų norimą kalbos išvestį.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Oj, atrodo, dar nepridėjote jokių transkripcijų.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Pridėti transkripciją",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Išplėstinės TTS parinktys"
+	},
+	"offlineTTS": {
+		"message": "Neprisijungęs TTS variklis",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Atsarginis TTS variklis",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Teksto pasirinkimas"
+	},
+	"autoRead": {
+		"message": "Automatinis skaitymas"
+	},
+	"autoSelection": {
+		"message": "Automatinis pasirinkimas"
+	},
+	"MISCELLANEOUS": {
+		"message": "Įvairūs",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Klaidų pranešimas",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Įjungti <b title=\"Speech Synthesis Markup Language\">SSML</b> žymėjimą",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Rodyti aukų mygtuką"
+	},
+	"snackbarOption": {
+		"message": "Rodyti užkandžių juostą pasirinkimo režime",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Gauti atnaujinimų pranešimus",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Pakeitimai sėkmingai išsaugoti!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Oj!</b><br> Kažkas nutiko."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Šios svetainės negalima skaityti.<br>Pabandykite kitą."
+	},
+	"popUpSelector": {
+		"message": "<b>Sveiki!</b><br>Prašome pasirinkti tekstą, kurį skaitysiu."
+	},
+	"MYRIDDR": {
+		"message": "Mano Riddr netrukus pasirodys!"
+	},
+	"joinMyRiddR": {
+		"message": "Prisijunk dabar!"
+	},
+	"contentSnackbar": {
+		"message": "Spustelėkite teksto pastraipą, kad Riddr ją perskaitytų, arba paspauskite Esc, kad atšauktumėte."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Lector de text a veu per a Chrome"
+	},
+	"title": {
+		"message": "Llegeix el text seleccionat."
+	},
+	"desc": {
+		"message": "Cansat de llegir? Riddr és una extensió TTS GRATUÏTA que pot llegir les teves notícies, blocs preferits, correus electrònics i PDFs en més de 50 idiomes."
+	},
+	"add": {
+		"message": "Afegeix"
+	},
+	"remove": {
+		"message": "Elimina"
+	},
+	"from": {
+		"message": "De"
+	},
+	"to": {
+		"message": "A"
+	},
+	"read": {
+		"message": "Llegeix-ho!"
+	},
+	"language": {
+		"message": "Idioma"
+	},
+	"autodetect": {
+		"message": "Detecció automàtica"
+	},
+	"nowReading": {
+		"message": "Ara llegint:"
+	},
+	"options": {
+		"message": "Opcions"
+	},
+	"generalOptions": {
+		"message": "General"
+	},
+	"shortcutsOptions": {
+		"message": "Dreceres"
+	},
+	"transcriptionOptions": {
+		"message": "Transcripció"
+	},
+	"advancedOptions": {
+		"message": "Avançat"
+	},
+	"vocalSettings": {
+		"message": "Configuració vocal"
+	},
+	"TTSengine": {
+		"message": "Motor de text a veu"
+	},
+	"TTSengine_short": {
+		"message": "Motor TTS"
+	},
+	"enqueneMode": {
+		"message": "Mode de cua"
+	},
+	"defaultVolume": {
+		"message": "Nivell de volum per defecte"
+	},
+	"speakingRate": {
+		"message": "Velocitat de parla"
+	},
+	"voicePitch": {
+		"message": "To de veu"
+	},
+	"testing": {
+		"message": "Proves"
+	},
+	"autoTest": {
+		"message": "Prova automàtica"
+	},
+	"testSentence": {
+		"message": "Frase de prova"
+	},
+	"defaultLanguage": {
+		"message": "Idioma per defecte"
+	},
+	"autoTranslate": {
+		"message": "Traducció automàtica"
+	},
+	"SHORTCUTS": {
+		"message": "Dreceres globals"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Comença a llegir",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pausa la lectura",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Atura la lectura",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Dreceres personalitzades",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Vaja, sembla que encara no has afegit cap drecera.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Afegeix drecera",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Drecera de teclat",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Transcripció fonètica"
+	},
+	"defineTranscription": {
+		"message": "Aquesta funció et permet personalitzar la pronunciació de paraules específiques al motor TTS.<br>En definir ortografies fonètiques o pronunciacions alternatives (per exemple, pronunciar 'Riddr' com 'lector'), pots assegurar-te que el motor TTS<br> reflecteixi amb precisió la sortida de veu desitjada.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Vaja, sembla que encara no has afegit cap transcripció.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Afegeix transcripció",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Opcions TTS avançades"
+	},
+	"offlineTTS": {
+		"message": "Motor TTS fora de línia",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Motor TTS de reserva",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Selecció de text"
+	},
+	"autoRead": {
+		"message": "Lectura automàtica"
+	},
+	"autoSelection": {
+		"message": "Selecció automàtica"
+	},
+	"MISCELLANEOUS": {
+		"message": "Diversos",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Informe d'errors",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Habilita el marcatge <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Mostra el botó de donacions"
+	},
+	"snackbarOption": {
+		"message": "Mostra la barra de notificacions en mode de selecció",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Rep notificacions d'actualitzacions",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Els canvis s'han desat correctament!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Vaja!</b><br> Alguna cosa ha anat malament."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Aquest lloc web no es pot llegir.<br>Prova amb un altre."
+	},
+	"popUpSelector": {
+		"message": "<b>Hola!</b><br>Selecciona algun text perquè el llegeixi."
+	},
+	"MYRIDDR": {
+		"message": "El meu Riddr arribarà aviat!"
+	},
+	"joinMyRiddR": {
+		"message": "Uneix-t'hi ara!"
+	},
+	"contentSnackbar": {
+		"message": "Fes clic en un paràgraf de text perquè Riddr el llegeixi, o prem Esc per cancel·lar."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Cititor de text în vorbire pentru Chrome"
+	},
+	"title": {
+		"message": "Citește textul selectat."
+	},
+	"desc": {
+		"message": "Obosit de citit? Riddr este o extensie TTS GRATUITĂ care poate citi știri, bloguri preferate, e-mailuri și PDF-uri în peste 50 de limbi."
+	},
+	"add": {
+		"message": "Adaugă"
+	},
+	"remove": {
+		"message": "Elimină"
+	},
+	"from": {
+		"message": "De la"
+	},
+	"to": {
+		"message": "Către"
+	},
+	"read": {
+		"message": "Citește!"
+	},
+	"language": {
+		"message": "Limbă"
+	},
+	"autodetect": {
+		"message": "Detectare automată"
+	},
+	"nowReading": {
+		"message": "Acum citesc:"
+	},
+	"options": {
+		"message": "Opțiuni"
+	},
+	"generalOptions": {
+		"message": "General"
+	},
+	"shortcutsOptions": {
+		"message": "Scurtături"
+	},
+	"transcriptionOptions": {
+		"message": "Transcriere"
+	},
+	"advancedOptions": {
+		"message": "Avansat"
+	},
+	"vocalSettings": {
+		"message": "Setări vocale"
+	},
+	"TTSengine": {
+		"message": "Motor de text în vorbire"
+	},
+	"TTSengine_short": {
+		"message": "Motor TTS"
+	},
+	"enqueneMode": {
+		"message": "Mod coadă"
+	},
+	"defaultVolume": {
+		"message": "Nivel de volum implicit"
+	},
+	"speakingRate": {
+		"message": "Viteză de vorbire"
+	},
+	"voicePitch": {
+		"message": "Înălțime vocală"
+	},
+	"testing": {
+		"message": "Testare"
+	},
+	"autoTest": {
+		"message": "Test automat"
+	},
+	"testSentence": {
+		"message": "Propoziție de test"
+	},
+	"defaultLanguage": {
+		"message": "Limbă implicită"
+	},
+	"autoTranslate": {
+		"message": "Traducere automată"
+	},
+	"SHORTCUTS": {
+		"message": "Scurtături globale"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Începe citirea",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pauză citire",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Oprește citirea",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Scurtături personalizate",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ups, se pare că nu ai adăugat încă nicio scurtătură.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Adaugă scurtătură",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Scurtătură de tastatură",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Transcriere fonetică"
+	},
+	"defineTranscription": {
+		"message": "Această funcție îți permite să personalizezi pronunția anumitor cuvinte în motorul TTS.<br>Prin definirea ortografiilor fonetice sau a pronunțiilor alternative (de exemplu, pronunțarea 'Riddr' ca 'cititor'), poți asigura că motorul TTS<br> reflectă cu exactitate ieșirea vocală dorită.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ups, se pare că nu ai adăugat încă nicio transcriere.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Adaugă transcriere",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Opțiuni TTS avansate"
+	},
+	"offlineTTS": {
+		"message": "Motor TTS offline",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Motor TTS de rezervă",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Selecție text"
+	},
+	"autoRead": {
+		"message": "Citire automată"
+	},
+	"autoSelection": {
+		"message": "Selecție automată"
+	},
+	"MISCELLANEOUS": {
+		"message": "Diverse",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Raportare erori",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Activează marcajul <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Afișează butonul de donații"
+	},
+	"snackbarOption": {
+		"message": "Afișează bara de notificări în modul de selecție",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Primește notificări de actualizare",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Modificările au fost salvate cu succes!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ups!</b><br> Ceva nu a mers bine."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Acest site nu poate fi citit.<br>Te rugăm să încerci altul."
+	},
+	"popUpSelector": {
+		"message": "<b>Bună!</b><br>Te rugăm să selectezi un text pentru a-l citi."
+	},
+	"MYRIDDR": {
+		"message": "My Riddr vine curând!"
+	},
+	"joinMyRiddR": {
+		"message": "Înscrie-te acum!"
+	},
+	"contentSnackbar": {
+		"message": "Fă clic pe un paragraf de text pentru a-l citi cu Riddr sau apasă Esc pentru a anula."
+	}
+}

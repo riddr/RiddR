@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Pembaca Teks ke Suara untuk Chrome"
+	},
+	"title": {
+		"message": "Baca teks yang dipilih."
+	},
+	"desc": {
+		"message": "Lelah membaca? Riddr adalah ekstensi TTS GRATIS yang dapat membaca berita, blog favorit, email, dan PDF Anda dalam 50+ bahasa."
+	},
+	"add": {
+		"message": "Tambah"
+	},
+	"remove": {
+		"message": "Hapus"
+	},
+	"from": {
+		"message": "Dari"
+	},
+	"to": {
+		"message": "Ke"
+	},
+	"read": {
+		"message": "Baca!"
+	},
+	"language": {
+		"message": "Bahasa"
+	},
+	"autodetect": {
+		"message": "Deteksi Otomatis"
+	},
+	"nowReading": {
+		"message": "Sekarang membaca:"
+	},
+	"options": {
+		"message": "Opsi"
+	},
+	"generalOptions": {
+		"message": "Umum"
+	},
+	"shortcutsOptions": {
+		"message": "Pintasan"
+	},
+	"transcriptionOptions": {
+		"message": "Transkripsi"
+	},
+	"advancedOptions": {
+		"message": "Lanjutan"
+	},
+	"vocalSettings": {
+		"message": "Pengaturan Suara"
+	},
+	"TTSengine": {
+		"message": "Mesin Teks ke Suara"
+	},
+	"TTSengine_short": {
+		"message": "Mesin TTS"
+	},
+	"enqueneMode": {
+		"message": "Mode Antrian"
+	},
+	"defaultVolume": {
+		"message": "Tingkat volume default"
+	},
+	"speakingRate": {
+		"message": "Kecepatan berbicara"
+	},
+	"voicePitch": {
+		"message": "Nada suara"
+	},
+	"testing": {
+		"message": "Pengujian"
+	},
+	"autoTest": {
+		"message": "Uji otomatis"
+	},
+	"testSentence": {
+		"message": "Kalimat uji"
+	},
+	"defaultLanguage": {
+		"message": "Bahasa default"
+	},
+	"autoTranslate": {
+		"message": "Terjemahkan otomatis"
+	},
+	"SHORTCUTS": {
+		"message": "Pintasan global"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Mulai membaca",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Jeda membaca",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Hentikan membaca",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Pintasan kustom",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ups, sepertinya Anda belum menambahkan pintasan apa pun.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Tambah pintasan",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Pintasan keyboard",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Transkripsi Fonetik"
+	},
+	"defineTranscription": {
+		"message": "Fitur ini memungkinkan Anda untuk menyesuaikan pengucapan kata-kata tertentu di mesin TTS.<br>Dengan menentukan ejaan fonetik atau pengucapan alternatif (misalnya, mengucapkan 'Riddr' sebagai 'pembaca'), Anda dapat memastikan bahwa mesin TTS<br> secara akurat mencerminkan keluaran suara yang Anda inginkan.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ups, sepertinya Anda belum menambahkan transkrip apa pun.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Tambah transkrip",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Opsi TTS Lanjutan"
+	},
+	"offlineTTS": {
+		"message": "Mesin TTS Offline",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Mesin TTS Cadangan",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Pemilihan teks"
+	},
+	"autoRead": {
+		"message": "Baca otomatis"
+	},
+	"autoSelection": {
+		"message": "Pemilihan otomatis"
+	},
+	"MISCELLANEOUS": {
+		"message": "Lain-lain",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Pelaporan kesalahan",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Aktifkan markup <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Tampilkan tombol donasi"
+	},
+	"snackbarOption": {
+		"message": "Tampilkan snackbar dalam mode pemilihan",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Terima notifikasi pembaruan",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Perubahan berhasil disimpan!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ups!</b><br> Ada yang salah."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Situs web ini tidak dapat dibaca.<br>Silakan coba yang lain."
+	},
+	"popUpSelector": {
+		"message": "<b>Halo!</b><br>Silakan pilih teks untuk saya baca."
+	},
+	"MYRIDDR": {
+		"message": "My Riddr akan segera hadir!"
+	},
+	"joinMyRiddR": {
+		"message": "Gabung sekarang!"
+	},
+	"contentSnackbar": {
+		"message": "Klik paragraf teks untuk dibaca oleh Riddr, atau tekan Esc untuk membatalkan."
+	}
+}

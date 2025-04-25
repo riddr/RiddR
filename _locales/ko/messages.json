@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - 크롬용 텍스트 음성 변환 리더"
+	},
+	"title": {
+		"message": "선택한 텍스트를 읽습니다."
+	},
+	"desc": {
+		"message": "읽기가 지겹나요? Riddr은 뉴스, 좋아하는 블로그, 이메일, PDF를 50개 이상의 언어로 읽어주는 무료 TTS 확장 프로그램입니다."
+	},
+	"add": {
+		"message": "추가"
+	},
+	"remove": {
+		"message": "제거"
+	},
+	"from": {
+		"message": "에서"
+	},
+	"to": {
+		"message": "까지"
+	},
+	"read": {
+		"message": "읽어줘!"
+	},
+	"language": {
+		"message": "언어"
+	},
+	"autodetect": {
+		"message": "자동 감지"
+	},
+	"nowReading": {
+		"message": "지금 읽고 있음:"
+	},
+	"options": {
+		"message": "옵션"
+	},
+	"generalOptions": {
+		"message": "일반"
+	},
+	"shortcutsOptions": {
+		"message": "단축키"
+	},
+	"transcriptionOptions": {
+		"message": "전사"
+	},
+	"advancedOptions": {
+		"message": "고급"
+	},
+	"vocalSettings": {
+		"message": "음성 설정"
+	},
+	"TTSengine": {
+		"message": "텍스트 음성 변환 엔진"
+	},
+	"TTSengine_short": {
+		"message": "TTS 엔진"
+	},
+	"enqueneMode": {
+		"message": "대기열 모드"
+	},
+	"defaultVolume": {
+		"message": "기본 음량 레벨"
+	},
+	"speakingRate": {
+		"message": "말하는 속도"
+	},
+	"voicePitch": {
+		"message": "음성 피치"
+	},
+	"testing": {
+		"message": "테스트"
+	},
+	"autoTest": {
+		"message": "자동 테스트"
+	},
+	"testSentence": {
+		"message": "테스트 문장"
+	},
+	"defaultLanguage": {
+		"message": "기본 언어"
+	},
+	"autoTranslate": {
+		"message": "자동 번역"
+	},
+	"SHORTCUTS": {
+		"message": "전역 단축키"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "읽기 시작",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "읽기 일시 중지",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "읽기 중지",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "사용자 지정 단축키",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "앗, 아직 단축키를 추가하지 않으셨습니다.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "단축키 추가",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "키보드 단축키",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "음성 전사"
+	},
+	"defineTranscription": {
+		"message": "이 기능을 사용하면 TTS 엔진에서 특정 단어의 발음을 사용자 지정할 수 있습니다.<br>음성 철자 또는 대체 발음(예: 'Riddr'을 '리더'로 발음)을 정의하여 TTS 엔진이<br> 원하는 음성 출력을 정확하게 반영하도록 할 수 있습니다.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "앗, 아직 전사를 추가하지 않으셨습니다.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "전사 추가",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "고급 TTS 옵션"
+	},
+	"offlineTTS": {
+		"message": "오프라인 TTS 엔진",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "장애 조치 TTS 엔진",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "텍스트 선택"
+	},
+	"autoRead": {
+		"message": "자동 읽기"
+	},
+	"autoSelection": {
+		"message": "자동 선택"
+	},
+	"MISCELLANEOUS": {
+		"message": "기타",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "오류 보고",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> 마크업 활성화",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "기부 버튼 표시"
+	},
+	"snackbarOption": {
+		"message": "선택 모드에서 스낵바 표시",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "업데이트 알림 수신",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "변경 사항이 성공적으로 저장되었습니다!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>앗!</b><br> 뭔가 잘못되었습니다."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "이 웹사이트는 읽을 수 없습니다.<br>다른 웹사이트를 시도해 보세요."
+	},
+	"popUpSelector": {
+		"message": "<b>안녕!</b><br>읽을 텍스트를 선택해 주세요."
+	},
+	"MYRIDDR": {
+		"message": "My Riddr이 곧 출시됩니다!"
+	},
+	"joinMyRiddR": {
+		"message": "지금 가입하세요!"
+	},
+	"contentSnackbar": {
+		"message": "Riddr이 읽을 텍스트 단락을 클릭하거나, Esc를 눌러 취소하세요."
+	}
+}

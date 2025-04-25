@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "रिडर - क्रोमसाठी मजकूर ते भाषण वाचक"
+	},
+	"title": {
+		"message": "निवडलेला मजकूर वाचा."
+	},
+	"desc": {
+		"message": "वाचण्यास कंटाळा आला आहे? रिडर हे एक मोफत टीटीएस विस्तार आहे जे तुमचे बातम्या, आवडते ब्लॉग, ईमेल आणि पीडीएफ 50+ भाषांमध्ये वाचू शकते."
+	},
+	"add": {
+		"message": "जोडा"
+	},
+	"remove": {
+		"message": "काढा"
+	},
+	"from": {
+		"message": "पासून"
+	},
+	"to": {
+		"message": "पर्यंत"
+	},
+	"read": {
+		"message": "ते वाचा!"
+	},
+	"language": {
+		"message": "भाषा"
+	},
+	"autodetect": {
+		"message": "स्वयंचलित शोध"
+	},
+	"nowReading": {
+		"message": "आता वाचत आहे:"
+	},
+	"options": {
+		"message": "पर्याय"
+	},
+	"generalOptions": {
+		"message": "सामान्य"
+	},
+	"shortcutsOptions": {
+		"message": "शॉर्टकट"
+	},
+	"transcriptionOptions": {
+		"message": "लिप्यंतरण"
+	},
+	"advancedOptions": {
+		"message": "प्रगत"
+	},
+	"vocalSettings": {
+		"message": "आवाज सेटिंग्ज"
+	},
+	"TTSengine": {
+		"message": "मजकूर ते भाषण इंजिन"
+	},
+	"TTSengine_short": {
+		"message": "टीटीएस इंजिन"
+	},
+	"enqueneMode": {
+		"message": "रांग मोड"
+	},
+	"defaultVolume": {
+		"message": "पूर्वनिर्धारित आवाज पातळी"
+	},
+	"speakingRate": {
+		"message": "बोलण्याचा वेग"
+	},
+	"voicePitch": {
+		"message": "आवाजाची उंची"
+	},
+	"testing": {
+		"message": "चाचणी"
+	},
+	"autoTest": {
+		"message": "स्वयंचलित चाचणी"
+	},
+	"testSentence": {
+		"message": "चाचणी वाक्य"
+	},
+	"defaultLanguage": {
+		"message": "पूर्वनिर्धारित भाषा"
+	},
+	"autoTranslate": {
+		"message": "स्वयंचलित भाषांतर"
+	},
+	"SHORTCUTS": {
+		"message": "जागतिक शॉर्टकट"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "वाचन सुरू करा",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "वाचन थांबवा",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "वाचन थांबवा",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "सानुकूल शॉर्टकट",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "अरेरे, तुम्ही अद्याप कोणतेही शॉर्टकट जोडलेले दिसत नाहीत.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "शॉर्टकट जोडा",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "कीबोर्ड शॉर्टकट",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "ध्वन्यात्मक लिप्यंतरण"
+	},
+	"defineTranscription": {
+		"message": "हा वैशिष्ट्य तुम्हाला टीटीएस इंजिनमधील विशिष्ट शब्दांचे उच्चारण सानुकूलित करण्याची परवानगी देतो.<br>ध्वन्यात्मक लेखन किंवा पर्यायी उच्चारण परिभाषित करून (उदा., 'Riddr' ला 'वाचक' म्हणून उच्चारणे), तुम्ही टीटीएस इंजिन<br> तुमच्या इच्छित भाषण आउटपुटला अचूकपणे प्रतिबिंबित करते याची खात्री करू शकता.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "अरेरे, तुम्ही अद्याप कोणतेही लिप्यंतरण जोडलेले दिसत नाहीत.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "लिप्यंतरण जोडा",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "प्रगत टीटीएस पर्याय"
+	},
+	"offlineTTS": {
+		"message": "ऑफलाइन टीटीएस इंजिन",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "फेलओव्हर टीटीएस इंजिन",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "मजकूर निवड"
+	},
+	"autoRead": {
+		"message": "स्वयंचलित वाचन"
+	},
+	"autoSelection": {
+		"message": "स्वयंचलित निवड"
+	},
+	"MISCELLANEOUS": {
+		"message": "विविध",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "त्रुटी अहवाल",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> मार्कअप सक्षम करा",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "देणगी बटण दाखवा"
+	},
+	"snackbarOption": {
+		"message": "निवड मोडमध्ये स्नॅकबार दाखवा",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "अद्यतन सूचना प्राप्त करा",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "बदल यशस्वीपणे जतन केले गेले!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>अरेरे!</b><br> काहीतरी चूक झाले."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "ही वेबसाइट वाचली जाऊ शकत नाही.<br>कृपया दुसरी एक वापरून पहा."
+	},
+	"popUpSelector": {
+		"message": "<b>हाय!</b><br>कृपया मला वाचण्यासाठी काही मजकूर निवडा."
+	},
+	"MYRIDDR": {
+		"message": "माझे रिडर लवकरच येत आहे!"
+	},
+	"joinMyRiddR": {
+		"message": "आता सामील व्हा!"
+	},
+	"contentSnackbar": {
+		"message": "रिडरने वाचण्यासाठी मजकूर परिच्छेदावर क्लिक करा, किंवा रद्द करण्यासाठी Esc दाबा."
+	}
+}

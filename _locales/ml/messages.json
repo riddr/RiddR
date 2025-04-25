@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - ക്രോം ബ്രൗസറിനുള്ള ടെക്സ്റ്റ് ടു സ്പീച് റീഡർ"
+	},
+	"title": {
+		"message": "തിരഞ്ഞെടുത്ത ടെക്സ്റ്റ് വായിക്കുക."
+	},
+	"desc": {
+		"message": "വായനയിൽ മടുത്തോ? Riddr ഒരു സൗജന്യ TTS എക്സ്റ്റൻഷനാണ്, ഇത് നിന്റെ വാർത്തകൾ, പ്രിയപ്പെട്ട ബ്ലോഗുകൾ, ഇമെയിലുകൾ, PDF-കൾ എന്നിവ 50-ലധികം ഭാഷകളിൽ വായിക്കാൻ കഴിയും."
+	},
+	"add": {
+		"message": "ചേർക്കുക"
+	},
+	"remove": {
+		"message": "നീക്കം ചെയ്യുക"
+	},
+	"from": {
+		"message": "നിന്ന്"
+	},
+	"to": {
+		"message": "വരെ"
+	},
+	"read": {
+		"message": "ഇത് വായിക്കുക!"
+	},
+	"language": {
+		"message": "ഭാഷ"
+	},
+	"autodetect": {
+		"message": "സ്വയം കണ്ടെത്തൽ"
+	},
+	"nowReading": {
+		"message": "ഇപ്പോൾ വായിക്കുന്നു:"
+	},
+	"options": {
+		"message": "ഓപ്ഷനുകൾ"
+	},
+	"generalOptions": {
+		"message": "പൊതുവായ"
+	},
+	"shortcutsOptions": {
+		"message": "ഷോർട്ട്കട്ടുകൾ"
+	},
+	"transcriptionOptions": {
+		"message": "ട്രാൻസ്ക്രിപ്ഷൻ"
+	},
+	"advancedOptions": {
+		"message": "വിപുലമായ"
+	},
+	"vocalSettings": {
+		"message": "ശബ്ദ ക്രമീകരണങ്ങൾ"
+	},
+	"TTSengine": {
+		"message": "ടെക്സ്റ്റ് ടു സ്പീച് എഞ്ചിൻ"
+	},
+	"TTSengine_short": {
+		"message": "TTS എഞ്ചിൻ"
+	},
+	"enqueneMode": {
+		"message": "ക്യൂ മോഡ്"
+	},
+	"defaultVolume": {
+		"message": "സ്ഥിര ശബ്ദ നില"
+	},
+	"speakingRate": {
+		"message": "സംസാര വേഗത"
+	},
+	"voicePitch": {
+		"message": "ശബ്ദ പിച്ച്"
+	},
+	"testing": {
+		"message": "പരീക്ഷണം"
+	},
+	"autoTest": {
+		"message": "സ്വയം പരീക്ഷണം"
+	},
+	"testSentence": {
+		"message": "പരീക്ഷണ വാചകം"
+	},
+	"defaultLanguage": {
+		"message": "സ്ഥിര ഭാഷ"
+	},
+	"autoTranslate": {
+		"message": "സ്വയം വിവർത്തനം"
+	},
+	"SHORTCUTS": {
+		"message": "ഗ്ലോബൽ ഷോർട്ട്കട്ടുകൾ"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "വായന ആരംഭിക്കുക",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "വായന താൽക്കാലികമായി നിർത്തുക",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "വായന നിർത്തുക",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "ഇഷ്ടാനുസൃത ഷോർട്ട്കട്ടുകൾ",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "ഓ, നിന്റെ ഷോർട്ട്കട്ടുകളൊന്നും ഇതുവരെ ചേർത്തിട്ടില്ലെന്ന് തോന്നുന്നു.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "ഷോർട്ട്കട്ട് ചേർക്കുക",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "കീബോർഡ് ഷോർട്ട്കട്ട്",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "ഫോണറ്റിക് ട്രാൻസ്ക്രിപ്ഷൻ"
+	},
+	"defineTranscription": {
+		"message": "ഈ സവിശേഷത TTS എഞ്ചിനിൽ പ്രത്യേക വാക്കുകളുടെ ഉച്ചാരണം ഇഷ്ടാനുസൃതമാക്കാൻ നിന്നെ അനുവദിക്കുന്നു.<br>ഫോണറ്റിക് സ്പെല്ലിംഗുകളോ പകരം ഉച്ചാരണങ്ങളോ നിർവചിച്ചുകൊണ്ട് (ഉദാഹരണത്തിന്, 'Riddr' എന്നത് 'റീഡർ' എന്ന് ഉച്ചരിക്കുന്നു), TTS എഞ്ചിൻ<br>നിന്റെ ആഗ്രഹിച്ച സംസാര ഔട്ട്പുട്ടിനെ കൃത്യമായി പ്രതിഫലിപ്പിക്കുന്നുവെന്ന് ഉറപ്പാക്കാൻ കഴിയും.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "ഓ, നിന്റെ ട്രാൻസ്ക്രിപ്റ്റുകളൊന്നും ഇതുവരെ ചേർത്തിട്ടില്ലെന്ന് തോന്നുന്നു.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "ട്രാൻസ്ക്രിപ്റ്റ് ചേർക്കുക",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "വിപുലമായ TTS ഓപ്ഷനുകൾ"
+	},
+	"offlineTTS": {
+		"message": "ഓഫ്‌ലൈൻ TTS എഞ്ചിൻ",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "ഫെയിൽഓവർ TTS എഞ്ചിൻ",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "ടെക്സ്റ്റ് തിരഞ്ഞെടുക്കൽ"
+	},
+	"autoRead": {
+		"message": "സ്വയം വായന"
+	},
+	"autoSelection": {
+		"message": "സ്വയം തിരഞ്ഞെടുക്കൽ"
+	},
+	"MISCELLANEOUS": {
+		"message": "പലവക",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "പിശക് റിപ്പോർട്ടിംഗ്",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> മാർക്ക്അപ്പ് പ്രവർത്തനക്ഷമമാക്കുക",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "സംഭാവന ബട്ടൺ കാണിക്കുക"
+	},
+	"snackbarOption": {
+		"message": "സെലക്ടർ മോഡിൽ സ്നാക്ബാർ കാണിക്കുക",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "അപ്ഡേറ്റ് അറിയിപ്പുകൾ സ്വീകരിക്കുക",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "മാറ്റങ്ങൾ വിജയകരമായി സേവ് ചെയ്തു!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>ഓ!</b><br> എന്തോ തെറ്റ് സംഭവിച്ചു."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "ഈ വെബ്സൈറ്റ് വായിക്കാൻ കഴിയില്ല.<br>ദയവായി മറ്റൊരു വെബ്സൈറ്റ് ശ്രമിക്കുക."
+	},
+	"popUpSelector": {
+		"message": "<b>നമസ്കാരം!</b><br>എനിക്ക് വായിക്കാൻ ചില ടെക്സ്റ്റ് തിരഞ്ഞെടുക്കുക."
+	},
+	"MYRIDDR": {
+		"message": "എന്റെ Riddr ഉടൻ വരുന്നു!"
+	},
+	"joinMyRiddR": {
+		"message": "ഇപ്പോൾ ചേരുക!"
+	},
+	"contentSnackbar": {
+		"message": "Riddr-ന് വായിക്കാൻ ഒരു ടെക്സ്റ്റ് ഖണ്ഡിക ക്ലിക്ക് ചെയ്യുക, അല്ലെങ്കിൽ Esc അമർത്തി റദ്ദാക്കുക."
+	}
+}

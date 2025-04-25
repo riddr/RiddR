@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "रिड्डर - क्रोम के लिए टेक्स्ट टू स्पीच रीडर"
+	},
+	"title": {
+		"message": "चयनित टेक्स्ट पढ़ें।"
+	},
+	"desc": {
+		"message": "पढ़ने से थक गए हैं? रिड्डर एक मुफ्त टीटीएस एक्सटेंशन है जो आपकी खबरें, पसंदीदा ब्लॉग, ईमेल और पीडीएफ को 50+ भाषाओं में पढ़ सकता है।"
+	},
+	"add": {
+		"message": "जोड़ें"
+	},
+	"remove": {
+		"message": "हटाएं"
+	},
+	"from": {
+		"message": "से"
+	},
+	"to": {
+		"message": "तक"
+	},
+	"read": {
+		"message": "इसे पढ़ें!"
+	},
+	"language": {
+		"message": "भाषा"
+	},
+	"autodetect": {
+		"message": "स्वचालित पहचान"
+	},
+	"nowReading": {
+		"message": "अब पढ़ रहा है:"
+	},
+	"options": {
+		"message": "विकल्प"
+	},
+	"generalOptions": {
+		"message": "सामान्य"
+	},
+	"shortcutsOptions": {
+		"message": "शॉर्टकट"
+	},
+	"transcriptionOptions": {
+		"message": "प्रतिलेखन"
+	},
+	"advancedOptions": {
+		"message": "उन्नत"
+	},
+	"vocalSettings": {
+		"message": "वोकल सेटिंग्स"
+	},
+	"TTSengine": {
+		"message": "टेक्स्ट टू स्पीच इंजन"
+	},
+	"TTSengine_short": {
+		"message": "टीटीएस इंजन"
+	},
+	"enqueneMode": {
+		"message": "कतार मोड"
+	},
+	"defaultVolume": {
+		"message": "डिफ़ॉल्ट वॉल्यूम स्तर"
+	},
+	"speakingRate": {
+		"message": "बोलने की गति"
+	},
+	"voicePitch": {
+		"message": "आवाज की पिच"
+	},
+	"testing": {
+		"message": "परीक्षण"
+	},
+	"autoTest": {
+		"message": "स्वचालित परीक्षण"
+	},
+	"testSentence": {
+		"message": "परीक्षण वाक्य"
+	},
+	"defaultLanguage": {
+		"message": "डिफ़ॉल्ट भाषा"
+	},
+	"autoTranslate": {
+		"message": "स्वचालित अनुवाद"
+	},
+	"SHORTCUTS": {
+		"message": "वैश्विक शॉर्टकट"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "पढ़ना शुरू करें",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "पढ़ना रोकें",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "पढ़ना बंद करें",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "कस्टम शॉर्टकट",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "उफ़, ऐसा लगता है कि आपने अभी तक कोई शॉर्टकट नहीं जोड़ा है।",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "शॉर्टकट जोड़ें",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "कीबोर्ड शॉर्टकट",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "फोनेटिक प्रतिलेखन"
+	},
+	"defineTranscription": {
+		"message": "यह सुविधा आपको टीटीएस इंजन में विशिष्ट शब्दों के उच्चारण को अनुकूलित करने की अनुमति देती है।<br>फोनेटिक वर्तनी या वैकल्पिक उच्चारण (उदाहरण के लिए, 'रिड्डर' को 'रीडर' के रूप में उच्चारण करना) को परिभाषित करके, आप यह सुनिश्चित कर सकते हैं कि टीटीएस इंजन<br> आपके वांछित भाषण आउटपुट को सटीक रूप से प्रतिबिंबित करता है।",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "उफ़, ऐसा लगता है कि आपने अभी तक कोई प्रतिलेखन नहीं जोड़ा है।",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "प्रतिलेखन जोड़ें",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "उन्नत टीटीएस विकल्प"
+	},
+	"offlineTTS": {
+		"message": "ऑफलाइन टीटीएस इंजन",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "फेलओवर टीटीएस इंजन",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "टेक्स्ट चयन"
+	},
+	"autoRead": {
+		"message": "स्वचालित पढ़ना"
+	},
+	"autoSelection": {
+		"message": "स्वचालित चयन"
+	},
+	"MISCELLANEOUS": {
+		"message": "विविध",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "त्रुटि रिपोर्टिंग",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"स्पीच सिंथेसिस मार्कअप लैंग्वेज\">एसएसएमएल</b> मार्कअप सक्षम करें",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "दान बटन दिखाएं"
+	},
+	"snackbarOption": {
+		"message": "चयन मोड में स्नैकबार दिखाएं",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "अपडेट अधिसूचनाएं प्राप्त करें",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "परिवर्तन सफलतापूर्वक सहेजे गए!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>उफ़!</b><br> कुछ गलत हो गया।"
+	},
+	"ERROR_pageNotReadable": {
+		"message": "यह वेबसाइट पढ़ी नहीं जा सकती।<br>कृपया दूसरी वेबसाइट आज़माएं।"
+	},
+	"popUpSelector": {
+		"message": "<b>नमस्ते!</b><br>कृपया मेरे लिए पढ़ने के लिए कुछ टेक्स्ट चुनें।"
+	},
+	"MYRIDDR": {
+		"message": "मेरा रिड्डर जल्द ही आ रहा है!"
+	},
+	"joinMyRiddR": {
+		"message": "अब शामिल हों!"
+	},
+	"contentSnackbar": {
+		"message": "रिड्डर के लिए टेक्स्ट पैराग्राफ पर क्लिक करें या रद्द करने के लिए Esc दबाएं।"
+	}
+}

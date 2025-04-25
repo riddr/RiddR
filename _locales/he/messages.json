@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "רידר - קורא טקסט לדיבור עבור כרום"
+	},
+	"title": {
+		"message": "קרא את הטקסט שנבחר."
+	},
+	"desc": {
+		"message": "עייפת מקריאה? רידר היא הרחבה חינמית לטקסט לדיבור שיכולה לקרוא חדשות, בלוגים מועדפים, דוא\"ל וקובצי PDF ביותר מ-50 שפות."
+	},
+	"add": {
+		"message": "הוסף"
+	},
+	"remove": {
+		"message": "הסר"
+	},
+	"from": {
+		"message": "מ-"
+	},
+	"to": {
+		"message": "אל"
+	},
+	"read": {
+		"message": "קרא את זה!"
+	},
+	"language": {
+		"message": "שפה"
+	},
+	"autodetect": {
+		"message": "זיהוי אוטומטי"
+	},
+	"nowReading": {
+		"message": "כעת קורא:"
+	},
+	"options": {
+		"message": "אפשרויות"
+	},
+	"generalOptions": {
+		"message": "כללי"
+	},
+	"shortcutsOptions": {
+		"message": "קיצורי דרך"
+	},
+	"transcriptionOptions": {
+		"message": "תמלול"
+	},
+	"advancedOptions": {
+		"message": "מתקדם"
+	},
+	"vocalSettings": {
+		"message": "הגדרות קול"
+	},
+	"TTSengine": {
+		"message": "מנוע טקסט לדיבור"
+	},
+	"TTSengine_short": {
+		"message": "מנוע TTS"
+	},
+	"enqueneMode": {
+		"message": "מצב תור"
+	},
+	"defaultVolume": {
+		"message": "רמת עוצמת קול ברירת מחדל"
+	},
+	"speakingRate": {
+		"message": "קצב דיבור"
+	},
+	"voicePitch": {
+		"message": "גובה קול"
+	},
+	"testing": {
+		"message": "בדיקה"
+	},
+	"autoTest": {
+		"message": "בדיקה אוטומטית"
+	},
+	"testSentence": {
+		"message": "משפט בדיקה"
+	},
+	"defaultLanguage": {
+		"message": "שפת ברירת מחדל"
+	},
+	"autoTranslate": {
+		"message": "תרגום אוטומטי"
+	},
+	"SHORTCUTS": {
+		"message": "קיצורי דרך גלובליים"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "התחל לקרוא",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "השהה קריאה",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "עצור קריאה",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "קיצורי דרך מותאמים אישית",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "אופס, נראה שעדיין לא הוספת קיצורי דרך.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "הוסף קיצור דרך",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "קיצור מקלדת",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "תמלול פונטי"
+	},
+	"defineTranscription": {
+		"message": "תכונה זו מאפשרת לך להתאים אישית את ההגייה של מילים ספציפיות במנוע הטקסט לדיבור.<br>על ידי הגדרת כתיב פונטי או הגיות חלופיות (למשל, הגיית 'רידר' כ'קורא'), תוכל להבטיח שמנוע הטקסט לדיבור<br>משקף במדויק את תפוקת הדיבור הרצויה שלך.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "אופס, נראה שעדיין לא הוספת תמלילים.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "הוסף תמליל",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "אפשרויות TTS מתקדמות"
+	},
+	"offlineTTS": {
+		"message": "מנוע TTS לא מקוון",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "מנוע TTS לגיבוי",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "בחירת טקסט"
+	},
+	"autoRead": {
+		"message": "קריאה אוטומטית"
+	},
+	"autoSelection": {
+		"message": "בחירה אוטומטית"
+	},
+	"MISCELLANEOUS": {
+		"message": "שונות",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "דיווח שגיאות",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "הפעל סימון <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "הצג כפתור תרומות"
+	},
+	"snackbarOption": {
+		"message": "הצג סרגל התראות במצב בחירה",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "קבל הודעות עדכון",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "השינויים נשמרו בהצלחה!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>אופס!</b><br> משהו השתבש."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "לא ניתן לקרוא את האתר הזה.<br>אנא נסה אתר אחר."
+	},
+	"popUpSelector": {
+		"message": "<b>שלום!</b><br>אנא בחר טקסט שאקרא."
+	},
+	"MYRIDDR": {
+		"message": "רידר שלי מגיע בקרוב!"
+	},
+	"joinMyRiddR": {
+		"message": "הצטרף עכשיו!"
+	},
+	"contentSnackbar": {
+		"message": "לחץ על פסקת טקסט כדי שרידר יקרא אותה, או לחץ על Esc לביטול."
+	}
+}

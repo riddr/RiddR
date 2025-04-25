@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Tekst til tale-læser til Chrome"
+	},
+	"title": {
+		"message": "Læs den valgte tekst."
+	},
+	"desc": {
+		"message": "Træt af at læse? Riddr er en GRATIS TTS-udvidelse, der kan læse dine nyheder, yndlingsblogs, e-mails og PDF'er på mere end 50 sprog."
+	},
+	"add": {
+		"message": "Tilføj"
+	},
+	"remove": {
+		"message": "Fjern"
+	},
+	"from": {
+		"message": "Fra"
+	},
+	"to": {
+		"message": "Til"
+	},
+	"read": {
+		"message": "Læs det!"
+	},
+	"language": {
+		"message": "Sprog"
+	},
+	"autodetect": {
+		"message": "Automatisk registrering"
+	},
+	"nowReading": {
+		"message": "Nu læser:"
+	},
+	"options": {
+		"message": "Indstillinger"
+	},
+	"generalOptions": {
+		"message": "Generelt"
+	},
+	"shortcutsOptions": {
+		"message": "Genveje"
+	},
+	"transcriptionOptions": {
+		"message": "Transskription"
+	},
+	"advancedOptions": {
+		"message": "Avanceret"
+	},
+	"vocalSettings": {
+		"message": "Stemmeindstillinger"
+	},
+	"TTSengine": {
+		"message": "Tekst til tale-motor"
+	},
+	"TTSengine_short": {
+		"message": "TTS-motor"
+	},
+	"enqueneMode": {
+		"message": "Køtilstand"
+	},
+	"defaultVolume": {
+		"message": "Standard lydstyrkeniveau"
+	},
+	"speakingRate": {
+		"message": "Talehastighed"
+	},
+	"voicePitch": {
+		"message": "Stemmetone"
+	},
+	"testing": {
+		"message": "Test"
+	},
+	"autoTest": {
+		"message": "Automatisk test"
+	},
+	"testSentence": {
+		"message": "Testsætning"
+	},
+	"defaultLanguage": {
+		"message": "Standardsprog"
+	},
+	"autoTranslate": {
+		"message": "Automatisk oversættelse"
+	},
+	"SHORTCUTS": {
+		"message": "Globale genveje"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Start læsning",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Pause læsning",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Stop læsning",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Brugerdefinerede genveje",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Ups, det ser ud til, at du ikke har tilføjet nogen genveje endnu.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Tilføj genvej",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Tastaturgenvej",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Fonetisk transskription"
+	},
+	"defineTranscription": {
+		"message": "Denne funktion giver dig mulighed for at tilpasse udtalen af specifikke ord i TTS-motoren.<br>Ved at definere fonetiske stavemåder eller alternative udtaler (f.eks. udtale 'Riddr' som 'læser') kan du sikre, at TTS-motoren<br> nøjagtigt afspejler din ønskede taleoutput.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Ups, det ser ud til, at du ikke har tilføjet nogen transskripter endnu.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Tilføj transskript",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Avancerede TTS-indstillinger"
+	},
+	"offlineTTS": {
+		"message": "Offline TTS-motor",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Failover TTS-motor",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Tekstvalg"
+	},
+	"autoRead": {
+		"message": "Automatisk læsning"
+	},
+	"autoSelection": {
+		"message": "Automatisk valg"
+	},
+	"MISCELLANEOUS": {
+		"message": "Diverse",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Fejlrapportering",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Aktivér <b title=\"Speech Synthesis Markup Language\">SSML</b>-markering",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Vis donationsknap"
+	},
+	"snackbarOption": {
+		"message": "Vis snackbar i valgstilstand",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Modtag opdateringsmeddelelser",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Ændringer blev gemt med succes!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Ups!</b><br> Noget gik galt."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Denne hjemmeside kan ikke læses.<br>Prøv en anden."
+	},
+	"popUpSelector": {
+		"message": "<b>Hej!</b><br>Vælg noget tekst, så jeg kan læse det."
+	},
+	"MYRIDDR": {
+		"message": "Min Riddr kommer snart!"
+	},
+	"joinMyRiddR": {
+		"message": "Tilmeld dig nu!"
+	},
+	"contentSnackbar": {
+		"message": "Klik på et tekstafsnit, så Riddr kan læse det, eller tryk på Esc for at annullere."
+	}
+}

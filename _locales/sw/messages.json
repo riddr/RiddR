@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Msomaji wa Maandishi kwa Sauti kwa Chrome"
+	},
+	"title": {
+		"message": "Soma maandishi yaliyochaguliwa."
+	},
+	"desc": {
+		"message": "Umechoka kusoma? Riddr ni kiendelezi cha TTS BURE ambacho kinaweza kusoma habari zako, blogu unazozipenda, barua pepe, na PDF katika lugha zaidi ya 50."
+	},
+	"add": {
+		"message": "Ongeza"
+	},
+	"remove": {
+		"message": "Ondoa"
+	},
+	"from": {
+		"message": "Kutoka"
+	},
+	"to": {
+		"message": "Hadi"
+	},
+	"read": {
+		"message": "Soma!"
+	},
+	"language": {
+		"message": "Lugha"
+	},
+	"autodetect": {
+		"message": "Kugundua Otomatiki"
+	},
+	"nowReading": {
+		"message": "Sasa inasoma:"
+	},
+	"options": {
+		"message": "Chaguzi"
+	},
+	"generalOptions": {
+		"message": " za Jumla"
+	},
+	"shortcutsOptions": {
+		"message": "Njia za Mkato"
+	},
+	"transcriptionOptions": {
+		"message": "Nakala za Fonetiki"
+	},
+	"advancedOptions": {
+		"message": " za Juu"
+	},
+	"vocalSettings": {
+		"message": "Mipangilio ya Sauti"
+	},
+	"TTSengine": {
+		"message": "Injini ya Maandishi kwa Sauti"
+	},
+	"TTSengine_short": {
+		"message": "Injini ya TTS"
+	},
+	"enqueneMode": {
+		"message": "Hali ya Foleni"
+	},
+	"defaultVolume": {
+		"message": "Kiwango cha Sauti cha Msingi"
+	},
+	"speakingRate": {
+		"message": "Kiwango cha Kuzungumza"
+	},
+	"voicePitch": {
+		"message": "Sauti ya Sauti"
+	},
+	"testing": {
+		"message": "Kupima"
+	},
+	"autoTest": {
+		"message": "Jaribio la Otomatiki"
+	},
+	"testSentence": {
+		"message": "Sentensi ya Jaribio"
+	},
+	"defaultLanguage": {
+		"message": "Lugha ya Msingi"
+	},
+	"autoTranslate": {
+		"message": "Tafsiri Otomatiki"
+	},
+	"SHORTCUTS": {
+		"message": "Njia za Mkato za Kimataifa"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "Anza kusoma",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "Sitisha kusoma",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "Acha kusoma",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "Njia za Mkato za Kibinafsi",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "Lo, inaonekana bado hujaongeza njia za mkato zozote.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "Ongeza njia ya mkato",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "Njia ya Mkato ya Kibodi",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "Nakala za Fonetiki"
+	},
+	"defineTranscription": {
+		"message": "Kipengele hiki hukuruhusu kubinafsisha matamshi ya maneno mahususi katika injini ya TTS.<br>Kwa kufafanua herufi za fonetiki au matamshi mbadala (k.m., kutamka 'Riddr' kama 'msomaji'), unaweza kuhakikisha kuwa injini ya TTS<br> inatoa sauti unayotaka kwa usahihi.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "Lo, inaonekana bado hujaongeza nakala zozote.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "Ongeza nakala",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "Chaguzi za TTS za Juu"
+	},
+	"offlineTTS": {
+		"message": "Injini ya TTS Nje ya Mtandao",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "Injini ya TTS ya Kurudisha",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "Uchaguzi wa Maandishi"
+	},
+	"autoRead": {
+		"message": "Soma Otomatiki"
+	},
+	"autoSelection": {
+		"message": "Uchaguzi Otomatiki"
+	},
+	"MISCELLANEOUS": {
+		"message": "Mengineyo",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "Ripoti za Hitilafu",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "Wezesha alama za <b title=\"Speech Synthesis Markup Language\">SSML</b>",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "Onyesha kitufe cha michango"
+	},
+	"snackbarOption": {
+		"message": "Onyesha upau wa vitafunio katika hali ya uchaguzi",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "Pokea arifa za sasisho",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "Mabadiliko yamehifadhiwa kwa mafanikio!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>Lo!</b><br> Kitu kimeenda vibaya."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "Tovuti hii haiwezi kusomwa.<br>Tafadhali jaribu nyingine."
+	},
+	"popUpSelector": {
+		"message": "<b>Hujambo!</b><br>Tafadhali chagua maandishi kwa ajili yangu kusoma."
+	},
+	"MYRIDDR": {
+		"message": "Riddr Yangu inakuja hivi karibuni!"
+	},
+	"joinMyRiddR": {
+		"message": "Jiunge sasa!"
+	},
+	"contentSnackbar": {
+		"message": "Bofya aya ya maandishi ili Riddr aisome, au bonyeza Esc kughairi."
+	}
+}

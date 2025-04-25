@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "ரிடர் - குரோம் உலாவிக்கான உரை-முதல்-பேச்சு வாசிப்பான்"
+	},
+	"title": {
+		"message": "தேர்ந்தெடுக்கப்பட்ட உரையை வாசி."
+	},
+	"desc": {
+		"message": "படிப்பதில் சோர்ந்துவிட்டீர்களா? ரிடர் ஒரு இலவச உரை-முதல்-பேச்சு நீட்டிப்பு ஆகும், இது உங்கள் செய்திகள், பிடித்த வலைப்பதிவுகள், மின்னஞ்சல்கள் மற்றும் PDFகளை 50+ மொழிகளில் வாசிக்க முடியும்."
+	},
+	"add": {
+		"message": "சேர்"
+	},
+	"remove": {
+		"message": "நீக்கு"
+	},
+	"from": {
+		"message": "இருந்து"
+	},
+	"to": {
+		"message": "க்கு"
+	},
+	"read": {
+		"message": "இதை வாசி!"
+	},
+	"language": {
+		"message": "மொழி"
+	},
+	"autodetect": {
+		"message": "தானியங்கி கண்டறிதல்"
+	},
+	"nowReading": {
+		"message": "இப்போது வாசிக்கப்படுகிறது:"
+	},
+	"options": {
+		"message": "விருப்பங்கள்"
+	},
+	"generalOptions": {
+		"message": "பொது"
+	},
+	"shortcutsOptions": {
+		"message": "குறுக்குவழிகள்"
+	},
+	"transcriptionOptions": {
+		"message": "படியெழுதுதல்"
+	},
+	"advancedOptions": {
+		"message": "மேம்பட்ட"
+	},
+	"vocalSettings": {
+		"message": "குரல் அமைப்புகள்"
+	},
+	"TTSengine": {
+		"message": "உரை-முதல்-பேச்சு இயந்திரம்"
+	},
+	"TTSengine_short": {
+		"message": "TTS இயந்திரம்"
+	},
+	"enqueneMode": {
+		"message": "வரிசைப்படுத்தல் முறை"
+	},
+	"defaultVolume": {
+		"message": "இயல்புநிலை ஒலியளவு"
+	},
+	"speakingRate": {
+		"message": "பேச்சு வேகம்"
+	},
+	"voicePitch": {
+		"message": "குரல் உயரம்"
+	},
+	"testing": {
+		"message": "சோதனை"
+	},
+	"autoTest": {
+		"message": "தானியங்கி சோதனை"
+	},
+	"testSentence": {
+		"message": "சோதனை வாக்கியம்"
+	},
+	"defaultLanguage": {
+		"message": "இயல்புநிலை மொழி"
+	},
+	"autoTranslate": {
+		"message": "தானியங்கி மொழிபெயர்ப்பு"
+	},
+	"SHORTCUTS": {
+		"message": "பொது குறுக்குவழிகள்"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "வாசிக்கத் தொடங்கு",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "வாசிப்பை இடைநிறுத்து",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "வாசிப்பை நிறுத்து",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "தனிப்பயன் குறுக்குவழிகள்",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "அச்சச்சோ, நீங்கள் இன்னும் எந்த குறுக்குவழிகளையும் சேர்க்கவில்லை போலிருக்கிறது.",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "குறுக்குவழி சேர்",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "விசைப்பலகை குறுக்குவழி",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "ஒலிப்பு படியெழுதுதல்"
+	},
+	"defineTranscription": {
+		"message": "இந்த அம்சம் உரை-முதல்-பேச்சு இயந்திரத்தில் குறிப்பிட்ட வார்த்தைகளின் உச்சரிப்பை தனிப்பயனாக்க அனுமதிக்கிறது.<br>ஒலிப்பு எழுத்துகள் அல்லது மாற்று உச்சரிப்புகளை வரையறுப்பதன் மூலம் (எ.கா., 'ரிடர்' என்பதை 'வாசிப்பான்' என்று உச்சரித்தல்), நீங்கள் விரும்பிய பேச்சு வெளியீட்டை TTS இயந்திரம் துல்லியமாக பிரதிபலிக்கிறது என்பதை உறுதிப்படுத்தலாம்.",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "அச்சச்சோ, நீங்கள் இன்னும் எந்த படியெழுதுதல்களையும் சேர்க்கவில்லை போலிருக்கிறது.",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "படியெழுதுதல் சேர்",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "மேம்பட்ட உரை-முதல்-பேச்சு விருப்பங்கள்"
+	},
+	"offlineTTS": {
+		"message": "ஆஃப்லைன் உரை-முதல்-பேச்சு இயந்திரம்",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "தோல்வி மாற்று உரை-முதல்-பேச்சு இயந்திரம்",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "உரை தேர்வு"
+	},
+	"autoRead": {
+		"message": "தானியங்கி வாசிப்பு"
+	},
+	"autoSelection": {
+		"message": "தானியங்கி தேர்வு"
+	},
+	"MISCELLANEOUS": {
+		"message": "பலவகை",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "பிழை அறிக்கையிடல்",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "<b title=\"Speech Synthesis Markup Language\">SSML</b> குறியீட்டை இயக்கு",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "நன்கொடை பொத்தானைக் காட்டு"
+	},
+	"snackbarOption": {
+		"message": "தேர்வு முறையில் ஸ்நாக்பாரைக் காட்டு",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "புதுப்பிப்பு அறிவிப்புகளைப் பெறு",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "மாற்றங்கள் வெற்றிகரமாக சேமிக்கப்பட்டன!",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>அச்சச்சோ!</b><br> ஏதோ தவறு நடந்துவிட்டது."
+	},
+	"ERROR_pageNotReadable": {
+		"message": "இந்த இணையதளத்தை வாசிக்க முடியாது.<br>தயவு செய்து மற்றொரு இணையதளத்தை முயற்சிக்கவும்."
+	},
+	"popUpSelector": {
+		"message": "<b>வணக்கம்!</b><br>நான் வாசிக்க ஏதாவது உரையைத் தேர்ந்தெடுக்கவும்."
+	},
+	"MYRIDDR": {
+		"message": "எனது ரிடர் விரைவில் வருகிறது!"
+	},
+	"joinMyRiddR": {
+		"message": "இப்போது சேர்!"
+	},
+	"contentSnackbar": {
+		"message": "ரிடர் வாசிக்க ஒரு உரைப் பத்தியை கிளிக் செய்யவும், அல்லது ரத்து செய்ய Esc ஐ அழுத்தவும்."
+	}
+}

@@ -1,0 +1,197 @@
+{
+	"RiddR": {
+		"message": "Riddr - Chrome 文本转语音阅读器"
+	},
+	"title": {
+		"message": "阅读选中的文本。"
+	},
+	"desc": {
+		"message": "厌倦了阅读？Riddr 是一个免费的 TTS 扩展程序，可以用 50 多种语言阅读您的新闻、最喜欢的博客、电子邮件和 PDF 文件。"
+	},
+	"add": {
+		"message": "添加"
+	},
+	"remove": {
+		"message": "移除"
+	},
+	"from": {
+		"message": "从"
+	},
+	"to": {
+		"message": "到"
+	},
+	"read": {
+		"message": "读它！"
+	},
+	"language": {
+		"message": "语言"
+	},
+	"autodetect": {
+		"message": "自动检测"
+	},
+	"nowReading": {
+		"message": "正在阅读："
+	},
+	"options": {
+		"message": "选项"
+	},
+	"generalOptions": {
+		"message": "常规"
+	},
+	"shortcutsOptions": {
+		"message": "快捷键"
+	},
+	"transcriptionOptions": {
+		"message": "转录"
+	},
+	"advancedOptions": {
+		"message": "高级"
+	},
+	"vocalSettings": {
+		"message": "语音设置"
+	},
+	"TTSengine": {
+		"message": "文本转语音引擎"
+	},
+	"TTSengine_short": {
+		"message": "TTS 引擎"
+	},
+	"enqueneMode": {
+		"message": "排队模式"
+	},
+	"defaultVolume": {
+		"message": "默认音量级别"
+	},
+	"speakingRate": {
+		"message": "语速"
+	},
+	"voicePitch": {
+		"message": "音高"
+	},
+	"testing": {
+		"message": "测试"
+	},
+	"autoTest": {
+		"message": "自动测试"
+	},
+	"testSentence": {
+		"message": "测试句子"
+	},
+	"defaultLanguage": {
+		"message": "默认语言"
+	},
+	"autoTranslate": {
+		"message": "自动翻译"
+	},
+	"SHORTCUTS": {
+		"message": "全局快捷键"
+	},
+	"SHORTCUTS__execute_action": {
+		"message": "开始阅读",
+		"description": "Used as description of the global shortcut to start reading in the global shortcut options."
+	},
+	"SHORTCUTS_pause": {
+		"message": "暂停阅读",
+		"description": "Used as description of the global shortcut to pause reading in the global shortcut options."
+	},
+	"SHORTCUTS_stop": {
+		"message": "停止阅读",
+		"description": "Used as description of the global shortcut to stop reading in the global shortcut options."
+	},
+	"customShortcuts": {
+		"message": "自定义快捷键",
+		"description": "Defining user set shortcuts"
+	},
+	"noCustomShortcuts": {
+		"message": "哎呀，看来您还没有添加任何快捷键。",
+		"description": "Shown when no custom shortcuts are created."
+	},
+	"addShortcut": {
+		"message": "添加快捷键",
+		"description": "Button, for adding custom keyboard shortcuts."
+	},
+	"keyboardShortcut": {
+		"message": "键盘快捷键",
+		"description": "Definition for Riddr custom keyboard shortcuts, used in the shortcuts options."
+	},
+	"TRANSCRIPTION": {
+		"message": "语音转录"
+	},
+	"defineTranscription": {
+		"message": "此功能允许您自定义 TTS 引擎中特定单词的发音。<br>通过定义音标拼写或替代发音（例如，将 'Riddr' 发音为 'reader'），您可以确保 TTS 引擎<br>准确反映您期望的语音输出。",
+		"description": "Definition of what is phonetic transcription."
+	},
+	"noTranscripts": {
+		"message": "哎呀，看来您还没有添加任何转录。",
+		"description": "A message shown when the user hasn't added any transcripts yet."
+	},
+	"addTranscript": {
+		"message": "添加转录",
+		"description": "Button, for adding transcriptions."
+	},
+	"ADVANCED": {
+		"message": "高级 TTS 选项"
+	},
+	"offlineTTS": {
+		"message": "离线 TTS 引擎",
+		"description": "Definition of offline text to speech engine"
+	},
+	"failoverTTS": {
+		"message": "备用 TTS 引擎",
+		"description": "Definition of failover text to speech engine."
+	},
+	"SELECTION": {
+		"message": "文本选择"
+	},
+	"autoRead": {
+		"message": "自动阅读"
+	},
+	"autoSelection": {
+		"message": "自动选择"
+	},
+	"MISCELLANEOUS": {
+		"message": "杂项",
+		"description": "Settings or features that don’t fit into other categories."
+	},
+	"errorReporting": {
+		"message": "错误报告",
+		"description": "Advanced option for enabling/disabling error reporting to a remote server."
+	},
+	"ssmlOption": {
+		"message": "启用 <b title=\"语音合成标记语言\">SSML</b> 标记",
+		"description": "Advanced option for enabling/disabling SSML markup."
+	},
+	"donationsOption": {
+		"message": "显示捐款按钮"
+	},
+	"snackbarOption": {
+		"message": "在选择模式下显示提示条",
+		"description": "Advanced option for showing the snackbar when the user is in selection mode."
+	},
+	"notifyOnUpdate": {
+		"message": "接收更新通知",
+		"description": "Option that allows users to opt-in or out from update notifications."
+	},
+	"optionsSaved": {
+		"message": "更改已成功保存！",
+		"description": "Message shown, upon success, in the Riddr options, when the user modifies an option."
+	},
+	"popUpError": {
+		"message": "<b>哎呀！</b><br> 出错了。"
+	},
+	"ERROR_pageNotReadable": {
+		"message": "此网站无法阅读。<br>请尝试另一个网站。"
+	},
+	"popUpSelector": {
+		"message": "<b>你好！</b><br>请为我选择一些文本来阅读。"
+	},
+	"MYRIDDR": {
+		"message": "我的 Riddr 即将推出！"
+	},
+	"joinMyRiddR": {
+		"message": "立即加入！"
+	},
+	"contentSnackbar": {
+		"message": "点击一个文本段落让 Riddr 阅读，或按 Esc 键取消。"
+	}
+}
