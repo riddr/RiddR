@@ -49,7 +49,7 @@ class RiddR
 		[
 			chrome.tts.isSpeaking(),
 			this.#prepare( DATA.utterance ),
-			i18n.lang( DATA.utterance, DATA?.options?.language )
+			i18n.lang( DATA.utterance, options.lang )
 		])
 		.then( ( RESULT ) => 
 		{
