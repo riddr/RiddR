@@ -28,11 +28,6 @@
 		"offscreen"
 	],
 
-	"optional_permissions":
-	[
-		"identity"
-	],
-
 	"optional_host_permissions" : [ "*://*/*" ],
 
 	"options_ui": 
